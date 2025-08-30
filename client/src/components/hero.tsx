@@ -26,7 +26,7 @@ export default function Hero() {
         Valley Breezes
       </h1>
       <p className="font-arabic text-xl md:text-2xl text-gradient mb-6" dir="rtl">
-        عطور وادي النسائم
+        نسمات الوادي للعطور
       </p>
       <p className="text-lg md:text-xl text-foreground/85 max-w-2xl mb-8 leading-relaxed">
         Discover our curated collection of luxury fragrances, where each scent tells a story of elegance and sophistication.
