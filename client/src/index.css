@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Arabic:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 4%);
+  --foreground: hsl(0, 0%, 95%);
+  --card: hsl(0, 0%, 6%);
+  --card-foreground: hsl(0, 0%, 90%);
+  --primary: hsl(43, 70%, 52%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(43, 30%, 25%);
+  --secondary-foreground: hsl(43, 70%, 75%);
+  --muted: hsl(0, 0%, 15%);
+  --muted-foreground: hsl(0, 0%, 60%);
+  --accent: hsl(43, 85%, 75%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --border: hsl(0, 0%, 20%);
+  --input: hsl(0, 0%, 15%);
+  --ring: hsl(43, 70%, 52%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --popover: hsl(0, 0%, 4%);
+  --popover-foreground: hsl(0, 0%, 95%);
+  --sidebar: hsl(0, 0%, 6%);
+  --sidebar-foreground: hsl(0, 0%, 90%);
+  --sidebar-primary: hsl(43, 70%, 52%);
+  --sidebar-primary-foreground: hsl(0, 0%, 0%);
+  --sidebar-accent: hsl(43, 85%, 75%);
+  --sidebar-accent-foreground: hsl(0, 0%, 0%);
+  --sidebar-border: hsl(0, 0%, 20%);
+  --sidebar-ring: hsl(43, 70%, 52%);
+  --chart-1: hsl(203, 88%, 53%);
+  --chart-2: hsl(160, 100%, 36%);
+  --chart-3: hsl(42, 93%, 56%);
+  --chart-4: hsl(147, 79%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --radius: 0.5rem;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-body: 'EB Garamond', serif;
+  --font-arabic: 'Noto Sans Arabic', sans-serif;
+}
+
+.dark {
+  --background: hsl(0, 0%, 4%);
+  --foreground: hsl(0, 0%, 95%);
+  --card: hsl(0, 0%, 6%);
+  --card-foreground: hsl(0, 0%, 90%);
+  --primary: hsl(43, 70%, 52%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(43, 30%, 25%);
+  --secondary-foreground: hsl(43, 70%, 75%);
+  --muted: hsl(0, 0%, 15%);
+  --muted-foreground: hsl(0, 0%, 60%);
+  --accent: hsl(43, 85%, 75%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --border: hsl(0, 0%, 20%);
+  --input: hsl(0, 0%, 15%);
+  --ring: hsl(43, 70%, 52%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2175&auto=format&fit=crop') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.backdrop-blur-glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sticker-hover {
+  transition: transform 0.3s ease;
+}
+
+.sticker-hover:hover {
+  transform: scale(1.2) rotate(-10deg);
+}
+
+.product-card-hover {
+  transition: all 0.4s ease;
+}
+
+.product-card-hover:hover {
+  transform: translateY(-5px);
+}
+
+.filter-transition {
+  transition: all 0.4s ease;
+}
+
+.filter-transition.hide {
+  transform: scale(0.8);
+  opacity: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
+.cart-slide {
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.cart-slide.open {
+  transform: translateX(0);
+}
+
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
