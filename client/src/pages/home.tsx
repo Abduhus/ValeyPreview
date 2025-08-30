@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import ProductGrid from "@/components/product-grid";
@@ -8,9 +9,17 @@ import AuthModal from "@/components/auth-modal";
 import SearchOverlay from "@/components/search-overlay";
 
 export default function Home() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
-      <Header />
+      <Header 
+        onToggleSearch={() => setIsSearchOpen(!isSearchOpen)}
+        onToggleCart={() => setIsCartOpen(!isCartOpen)}
+        onToggleAuth={() => setIsAuthOpen(!isAuthOpen)}
+      />
       <main>
         <Hero />
         <ProductGrid />
@@ -19,9 +28,18 @@ export default function Home() {
       <Footer />
       
       {/* Modals and Overlays */}
-      <CartSidebar />
-      <AuthModal />
-      <SearchOverlay />
+      <CartSidebar 
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+      />
+      <AuthModal 
+        isOpen={isAuthOpen}
+        onClose={() => setIsAuthOpen(false)}
+      />
+      <SearchOverlay 
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+      />
     </div>
   );
 }

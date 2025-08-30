@@ -1,3 +1,5 @@
+import logoUrl from "@assets/generated_images/Valley_Breezes_perfume_logo_1497af38.png";
+
 export default function Hero() {
   const scrollToProducts = () => {
     const productsSection = document.getElementById("products");
@@ -8,19 +10,11 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-32">
-      <svg 
-        className="w-16 h-16 text-primary mb-6" 
-        fill="none" 
-        stroke="currentColor" 
-        viewBox="0 0 24 24"
-      >
-        <path 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          strokeWidth="1.2" 
-          d="M18.5 11.5H5.5C4.94772 11.5 4.5 11.9477 4.5 12.5V19C4.5 20.3807 5.61929 21.5 7 21.5H17C18.3807 21.5 19.5 20.3807 19.5 19V12.5C19.5 11.9477 19.0523 11.5 18.5 11.5Z"
-        />
-      </svg>
+      <img 
+        src={logoUrl}
+        alt="Valley Breezes Logo"
+        className="w-16 h-16 object-contain mb-6"
+      />
       
       <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-gradient mb-4">
         Valley Breezes
