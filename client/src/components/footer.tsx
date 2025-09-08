@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram } from "lucide-react";
+import { Facebook, Twitter, Instagram, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -10,29 +10,48 @@ export default function Footer() {
               Valley Breezes
             </h4>
             <p className="text-muted-foreground text-sm mb-4">
-              Crafting luxury fragrances since 1992, bringing you the finest scents from around the world.
+              Curating exceptional luxury fragrances, bringing you the finest scents from around the world.
             </p>
             <div className="flex gap-4">
               <a 
-                href="#" 
-                className="text-muted-foreground hover:text-primary"
+                href="https://twitter.com/ValleyBreezes" 
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110"
                 data-testid="link-social-twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Twitter"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a 
-                href="#" 
-                className="text-muted-foreground hover:text-primary"
+                href="https://facebook.com/ValleyBreezesPerfumes" 
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110"
                 data-testid="link-social-facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a 
-                href="#" 
-                className="text-muted-foreground hover:text-primary"
+                href="https://instagram.com/valleybreezesperfumes" 
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110"
                 data-testid="link-social-instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
               >
                 <Instagram className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://wa.me/971508897070?text=Hello%20Valley%20Breezes!%20I'm%20interested%20in%20your%20luxury%20fragrances." 
+                className="text-muted-foreground hover:text-green-500 transition-colors duration-300 hover:scale-110"
+                data-testid="link-social-whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contact us on WhatsApp"
+              >
+                <MessageCircle className="w-5 h-5" />
               </a>
             </div>
           </div>

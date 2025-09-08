@@ -8,4 +8,5 @@ export interface FilterState {
   category: string;
   sortBy: string;
   minRating: number;
+  brand?: string;
 }

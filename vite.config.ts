@@ -29,9 +29,18 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
+    port: 5174,
     fs: {
       strict: true,
       deny: ["**/.*"],
     },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
   },
+  publicDir: path.resolve(import.meta.dirname, "assets"),
 });

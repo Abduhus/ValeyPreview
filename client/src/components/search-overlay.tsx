@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X, Search } from "lucide-react";
+import { useLocation } from "wouter";
 
 interface SearchOverlayProps {
   isOpen: boolean;
@@ -8,13 +9,26 @@ interface SearchOverlayProps {
 
 export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [, setLocation] = useLocation();
 
-  const popularSearches = ["Rose", "Vanilla", "Woody", "Fresh", "Oriental"];
+  const popularSearches = ["Rose", "Vanilla", "Woody", "Fresh", "Oriental", "Oud", "Floral", "Citrus"];
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would handle search functionality
-    alert(`Search functionality for "${searchQuery}" would be implemented here`);
+    if (searchQuery.trim()) {
+      // Navigate to catalog page with search query
+      const searchParams = new URLSearchParams({ search: searchQuery.trim() });
+      setLocation(`/catalog?${searchParams.toString()}`);
+      onClose();
+    }
+  };
+
+  const handlePopularSearch = (searchTerm: string) => {
+    setSearchQuery(searchTerm);
+    // Immediately search for the popular term
+    const searchParams = new URLSearchParams({ search: searchTerm });
+    setLocation(`/catalog?${searchParams.toString()}`);
+    onClose();
   };
 
   if (!isOpen) return null;
@@ -58,8 +72,8 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
           {popularSearches.map((search, index) => (
             <button
               key={search}
-              onClick={() => setSearchQuery(search)}
-              className="text-primary hover:text-accent mx-1"
+              onClick={() => handlePopularSearch(search)}
+              className="text-primary hover:text-accent mx-1 underline-offset-2 hover:underline"
               data-testid={`button-popular-search-${index}`}
             >
               {search}

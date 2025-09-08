@@ -1,0 +1,16 @@
+[
+  {
+    "id": "20",
+    "name": "Rabdan Saint Petersburg",
+    "brand": "Rabdan",
+    "suspiciousImages": [
+      "/assets/perfumes/3-3.jpg"
+    ],
+    "totalImages": 3,
+    "allImages": [
+      "/assets/perfumes/3-3.jpg",
+      "/assets/perfumes/rabdan_saint_petersburg_1-300x300.jpeg",
+      "/assets/perfumes/rabdan_saint_petersburg_2-300x300.jpeg"
+    ]
+  }
+]

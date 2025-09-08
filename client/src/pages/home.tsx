@@ -1,17 +1,20 @@
 import { useState } from "react";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
-import ProductGrid from "@/components/product-grid";
-import IngredientsShowcase from "@/components/ingredients-showcase";
+import BrandShowcase from "@/components/brand-showcase";
+import CompanyStory from "@/components/company-story";
+import BusinessContact from "@/components/business-contact";
 import Footer from "@/components/footer";
 import CartSidebar from "@/components/cart-sidebar";
 import AuthModal from "@/components/auth-modal";
 import SearchOverlay from "@/components/search-overlay";
+import PerfumeQuiz from "@/components/perfume-quiz";
 
 export default function Home() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   return (
     <div className="min-h-screen">
@@ -21,9 +24,10 @@ export default function Home() {
         onToggleAuth={() => setIsAuthOpen(!isAuthOpen)}
       />
       <main>
-        <Hero />
-        <ProductGrid />
-        <IngredientsShowcase />
+        <Hero onOpenQuiz={() => setIsQuizOpen(true)} />
+        <BrandShowcase />
+        <CompanyStory />
+        <BusinessContact />
       </main>
       <Footer />
       
@@ -39,6 +43,14 @@ export default function Home() {
       <SearchOverlay 
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
+      />
+      <PerfumeQuiz 
+        isOpen={isQuizOpen}
+        onClose={() => setIsQuizOpen(false)}
+        onRecommendation={() => {
+          // Navigate to catalog page to show recommendations
+          window.location.href = '/catalog';
+        }}
       />
     </div>
   );

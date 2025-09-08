@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { ChevronDown, Search, Heart, User, ShoppingCart, Menu } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
-import logoUrl from "@assets/generated_images/Valley_Breezes_perfume_logo_1497af38.png";
+import { Link } from "wouter";
+import logoUrl from "@assets/valley-logo-gold-resized.png";
 
 interface HeaderProps {
   onToggleSearch: () => void;
@@ -16,14 +17,17 @@ export default function Header({ onToggleSearch, onToggleCart, onToggleAuth }: H
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-glass bg-black/80 border-b border-border">
       {/* Logo */}
-      <a href="#" className="flex items-center gap-3 text-decoration-none">
-        <img 
+      <Link href="/" className="flex items-center gap-3 text-decoration-none hover:opacity-80 transition-opacity">
+        <img
           src={logoUrl}
           alt="Valley Breezes Logo"
-          className="w-8 h-8 object-contain"
+          className="w-12 h-12 object-contain drop-shadow-lg logo-glow"
+          style={{ 
+            filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.3)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' 
+          }}
         />
         <span className="font-serif text-2xl font-semibold text-primary">Valley Breezes</span>
-      </a>
+      </Link>
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center gap-6">
@@ -34,10 +38,13 @@ export default function Header({ onToggleSearch, onToggleCart, onToggleAuth }: H
               className="sticker-hover flex items-center justify-center w-8 h-8 text-primary"
               data-testid="button-shop-dropdown"
             >
-              <img 
+              <img
                 src={logoUrl}
                 alt="Shop"
-                className="w-6 h-6 object-contain"
+                className="w-7 h-7 object-contain drop-shadow-md logo-glow"
+                style={{ 
+                  filter: 'drop-shadow(0 0 6px rgba(212, 175, 55, 0.4))' 
+                }}
               />
             </button>
             <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-black/90 text-primary px-3 py-1 rounded text-sm font-semibold opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap pointer-events-none z-20">
@@ -45,36 +52,64 @@ export default function Header({ onToggleSearch, onToggleCart, onToggleAuth }: H
             </div>
           </div>
           <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-black/85 backdrop-blur-glass border border-border rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 slide-down">
-            <div className="p-3 font-serif text-lg font-semibold text-accent border-b border-border/50">Shop</div>
+            <div className="p-3 font-serif text-lg font-semibold text-accent border-b border-border/50">Browse Catalog</div>
             <div className="py-2">
-              <a 
-                href="#" 
+              <Link 
+                href="/exclusive-collections" 
+                className="block px-4 py-2 text-primary hover:bg-primary/20 transition-colors"
+                data-testid="link-shop-exclusive"
+              >
+                Exclusive Collections
+              </Link>
+              <Link 
+                href="/catalog" 
+                className="block px-4 py-2 text-primary hover:bg-primary/20 transition-colors"
+                data-testid="link-shop-all"
+              >
+                All Products
+              </Link>
+              <Link 
+                href="/catalog?category=women" 
                 className="block px-4 py-2 text-primary hover:bg-primary/20 transition-colors"
                 data-testid="link-shop-women"
               >
-                Women's
-              </a>
-              <a 
-                href="#" 
+                Women's Fragrances
+              </Link>
+              <Link 
+                href="/catalog?category=men" 
                 className="block px-4 py-2 text-primary hover:bg-primary/20 transition-colors"
                 data-testid="link-shop-men"
               >
-                Men's
-              </a>
-              <a 
-                href="#" 
+                Men's Fragrances
+              </Link>
+              <Link 
+                href="/catalog?category=unisex" 
                 className="block px-4 py-2 text-primary hover:bg-primary/20 transition-colors"
                 data-testid="link-shop-unisex"
               >
-                Unisex
-              </a>
-              <a 
-                href="#" 
+                Unisex Collection
+              </Link>
+              <Link 
+                href="/catalog" 
                 className="block px-4 py-2 text-primary hover:bg-primary/20 transition-colors"
+                data-testid="link-shop-brands"
+              >
+                Shop by Brand
+              </Link>
+              <Link 
+                href="/catalog?featured=limited" 
+                className="block px-4 py-2 text-primary hover:bg-primary/20 transition-colors border-t border-border/30 mt-2 pt-3"
                 data-testid="link-shop-limited"
               >
                 Limited Edition
-              </a>
+              </Link>
+              <Link 
+                href="/catalog?type=sets" 
+                className="block px-4 py-2 text-primary hover:bg-primary/20 transition-colors"
+                data-testid="link-shop-sets"
+              >
+                Gift Sets
+              </Link>
             </div>
           </div>
         </div>

@@ -8,9 +8,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Product routes
   app.get("/api/products", async (req, res) => {
     try {
-      const { category } = req.query;
+      const { category, brand, search } = req.query;
       
-      if (category && typeof category === 'string' && category !== 'all') {
+      if (search && typeof search === 'string' && search.trim()) {
+        const products = await storage.searchProducts(search.trim());
+        res.json(products);
+      } else if (brand && typeof brand === 'string' && brand !== 'all') {
+        const products = await storage.getProductsByBrand(brand);
+        res.json(products);
+      } else if (category && typeof category === 'string' && category !== 'all') {
         const products = await storage.getProductsByCategory(category);
         res.json(products);
       } else {

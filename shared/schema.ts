@@ -16,10 +16,12 @@ export const products = pgTable("products", {
   description: text("description").notNull(),
   price: decimal("price", { precision: 10, scale: 2 }).notNull(),
   category: text("category").notNull(), // 'women', 'men', 'unisex'
+  brand: text("brand").notNull(), // 'Rabdan', 'Signature Royale', 'Pure Essence', 'Coreterno', 'Valley Breezes'
   volume: text("volume").notNull(), // '50ml', '75ml', '100ml'
   rating: decimal("rating", { precision: 2, scale: 1 }).notNull(),
   imageUrl: text("image_url").notNull(),
   moodImageUrl: text("mood_image_url").notNull(),
+  images: text("images"), // JSON string array of additional product images
   inStock: boolean("in_stock").notNull().default(true),
 });
 
