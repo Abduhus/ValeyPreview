@@ -7,7 +7,7 @@ FROM node:20-alpine AS builder
 # Install bash and webp tools with more explicit commands
 RUN echo "Installing bash and webp tools..." && \
     apk update && \
-    apk add --no-cache bash=5.2.21-r0 && \
+    apk add --no-cache bash && \
     apk add --no-cache libwebp-tools && \
     echo "Verifying bash installation..." && \
     bash --version && \
@@ -43,7 +43,7 @@ FROM node:20-alpine AS production
 # Install bash and webp tools with more explicit commands
 RUN echo "Installing bash and webp tools..." && \
     apk update && \
-    apk add --no-cache bash=5.2.21-r0 && \
+    apk add --no-cache bash && \
     apk add --no-cache libwebp-tools && \
     echo "Verifying bash installation..." && \
     bash --version && \
