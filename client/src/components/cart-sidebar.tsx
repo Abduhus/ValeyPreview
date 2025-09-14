@@ -1,5 +1,6 @@
 import { X, Plus, Minus } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
+import { Button } from "@/components/ui/button";
 
 interface CartSidebarProps {
   isOpen: boolean;
@@ -148,20 +149,20 @@ export default function CartSidebar({ isOpen, onClose }: CartSidebarProps) {
               </span>
             </div>
             <div className="space-y-2">
-              <button 
+              <Button 
                 onClick={handleCheckout}
                 className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                 data-testid="button-checkout"
               >
                 Proceed to Checkout
-              </button>
-              <button 
-                onClick={clearCart}
-                className="w-full border border-destructive text-destructive py-2 rounded-lg font-semibold hover:bg-destructive hover:text-destructive-foreground transition-all duration-300"
-                data-testid="button-clear-cart"
+              </Button>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={() => clearCart()} // Fixed onClick handler
               >
                 Clear Cart
-              </button>
+              </Button>
             </div>
           </div>
         )}

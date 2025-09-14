@@ -13,7 +13,8 @@ import Footer from "@/components/footer";
 import CartSidebar from "@/components/cart-sidebar";
 import AuthModal from "@/components/auth-modal";
 import SearchOverlay from "@/components/search-overlay";
-import type { Product } from "@shared/types";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Product } from "@shared/schema";
 
 interface ProductDetailParams {
   id: string;
@@ -223,9 +224,9 @@ const ProductDetail = () => {
   // Use authentic fragrance notes if available, otherwise generate them
   const fragranceNotes = selectedSize.topNotes && selectedSize.middleNotes && selectedSize.baseNotes
     ? {
-        topNotes: selectedSize.topNotes.split(',').map(note => note.trim()),
-        middleNotes: selectedSize.middleNotes.split(',').map(note => note.trim()),
-        baseNotes: selectedSize.baseNotes.split(',').map(note => note.trim())
+        topNotes: selectedSize.topNotes.split(',').map((note: string) => note.trim()),
+        middleNotes: selectedSize.middleNotes.split(',').map((note: string) => note.trim()),
+        baseNotes: selectedSize.baseNotes.split(',').map((note: string) => note.trim())
       }
     : generateFragranceNotes(selectedSize.name, selectedSize.description);
 
@@ -443,7 +444,7 @@ const ProductDetail = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-4 text-lg">Top Notes</h4>
                   <div className="flex flex-wrap gap-3">
-                    {fragranceNotes.topNotes.map((note, index) => (
+                    {fragranceNotes.topNotes.map((note: string, index: number) => (
                       <Badge key={index} variant="outline" className="text-sm bg-primary/10 border-primary/30 text-primary hover:bg-primary/20 transition-colors">
                         {note}
                       </Badge>
@@ -454,7 +455,7 @@ const ProductDetail = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-4 text-lg">Middle Notes</h4>
                   <div className="flex flex-wrap gap-3">
-                    {fragranceNotes.middleNotes.map((note, index) => (
+                    {fragranceNotes.middleNotes.map((note: string, index: number) => (
                       <Badge key={index} variant="outline" className="text-sm bg-accent/10 border-accent/30 text-accent hover:bg-accent/20 transition-colors">
                         {note}
                       </Badge>
@@ -465,7 +466,7 @@ const ProductDetail = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-4 text-lg">Base Notes</h4>
                   <div className="flex flex-wrap gap-3">
-                    {fragranceNotes.baseNotes.map((note, index) => (
+                    {fragranceNotes.baseNotes.map((note: string, index: number) => (
                       <Badge key={index} variant="outline" className="text-sm bg-secondary/20 border-secondary/30 text-secondary-foreground hover:bg-secondary/30 transition-colors">
                         {note}
                       </Badge>
