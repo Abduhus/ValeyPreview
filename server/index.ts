@@ -23,6 +23,16 @@ app.use((req, res, next) => {
   next();
 });
 
+// Health check endpoint for Railway and other monitoring services
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
 // Serve static assets from the assets directory
 app.use('/assets', express.static(path.join(process.cwd(), 'assets')));
 
@@ -84,7 +94,7 @@ app.use((req, res, next) => {
   const port = parseInt(process.env.PORT || '5000', 10);
   server.listen({
     port,
-    host: "127.0.0.1",
+    host: "0.0.0.0", // Changed from 127.0.0.1 to 0.0.0.0 for Railway compatibility
   }, () => {
     log(`serving on port ${port}`);
   });

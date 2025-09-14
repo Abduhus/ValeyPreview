@@ -1,43 +1,103 @@
-# Perfume E-commerce Hero Carousel Image Enhancement
+# ValleyPreview Perfume E-commerce Platform
 
-This repository contains tools and instructions to enhance the hero carousel images for your luxury perfume e-commerce website.
+Welcome to ValleyPreview, a luxury perfume e-commerce platform built with modern web technologies.
 
-## Current Status
+## Features
 
-Partial implementation completed:
-- 3 of 5 previously generic images have been replaced with brand-specific images
-- Component has been updated to use the new local images
-- Tools provided for completing the remaining implementation
+- Beautiful hero carousel with brand-specific imagery
+- Product catalog with detailed fragrance information
+- Brand showcase with auto-scrolling functionality
+- Responsive design for all device sizes
+- High-performance image optimization
 
-## Files Included
+## Technology Stack
 
-1. `IMAGE_DOWNLOAD_GUIDE.md` - Detailed guide for downloading and optimizing images
-2. `download-perfume-images.ps1` - PowerShell script to download perfume images
-3. `convert-to-webp.bat` - Batch file to convert images to WebP format
-4. `IMPLEMENTATION_COMPLETE.md` - Summary of what has been implemented
-5. Updated `brand-showcase.tsx` component with new image imports
+- **Frontend**: React 18, TypeScript, Tailwind CSS
+- **Backend**: Express.js, TypeScript
+- **Database**: PostgreSQL with Drizzle ORM
+- **Deployment**: Railway-ready with Docker support
+- **Image Optimization**: WebP format conversion
 
-## Next Steps for Completion
+## Quick Start
 
-### 1. Download Remaining Images
-Manually download images for Versace Eros and Dior Sauvage from reliable sources.
+### Development
 
-### 2. Optimize All Images
-Convert all images to WebP format and resize to 1920x800px:
-- Run `convert-to-webp.bat` (requires WebP tools installation)
-- Or use online tools like https://squoosh.app/
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### 3. Update Component
-- Uncomment import statements for new images
-- Replace remaining Unsplash URLs with local image imports
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Benefits
+3. Visit `http://localhost:5000` in your browser
 
-- Improved visual consistency across carousel slides
-- Faster loading times with optimized WebP images
-- Brand-specific imagery that better represents your products
-- Professional appearance that enhances user experience
+### Production
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+
+2. Start the production server:
+   ```bash
+   npm run start
+   ```
+
+## Deployment
+
+### Railway Deployment
+
+This project is configured for easy deployment to Railway:
+
+1. Install Railway CLI:
+   ```bash
+   npm i -g @railway/cli
+   ```
+
+2. Login to Railway:
+   ```bash
+   railway login
+   ```
+
+3. Initialize and deploy:
+   ```bash
+   railway init
+   railway up
+   ```
+
+For detailed deployment instructions, see [RAILWAY_DEPLOYMENT_GUIDE.md](file:///c:/Games/ValleyPreview/RAILWAY_DEPLOYMENT_GUIDE.md).
+
+## Image Optimization
+
+The platform includes automatic image optimization:
+
+- Images are converted to WebP format for better performance
+- Responsive images for different screen sizes
+- Lazy loading for improved initial page load
+
+## Project Structure
+
+```
+├── client/          # React frontend
+├── server/          # Express backend
+├── shared/          # Shared types and utilities
+├── assets/          # Static assets
+└── perfumes/        # Perfume brand folders
+```
+
+## Environment Variables
+
+- `NODE_ENV` - Environment (development/production)
+- `PORT` - Server port (default: 5000)
+- `DATABASE_URL` - PostgreSQL connection string
+
+## Health Check
+
+The application includes a health check endpoint at `/health` for monitoring.
 
 ## Support
 
-For issues with the implementation, please refer to the detailed instructions in `IMAGE_DOWNLOAD_GUIDE.md` and `IMPLEMENTATION_COMPLETE.md`.
+For issues or questions, please refer to the documentation files in the repository.
