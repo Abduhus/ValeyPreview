@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Start script for ValleyPreview Perfume E-commerce Platform on Railway
 # This script handles both development and production environments
@@ -9,7 +9,7 @@ echo "Port: ${PORT:-5000}"
 
 # Function to check if we're running on Railway
 is_railway() {
-    [[ -n "$RAILWAY_ENVIRONMENT" ]] || [[ -n "$RAILWAY_PROJECT_ID" ]]
+    [ -n "$RAILWAY_ENVIRONMENT" ] || [ -n "$RAILWAY_PROJECT_ID" ]
 }
 
 # Function to convert images to WebP format
@@ -17,7 +17,7 @@ convert_images_to_webp() {
     echo "Converting images to WebP format..."
     
     # Check if cwebp is available
-    if command -v cwebp &> /dev/null; then
+    if command -v cwebp >/dev/null 2>&1; then
         # Convert JPG images to WebP
         if [ -d "client/src/assets" ]; then
             for file in client/src/assets/*.jpg; do
