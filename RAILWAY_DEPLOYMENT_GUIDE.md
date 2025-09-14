@@ -126,7 +126,7 @@ To test the Railway deployment process locally:
 # Set Railway environment variables
 export RAILWAY_ENVIRONMENT=production
 
-# Run the start script
+# Run the start script with sh (not bash) for compatibility
 sh start.sh
 ```
 

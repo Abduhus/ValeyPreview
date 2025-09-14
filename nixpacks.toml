@@ -1,5 +1,5 @@
 [phases.setup]
-commands = ["apk add --no-cache bash"]
+commands = ["apk add --no-cache bash libwebp-tools"]
 
 [phases.build]
 commands = ["npm ci --only=production", "npm run build"]

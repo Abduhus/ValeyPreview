@@ -51,9 +51,9 @@ railway up
 
 This command will:
 1. Use the NIXPACKS builder (as specified in railway.json)
-2. Execute `bash start.sh` as the start command
+2. Execute `npm run start` as the start command (configured in railway.json)
 3. Automatically detect and expose the port
-4. Run health checks on the `/` endpoint
+4. Run health checks on the `/health` endpoint
 
 ## How It Works
 
@@ -139,8 +139,8 @@ To simulate Railway deployment locally:
 export RAILWAY_ENVIRONMENT=production
 export NODE_ENV=production
 
-# Run the start script
-bash start.sh
+# Run the start script with sh (not bash) for compatibility
+sh start.sh
 ```
 
 ## Support

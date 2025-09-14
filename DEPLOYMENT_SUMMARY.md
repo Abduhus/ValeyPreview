@@ -130,7 +130,7 @@ Important environment variables:
 To simulate Railway deployment locally:
 ```bash
 export RAILWAY_ENVIRONMENT=production
-bash start.sh
+sh start.sh
 ```
 
 ## Support
