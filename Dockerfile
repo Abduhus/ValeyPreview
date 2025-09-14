@@ -4,8 +4,8 @@
 # Build stage
 FROM node:20-alpine AS builder
 
-# Install webp tools for image optimization
-RUN apk add --no-cache libwebp-tools
+# Install bash and webp tools
+RUN apk add --no-cache bash libwebp-tools
 
 # Set working directory
 WORKDIR /app
@@ -28,8 +28,8 @@ RUN npm run build
 # Production stage
 FROM node:20-alpine AS production
 
-# Install webp tools for image optimization
-RUN apk add --no-cache libwebp-tools
+# Install bash and webp tools
+RUN apk add --no-cache bash libwebp-tools
 
 # Set working directory
 WORKDIR /app

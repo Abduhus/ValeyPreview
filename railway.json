@@ -4,7 +4,7 @@
     "nixpacksVersion": "1.0.0"
   },
   "deploy": {
-    "startCommand": "bash start.sh",
+    "startCommand": "npm run start",
     "healthcheckPath": "/",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
@@ -12,12 +12,12 @@
   },
   "environments": {
     "production": {
-      "startCommand": "bash start.sh",
+      "startCommand": "npm run start",
       "healthcheckPath": "/",
       "healthcheckTimeout": 300
     },
     "development": {
-      "startCommand": "bash start.sh",
+      "startCommand": "npm run start",
       "healthcheckPath": "/",
       "healthcheckTimeout": 300
     }
