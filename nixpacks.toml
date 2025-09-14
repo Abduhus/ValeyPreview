@@ -1,9 +1,9 @@
 [phases.setup]
 commands = [
   "echo 'Installing bash and webp tools...'",
-  "apk update",
-  "apk add --no-cache bash=5.2.21-r0",
-  "apk add --no-cache libwebp-tools",
+  "apt-get update",
+  "apt-get install -y bash",
+  "apt-get install -y webp",
   "echo 'Verifying bash installation...'",
   "bash --version",
   "echo 'Bash installation completed'"
