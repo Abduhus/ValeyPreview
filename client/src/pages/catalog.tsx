@@ -85,7 +85,7 @@ export default function Catalog() {
     }
     
     // Validate brand parameter to ensure it's a supported brand
-    const supportedBrands = ['all', 'rabdan', 'signature-royale', 'pure-essence', 'coreterno', 'valley-breezes'];
+    const supportedBrands = ['all', 'rabdan', 'signature-royale', 'pure-essence', 'coreterno', 'valley-breezes', 'chanel', 'versace', 'xerjoff'];
     if (brand && supportedBrands.includes(brand)) {
       setInitialBrand(brand);
     } else if (brand) {
@@ -120,6 +120,7 @@ export default function Catalog() {
       setInitialCategory(newCategory || 'all');
       
       // Validate brand parameter for popstate as well
+      const supportedBrands = ['all', 'rabdan', 'signature-royale', 'pure-essence', 'coreterno', 'valley-breezes', 'chanel', 'versace', 'xerjoff'];
       if (newBrand && supportedBrands.includes(newBrand)) {
         setInitialBrand(newBrand);
       } else {

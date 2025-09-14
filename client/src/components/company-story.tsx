@@ -6,7 +6,7 @@ export default function CompanyStory() {
       <div className="max-w-7xl mx-auto">
         {/* Main Story Section - Frameless */}
         <div className="text-center mb-20">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-gradient mb-8">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-gradient-smooth mb-8">
             Your Fragrance Journey Begins Here
           </h2>
           <div className="max-w-4xl mx-auto">
@@ -31,7 +31,7 @@ export default function CompanyStory() {
 
         {/* Core Values - Frameless Integration */}
         <div className="text-center">
-          <h3 className="font-serif text-3xl md:text-4xl font-bold text-gradient mb-12">
+          <h3 className="font-serif text-3xl md:text-4xl font-bold text-gradient-smooth mb-12">
             Our Core Values
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -24,7 +24,7 @@ export default function Hero({ onOpenQuiz }: HeroProps) {
         }}
       />
       
-      <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-gradient mb-4">
+      <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-gradient-smooth mb-4">
         Valley Breezes
       </h1>
       <p className="font-arabic text-xl md:text-2xl text-gradient mb-4" dir="rtl">
@@ -57,14 +57,14 @@ export default function Hero({ onOpenQuiz }: HeroProps) {
       <div className="flex flex-col sm:flex-row gap-4">
         <button 
           onClick={navigateToCatalog}
-          className="bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1"
+          className="bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1 product-card-enhanced"
           data-testid="button-explore-collection"
         >
           Browse Catalog
         </button>
         <button 
           onClick={onOpenQuiz}
-          className="border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:-translate-y-1"
+          className="border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:-translate-y-1 product-card-enhanced"
           data-testid="button-find-scent"
         >
           Find Your Scent

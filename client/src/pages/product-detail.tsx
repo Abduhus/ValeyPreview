@@ -1,6 +1,6 @@
 import { useParams, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Star, Heart, ShoppingCart, ArrowLeft, Check, Truck, Shield, Award, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -28,8 +28,21 @@ const ProductDetail = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [selectedSize, setSelectedSize] = useState<Product | null>(null);
   const { toast } = useToast();
   const queryClient = useQueryClient();
+
+  // Fetch all products to find similar ones
+  const { data: allProducts = [] } = useQuery<Product[]>({
+    queryKey: ["allProducts"],
+    queryFn: async () => {
+      const response = await fetch("/api/products");
+      if (!response.ok) {
+        throw new Error("Failed to fetch products");
+      }
+      return response.json();
+    },
+  });
 
   const { data: product, isLoading, error } = useQuery<Product>({
     queryKey: ["product", id],
@@ -42,6 +55,30 @@ const ProductDetail = () => {
     },
     enabled: !!id,
   });
+
+  // Set selected size when product loads
+  useEffect(() => {
+    if (product) {
+      setSelectedSize(product);
+    }
+  }, [product]);
+
+  // Find similar products (same name, different sizes)
+  const similarProducts = allProducts.filter(p => 
+    product && p.name === product.name && p.id !== product.id
+  ).sort((a, b) => {
+    // Sort by volume size (ml value)
+    const volA = parseInt(a.volume.replace('ml', ''));
+    const volB = parseInt(b.volume.replace('ml', ''));
+    return volA - volB;
+  });
+
+  // All products with the same name (including current product)
+  const allSizes = product ? [product, ...similarProducts].sort((a, b) => {
+    const volA = parseInt(a.volume.replace('ml', ''));
+    const volB = parseInt(b.volume.replace('ml', ''));
+    return volA - volB;
+  }) : [];
 
   const addToCartMutation = useMutation({
     mutationFn: async ({ productId, quantity }: { productId: string; quantity: number }) => {
@@ -68,7 +105,7 @@ const ProductDetail = () => {
       queryClient.invalidateQueries({ queryKey: ["cart"] });
       toast({
         title: "Added to Cart",
-        description: `${product?.name} has been added to your cart.`,
+        description: `${selectedSize?.name} has been added to your cart.`,
       });
     },
     onError: () => {
@@ -81,8 +118,8 @@ const ProductDetail = () => {
   });
 
   const handleAddToCart = () => {
-    if (product) {
-      addToCartMutation.mutate({ productId: product.id, quantity });
+    if (selectedSize) {
+      addToCartMutation.mutate({ productId: selectedSize.id, quantity });
     }
   };
 
@@ -90,7 +127,7 @@ const ProductDetail = () => {
     setIsWishlisted(!isWishlisted);
     toast({
       title: isWishlisted ? "Removed from Wishlist" : "Added to Wishlist",
-      description: `${product?.name} has been ${isWishlisted ? "removed from" : "added to"} your wishlist.`,
+      description: `${selectedSize?.name} has been ${isWishlisted ? "removed from" : "added to"} your wishlist.`,
     });
   };
 
@@ -105,7 +142,7 @@ const ProductDetail = () => {
     );
   }
 
-  if (error || !product) {
+  if (error || !product || !selectedSize) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -121,8 +158,8 @@ const ProductDetail = () => {
   }
 
   // Parse images array
-  const additionalImages = product.images ? JSON.parse(product.images) : [];
-  const allImages = [product.imageUrl, product.moodImageUrl, ...additionalImages].filter(
+  const additionalImages = selectedSize.images ? JSON.parse(selectedSize.images) : [];
+  const allImages = [selectedSize.imageUrl, selectedSize.moodImageUrl, ...additionalImages].filter(
     (img, index, arr) => img && arr.indexOf(img) === index
   );
 
@@ -183,7 +220,14 @@ const ProductDetail = () => {
     return { topNotes, middleNotes, baseNotes };
   };
 
-  const fragranceNotes = generateFragranceNotes(product.name, product.description);
+  // Use authentic fragrance notes if available, otherwise generate them
+  const fragranceNotes = selectedSize.topNotes && selectedSize.middleNotes && selectedSize.baseNotes
+    ? {
+        topNotes: selectedSize.topNotes.split(',').map(note => note.trim()),
+        middleNotes: selectedSize.middleNotes.split(',').map(note => note.trim()),
+        baseNotes: selectedSize.baseNotes.split(',').map(note => note.trim())
+      }
+    : generateFragranceNotes(selectedSize.name, selectedSize.description);
 
   return (
     <div className="min-h-screen">
@@ -207,8 +251,8 @@ const ProductDetail = () => {
           
           {/* Breadcrumb - Valley Breezes Style */}
           <nav className="text-sm text-muted-foreground">
-            <span>Home</span> → <span>Catalog</span> → <span className="text-primary">{product.brand}</span> → 
-            <span className="text-foreground font-medium ml-1">{product.name}</span>
+            <span>Home</span> → <span>Catalog</span> → <span className="text-primary">{selectedSize.brand}</span> → 
+            <span className="text-foreground font-medium ml-1">{selectedSize.name}</span>
           </nav>
         </div>
       </div>
@@ -224,7 +268,7 @@ const ProductDetail = () => {
               
               <img
                 src={highQualityImages[selectedImageIndex]}
-                alt={product.name}
+                alt={selectedSize.name}
                 className="w-full h-full object-contain relative z-10 group-hover:scale-110 transition-transform duration-500"
                 loading="eager"
               />
@@ -244,7 +288,7 @@ const ProductDetail = () => {
                   >
                     <img
                       src={image}
-                      alt={`${product.name} view ${index + 1}`}
+                      alt={`${selectedSize.name} view ${index + 1}`}
                       className="w-full h-full object-contain bg-gradient-to-br from-card/50 to-background/30 p-3"
                       loading="lazy"
                     />
@@ -258,13 +302,13 @@ const ProductDetail = () => {
           <div className="space-y-8">
             {/* Brand Badge - Valley Breezes Style */}
             <Badge variant="secondary" className="text-sm font-medium bg-gradient-to-r from-primary/20 to-accent/20 text-primary border border-primary/30">
-              {product.brand}
+              {selectedSize.brand}
             </Badge>
 
             {/* Product Title - Valley Breezes Typography */}
             <div>
-              <h1 className="font-serif text-5xl font-bold text-gradient mb-4">{product.name}</h1>
-              <p className="text-xl text-foreground/85 leading-relaxed">{product.description}</p>
+              <h1 className="font-serif text-5xl font-bold text-gradient mb-4">{selectedSize.name}</h1>
+              <p className="text-xl text-foreground/85 leading-relaxed">{selectedSize.description}</p>
             </div>
 
             {/* Rating and Volume - Valley Breezes Style */}
@@ -275,22 +319,44 @@ const ProductDetail = () => {
                     <Star
                       key={i}
                       className={`w-6 h-6 ${
-                        i < Math.floor(parseFloat(product.rating))
+                        i < Math.floor(parseFloat(selectedSize.rating))
                           ? "text-primary fill-current"
                           : "text-muted-foreground"
                       }`}
                     />
                   ))}
                 </div>
-                <span className="text-foreground/80">({product.rating}/5.0)</span>
+                <span className="text-foreground/80">({selectedSize.rating}/5.0)</span>
               </div>
               <Separator orientation="vertical" className="h-8 bg-border" />
-              <span className="text-foreground/80 font-medium">{product.volume}</span>
+              <span className="text-foreground/80 font-medium">{selectedSize.volume}</span>
             </div>
+
+            {/* Size Selection - Show if there are multiple sizes */}
+            {allSizes.length > 1 && (
+              <div className="p-4 bg-card/50 backdrop-blur-sm border border-primary/20 rounded-xl">
+                <h3 className="font-semibold text-foreground mb-3">Available Sizes:</h3>
+                <div className="flex flex-wrap gap-3">
+                  {allSizes.map((p) => (
+                    <button
+                      key={p.id}
+                      onClick={() => setSelectedSize(p)}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                        selectedSize.id === p.id
+                          ? 'bg-primary text-primary-foreground shadow-lg'
+                          : 'bg-card/80 text-foreground hover:bg-primary/20 border border-border'
+                      }`}
+                    >
+                      {p.volume} - {p.price} د.إ {p.inStock ? '' : '(Out of Stock)'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Price - Valley Breezes Gold Theme */}
             <div className="text-4xl font-bold text-gradient">
-              {product.price} د.إ
+              {selectedSize.price} د.إ
             </div>
 
             {/* Quantity and Actions - Valley Breezes Theme */}
@@ -317,7 +383,7 @@ const ProductDetail = () => {
               <div className="flex space-x-4">
                 <Button
                   onClick={handleAddToCart}
-                  disabled={!product.inStock || addToCartMutation.isPending}
+                  disabled={!selectedSize.inStock || addToCartMutation.isPending}
                   className="flex-1 h-14 text-lg font-semibold bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1"
                   size="lg"
                 >
@@ -334,7 +400,7 @@ const ProductDetail = () => {
                 </Button>
               </div>
 
-              {!product.inStock && (
+              {!selectedSize.inStock && (
                 <p className="text-destructive font-medium bg-destructive/10 border border-destructive/20 rounded-lg p-3">Currently out of stock</p>
               )}
             </div>
@@ -418,24 +484,24 @@ const ProductDetail = () => {
               <div className="space-y-6">
                 <div className="flex justify-between py-3 border-b border-border/50">
                   <span className="font-medium text-muted-foreground">Brand</span>
-                  <span className="text-foreground font-semibold">{product.brand}</span>
+                  <span className="text-foreground font-semibold">{selectedSize.brand}</span>
                 </div>
                 <div className="flex justify-between py-3 border-b border-border/50">
                   <span className="font-medium text-muted-foreground">Volume</span>
-                  <span className="text-foreground font-semibold">{product.volume}</span>
+                  <span className="text-foreground font-semibold">{selectedSize.volume}</span>
                 </div>
                 <div className="flex justify-between py-3 border-b border-border/50">
                   <span className="font-medium text-muted-foreground">Category</span>
-                  <span className="text-foreground font-semibold capitalize">{product.category}</span>
+                  <span className="text-foreground font-semibold capitalize">{selectedSize.category}</span>
                 </div>
                 <div className="flex justify-between py-3 border-b border-border/50">
                   <span className="font-medium text-muted-foreground">Rating</span>
-                  <span className="text-foreground font-semibold">{product.rating}/5.0</span>
+                  <span className="text-foreground font-semibold">{selectedSize.rating}/5.0</span>
                 </div>
                 <div className="flex justify-between py-3">
                   <span className="font-medium text-muted-foreground">Availability</span>
-                  <span className={`font-semibold ${product.inStock ? "text-primary" : "text-destructive"}`}>
-                    {product.inStock ? "In Stock" : "Out of Stock"}
+                  <span className={`font-semibold ${selectedSize.inStock ? "text-primary" : "text-destructive"}`}>
+                    {selectedSize.inStock ? "In Stock" : "Out of Stock"}
                   </span>
                 </div>
               </div>
@@ -455,9 +521,9 @@ const ProductDetail = () => {
         {/* Brand Story Section - Valley Breezes Theme */}
         <Card className="bg-gradient-to-br from-card/85 via-background/70 to-card/65 backdrop-blur-glass border border-border/60 shadow-2xl hover:shadow-primary/10 transition-all duration-500 mt-12">
           <CardContent className="p-12">
-            <h3 className="font-serif text-4xl font-bold mb-8 text-gradient">About {product.brand}</h3>
+            <h3 className="font-serif text-4xl font-bold mb-8 text-gradient">About {selectedSize.brand}</h3>
             <div className="prose prose-lg max-w-none text-foreground/85">
-              {product.brand === "Rabdan" && (
+              {selectedSize.brand === "Rabdan" && (
                 <p className="text-foreground/85 leading-relaxed text-lg">
                   Rabdan represents the pinnacle of luxury fragrance craftsmanship, drawing inspiration 
                   from the rich heritage of Arabian perfumery while embracing modern sophistication. 
@@ -466,7 +532,7 @@ const ProductDetail = () => {
                   that capture the essence of luxury and elegance.
                 </p>
               )}
-              {product.brand === "Signature Royale" && (
+              {selectedSize.brand === "Signature Royale" && (
                 <p className="text-foreground/85 leading-relaxed text-lg">
                   Signature Royale embodies royal elegance and timeless sophistication. Our master 
                   perfumers create exclusive fragrances that reflect the grandeur and refinement 
@@ -474,21 +540,21 @@ const ProductDetail = () => {
                   down through generations.
                 </p>
               )}
-              {product.brand === "Pure Essence" && (
+              {selectedSize.brand === "Pure Essence" && (
                 <p className="text-foreground/85 leading-relaxed text-lg">
                   Pure Essence focuses on creating clean, contemporary fragrances that celebrate 
                   the beauty of natural ingredients. Our commitment to purity and quality ensures 
                   that each fragrance delivers an authentic and memorable scent experience.
                 </p>
               )}
-              {product.brand === "Coreterno" && (
+              {selectedSize.brand === "Coreterno" && (
                 <p className="text-foreground/85 leading-relaxed text-lg">
                   Coreterno pushes the boundaries of traditional perfumery with bold, innovative 
                   compositions that challenge conventional fragrance norms. Our avant-garde approach 
                   creates unique scent profiles for the modern, confident individual.
                 </p>
               )}
-              {!["Rabdan", "Signature Royale", "Pure Essence", "Coreterno"].includes(product.brand) && (
+              {!["Rabdan", "Signature Royale", "Pure Essence", "Coreterno"].includes(selectedSize.brand) && (
                 <p className="text-foreground/85 leading-relaxed text-lg">
                   This prestigious fragrance brand represents excellence in perfumery, combining 
                   traditional craftsmanship with innovative techniques to create exceptional 

@@ -10,6 +10,17 @@ import AuthModal from "@/components/auth-modal";
 import SearchOverlay from "@/components/search-overlay";
 import PerfumeQuiz from "@/components/perfume-quiz";
 
+// Define the QuizResults interface
+interface QuizResults {
+  occasion: string;
+  season: string;
+  personality: string;
+  intensity: string;
+  notes: string;
+  fragranceProfile: string;
+  lifestyle: string;
+}
+
 export default function Home() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -47,9 +58,10 @@ export default function Home() {
       <PerfumeQuiz 
         isOpen={isQuizOpen}
         onClose={() => setIsQuizOpen(false)}
-        onRecommendation={() => {
-          // Navigate to catalog page to show recommendations
-          window.location.href = '/catalog';
+        onRecommendation={(productIds, results) => {
+          // The navigation to quiz results page is handled within the quiz component
+          console.log("Quiz completed with products:", productIds);
+          console.log("Quiz results:", results);
         }}
       />
     </div>

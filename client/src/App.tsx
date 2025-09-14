@@ -9,6 +9,7 @@ import ProductDetail from "@/pages/product-detail";
 import ExclusiveCollections from "@/pages/exclusive-collections";
 import UltraPremium from "@/pages/ultra-premium";
 import LimitedEditions from "@/pages/limited-editions";
+import QuizResults from "@/pages/quiz-results"; // Add this import
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/exclusive-collections" component={ExclusiveCollections} />
       <Route path="/ultra-premium" component={UltraPremium} />
       <Route path="/limited-editions" component={LimitedEditions} />
+      <Route path="/quiz-results" component={QuizResults} /> {/* Add this route */}
       <Route component={NotFound} />
     </Switch>
   );

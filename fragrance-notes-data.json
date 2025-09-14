@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "id": "82",
+      "name": "BVLGARI LE GEMME MAN TYGAR",
+      "brand": "BVLGARI",
+      "topNotes": "Grapefruit, Mandarin, Orange",
+      "middleNotes": "Geranium, Jasmine, Orange Blossom",
+      "baseNotes": "Ambergris, Vanilla, Musk"
+    },
+    {
+      "id": "83",
+      "name": "BVLGARI LE GEMME KOBRAA",
+      "brand": "BVLGARI",
+      "topNotes": "Black Currant, Bergamot, Pink Pepper",
+      "middleNotes": "Incense, Oud, Rose",
+      "baseNotes": "Patchouli, Vanilla, Amber"
+    },
+    {
+      "id": "84",
+      "name": "BVLGARI LE GEMME SAHARE",
+      "brand": "BVLGARI",
+      "topNotes": "Pink Pepper, Bergamot",
+      "middleNotes": "Taif Rose, Jasmine, Orange Blossom",
+      "baseNotes": "Ambergris, Vanilla, Musk"
+    },
+    {
+      "id": "85",
+      "name": "BVLGARI LE GEMME MEN ONEKH",
+      "brand": "BVLGARI",
+      "topNotes": "Pink Pepper, Cardamom, Bergamot",
+      "middleNotes": "Leather, Cinnamon, Rose",
+      "baseNotes": "Oud, Sandalwood, Amber"
+    },
+    {
+      "id": "86",
+      "name": "BVLGARI LE GEMME OROM",
+      "brand": "BVLGARI",
+      "topNotes": "Bergamot, Lemon, Black Currant",
+      "middleNotes": "Jasmine, Orange Blossom, Peony",
+      "baseNotes": "Black Musk, Cedar, Vanilla"
+    },
+    {
+      "id": "87",
+      "name": "BVLGARI LE GEMME FALKAR",
+      "brand": "BVLGARI",
+      "topNotes": "Geranium, Bergamot",
+      "middleNotes": "White Incense, Oud, Rose",
+      "baseNotes": "Sandalwood, Amber, Musk"
+    },
+    {
+      "id": "88",
+      "name": "BVLGARI LE GEMME GYAN",
+      "brand": "BVLGARI",
+      "topNotes": "Cardamom, Coriander, Bergamot",
+      "middleNotes": "Cinnamon, Nutmeg, Rose",
+      "baseNotes": "Sandalwood, Musk, Amber"
+    },
+    {
+      "id": "89",
+      "name": "BVLGARI LE GEMME AMUNE",
+      "brand": "BVLGARI",
+      "topNotes": "Bergamot, Lemon, Pink Pepper",
+      "middleNotes": "Jasmine, Rose, Orris",
+      "baseNotes": "Amber, Musk, Sandalwood"
+    },
+    {
+      "id": "44",
+      "name": "ESCENTRIC MOLECULE ESCENTRIC 02 100 ML EDT E02",
+      "brand": "ESCENTRIC",
+      "topNotes": "Green Notes, Violet Leaf, Tea",
+      "middleNotes": "Maltol, Cashmeran, Iso E Super",
+      "baseNotes": "Ambroxan, Musk, Vetiver"
+    },
+    {
+      "id": "45",
+      "name": "ESCENTRIC MOLECULE ESCENTRIC 01 100 ML EDT",
+      "brand": "ESCENTRIC",
+      "topNotes": "Maltol, Tea, Bergamot",
+      "middleNotes": "Iso E Super, Cashmeran, Violet Leaf",
+      "baseNotes": "Ambroxan, Musk, Vetiver"
+    },
+    {
+      "id": "58",
+      "name": "DIPTYQUE TAM DAO 75 ML EDP",
+      "brand": "DIPTYQUE",
+      "topNotes": "Pink Pepper, Elemi, Artemisia",
+      "middleNotes": "Cedar, Sandalwood, Juniper",
+      "baseNotes": "Amber, Musk, Vanilla"
+    },
+    {
+      "id": "59",
+      "name": "DIPTYQUE DO SON 75 ML EDP",
+      "brand": "DIPTYQUE",
+      "topNotes": "Pink Pepper, Bergamot, Lily",
+      "middleNotes": "Rose, Jasmine, Tuberose",
+      "baseNotes": "Sandalwood, Vanilla, Musk"
+    },
+    {
+      "id": "90",
+      "name": "CHRISTIAN DIOR HOMME INTENSE",
+      "brand": "CHRISTIAN",
+      "topNotes": "Lavender",
+      "middleNotes": "Iris, Ambrette, Pear",
+      "baseNotes": "Virginia Cedar, Vetiver"
+    },
+    {
+      "id": "91",
+      "name": "CHRISTIAN DIOR HOMME INTENSE",
+      "brand": "CHRISTIAN",
+      "topNotes": "Lavender",
+      "middleNotes": "Iris, Ambrette, Pear",
+      "baseNotes": "Virginia Cedar, Vetiver"
+    },
+    {
+      "id": "92",
+      "name": "CHRISTIAN DIOR HOMME INTENSE",
+      "brand": "CHRISTIAN",
+      "topNotes": "Lavender",
+      "middleNotes": "Iris, Ambrette, Pear",
+      "baseNotes": "Virginia Cedar, Vetiver"
+    }
+  ]
+}

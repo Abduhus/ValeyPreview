@@ -23,6 +23,10 @@ export const products = pgTable("products", {
   moodImageUrl: text("mood_image_url").notNull(),
   images: text("images"), // JSON string array of additional product images
   inStock: boolean("in_stock").notNull().default(true),
+  // Fragrance notes fields
+  topNotes: text("top_notes"),
+  middleNotes: text("middle_notes"),
+  baseNotes: text("base_notes"),
 });
 
 export const cartItems = pgTable("cart_items", {
@@ -48,7 +52,12 @@ export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
 export type InsertProduct = z.infer<typeof insertProductSchema>;
-export type Product = typeof products.$inferSelect;
+export type Product = typeof products.$inferSelect & {
+  // Add fragrance notes to the Product type
+  topNotes?: string | null;
+  middleNotes?: string | null;
+  baseNotes?: string | null;
+};
 
 export type InsertCartItem = z.infer<typeof insertCartItemSchema>;
 export type CartItem = typeof cartItems.$inferSelect;

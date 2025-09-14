@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume Image Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .brand {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .brand h2 {
+            color: #555;
+            margin-top: 0;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .image-item {
+            text-align: center;
+        }
+        .image-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .image-item p {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        .download-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+        .instructions {
+            background-color: #e9f7ef;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #2d8659;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Perfume Image Downloader</h1>
+        
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Right-click on any image below and select "Save image as..."</li>
+                <li>Save the image with the filename shown below the image</li>
+                <li>Save all images to: <code>c:\Games\ValleyPreview\client\src\assets\</code></li>
+                <li>After downloading, convert all images to WebP format and resize to 1920x800px</li>
+                <li>Update the brand-showcase.tsx component imports and replace Unsplash URLs</li>
+            </ol>
+        </div>
+
+        <div class="brand">
+            <h2>Versace Eros</h2>
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=400&fit=crop&auto=format&q=80" alt="Versace Eros 1">
+                    <p>Versace Eros Image 1</p>
+                    <p>Filename: versace-eros.jpg</p>
+                    <a href="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=1920&h=800&fit=crop&auto=format&q=90" class="download-btn" download="versace-eros.jpg">Download</a>
+                </div>
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=400&h=400&fit=crop&auto=format&q=80" alt="Versace Eros 2">
+                    <p>Versace Eros Image 2</p>
+                    <p>Filename: versace-eros.jpg</p>
+                    <a href="https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=1920&h=800&fit=crop&auto=format&q=90" class="download-btn" download="versace-eros.jpg">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand">
+            <h2>Dior Sauvage</h2>
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=400&h=400&fit=crop&auto=format&q=80" alt="Dior Sauvage 1">
+                    <p>Dior Sauvage Image 1</p>
+                    <p>Filename: dior-sauvage.jpg</p>
+                    <a href="https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=1920&h=800&fit=crop&auto=format&q=90" class="download-btn" download="dior-sauvage.jpg">Download</a>
+                </div>
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=400&fit=crop&auto=format&q=80" alt="Dior Sauvage 2">
+                    <p>Dior Sauvage Image 2</p>
+                    <p>Filename: dior-sauvage.jpg</p>
+                    <a href="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=1920&h=800&fit=crop&auto=format&q=90" class="download-btn" download="dior-sauvage.jpg">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand">
+            <h2>Alternative Sources</h2>
+            <p>If the above images don't work, try these sources:</p>
+            <ul>
+                <li><strong>Versace Eros</strong>: 
+                    <a href="https://unsplash.com/s/photos/versace-eros" target="_blank">Unsplash Versace Eros</a> | 
+                    <a href="https://www.pexels.com/search/versace%20eros/" target="_blank">Pexels Versace Eros</a>
+                </li>
+                <li><strong>Dior Sauvage</strong>: 
+                    <a href="https://unsplash.com/s/photos/dior-sauvage" target="_blank">Unsplash Dior Sauvage</a> | 
+                    <a href="https://www.pexels.com/search/dior%20sauvage/" target="_blank">Pexels Dior Sauvage</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -72,6 +72,13 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
       'pure-essence': 'Pure Essence',
       'coreterno': 'Coreterno',
       'valley-breezes': 'Valley Breezes',
+      'bvlgari': 'BVLGARI',
+      'christian': 'Christian Dior',
+      'marc': 'Marc Antoine Barrois',
+      'escentric': 'Escentric Molecules',
+      'diptyque': 'Diptyque',
+      'giardini': 'Giardini di Toscana',
+      'bohoboco': 'Bohoboco',
       'tom-ford': 'Tom Ford',
       'chanel': 'Chanel',
       'yves-saint-laurent': 'Yves Saint Laurent',
@@ -83,7 +90,9 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
       'burberry': 'Burberry',
       'lancome': 'Lancôme',
       'mont-blanc': 'Mont Blanc',
-      'hugo-boss': 'Hugo Boss'
+      'hugo-boss': 'Hugo Boss',
+      'versace': 'Versace',
+      'xerjoff': 'Xerjoff'
     };
     return brandNames[brandId] || brandId;
   };
@@ -116,7 +125,33 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
     return 'valley-breezes';
   };
 
-  const filteredAndSortedProducts = [...products]
+  // Group products by name to identify similar products (same perfume, different sizes)
+  const groupProductsByName = (products: Product[]): Record<string, Product[]> => {
+    const groups: Record<string, Product[]> = {};
+    
+    products.forEach(product => {
+      if (!groups[product.name]) {
+        groups[product.name] = [];
+      }
+      groups[product.name].push(product);
+    });
+    
+    return groups;
+  };
+
+  const productGroups = groupProductsByName(products);
+
+  // Create a list of unique products (one per product name) for display
+  const uniqueProducts = Object.values(productGroups).map(group => {
+    // Sort by volume to ensure consistent selection of the "primary" product
+    return group.sort((a, b) => {
+      const volA = parseInt(a.volume.replace('ml', ''));
+      const volB = parseInt(b.volume.replace('ml', ''));
+      return volA - volB;
+    })[0];
+  });
+
+  const filteredAndSortedProducts = [...uniqueProducts]
     .filter((product) => {
       // Rating filter (this is only done client-side)
       if (filter.minRating > 0) {
@@ -305,7 +340,7 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
           {/* Brand Filter Row */}
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <span className="text-sm font-semibold text-foreground">Filter by Brand:</span>
-            {["all", "rabdan", "signature-royale", "pure-essence", "coreterno", "valley-breezes"].map((brand) => (
+            {["all", "rabdan", "signature-royale", "pure-essence", "coreterno", "valley-breezes", "bvlgari", "christian", "marc", "escentric", "diptyque", "giardini", "bohoboco", "chanel", "versace", "xerjoff"].map((brand) => (
               <button
                 key={brand}
                 onClick={() => handleBrandChange(brand)}
@@ -339,15 +374,21 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
 
         {/* Product Grid with Enhanced Layout - Frameless */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {filteredAndSortedProducts.map((product) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              isRecommended={recommendedProductIds.includes(product.id)}
-              currency={currency}
-              exchangeRate={exchangeRate}
-            />
-          ))}
+          {filteredAndSortedProducts.map((product) => {
+            // Get similar products (same name, different sizes)
+            const similarProducts = productGroups[product.name]?.filter(p => p.id !== product.id) || [];
+            
+            return (
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+                similarProducts={similarProducts}
+                isRecommended={recommendedProductIds.includes(product.id)}
+                currency={currency}
+                exchangeRate={exchangeRate}
+              />
+            );
+          })}
         </div>
 
         {filteredAndSortedProducts.length === 0 && (

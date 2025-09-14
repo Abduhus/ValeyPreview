@@ -6,7 +6,7 @@ export default function BusinessContact() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-gradient mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-gradient-smooth mb-6">
             Business Contact
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -163,7 +163,7 @@ export default function BusinessContact() {
               
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground py-4 rounded-2xl font-semibold hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1"
+                className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground py-4 rounded-2xl font-semibold hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1 product-card-enhanced"
               >
                 Submit
               </button>
