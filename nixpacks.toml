@@ -1,8 +1,22 @@
 [phases.setup]
-commands = ["apk add --no-cache bash libwebp-tools"]
+commands = [
+  "echo 'Installing bash and webp tools...'",
+  "apk update",
+  "apk add --no-cache bash=5.2.21-r0",
+  "apk add --no-cache libwebp-tools",
+  "echo 'Verifying bash installation...'",
+  "bash --version",
+  "echo 'Bash installation completed'"
+]
 
 [phases.build]
-commands = ["npm ci --only=production", "npm run build"]
+commands = [
+  "echo 'Installing dependencies...'",
+  "npm ci --only=production",
+  "echo 'Building project...'",
+  "npm run build",
+  "echo 'Build completed'"
+]
 
 [start]
 command = "npm run start"

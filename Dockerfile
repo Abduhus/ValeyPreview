@@ -4,8 +4,14 @@
 # Build stage
 FROM node:20-alpine AS builder
 
-# Install bash and webp tools
-RUN apk add --no-cache bash libwebp-tools
+# Install bash and webp tools with more explicit commands
+RUN echo "Installing bash and webp tools..." && \
+    apk update && \
+    apk add --no-cache bash=5.2.21-r0 && \
+    apk add --no-cache libwebp-tools && \
+    echo "Verifying bash installation..." && \
+    bash --version && \
+    echo "Bash installation completed"
 
 # Set working directory
 WORKDIR /app
@@ -14,22 +20,34 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies with fallback mechanism
-RUN npm ci --only=production || npm install --only=production
+RUN echo "Installing dependencies..." && \
+    (npm ci --only=production || npm install --only=production) && \
+    echo "Dependencies installed"
 
 # Copy source code
 COPY . .
 
 # Install dev dependencies needed for build
-RUN npm install --include=dev
+RUN echo "Installing dev dependencies..." && \
+    npm install --include=dev && \
+    echo "Dev dependencies installed"
 
 # Build the application
-RUN npm run build
+RUN echo "Building application..." && \
+    npm run build && \
+    echo "Build completed"
 
 # Production stage
 FROM node:20-alpine AS production
 
-# Install bash and webp tools
-RUN apk add --no-cache bash libwebp-tools
+# Install bash and webp tools with more explicit commands
+RUN echo "Installing bash and webp tools..." && \
+    apk update && \
+    apk add --no-cache bash=5.2.21-r0 && \
+    apk add --no-cache libwebp-tools && \
+    echo "Verifying bash installation..." && \
+    bash --version && \
+    echo "Bash installation completed"
 
 # Set working directory
 WORKDIR /app
@@ -38,7 +56,9 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies with fallback mechanism
-RUN npm ci --only=production || npm install --only=production
+RUN echo "Installing dependencies..." && \
+    (npm ci --only=production || npm install --only=production) && \
+    echo "Dependencies installed"
 
 # Copy built files from builder stage
 COPY --from=builder /app/dist ./dist
