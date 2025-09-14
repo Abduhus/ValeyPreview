@@ -42,9 +42,13 @@ RUN npm ci --only=production || npm install --only=production
 
 # Copy built files from builder stage
 COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/start.sh ./start.sh
 
 # Copy assets
 COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+
+# Make start script executable
+RUN chmod +x ./start.sh
 
 # Expose port
 EXPOSE 5000

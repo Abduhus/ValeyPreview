@@ -1,0 +1,8 @@
+[phases.setup]
+commands = ["apk add --no-cache bash"]
+
+[phases.build]
+commands = ["npm ci --only=production", "npm run build"]
+
+[start]
+command = "npm run start"

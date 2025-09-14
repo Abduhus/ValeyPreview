@@ -127,7 +127,7 @@ To test the Railway deployment process locally:
 export RAILWAY_ENVIRONMENT=production
 
 # Run the start script
-bash start.sh
+sh start.sh
 ```
 
 ## Performance Optimization

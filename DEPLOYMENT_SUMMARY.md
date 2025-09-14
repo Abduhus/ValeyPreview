@@ -17,7 +17,7 @@ Both scripts automatically detect the environment and configure the application 
 
 The **[railway.json](file:///C:/Games/ValleyPreview/railway.json)** file configures:
 - Build strategy: NIXPACKS
-- Start command: `bash start.sh`
+- Start command: `npm run start`
 - Health check path: `/`
 - Environment-specific settings for production and development
 
@@ -72,7 +72,7 @@ Enhanced npm scripts for deployment:
 2. Or use the start script:
    ```
    # On Unix/Linux/macOS:
-   bash start.sh
+   sh start.sh
    
    # On Windows:
    start.bat
