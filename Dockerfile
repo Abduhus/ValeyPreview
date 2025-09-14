@@ -42,9 +42,6 @@ RUN npm ci --only=production || npm install --only=production
 
 # Copy built files from builder stage
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/server ./dist/server
-COPY --from=builder /app/client ./dist/client
-COPY --from=builder /app/shared ./dist/shared
 
 # Copy assets
 COPY --from=builder /app/client/src/assets ./dist/client/src/assets
