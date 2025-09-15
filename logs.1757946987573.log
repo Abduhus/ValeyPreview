@@ -1,0 +1,178 @@
+2025-09-14T19:55:20.430798540Z [inf]  
+2025-09-14T19:55:23.498994652Z [inf]  [35m[Region: asia-southeast1][0m
+2025-09-14T19:55:23.513893080Z [inf]  [35m=========================
+2025-09-14T19:55:23.513934436Z [inf]  Using Detected Dockerfile
+2025-09-14T19:55:23.513946009Z [inf]  =========================
+2025-09-14T19:55:23.513951758Z [inf]  [0m
+2025-09-14T19:55:23.513970279Z [inf]  context: sz44-ZEXQ
+2025-09-14T19:55:23.654896416Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T19:55:23.654951523Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T19:55:23.654967055Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T19:55:23.664890859Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T19:55:23.666623237Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-14T19:55:24.371300794Z [inf]  [auth] library/node:pull token for registry-1.docker.io
+2025-09-14T19:55:24.371359006Z [inf]  [auth] library/node:pull token for registry-1.docker.io
+2025-09-14T19:55:26.252375308Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-14T19:55:26.252750485Z [inf]  [internal] load .dockerignore
+2025-09-14T19:55:26.252806143Z [inf]  [internal] load .dockerignore
+2025-09-14T19:55:26.253001149Z [inf]  [internal] load .dockerignore
+2025-09-14T19:55:26.265660750Z [inf]  [internal] load .dockerignore
+2025-09-14T19:55:26.269154589Z [inf]  [production  8/10] COPY --from=builder /app/client ./dist/client
+2025-09-14T19:55:26.269187767Z [inf]  [production  7/10] COPY --from=builder /app/server ./dist/server
+2025-09-14T19:55:26.269201959Z [inf]  [production  6/10] COPY --from=builder /app/dist ./dist
+2025-09-14T19:55:26.269215487Z [inf]  [builder 8/8] RUN npm run build
+2025-09-14T19:55:26.269232109Z [inf]  [builder 7/8] RUN npm install --include=dev
+2025-09-14T19:55:26.269242694Z [inf]  [production 10/10] COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+2025-09-14T19:55:26.269253277Z [inf]  [builder 5/8] RUN npm ci --only=production || npm install --only=production
+2025-09-14T19:55:26.269264492Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-14T19:55:26.269271781Z [inf]  [internal] load build context
+2025-09-14T19:55:26.269277574Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-14T19:55:26.269283239Z [inf]  [builder 2/8] RUN apk add --no-cache libwebp-tools
+2025-09-14T19:55:26.269288904Z [inf]  [production  9/10] COPY --from=builder /app/shared ./dist/shared
+2025-09-14T19:55:26.269296313Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T19:55:26.269305467Z [inf]  [builder 6/8] COPY . .
+2025-09-14T19:55:26.269319125Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T19:55:26.269329858Z [inf]  [internal] load build context
+2025-09-14T19:55:26.276537423Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T19:55:26.276744043Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T19:55:26.276800087Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T19:55:26.277381712Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T19:55:26.277423918Z [inf]  [internal] load build context
+2025-09-14T19:55:26.303148032Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T19:55:26.306388617Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T19:55:26.780691381Z [inf]  [internal] load build context
+2025-09-14T19:55:28.026252829Z [inf]  [builder 2/8] RUN apk add --no-cache libwebp-tools
+2025-09-14T19:55:28.107558044Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+
+2025-09-14T19:55:28.180194138Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+
+2025-09-14T19:55:28.503248306Z [inf]  (1/8) Installing giflib (5.2.2-r1)
+
+2025-09-14T19:55:28.507310151Z [inf]  (2/8) Installing libjpeg-turbo (3.1.0-r0)
+
+2025-09-14T19:55:28.517008139Z [inf]  (3/8) Installing libpng (1.6.47-r0)
+
+2025-09-14T19:55:28.521505411Z [inf]  (4/8) Installing libsharpyuv (1.5.0-r0)
+
+2025-09-14T19:55:28.525308338Z [inf]  (5/8) Installing libwebp (1.5.0-r0)
+
+2025-09-14T19:55:28.533695003Z [inf]  (6/8) Installing libwebpdemux (1.5.0-r0)
+
+2025-09-14T19:55:28.537169847Z [inf]  (7/8) Installing libwebpmux (1.5.0-r0)
+
+2025-09-14T19:55:28.540259052Z [inf]  (8/8) Installing libwebp-tools (1.5.0-r0)
+
+2025-09-14T19:55:28.545886531Z [inf]  Executing busybox-1.37.0-r18.trigger
+
+2025-09-14T19:55:28.552017328Z [inf]  OK: 12 MiB in 26 packages
+
+2025-09-14T19:55:28.932583453Z [inf]  [builder 2/8] RUN apk add --no-cache libwebp-tools
+2025-09-14T19:55:28.933837407Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-14T19:55:28.954776020Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-14T19:55:28.955941305Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-14T19:55:29.082290273Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-14T19:55:29.083635153Z [inf]  [builder 5/8] RUN npm ci --only=production || npm install --only=production
+2025-09-14T19:55:29.270453132Z [inf]  npm warn config only Use `--omit=dev` to omit dev dependencies from the install.
+
+2025-09-14T19:55:34.452473718Z [inf]  
+added 384 packages, and audited 385 packages in 5s
+
+2025-09-14T19:55:34.452496372Z [inf]  
+54 packages are looking for funding
+
+2025-09-14T19:55:34.452526686Z [inf]    run `npm fund` for details
+
+2025-09-14T19:55:34.453589782Z [inf]  
+found 0 vulnerabilities
+
+2025-09-14T19:55:34.454736661Z [inf]  npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.6.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.0
+npm notice To update run: npm install -g npm@11.6.0
+npm notice
+
+2025-09-14T19:55:34.645038880Z [inf]  [builder 5/8] RUN npm ci --only=production || npm install --only=production
+2025-09-14T19:55:34.646256310Z [inf]  [builder 6/8] COPY . .
+2025-09-14T19:55:34.906478401Z [inf]  [builder 6/8] COPY . .
+2025-09-14T19:55:34.907649577Z [inf]  [builder 7/8] RUN npm install --include=dev
+2025-09-14T19:55:36.256693274Z [inf]  npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+
+2025-09-14T19:55:36.28468617Z [inf]  npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+
+2025-09-14T19:55:37.345622219Z [inf]  
+added 76 packages, and audited 461 packages in 2s
+
+2025-09-14T19:55:37.345640727Z [inf]  
+65 packages are looking for funding
+  run `npm fund` for details
+
+2025-09-14T19:55:37.363189444Z [inf]  
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+2025-09-14T19:55:37.621020453Z [inf]  [builder 7/8] RUN npm install --include=dev
+2025-09-14T19:55:37.622552288Z [inf]  [builder 8/8] RUN npm run build
+2025-09-14T19:55:37.832976222Z [inf]  
+> valley-preview-perfume-ecommerce@1.0.0 build
+> tsc && vite build
+
+
+2025-09-14T19:55:45.668071014Z [inf]  vite v7.1.5 building for production...
+
+2025-09-14T19:55:45.728515276Z [inf]  (node:17) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///app/postcss.config.js?t=1757879745727 is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /app/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+2025-09-14T19:55:45.730123379Z [inf]  transforming...
+
+2025-09-14T19:55:49.16427421Z [inf]  ✓ 1693 modules transformed.
+
+2025-09-14T19:55:49.477517864Z [inf]  rendering chunks...
+
+2025-09-14T19:55:49.487533398Z [inf]  computing gzip size...
+
+2025-09-14T19:55:49.50067919Z [inf]  ../dist/public/index.html                                           1.11 kB │ gzip:   0.59 kB
+../dist/public/assets/UAE_Dirham_Symbol.svg-BfH02ZDA.png           20.80 kB
+
+2025-09-14T19:55:49.500719475Z [inf]  ../dist/public/assets/YSL_black-opium_1686207039-DguB0CjR.jpg      78.69 kB
+
+2025-09-14T19:55:49.500743854Z [inf]  ../dist/public/assets/chanel-no5-8aW8e78G.jpg                     128.86 kB
+
+2025-09-14T19:55:49.500800779Z [inf]  ../dist/public/assets/Best_tom_ford_perfumes_1980x-CXlZ5VMe.webp  323.90 kB
+../dist/public/assets/Creed-Perfume--O_oXhQRY.png                 376.10 kB
+
+2025-09-14T19:55:49.500992965Z [inf]  ../dist/public/assets/index-CRdNI5WD.css                          103.87 kB │ gzip:  16.06 kB
+../dist/public/assets/index-BXvqR7uS.js                           474.76 kB │ gzip: 132.05 kB
+
+2025-09-14T19:55:49.501245881Z [inf]  ✓ built in 3.81s
+
+2025-09-14T19:55:49.843454264Z [inf]  [builder 8/8] RUN npm run build
+2025-09-14T19:55:50.347615709Z [inf]  [production  6/10] COPY --from=builder /app/dist ./dist
+2025-09-14T19:55:50.463365222Z [inf]  [production  6/10] COPY --from=builder /app/dist ./dist
+2025-09-14T19:55:50.464773633Z [inf]  [production  7/10] COPY --from=builder /app/server ./dist/server
+2025-09-14T19:55:50.484764201Z [inf]  [production  7/10] COPY --from=builder /app/server ./dist/server
+2025-09-14T19:55:50.485701728Z [inf]  [production  8/10] COPY --from=builder /app/client ./dist/client
+2025-09-14T19:55:50.507875940Z [inf]  [production  8/10] COPY --from=builder /app/client ./dist/client
+2025-09-14T19:55:50.508924241Z [inf]  [production  9/10] COPY --from=builder /app/shared ./dist/shared
+2025-09-14T19:55:50.525188133Z [inf]  [production  9/10] COPY --from=builder /app/shared ./dist/shared
+2025-09-14T19:55:50.526272818Z [inf]  [production 10/10] COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+2025-09-14T19:55:50.541074608Z [inf]  [production 10/10] COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+2025-09-14T19:55:50.543051332Z [inf]  exporting to docker image format
+2025-09-14T19:55:50.543081075Z [inf]  exporting to image
+2025-09-14T19:55:52.513749300Z [inf]  [auth] sharing credentials for production-asia-southeast1-eqsg3a.railway-registry.com
+2025-09-14T19:55:52.513797167Z [inf]  [auth] sharing credentials for production-asia-southeast1-eqsg3a.railway-registry.com
+2025-09-14T19:55:53.233432791Z [inf]  importing to docker
+2025-09-14T19:55:59.667096473Z [inf]  importing to docker
+2025-09-14T19:56:23.717761402Z [inf]  [92mBuild time: 60.20 seconds[0m
+2025-09-14T19:56:35.324655987Z [inf]  
+2025-09-14T19:56:35.324702391Z [inf]  =========================
+2025-09-14T19:56:35.324712761Z [inf]  Container failed to start
+2025-09-14T19:56:35.324717464Z [inf]  =========================
+2025-09-14T19:56:35.324722554Z [inf]  
+2025-09-14T19:56:35.324725902Z [inf]  The executable `bash` could not be found.
+2025-09-14T19:56:35.324729344Z [inf]  
