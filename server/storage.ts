@@ -1,8 +1,8 @@
 import { type User, type InsertUser, type Product, type InsertProduct, type CartItem, type InsertCartItem } from "@shared/schema";
 import { randomUUID } from "crypto";
-import { getDatabase } from "./db.js";
+import { getDatabase } from "./db";
 import { eq, like, or, and } from "drizzle-orm";
-import { users, products, cartItems } from "../shared/schema.js";
+import { users, products, cartItems } from "../shared/schema";
 
 export interface IStorage {
   // User operations

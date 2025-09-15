@@ -1,0 +1,237 @@
+2025-09-15T19:23:24.852954869Z [inf]  
+2025-09-15T19:23:28.753029693Z [inf]  [35m[Region: asia-southeast1][0m
+2025-09-15T19:23:28.770917361Z [inf]  [35m=========================
+2025-09-15T19:23:28.771349504Z [inf]  Using Detected Dockerfile
+2025-09-15T19:23:28.771464517Z [inf]  =========================
+2025-09-15T19:23:28.771635927Z [inf]  [0m
+2025-09-15T19:23:28.771671510Z [inf]  context: k4d4-u
+2025-09-15T19:23:29.021368143Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T19:23:29.021484348Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T19:23:29.021558585Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T19:23:29.033858222Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T19:23:29.039004178Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-15T19:23:29.799098009Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-15T19:23:29.799468964Z [inf]  [internal] load .dockerignore
+2025-09-15T19:23:29.800145934Z [inf]  [internal] load .dockerignore
+2025-09-15T19:23:29.800777909Z [inf]  [internal] load .dockerignore
+2025-09-15T19:23:29.810728828Z [inf]  [internal] load .dockerignore
+2025-09-15T19:23:29.816984569Z [inf]  [production 8/8] RUN chmod +x ./start.sh
+2025-09-15T19:23:29.817032044Z [inf]  [production 7/8] COPY --from=builder /app/start.sh ./start.sh
+2025-09-15T19:23:29.817046568Z [inf]  [production 6/8] COPY --from=builder /app/dist ./dist
+2025-09-15T19:23:29.817060027Z [inf]  [builder 8/8] RUN echo "Building application..." &&     npm run build &&     echo "Build completed"
+2025-09-15T19:23:29.817070675Z [inf]  [builder 7/8] RUN echo "Installing dev dependencies..." &&     npm install --include=dev &&     echo "Dev dependencies installed"
+2025-09-15T19:23:29.817084618Z [inf]  [builder 6/8] COPY . .
+2025-09-15T19:23:29.817095754Z [inf]  [builder 5/8] RUN echo "Installing dependencies..." &&     (npm ci --only=production || npm install --only=production) &&     echo "Dependencies installed"
+2025-09-15T19:23:29.817105949Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-15T19:23:29.817114864Z [inf]  [internal] load build context
+2025-09-15T19:23:29.817127942Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-15T19:23:29.817140852Z [inf]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-15T19:23:29.817150754Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T19:23:29.817182095Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T19:23:29.817194197Z [inf]  [internal] load build context
+2025-09-15T19:23:29.817218307Z [inf]  [internal] load build context
+2025-09-15T19:23:29.823787599Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T19:23:29.823829845Z [inf]  [internal] load build context
+2025-09-15T19:23:29.823865990Z [inf]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-15T19:23:29.894908048Z [inf]  Installing bash and webp tools...
+
+2025-09-15T19:23:29.908547475Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+
+2025-09-15T19:23:29.99254171Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+
+2025-09-15T19:23:30.269086726Z [inf]  [internal] load build context
+2025-09-15T19:23:30.30763854Z [inf]  v3.22.1-405-g20c5bc00dfc [https://dl-cdn.alpinelinux.org/alpine/v3.22/main]
+v3.22.1-417-g724be1cb0e0 [https://dl-cdn.alpinelinux.org/alpine/v3.22/community]
+OK: 26326 distinct packages available
+
+2025-09-15T19:23:30.382024847Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+
+2025-09-15T19:23:30.445024007Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+
+2025-09-15T19:23:30.742112574Z [inf]  (1/4) Installing ncurses-terminfo-base (6.5_p20250503-r0)
+
+2025-09-15T19:23:30.746694801Z [inf]  (2/4) Installing libncursesw (6.5_p20250503-r0)
+
+2025-09-15T19:23:30.75339981Z [inf]  (3/4) Installing readline (8.2.13-r1)
+
+2025-09-15T19:23:30.75831129Z [inf]  (4/4) Installing bash (5.2.37-r0)
+
+2025-09-15T19:23:30.776212176Z [inf]  Executing bash-5.2.37-r0.post-install
+
+2025-09-15T19:23:30.779218489Z [inf]  Executing busybox-1.37.0-r18.trigger
+
+2025-09-15T19:23:30.782993625Z [inf]  OK: 12 MiB in 22 packages
+
+2025-09-15T19:23:30.859630581Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+
+2025-09-15T19:23:30.923176744Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+
+2025-09-15T19:23:31.217812714Z [inf]  (1/8) Installing giflib (5.2.2-r1)
+
+2025-09-15T19:23:31.220636863Z [inf]  (2/8) Installing libjpeg-turbo (3.1.0-r0)
+
+2025-09-15T19:23:31.229471614Z [inf]  (3/8) Installing libpng (1.6.47-r0)
+
+2025-09-15T19:23:31.23437612Z [inf]  (4/8) Installing libsharpyuv (1.5.0-r0)
+
+2025-09-15T19:23:31.237270961Z [inf]  (5/8) Installing libwebp (1.5.0-r0)
+
+2025-09-15T19:23:31.245143475Z [inf]  (6/8) Installing libwebpdemux (1.5.0-r0)
+
+2025-09-15T19:23:31.248089027Z [inf]  (7/8) Installing libwebpmux (1.5.0-r0)
+
+2025-09-15T19:23:31.251101526Z [inf]  (8/8) Installing libwebp-tools (1.5.0-r0)
+
+2025-09-15T19:23:31.255741978Z [inf]  Executing busybox-1.37.0-r18.trigger
+
+2025-09-15T19:23:31.259930962Z [inf]  OK: 14 MiB in 30 packages
+
+2025-09-15T19:23:31.332829455Z [inf]  Verifying bash installation...
+
+2025-09-15T19:23:31.33377389Z [inf]  GNU bash, version 5.2.37(1)-release (x86_64-alpine-linux-musl)
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+2025-09-15T19:23:31.333905173Z [inf]  Bash installation completed
+
+2025-09-15T19:23:31.369734099Z [inf]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-15T19:23:31.370340464Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-15T19:23:31.447826082Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-15T19:23:31.449476707Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-15T19:23:31.466800095Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-15T19:23:31.467907949Z [inf]  [builder 5/8] RUN echo "Installing dependencies..." &&     (npm ci --only=production || npm install --only=production) &&     echo "Dependencies installed"
+2025-09-15T19:23:31.550735908Z [inf]  Installing dependencies...
+
+2025-09-15T19:23:31.717330192Z [inf]  npm warn config only Use `--omit=dev` to omit dev dependencies from the install.
+
+2025-09-15T19:23:37.002970156Z [inf]  
+added 384 packages, and audited 385 packages in 5s
+
+2025-09-15T19:23:37.003083635Z [inf]  
+
+2025-09-15T19:23:37.003096295Z [inf]  54 packages are looking for funding
+  run `npm fund` for details
+
+2025-09-15T19:23:37.004711508Z [inf]  
+found 0 vulnerabilities
+
+2025-09-15T19:23:37.006092282Z [inf]  npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.6.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.0
+npm notice To update run: npm install -g npm@11.6.0
+npm notice
+
+2025-09-15T19:23:37.021749965Z [inf]  Dependencies installed
+
+2025-09-15T19:23:37.187166967Z [inf]  [builder 5/8] RUN echo "Installing dependencies..." &&     (npm ci --only=production || npm install --only=production) &&     echo "Dependencies installed"
+2025-09-15T19:23:37.188510949Z [inf]  [builder 6/8] COPY . .
+2025-09-15T19:23:37.565250481Z [inf]  [builder 6/8] COPY . .
+2025-09-15T19:23:37.566674472Z [inf]  [builder 7/8] RUN echo "Installing dev dependencies..." &&     npm install --include=dev &&     echo "Dev dependencies installed"
+2025-09-15T19:23:37.641510949Z [inf]  Installing dev dependencies...
+
+2025-09-15T19:23:39.008974959Z [inf]  npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+
+2025-09-15T19:23:39.076769362Z [inf]  npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+
+2025-09-15T19:23:40.168183481Z [inf]  
+added 76 packages, and audited 461 packages in 2s
+
+65 packages are looking for funding
+
+2025-09-15T19:23:40.168198389Z [inf]    run `npm fund` for details
+
+2025-09-15T19:23:40.185546924Z [inf]  
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+2025-09-15T19:23:40.202999349Z [inf]  Dev dependencies installed
+
+2025-09-15T19:23:40.226804577Z [inf]  [builder 7/8] RUN echo "Installing dev dependencies..." &&     npm install --include=dev &&     echo "Dev dependencies installed"
+2025-09-15T19:23:40.227829893Z [inf]  [builder 8/8] RUN echo "Building application..." &&     npm run build &&     echo "Build completed"
+2025-09-15T19:23:40.309262552Z [inf]  Building application...
+
+2025-09-15T19:23:40.439407841Z [inf]  
+> valley-preview-perfume-ecommerce@1.0.0 build
+> tsc --project tsconfig.build.json && vite build
+
+
+2025-09-15T19:23:43.935251546Z [inf]  vite v7.1.5 building for production...
+
+2025-09-15T19:23:43.993890703Z [inf]  (node:18) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///app/postcss.config.js?t=1757964223994 is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /app/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+2025-09-15T19:23:43.995470519Z [inf]  transforming...
+
+2025-09-15T19:23:47.667047276Z [inf]  ✓ 1695 modules transformed.
+
+2025-09-15T19:23:47.977098467Z [inf]  rendering chunks...
+
+2025-09-15T19:23:47.986719457Z [inf]  computing gzip size...
+
+2025-09-15T19:23:48.001896059Z [inf]  ../dist/public/index.html                                           1.11 kB │ gzip:   0.59 kB
+../dist/public/assets/dior-sauvage-DIirOkFX.webp                    7.25 kB
+
+2025-09-15T19:23:48.001971615Z [inf]  ../dist/public/assets/UAE_Dirham_Symbol.svg-BfH02ZDA.png           20.80 kB
+../dist/public/assets/YSL_black-opium_1686207039-DguB0CjR.jpg      78.69 kB
+
+2025-09-15T19:23:48.001997827Z [inf]  ../dist/public/assets/chanel-no5-8aW8e78G.jpg                     128.86 kB
+
+2025-09-15T19:23:48.002036664Z [inf]  ../dist/public/assets/Best_tom_ford_perfumes_1980x-CXlZ5VMe.webp  323.90 kB
+
+2025-09-15T19:23:48.002262514Z [inf]  ../dist/public/assets/Creed-Perfume--O_oXhQRY.png                 376.10 kB
+
+2025-09-15T19:23:48.002295549Z [inf]  ../dist/public/assets/index-CRdNI5WD.css                          103.87 kB │ gzip:  16.06 kB
+
+2025-09-15T19:23:48.002334452Z [inf]  ../dist/public/assets/index-DECZO5se.js                           474.34 kB │ gzip: 132.03 kB
+
+2025-09-15T19:23:48.002663491Z [inf]  ✓ built in 4.04s
+
+2025-09-15T19:23:48.059974399Z [inf]  Build completed
+
+2025-09-15T19:23:48.900256683Z [inf]  [builder 8/8] RUN echo "Building application..." &&     npm run build &&     echo "Build completed"
+2025-09-15T19:23:49.775797581Z [inf]  [production 6/8] COPY --from=builder /app/dist ./dist
+2025-09-15T19:23:50.003265472Z [inf]  [production 6/8] COPY --from=builder /app/dist ./dist
+2025-09-15T19:23:50.004581485Z [inf]  [production 7/8] COPY --from=builder /app/start.sh ./start.sh
+2025-09-15T19:23:50.031506717Z [inf]  [production 7/8] COPY --from=builder /app/start.sh ./start.sh
+2025-09-15T19:23:50.032723741Z [inf]  [production 8/8] RUN chmod +x ./start.sh
+2025-09-15T19:23:50.131922535Z [inf]  [production 8/8] RUN chmod +x ./start.sh
+2025-09-15T19:23:50.133228744Z [inf]  exporting to docker image format
+2025-09-15T19:23:52.319489977Z [inf]  [auth] sharing credentials for production-asia-southeast1-eqsg3a.railway-registry.com
+2025-09-15T19:23:52.319555034Z [inf]  [auth] sharing credentials for production-asia-southeast1-eqsg3a.railway-registry.com
+2025-09-15T19:23:53.097295443Z [inf]  importing to docker
+2025-09-15T19:23:59.176549284Z [inf]  importing to docker
+2025-09-15T19:24:33.487455550Z [inf]  [92mBuild time: 64.72 seconds[0m
+2025-09-15T19:24:44.696295574Z [inf]  
+2025-09-15T19:24:44.696335408Z [inf]  [35m====================
+2025-09-15T19:24:44.696342538Z [inf]  Starting Healthcheck
+2025-09-15T19:24:44.696346633Z [inf]  ====================
+2025-09-15T19:24:44.696355245Z [inf]  [0m
+2025-09-15T19:24:44.696359679Z [inf]  [37mPath: /health[0m
+2025-09-15T19:24:44.696363115Z [inf]  [37mRetry window: 5m0s[0m
+2025-09-15T19:24:44.696370046Z [inf]  
+2025-09-15T19:24:45.384758001Z [inf]  [93mAttempt #1 failed with service unavailable. Continuing to retry for 4m59s[0m
+2025-09-15T19:24:48.904561829Z [inf]  [93mAttempt #2 failed with service unavailable. Continuing to retry for 4m55s[0m
+2025-09-15T19:25:01.400059287Z [inf]  [93mAttempt #3 failed with service unavailable. Continuing to retry for 4m43s[0m
+2025-09-15T19:25:05.890618514Z [inf]  [93mAttempt #4 failed with service unavailable. Continuing to retry for 4m38s[0m
+2025-09-15T19:25:14.392621457Z [inf]  [93mAttempt #5 failed with service unavailable. Continuing to retry for 4m30s[0m
+2025-09-15T19:25:31.052889505Z [inf]  [93mAttempt #6 failed with service unavailable. Continuing to retry for 4m13s[0m
+2025-09-15T19:26:01.553734281Z [inf]  [93mAttempt #7 failed with service unavailable. Continuing to retry for 3m43s[0m
+2025-09-15T19:26:32.083465091Z [inf]  [93mAttempt #8 failed with service unavailable. Continuing to retry for 3m12s[0m
+2025-09-15T19:27:02.576664787Z [inf]  [93mAttempt #9 failed with service unavailable. Continuing to retry for 2m42s[0m
+2025-09-15T19:27:33.071028364Z [inf]  [93mAttempt #10 failed with service unavailable. Continuing to retry for 2m11s[0m
+2025-09-15T19:28:03.565344415Z [inf]  [93mAttempt #11 failed with service unavailable. Continuing to retry for 1m41s[0m
+2025-09-15T19:28:34.059461059Z [inf]  [93mAttempt #12 failed with service unavailable. Continuing to retry for 1m10s[0m
+2025-09-15T19:29:04.553841221Z [inf]  [93mAttempt #13 failed with service unavailable. Continuing to retry for 40s[0m
+2025-09-15T19:29:35.048705869Z [inf]  [93mAttempt #14 failed with service unavailable. Continuing to retry for 9s[0m
+2025-09-15T19:29:35.430943306Z [inf]  
+2025-09-15T19:29:35.430980684Z [inf]  [91m1/1 replicas never became healthy![0m
+2025-09-15T19:29:35.430987582Z [inf]  [91mHealthcheck failed![0m

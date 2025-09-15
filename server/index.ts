@@ -1,10 +1,18 @@
 import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes.js";
-import { validateEnv } from "./env.js";
+import { registerRoutes } from "./routes";
+import { validateEnv } from "./env";
 import path from "path";
 
 // Validate environment variables on startup
-const env = validateEnv();
+try {
+  const env = validateEnv();
+  console.log('✅ Environment variables validated successfully');
+  console.log('Environment:', env.NODE_ENV);
+  console.log('Port:', env.PORT);
+} catch (error) {
+  console.error('❌ Environment validation failed:', error);
+  process.exit(1);
+}
 
 const viteLogger = {
   info: console.log,
@@ -119,7 +127,10 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  const server = await registerRoutes(app);
+  try {
+    console.log('🚀 Starting ValleyPreview server...');
+    const server = await registerRoutes(app);
+    console.log('✅ Routes registered successfully');
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
@@ -136,10 +147,10 @@ app.use((req, res, next) => {
   // doesn't interfere with the other routes
   const isDev = process.env.NODE_ENV?.trim() === "development";
   if (isDev) {
-    const { setupVite } = await import("./vite.js");
+    const { setupVite } = await import("./vite");
     await setupVite(app, server);
   } else {
-    const { serveStatic } = await import("./vite.js");
+    const { serveStatic } = await import("./vite");
     serveStatic(app);
   }
 
@@ -166,4 +177,10 @@ app.use((req, res, next) => {
     console.error('Server failed to start:', error);
     process.exit(1);
   });
+  
+  } catch (error) {
+    console.error('❌ Failed to start server:', error);
+    console.error('Stack trace:', error.stack);
+    process.exit(1);
+  }
 })();

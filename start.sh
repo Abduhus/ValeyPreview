@@ -98,7 +98,7 @@ start_development() {
 start_production() {
     echo "Starting production server..."
     
-    # On Railway, we might want to skip image conversion for faster deploys
+    # On Railway, we skip image conversion for faster deploys
     if ! is_railway; then
         # Convert images to WebP format
         convert_images_to_webp
@@ -106,15 +106,26 @@ start_production() {
         echo "Skipping image conversion on Railway for faster deployment"
     fi
     
-    # Build the project if not already built or if running locally
-    if [ ! -d "dist" ] || ! is_railway; then
+    # Check if dist directory exists (should be built during Docker build)
+    if [ ! -d "dist" ]; then
+        echo "Error: dist directory not found. Build may have failed."
+        echo "Attempting to build..."
         build_project
     else
         echo "Using pre-built dist directory"
     fi
     
+    # Verify the server file exists
+    if [ ! -f "dist/server/index.cjs" ]; then
+        echo "Error: Server file dist/server/index.cjs not found"
+        echo "Available files in dist/server:"
+        ls -la dist/server/ || echo "dist/server directory not found"
+        exit 1
+    fi
+    
     # Start the production server
     echo "Server will be available at http://localhost:${PORT:-5000}"
+    echo "Starting server with: npm run start"
     npm run start
 }
 
