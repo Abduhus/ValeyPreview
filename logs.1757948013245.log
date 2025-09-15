@@ -1,0 +1,232 @@
+2025-09-15T14:48:38.000000000Z [inf]  Starting Container
+2025-09-15T14:48:38.914213659Z [inf]  
+2025-09-15T14:48:38.914218183Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:48:38.914222573Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:48:38.914226900Z [inf]  
+2025-09-15T14:48:39.150421098Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:48:39.150425717Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:48:39.150430275Z [err]          ^
+2025-09-15T14:48:39.150434507Z [err]  
+2025-09-15T14:48:39.150440664Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:48:39.150444474Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:48:39.150448114Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:48:39.150451951Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:48:39.150455903Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:48:39.150460078Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:48:39.150465152Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:48:39.150468724Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:48:39.150472430Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:48:39.150476412Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:48:39.150480844Z [err]  }
+2025-09-15T14:48:39.150485126Z [err]  
+2025-09-15T14:48:39.150488883Z [err]  Node.js v20.19.5
+2025-09-15T14:48:41.727946873Z [inf]  
+2025-09-15T14:48:41.727952903Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:48:41.727959103Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:48:41.727965221Z [inf]  
+2025-09-15T14:48:42.146541717Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:48:42.146547887Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:48:42.146552159Z [err]          ^
+2025-09-15T14:48:42.146557290Z [err]  
+2025-09-15T14:48:42.146565951Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:48:42.146574631Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:48:42.146579869Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:48:42.146585324Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:48:42.146595914Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:48:42.146604308Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:48:42.146610638Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:48:42.146616125Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:48:42.146621692Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:48:42.146627945Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:48:42.146633743Z [err]  }
+2025-09-15T14:48:42.146639870Z [err]  
+2025-09-15T14:48:42.146645065Z [err]  Node.js v20.19.5
+2025-09-15T14:48:47.304264920Z [inf]  
+2025-09-15T14:48:47.304272283Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:48:47.304277327Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:48:47.304283799Z [inf]  
+2025-09-15T14:48:47.689892191Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:48:47.689898039Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:48:47.689903365Z [err]          ^
+2025-09-15T14:48:47.689908918Z [err]  
+2025-09-15T14:48:47.689914094Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:48:47.689919387Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:48:47.689929030Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:48:47.689933444Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:48:47.689937644Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:48:47.689942217Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:48:47.689946444Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:48:47.689950498Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:48:47.689954750Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:48:47.689958732Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:48:47.689963681Z [err]  }
+2025-09-15T14:48:47.689968608Z [err]  
+2025-09-15T14:48:47.689973087Z [err]  Node.js v20.19.5
+2025-09-15T14:48:48.618439728Z [inf]  
+2025-09-15T14:48:48.618449033Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:48:48.618455804Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:48:48.618462933Z [inf]  
+2025-09-15T14:48:49.018450177Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:48:49.018455241Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:48:49.018462427Z [err]          ^
+2025-09-15T14:48:49.018468497Z [err]  
+2025-09-15T14:48:49.018473407Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:48:49.018478199Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:48:49.018482239Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:48:49.018486861Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:48:49.018491780Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:48:49.018497290Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:48:49.018503391Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:48:49.018508608Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:48:49.018513024Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:48:49.018517658Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:48:49.018525417Z [err]  }
+2025-09-15T14:48:49.018529557Z [err]  
+2025-09-15T14:48:49.018533935Z [err]  Node.js v20.19.5
+2025-09-15T14:48:49.910972846Z [inf]  
+2025-09-15T14:48:49.910982846Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:48:49.910990483Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:48:49.910998767Z [inf]  
+2025-09-15T14:48:50.250678726Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:48:50.250685822Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:48:50.250690335Z [err]          ^
+2025-09-15T14:48:50.250694488Z [err]  
+2025-09-15T14:48:50.250698804Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:48:50.250704133Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:48:50.250708091Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:48:50.250715524Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:48:50.250725933Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:48:50.250732630Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:48:50.250742451Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:48:50.250748307Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:48:50.250752778Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:48:50.250757933Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:48:50.250763393Z [err]  }
+2025-09-15T14:48:50.250769291Z [err]  
+2025-09-15T14:48:50.250775388Z [err]  Node.js v20.19.5
+2025-09-15T14:48:51.508963864Z [inf]  
+2025-09-15T14:48:51.508970806Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:48:51.508977052Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:48:51.508983351Z [inf]  
+2025-09-15T14:48:51.837518513Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:48:51.837525529Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:48:51.837529573Z [err]          ^
+2025-09-15T14:48:51.837534510Z [err]  
+2025-09-15T14:48:51.837541509Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:48:51.837545809Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:48:51.837550154Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:48:51.837554550Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:48:51.837558987Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:48:51.837563875Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:48:51.837568038Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:48:51.837571963Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:48:51.837576355Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:48:51.837580191Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:48:51.837584566Z [err]  }
+2025-09-15T14:48:51.837588840Z [err]  
+2025-09-15T14:48:51.837592966Z [err]  Node.js v20.19.5
+2025-09-15T14:48:53.364905703Z [inf]  
+2025-09-15T14:48:53.364913415Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:48:53.364919329Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:48:53.364924796Z [inf]  
+2025-09-15T14:48:53.777827253Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:48:53.777830968Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:48:53.777834832Z [err]          ^
+2025-09-15T14:48:53.777840122Z [err]  
+2025-09-15T14:48:53.777845010Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:48:53.777849067Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:48:53.777853017Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:48:53.777857080Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:48:53.777860767Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:48:53.777865477Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:48:53.777870197Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:48:53.777874239Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:48:53.777878159Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:48:53.777881875Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:48:53.777886148Z [err]  }
+2025-09-15T14:48:53.777890728Z [err]  
+2025-09-15T14:48:53.777894809Z [err]  Node.js v20.19.5
+2025-09-15T14:48:54.623609277Z [inf]  
+2025-09-15T14:48:54.623621018Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:48:54.623629748Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:48:54.623637722Z [inf]  
+2025-09-15T14:48:54.990473642Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:48:54.990479007Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:48:54.990485341Z [err]          ^
+2025-09-15T14:48:54.990490727Z [err]  
+2025-09-15T14:48:54.990494953Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:48:54.990498944Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:48:54.990503343Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:48:54.990506993Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:48:54.990511833Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:48:54.990515545Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:48:54.990519204Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:48:54.990523111Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:48:54.990527056Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:48:54.990531483Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:48:54.990537336Z [err]  }
+2025-09-15T14:48:54.990542263Z [err]  
+2025-09-15T14:48:54.990547236Z [err]  Node.js v20.19.5
+2025-09-15T14:48:55.849322991Z [inf]  
+2025-09-15T14:48:55.849331507Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:48:55.849340526Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:48:55.849347955Z [inf]  
+2025-09-15T14:48:56.159816498Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:48:56.159824443Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:48:56.159830048Z [err]          ^
+2025-09-15T14:48:56.159836390Z [err]  
+2025-09-15T14:48:56.159841203Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:48:56.159846480Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:48:56.159851472Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:48:56.159856544Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:48:56.159861043Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:48:56.159865258Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:48:56.159870068Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:48:56.159874062Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:48:56.159877992Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:48:56.159883050Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:48:56.159887234Z [err]  }
+2025-09-15T14:48:56.159893125Z [err]  
+2025-09-15T14:48:56.159897411Z [err]  Node.js v20.19.5
+2025-09-15T14:48:57.011178450Z [inf]  
+2025-09-15T14:48:57.011187509Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:48:57.011193917Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:48:57.011199135Z [inf]  
+2025-09-15T14:48:57.339801874Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:48:57.339810006Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:48:57.339815216Z [err]          ^
+2025-09-15T14:48:57.339821166Z [err]  
+2025-09-15T14:48:57.339826087Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:48:57.339830760Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:48:57.339836134Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:48:57.339840615Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:48:57.339845427Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:48:57.339850596Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:48:57.339854588Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:48:57.339859004Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:48:57.339862688Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:48:57.339868969Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:48:57.339874310Z [err]  }
+2025-09-15T14:48:57.339878508Z [err]  
+2025-09-15T14:48:57.339882810Z [err]  Node.js v20.19.5
+2025-09-15T14:49:03.423754921Z [inf]  
+2025-09-15T14:49:03.423758935Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T14:49:03.423762886Z [inf]  > cross-env NODE_ENV=production node dist/server/index.js
+2025-09-15T14:49:03.423767080Z [inf]  
+2025-09-15T14:49:03.835479561Z [err]  node:internal/modules/esm/resolve:873
+2025-09-15T14:49:03.835484041Z [err]    throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+2025-09-15T14:49:03.835488198Z [err]          ^
+2025-09-15T14:49:03.835492879Z [err]  
+2025-09-15T14:49:03.835497666Z [err]  Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/server/vite.js
+2025-09-15T14:49:03.835501676Z [err]      at packageResolve (node:internal/modules/esm/resolve:873:9)
+2025-09-15T14:49:03.835506779Z [err]      at moduleResolve (node:internal/modules/esm/resolve:946:18)
+2025-09-15T14:49:03.835510657Z [err]      at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+2025-09-15T14:49:03.835514513Z [err]      at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+2025-09-15T14:49:03.835519293Z [err]      at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+2025-09-15T14:49:03.835524606Z [err]      at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+2025-09-15T14:49:03.835528825Z [err]      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+2025-09-15T14:49:03.835534482Z [err]      at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+2025-09-15T14:49:03.835538996Z [err]    code: 'ERR_MODULE_NOT_FOUND'
+2025-09-15T14:49:03.835543458Z [err]  }
+2025-09-15T14:49:03.835547760Z [err]  
+2025-09-15T14:49:03.835551243Z [err]  Node.js v20.19.5

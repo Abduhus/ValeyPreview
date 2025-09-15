@@ -3,9 +3,10 @@
   "compilerOptions": {
     "noEmit": false,
     "outDir": "./dist",
-    "module": "ESNext",
+    "module": "CommonJS",
     "target": "ES2020",
-    "allowImportingTsExtensions": false
+    "allowImportingTsExtensions": false,
+    "moduleResolution": "node"
   },
   "include": ["server/**/*", "shared/**/*"]
 }
