@@ -15,7 +15,9 @@
     "start:windows": "start.bat",
     "railway:deploy": "railway up",
     "railway:logs": "railway logs",
-    "build:docker": "docker build -t valley-preview ."
+    "build:docker": "docker build -t valley-preview .",
+    "render:build": "npm run build",
+    "render:start": "npm run start"
   },
   "keywords": [
     "perfume",
@@ -108,6 +110,7 @@
     "vite": "^7.1.5"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.0.0",
+    "npm": ">=8.0.0"
   }
 }

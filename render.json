@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "startCommand": "node render-entry.js",
+  "envVars": [
+    {
+      "key": "NODE_ENV",
+      "value": "production"
+    },
+    {
+      "key": "PORT",
+      "value": "10000"
+    }
+  ]
+}
