@@ -1,7 +1,23 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes.js";
-import { setupVite, serveStatic, log } from "./vite.js";
 import path from "path";
+
+const viteLogger = {
+  info: console.log,
+  warn: console.warn,
+  error: console.error,
+};
+
+function log(message: string, source = "express") {
+  const formattedTime = new Date().toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  });
+
+  console.log(`${formattedTime} [${source}] ${message}`);
+}
 
 const app = express();
 app.set('env', process.env.NODE_ENV || 'development');
@@ -95,8 +111,10 @@ app.use((req, res, next) => {
   // doesn't interfere with the other routes
   const isDev = process.env.NODE_ENV?.trim() === "development";
   if (isDev) {
+    const { setupVite } = await import("./vite.js");
     await setupVite(app, server);
   } else {
+    const { serveStatic } = await import("./vite.js");
     serveStatic(app);
   }
 
