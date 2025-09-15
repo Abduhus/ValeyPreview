@@ -1,5 +1,5 @@
 {
-  "buildCommand": "yarn build",
+  "buildCommand": "npm run build",
   "startCommand": "node render-entry.js",
   "envVars": [
     {

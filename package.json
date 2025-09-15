@@ -9,6 +9,8 @@
     "start": "cross-env NODE_ENV=production node dist/server/index.cjs",
     "preview": "vite preview",
     "check": "tsc --noEmit",
+    "health-check": "node health-check.js",
+    "db:setup": "node setup-database.js",
     "db:push": "drizzle-kit push:pg",
     "deploy": "npm run start",
     "deploy:setup": "powershell -ExecutionPolicy Bypass -File setup-deployment.ps1",

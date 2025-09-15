@@ -1,6 +1,10 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes.js";
+import { validateEnv } from "./env.js";
 import path from "path";
+
+// Validate environment variables on startup
+const env = validateEnv();
 
 const viteLogger = {
   info: console.log,
@@ -24,11 +28,21 @@ app.set('env', process.env.NODE_ENV || 'development');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Add CORS middleware
+// Add CORS middleware with environment-based configuration
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  const isDev = process.env.NODE_ENV?.trim() === "development";
+  const allowedOrigins = isDev 
+    ? ['http://localhost:5174', 'http://localhost:5000', 'http://127.0.0.1:5174', 'http://127.0.0.1:5000']
+    : [process.env.FRONTEND_URL || 'https://your-domain.com'];
+  
+  const origin = req.headers.origin;
+  if (isDev || (origin && allowedOrigins.includes(origin))) {
+    res.header('Access-Control-Allow-Origin', origin || '*');
+  }
+  
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
   
   // Handle preflight requests
   if (req.method === 'OPTIONS') {

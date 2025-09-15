@@ -1,45 +1,8 @@
-RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash=5.2.21-r0 &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
-1s
-Installing bash and webp tools...
-fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
-fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
-v3.22.1-405-g20c5bc00dfc [https://dl-cdn.alpinelinux.org/alpine/v3.22/main]
-v3.22.1-414-gb84ab1b3344 [https://dl-cdn.alpinelinux.org/alpine/v3.22/community]
-OK: 26325 distinct packages available
-fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
-fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
-ERROR: unable to select packages:
-  bash-5.2.37-r0:
-    breaks: world[bash=5.2.21-r0]
-Dockerfile:8
--------------------
-7 |     # Install bash and webp tools with more explicit commands
-8 | >>> RUN echo "Installing bash and webp tools..." && \
-9 | >>>     apk update && \
-10 | >>>     apk add --no-cache bash=5.2.21-r0 && \
-11 | >>>     apk add --no-cache libwebp-tools && \
-12 | >>>     echo "Verifying bash installation..." && \
-13 | >>>     bash --version && \
-14 | >>>     echo "Bash installation completed"
-15 |
--------------------
-Dockerfile:44
--------------------
-43 |     # Install bash and webp tools with more explicit commands
-44 | >>> RUN echo "Installing bash and webp tools..." && \
-45 | >>>     apk update && \
-46 | >>>     apk add --no-cache bash=5.2.21-r0 && \
-47 | >>>     apk add --no-cache libwebp-tools && \
-48 | >>>     echo "Verifying bash installation..." && \
-49 | >>>     bash --version && \
-50 | >>>     echo "Bash installation completed"
-51 |
--------------------
-ERROR: failed to build: failed to solve: process "/bin/sh -c echo \"Installing bash and webp tools...\" &&     apk update &&     apk add --no-cache bash=5.2.21-r0 &&     apk add --no-cache libwebp-tools &&     echo \"Verifying bash installation...\" &&     bash --version &&     echo \"Bash installation completed\"" did not complete successfully: exit code: 1[phases.setup]
+[phases.setup]
 commands = [
   "echo 'Installing bash and webp tools...'",
   "apt-get update",
-  "apt-get install -y bash=5.1-2ubuntu1",
+  "apt-get install -y bash",
   "apt-get install -y webp",
   "echo 'Verifying bash installation...'",
   "bash --version",
