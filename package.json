@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
     "build": "tsc --project tsconfig.build.json && vite build",
-    "start": "cross-env NODE_ENV=production node dist/server/index.cjs",
+    "start": "cross-env NODE_ENV=production node dist/server/index.js",
     "preview": "vite preview",
     "check": "tsc --noEmit",
     "health-check": "node health-check.js",

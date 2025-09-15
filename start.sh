@@ -116,8 +116,8 @@ start_production() {
     fi
     
     # Verify the server file exists
-    if [ ! -f "dist/server/index.cjs" ]; then
-        echo "Error: Server file dist/server/index.cjs not found"
+    if [ ! -f "dist/server/index.js" ]; then
+        echo "Error: Server file dist/server/index.js not found"
         echo "Available files in dist/server:"
         ls -la dist/server/ || echo "dist/server directory not found"
         exit 1
