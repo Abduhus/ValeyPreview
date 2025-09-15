@@ -39,7 +39,7 @@ ERROR: failed to build: failed to solve: process "/bin/sh -c echo \"Installing b
 commands = [
   "echo 'Installing bash and webp tools...'",
   "apt-get update",
-  "apt-get install -y bash",
+  "apt-get install -y bash=5.1-2ubuntu1",
   "apt-get install -y webp",
   "echo 'Verifying bash installation...'",
   "bash --version",

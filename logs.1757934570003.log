@@ -1,0 +1,138 @@
+2025-09-14T20:18:21.862044564Z [inf]  
+2025-09-14T20:18:25.811900330Z [inf]  [35m[Region: asia-southeast1][0m
+2025-09-14T20:18:25.820623152Z [inf]  [35m=========================
+2025-09-14T20:18:25.820664396Z [inf]  Using Detected Dockerfile
+2025-09-14T20:18:25.820668539Z [inf]  =========================
+2025-09-14T20:18:25.820671787Z [inf]  [0m
+2025-09-14T20:18:25.820685324Z [inf]  context: ndn6-Y51
+2025-09-14T20:18:25.947787797Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T20:18:25.947851231Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T20:18:25.947909604Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T20:18:25.956448875Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T20:18:25.958424419Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-14T20:18:25.961389979Z [inf]  [auth] library/node:pull token for registry-1.docker.io
+2025-09-14T20:18:25.961421536Z [inf]  [auth] library/node:pull token for registry-1.docker.io
+2025-09-14T20:18:27.394746570Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-14T20:18:27.395151137Z [inf]  [internal] load .dockerignore
+2025-09-14T20:18:27.395193021Z [inf]  [internal] load .dockerignore
+2025-09-14T20:18:27.395374353Z [inf]  [internal] load .dockerignore
+2025-09-14T20:18:27.405326420Z [inf]  [internal] load .dockerignore
+2025-09-14T20:18:27.408504780Z [inf]  [production 8/9] COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+2025-09-14T20:18:27.408530866Z [inf]  [production 7/9] COPY --from=builder /app/start.sh ./start.sh
+2025-09-14T20:18:27.408541272Z [inf]  [production 6/9] COPY --from=builder /app/dist ./dist
+2025-09-14T20:18:27.408551673Z [inf]  [builder 8/8] RUN npm run build
+2025-09-14T20:18:27.408562273Z [inf]  [builder 7/8] RUN npm install --include=dev
+2025-09-14T20:18:27.408568937Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T20:18:27.408577099Z [inf]  [builder 5/8] RUN npm ci --only=production || npm install --only=production
+2025-09-14T20:18:27.408583376Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-14T20:18:27.408593587Z [inf]  [internal] load build context
+2025-09-14T20:18:27.408599564Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-14T20:18:27.408610182Z [inf]  [builder 2/8] RUN apk add --no-cache bash libwebp-tools
+2025-09-14T20:18:27.408616477Z [inf]  [production 9/9] RUN chmod +x ./start.sh
+2025-09-14T20:18:27.408623041Z [inf]  [builder 6/8] COPY . .
+2025-09-14T20:18:27.408636770Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T20:18:27.408652700Z [inf]  [internal] load build context
+2025-09-14T20:18:27.413272169Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T20:18:27.413702963Z [inf]  [internal] load build context
+2025-09-14T20:18:27.829565610Z [inf]  [internal] load build context
+2025-09-14T20:18:27.833311304Z [inf]  [builder 2/8] RUN apk add --no-cache bash libwebp-tools
+2025-09-14T20:18:27.833336335Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-14T20:18:27.833351848Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-14T20:18:27.833365264Z [inf]  [builder 5/8] RUN npm ci --only=production || npm install --only=production
+2025-09-14T20:18:27.833389283Z [inf]  [builder 6/8] COPY . .
+2025-09-14T20:18:27.983687824Z [inf]  [builder 6/8] COPY . .
+2025-09-14T20:18:27.984604797Z [inf]  [builder 7/8] RUN npm install --include=dev
+2025-09-14T20:18:29.429663257Z [inf]  npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+
+2025-09-14T20:18:29.51094879Z [inf]  npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+
+2025-09-14T20:18:30.493317839Z [inf]  
+added 76 packages, and audited 461 packages in 2s
+
+65 packages are looking for funding
+  run `npm fund` for details
+
+2025-09-14T20:18:30.511664571Z [inf]  
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+2025-09-14T20:18:30.568217981Z [inf]  [builder 7/8] RUN npm install --include=dev
+2025-09-14T20:18:30.569684715Z [inf]  [builder 8/8] RUN npm run build
+2025-09-14T20:18:30.780854953Z [inf]  
+> valley-preview-perfume-ecommerce@1.0.0 build
+> tsc && vite build
+
+
+2025-09-14T20:18:38.689039231Z [inf]  vite v7.1.5 building for production...
+
+2025-09-14T20:18:38.751338051Z [inf]  (node:17) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///app/postcss.config.js?t=1757881118750 is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /app/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+2025-09-14T20:18:38.752994879Z [inf]  transforming...
+
+2025-09-14T20:18:42.248117883Z [inf]  ✓ 1693 modules transformed.
+
+2025-09-14T20:18:42.586503699Z [inf]  rendering chunks...
+
+2025-09-14T20:18:42.60186336Z [inf]  computing gzip size...
+
+2025-09-14T20:18:42.620332861Z [inf]  ../dist/public/index.html                                           1.11 kB │ gzip:   0.59 kB
+
+2025-09-14T20:18:42.620420943Z [inf]  ../dist/public/assets/UAE_Dirham_Symbol.svg-BfH02ZDA.png           20.80 kB
+
+2025-09-14T20:18:42.620452621Z [inf]  ../dist/public/assets/YSL_black-opium_1686207039-DguB0CjR.jpg      78.69 kB
+
+2025-09-14T20:18:42.620900515Z [inf]  ../dist/public/assets/chanel-no5-8aW8e78G.jpg                     128.86 kB
+../dist/public/assets/Best_tom_ford_perfumes_1980x-CXlZ5VMe.webp  323.90 kB
+../dist/public/assets/Creed-Perfume--O_oXhQRY.png                 376.10 kB
+../dist/public/assets/index-CRdNI5WD.css                          103.87 kB │ gzip:  16.06 kB
+../dist/public/assets/index-BXvqR7uS.js                           474.76 kB │ gzip: 132.05 kB
+
+2025-09-14T20:18:42.621358286Z [inf]  ✓ built in 3.91s
+
+2025-09-14T20:18:42.702781466Z [inf]  [builder 8/8] RUN npm run build
+2025-09-14T20:18:43.249897505Z [inf]  [production 6/9] COPY --from=builder /app/dist ./dist
+2025-09-14T20:18:43.249962186Z [inf]  [production 7/9] COPY --from=builder /app/start.sh ./start.sh
+2025-09-14T20:18:43.277336721Z [inf]  [production 7/9] COPY --from=builder /app/start.sh ./start.sh
+2025-09-14T20:18:43.278703610Z [inf]  [production 8/9] COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+2025-09-14T20:18:43.297444822Z [inf]  [production 8/9] COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+2025-09-14T20:18:43.299187379Z [inf]  [production 9/9] RUN chmod +x ./start.sh
+2025-09-14T20:18:43.388960017Z [inf]  [production 9/9] RUN chmod +x ./start.sh
+2025-09-14T20:18:43.390304417Z [inf]  exporting to docker image format
+2025-09-14T20:18:43.390336060Z [inf]  exporting to image
+2025-09-14T20:18:44.330666021Z [inf]  [auth] sharing credentials for production-asia-southeast1-eqsg3a.railway-registry.com
+2025-09-14T20:18:44.330705693Z [inf]  [auth] sharing credentials for production-asia-southeast1-eqsg3a.railway-registry.com
+2025-09-14T20:18:44.386529486Z [inf]  importing to docker
+2025-09-14T20:18:49.987795522Z [inf]  importing to docker
+2025-09-14T20:19:05.140665126Z [inf]  [92mBuild time: 39.32 seconds[0m
+2025-09-14T20:19:15.595170426Z [inf]  
+2025-09-14T20:19:15.595224059Z [inf]  [35m====================
+2025-09-14T20:19:15.595233990Z [inf]  Starting Healthcheck
+2025-09-14T20:19:15.595240160Z [inf]  ====================
+2025-09-14T20:19:15.595253592Z [inf]  [0m
+2025-09-14T20:19:15.595261898Z [inf]  [37mPath: /health[0m
+2025-09-14T20:19:15.595266749Z [inf]  [37mRetry window: 5m0s[0m
+2025-09-14T20:19:15.595272225Z [inf]  
+2025-09-14T20:19:26.291010666Z [inf]  [93mAttempt #1 failed with service unavailable. Continuing to retry for 4m49s[0m
+2025-09-14T20:19:37.787459951Z [inf]  [93mAttempt #2 failed with service unavailable. Continuing to retry for 4m37s[0m
+2025-09-14T20:19:40.280494976Z [inf]  [93mAttempt #3 failed with service unavailable. Continuing to retry for 4m35s[0m
+2025-09-14T20:19:44.819529937Z [inf]  [93mAttempt #4 failed with service unavailable. Continuing to retry for 4m30s[0m
+2025-09-14T20:19:53.309980417Z [inf]  [93mAttempt #5 failed with service unavailable. Continuing to retry for 4m22s[0m
+2025-09-14T20:20:09.827712813Z [inf]  [93mAttempt #6 failed with service unavailable. Continuing to retry for 4m5s[0m
+2025-09-14T20:20:40.283902622Z [inf]  [93mAttempt #7 failed with service unavailable. Continuing to retry for 3m35s[0m
+2025-09-14T20:21:10.770530866Z [inf]  [93mAttempt #8 failed with service unavailable. Continuing to retry for 3m5s[0m
+2025-09-14T20:21:41.266812581Z [inf]  [93mAttempt #9 failed with service unavailable. Continuing to retry for 2m34s[0m
+2025-09-14T20:22:11.748954665Z [inf]  [93mAttempt #10 failed with service unavailable. Continuing to retry for 2m4s[0m
+2025-09-14T20:22:42.243679791Z [inf]  [93mAttempt #11 failed with service unavailable. Continuing to retry for 1m33s[0m
+2025-09-14T20:23:12.730506286Z [inf]  [93mAttempt #12 failed with service unavailable. Continuing to retry for 1m3s[0m
+2025-09-14T20:23:43.221763583Z [inf]  [93mAttempt #13 failed with service unavailable. Continuing to retry for 32s[0m
+2025-09-14T20:24:13.709241120Z [inf]  [93mAttempt #14 failed with service unavailable. Continuing to retry for 2s[0m
+2025-09-14T20:24:14.077575621Z [inf]  
+2025-09-14T20:24:14.077623826Z [inf]  [91m1/1 replicas never became healthy![0m
+2025-09-14T20:24:14.077628129Z [inf]  [91mHealthcheck failed![0m

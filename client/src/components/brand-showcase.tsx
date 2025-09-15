@@ -9,7 +9,8 @@ import creedImage from '../assets/Creed-Perfume-.png';
 import chanelImage from '../assets/chanel-no5.jpg';
 import xerjoffImage from '../assets/xerjoff-aventus.jpg';
 import armaniImage from '../assets/armani-acqua-di-gio.jpg';
-// Note: versace and dior images still need to be sourced
+import diorImage from '../assets/dior-sauvage.webp';
+import versaceImage from '../assets/versace-eros.jpg';
 
 interface Brand {
   id: string;
@@ -169,8 +170,7 @@ export default function BrandShowcase() {
       id: 5,
       title: "Versace Bold Statements",
       subtitle: "Make a powerful impression with Versace's dynamic fragrances",
-      // TODO: Replace with high-quality local image after downloading
-      image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=1920&h=800&fit=crop&auto=format&q=90",
+      image: versaceImage,
       ctaText: "Browse Versace",
       ctaLink: "/catalog?brand=versace"
     },
@@ -186,8 +186,7 @@ export default function BrandShowcase() {
       id: 7,
       title: "Dior Prestige Collection",
       subtitle: "Discover the art of sophistication with Dior's exceptional fragrances",
-      // TODO: Replace with high-quality local image after downloading
-      image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=1920&h=800&fit=crop&auto=format&q=90",
+      image: diorImage,
       ctaText: "Explore Dior",
       ctaLink: "/catalog?brand=dior"
     },
@@ -303,11 +302,11 @@ export default function BrandShowcase() {
       return tomFordImage;
     } else if (name.includes('chanel')) {
       // Chanel No. 5 - legendary square crystal bottle with minimalist design
-      return 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=700&h=1200&fit=crop&auto=format&q=90';
+      return chanelImage;
     } else if (name.includes('dior')) {
       // Dior - Please add your Dior image to assets folder and update this path
       // Using external image as fallback until local Dior image is added
-      return 'https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=700&h=1200&fit=crop&auto=format&q=90';
+      return diorImage;
     } else if (name.includes('yves saint laurent') || name.includes('ysl')) {
       // YSL - Use local downloaded image
       return yslImage;
@@ -322,7 +321,7 @@ export default function BrandShowcase() {
       return 'https://images.unsplash.com/photo-1574169208507-84376144848b?w=700&h=1200&fit=crop&auto=format&q=90';
     } else if (name.includes('armani')) {
       // Armani Acqua di Gio - blue ocean-inspired frosted bottle
-      return 'https://images.unsplash.com/photo-1574169208507-84376144848b?w=700&h=1200&fit=crop&auto=format&q=90';
+      return armaniImage;
     } else if (name.includes('burberry')) {
       // Burberry Her - pink/rose bottle with signature tartan bow detail
       return 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=700&h=1200&fit=crop&auto=format&q=90';
@@ -349,10 +348,10 @@ export default function BrandShowcase() {
       return 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=700&h=1200&fit=crop&auto=format&q=90';
     } else if (name.includes('versace')) {
       // Versace - Bold, glamorous bottle design with gold accents
-      return 'https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=700&h=1200&fit=crop&auto=format&q=90';
+      return versaceImage;
     } else if (name.includes('xerjoff')) {
       // Xerjoff - Premium niche fragrance with elegant bottle design
-      return 'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=700&h=1200&fit=crop&auto=format&q=90';
+      return xerjoffImage;
     } else {
       // Generic luxury perfume bottle
       return 'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=700&h=1200&fit=crop&auto=format&q=90';
