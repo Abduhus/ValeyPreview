@@ -1,0 +1,185 @@
+2025-09-15T18:51:05.841095385Z [inf]  
+2025-09-15T18:51:09.655895266Z [inf]  [35m[Region: asia-southeast1][0m
+2025-09-15T18:51:09.664619769Z [inf]  [35m=========================
+2025-09-15T18:51:09.664643975Z [inf]  Using Detected Dockerfile
+2025-09-15T18:51:09.664647790Z [inf]  =========================
+2025-09-15T18:51:09.664650984Z [inf]  [0m
+2025-09-15T18:51:09.664662629Z [inf]  context: clgr-tzku
+2025-09-15T18:51:09.830236430Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T18:51:09.830279990Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T18:51:09.830299774Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T18:51:09.830310902Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T18:51:09.839308662Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T18:51:09.841160811Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-15T18:51:10.527142782Z [inf]  [auth] library/node:pull token for registry-1.docker.io
+2025-09-15T18:51:10.527219509Z [inf]  [auth] library/node:pull token for registry-1.docker.io
+2025-09-15T18:51:12.444521925Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-15T18:51:12.444761345Z [inf]  [internal] load .dockerignore
+2025-09-15T18:51:12.444802986Z [inf]  [internal] load .dockerignore
+2025-09-15T18:51:12.444819959Z [inf]  [internal] load .dockerignore
+2025-09-15T18:51:12.462087502Z [inf]  [internal] load .dockerignore
+2025-09-15T18:51:12.467338740Z [inf]  [production 8/8] RUN chmod +x ./start.sh
+2025-09-15T18:51:12.467392794Z [inf]  [production 7/8] COPY --from=builder /app/start.sh ./start.sh
+2025-09-15T18:51:12.467405517Z [inf]  [production 6/8] COPY --from=builder /app/dist ./dist
+2025-09-15T18:51:12.467427906Z [inf]  [builder 8/8] RUN echo "Building application..." &&     npm run build &&     echo "Build completed"
+2025-09-15T18:51:12.467440430Z [inf]  [builder 7/8] RUN echo "Installing dev dependencies..." &&     npm install --include=dev &&     echo "Dev dependencies installed"
+2025-09-15T18:51:12.467454716Z [inf]  [builder 6/8] COPY . .
+2025-09-15T18:51:12.467474825Z [inf]  [builder 5/8] RUN echo "Installing dependencies..." &&     (npm ci --only=production || npm install --only=production) &&     echo "Dependencies installed"
+2025-09-15T18:51:12.467487754Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-15T18:51:12.467497589Z [inf]  [internal] load build context
+2025-09-15T18:51:12.467507632Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-15T18:51:12.467532558Z [inf]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-15T18:51:12.467547557Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T18:51:12.467564458Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T18:51:12.467576353Z [inf]  [internal] load build context
+2025-09-15T18:51:12.477966702Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T18:51:12.478065537Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T18:51:12.478231751Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T18:51:12.478245693Z [inf]  [internal] load build context
+2025-09-15T18:51:12.553311183Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T18:51:12.555473564Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T18:51:13.032783085Z [inf]  [internal] load build context
+2025-09-15T18:51:13.695431697Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T18:51:15.172281445Z [inf]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-15T18:51:15.241669595Z [inf]  Installing bash and webp tools...
+
+2025-09-15T18:51:15.246049979Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+
+2025-09-15T18:51:15.317158795Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+
+2025-09-15T18:51:15.635271621Z [inf]  v3.22.1-405-g20c5bc00dfc [https://dl-cdn.alpinelinux.org/alpine/v3.22/main]
+v3.22.1-417-g724be1cb0e0 [https://dl-cdn.alpinelinux.org/alpine/v3.22/community]
+OK: 26326 distinct packages available
+
+2025-09-15T18:51:15.703959763Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+
+2025-09-15T18:51:15.762314004Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+
+2025-09-15T18:51:16.055984813Z [inf]  (1/4) Installing ncurses-terminfo-base (6.5_p20250503-r0)
+
+2025-09-15T18:51:16.060536991Z [inf]  (2/4) Installing libncursesw (6.5_p20250503-r0)
+
+2025-09-15T18:51:16.06740077Z [inf]  (3/4) Installing readline (8.2.13-r1)
+
+2025-09-15T18:51:16.072100701Z [inf]  (4/4) Installing bash (5.2.37-r0)
+
+2025-09-15T18:51:16.085072305Z [inf]  Executing bash-5.2.37-r0.post-install
+
+2025-09-15T18:51:16.088240979Z [inf]  Executing busybox-1.37.0-r18.trigger
+
+2025-09-15T18:51:16.092435429Z [inf]  OK: 12 MiB in 22 packages
+
+2025-09-15T18:51:16.171158792Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+
+2025-09-15T18:51:16.22828664Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+
+2025-09-15T18:51:16.501178504Z [inf]  (1/8) Installing giflib (5.2.2-r1)
+
+2025-09-15T18:51:16.504100549Z [inf]  (2/8) Installing libjpeg-turbo (3.1.0-r0)
+
+2025-09-15T18:51:16.513105725Z [inf]  (3/8) Installing libpng (1.6.47-r0)
+
+2025-09-15T18:51:16.518873724Z [inf]  (4/8) Installing libsharpyuv (1.5.0-r0)
+
+2025-09-15T18:51:16.521862531Z [inf]  (5/8) Installing libwebp (1.5.0-r0)
+
+2025-09-15T18:51:16.528812395Z [inf]  (6/8) Installing libwebpdemux (1.5.0-r0)
+
+2025-09-15T18:51:16.531874564Z [inf]  (7/8) Installing libwebpmux (1.5.0-r0)
+
+2025-09-15T18:51:16.534732583Z [inf]  (8/8) Installing libwebp-tools (1.5.0-r0)
+
+2025-09-15T18:51:16.539327437Z [inf]  Executing busybox-1.37.0-r18.trigger
+
+2025-09-15T18:51:16.54315582Z [inf]  OK: 14 MiB in 30 packages
+
+2025-09-15T18:51:16.608139224Z [inf]  Verifying bash installation...
+
+2025-09-15T18:51:16.609171004Z [inf]  GNU bash, version 5.2.37(1)-release (x86_64-alpine-linux-musl)
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+2025-09-15T18:51:16.609297126Z [inf]  Bash installation completed
+
+2025-09-15T18:51:16.638252095Z [inf]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-15T18:51:16.639010752Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-15T18:51:16.651434168Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-15T18:51:16.652052014Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-15T18:51:16.832988201Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-15T18:51:16.834047812Z [inf]  [builder 5/8] RUN echo "Installing dependencies..." &&     (npm ci --only=production || npm install --only=production) &&     echo "Dependencies installed"
+2025-09-15T18:51:16.989776802Z [inf]  Installing dependencies...
+
+2025-09-15T18:51:17.09584203Z [inf]  npm warn config only Use `--omit=dev` to omit dev dependencies from the install.
+
+2025-09-15T18:51:22.396363534Z [inf]  
+added 384 packages, and audited 385 packages in 5s
+
+2025-09-15T18:51:22.396459156Z [inf]  
+54 packages are looking for funding
+  run `npm fund` for details
+
+2025-09-15T18:51:22.397443684Z [inf]  
+found 0 vulnerabilities
+
+2025-09-15T18:51:22.398531021Z [inf]  npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.6.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.0
+npm notice To update run: npm install -g npm@11.6.0
+npm notice
+
+2025-09-15T18:51:22.416562814Z [inf]  Dependencies installed
+
+2025-09-15T18:51:22.625800876Z [inf]  [builder 5/8] RUN echo "Installing dependencies..." &&     (npm ci --only=production || npm install --only=production) &&     echo "Dependencies installed"
+2025-09-15T18:51:22.627313341Z [inf]  [builder 6/8] COPY . .
+2025-09-15T18:51:23.120614723Z [inf]  [builder 6/8] COPY . .
+2025-09-15T18:51:23.121875657Z [inf]  [builder 7/8] RUN echo "Installing dev dependencies..." &&     npm install --include=dev &&     echo "Dev dependencies installed"
+2025-09-15T18:51:23.361576131Z [inf]  Installing dev dependencies...
+
+2025-09-15T18:51:24.628465296Z [inf]  npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+
+2025-09-15T18:51:24.678750778Z [inf]  npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+
+2025-09-15T18:51:27.082236585Z [inf]  
+added 76 packages, and audited 461 packages in 4s
+
+65 packages are looking for funding
+  run `npm fund` for details
+
+2025-09-15T18:51:27.101735757Z [inf]  
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+2025-09-15T18:51:27.115078892Z [inf]  Dev dependencies installed
+
+2025-09-15T18:51:27.147577933Z [inf]  [builder 7/8] RUN echo "Installing dev dependencies..." &&     npm install --include=dev &&     echo "Dev dependencies installed"
+2025-09-15T18:51:27.148357276Z [inf]  [builder 8/8] RUN echo "Building application..." &&     npm run build &&     echo "Build completed"
+2025-09-15T18:51:27.241001717Z [inf]  Building application...
+
+2025-09-15T18:51:27.372032871Z [inf]  
+> valley-preview-perfume-ecommerce@1.0.0 build
+> tsc --project tsconfig.build.json && vite build
+
+
+2025-09-15T18:51:30.284769285Z [inf]  server/env.ts(5,46): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(def: number): ZodDefault<ZodPipe<ZodString, ZodTransform<number, string>>>', gave the following error.
+    Argument of type 'string' is not assignable to parameter of type 'number'.
+  Overload 2 of 2, '(def: () => number): ZodDefault<ZodPipe<ZodString, ZodTransform<number, string>>>', gave the following error.
+    Argument of type 'string' is not assignable to parameter of type '() => number'.
+
+2025-09-15T18:51:30.408202142Z [err]  [builder 8/8] RUN echo "Building application..." &&     npm run build &&     echo "Build completed"
+2025-09-15T18:51:30.421757434Z [err]  Dockerfile:36
+2025-09-15T18:51:30.421797198Z [err]  -------------------
+2025-09-15T18:51:30.421804640Z [err]  35 |     # Build the application
+2025-09-15T18:51:30.421810753Z [err]  36 | >>> RUN echo "Building application..." && \
+2025-09-15T18:51:30.421818243Z [err]  37 | >>>     npm run build && \
+2025-09-15T18:51:30.421823733Z [err]  38 | >>>     echo "Build completed"
+2025-09-15T18:51:30.421829362Z [err]  39 |
+2025-09-15T18:51:30.421835032Z [err]  -------------------
+2025-09-15T18:51:30.421840589Z [err]  ERROR: failed to build: failed to solve: process "/bin/sh -c echo \"Building application...\" &&     npm run build &&     echo \"Build completed\"" did not complete successfully: exit code: 2
