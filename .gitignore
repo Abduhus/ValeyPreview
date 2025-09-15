@@ -4,3 +4,10 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+
+# Log files
+*.log
+build log.log
+deploy log.log
+errors.log
+logs.*.log
