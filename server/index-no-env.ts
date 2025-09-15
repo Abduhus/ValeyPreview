@@ -173,9 +173,7 @@ app.use((req, res, next) => {
   
   } catch (error) {
     console.error('❌ Failed to start server:', error);
-    if (error instanceof Error) {
-      console.error('Stack trace:', error.stack);
-    }
+    console.error('Stack trace:', error.stack);
     process.exit(1);
   }
 })();
