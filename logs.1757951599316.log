@@ -1,0 +1,177 @@
+2025-09-15T15:32:47.956124686Z [inf]  
+2025-09-15T15:32:52.108086955Z [inf]  [35m[Region: asia-southeast1][0m
+2025-09-15T15:32:52.116901653Z [inf]  [35m=========================
+2025-09-15T15:32:52.116932779Z [inf]  Using Detected Dockerfile
+2025-09-15T15:32:52.116936824Z [inf]  =========================
+2025-09-15T15:32:52.116940422Z [inf]  [0m
+2025-09-15T15:32:52.116952081Z [inf]  context: 0hwz-HtvN
+2025-09-15T15:32:52.249883021Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T15:32:52.249923158Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T15:32:52.249937812Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T15:32:52.249949376Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T15:32:52.257904062Z [inf]  [internal] load build definition from Dockerfile
+2025-09-15T15:32:52.259591998Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-15T15:32:52.531642000Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-15T15:32:52.531807276Z [inf]  [internal] load .dockerignore
+2025-09-15T15:32:52.531858323Z [inf]  [internal] load .dockerignore
+2025-09-15T15:32:52.531906933Z [inf]  [internal] load .dockerignore
+2025-09-15T15:32:52.539432743Z [inf]  [internal] load .dockerignore
+2025-09-15T15:32:52.542272228Z [inf]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-15T15:32:52.542302194Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T15:32:52.542441437Z [inf]  [production 9/9] RUN chmod +x ./start.sh
+2025-09-15T15:32:52.542466944Z [inf]  [production 8/9] COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+2025-09-15T15:32:52.542479755Z [inf]  [production 7/9] COPY --from=builder /app/start.sh ./start.sh
+2025-09-15T15:32:52.542489138Z [inf]  [production 6/9] COPY --from=builder /app/dist ./dist
+2025-09-15T15:32:52.542500925Z [inf]  [builder 8/8] RUN echo "Building application..." &&     npm run build &&     echo "Build completed"
+2025-09-15T15:32:52.542512085Z [inf]  [builder 7/8] RUN echo "Installing dev dependencies..." &&     npm install --include=dev &&     echo "Dev dependencies installed"
+2025-09-15T15:32:52.542519157Z [inf]  [builder 6/8] COPY . .
+2025-09-15T15:32:52.542525904Z [inf]  [builder 5/8] RUN echo "Installing dependencies..." &&     (npm ci --only=production || npm install --only=production) &&     echo "Dependencies installed"
+2025-09-15T15:32:52.542532623Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-15T15:32:52.542541375Z [inf]  [internal] load build context
+2025-09-15T15:32:52.542550074Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-15T15:32:52.542567138Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T15:32:52.542580365Z [inf]  [internal] load build context
+2025-09-15T15:32:52.546703018Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-15T15:32:52.547108843Z [inf]  [internal] load build context
+2025-09-15T15:32:52.925214348Z [inf]  [internal] load build context
+2025-09-15T15:32:52.928979190Z [inf]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-15T15:32:52.928997934Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-15T15:32:52.929021701Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-15T15:32:53.096481258Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-15T15:32:53.097413094Z [inf]  [builder 5/8] RUN echo "Installing dependencies..." &&     (npm ci --only=production || npm install --only=production) &&     echo "Dependencies installed"
+2025-09-15T15:32:53.170013269Z [inf]  Installing dependencies...
+
+2025-09-15T15:32:53.317752179Z [inf]  npm warn config only Use `--omit=dev` to omit dev dependencies from the install.
+
+2025-09-15T15:32:57.904629359Z [inf]  
+added 384 packages, and audited 385 packages in 5s
+
+2025-09-15T15:32:57.904675785Z [inf]  
+
+2025-09-15T15:32:57.904683074Z [inf]  54 packages are looking for funding
+  run `npm fund` for details
+
+2025-09-15T15:32:57.905755432Z [inf]  
+found 0 vulnerabilities
+
+2025-09-15T15:32:57.90671582Z [inf]  npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.6.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.0
+npm notice To update run: npm install -g npm@11.6.0
+npm notice
+
+2025-09-15T15:32:57.920911769Z [inf]  Dependencies installed
+
+2025-09-15T15:32:58.201506889Z [inf]  [builder 5/8] RUN echo "Installing dependencies..." &&     (npm ci --only=production || npm install --only=production) &&     echo "Dependencies installed"
+2025-09-15T15:32:58.202556940Z [inf]  [builder 6/8] COPY . .
+2025-09-15T15:32:58.411886530Z [inf]  [builder 6/8] COPY . .
+2025-09-15T15:32:58.412815018Z [inf]  [builder 7/8] RUN echo "Installing dev dependencies..." &&     npm install --include=dev &&     echo "Dev dependencies installed"
+2025-09-15T15:32:58.48085526Z [inf]  Installing dev dependencies...
+
+2025-09-15T15:32:59.64925445Z [inf]  npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+
+2025-09-15T15:32:59.73164618Z [inf]  npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+
+2025-09-15T15:33:00.697660421Z [inf]  
+added 76 packages, and audited 461 packages in 2s
+
+2025-09-15T15:33:00.69767343Z [inf]  
+
+2025-09-15T15:33:00.697712824Z [inf]  65 packages are looking for funding
+  run `npm fund` for details
+
+2025-09-15T15:33:00.714490321Z [inf]  
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+2025-09-15T15:33:00.729022698Z [inf]  Dev dependencies installed
+
+2025-09-15T15:33:00.920270776Z [inf]  [builder 7/8] RUN echo "Installing dev dependencies..." &&     npm install --include=dev &&     echo "Dev dependencies installed"
+2025-09-15T15:33:00.920971518Z [inf]  [builder 8/8] RUN echo "Building application..." &&     npm run build &&     echo "Build completed"
+2025-09-15T15:33:01.000087788Z [inf]  Building application...
+
+2025-09-15T15:33:01.123587644Z [inf]  
+> valley-preview-perfume-ecommerce@1.0.0 build
+> tsc --project tsconfig.build.json && vite build
+
+
+2025-09-15T15:33:03.478606448Z [inf]  vite v7.1.5 building for production...
+
+2025-09-15T15:33:03.535803935Z [inf]  (node:18) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///app/postcss.config.js?t=1757950383536 is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /app/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+2025-09-15T15:33:03.663464312Z [inf]  transforming...
+
+2025-09-15T15:33:06.900417766Z [inf]  ✓ 1695 modules transformed.
+
+2025-09-15T15:33:07.184986099Z [inf]  rendering chunks...
+
+2025-09-15T15:33:07.196700742Z [inf]  computing gzip size...
+
+2025-09-15T15:33:07.211608654Z [inf]  ../dist/public/index.html                                           1.11 kB │ gzip:   0.59 kB
+
+2025-09-15T15:33:07.211621529Z [inf]  ../dist/public/assets/dior-sauvage-DIirOkFX.webp                    7.25 kB
+
+2025-09-15T15:33:07.211654019Z [inf]  ../dist/public/assets/UAE_Dirham_Symbol.svg-BfH02ZDA.png           20.80 kB
+
+2025-09-15T15:33:07.211668234Z [inf]  ../dist/public/assets/YSL_black-opium_1686207039-DguB0CjR.jpg      78.69 kB
+
+2025-09-15T15:33:07.211692298Z [inf]  ../dist/public/assets/chanel-no5-8aW8e78G.jpg                     128.86 kB
+
+2025-09-15T15:33:07.211724465Z [inf]  ../dist/public/assets/Best_tom_ford_perfumes_1980x-CXlZ5VMe.webp  323.90 kB
+
+2025-09-15T15:33:07.211864014Z [inf]  ../dist/public/assets/Creed-Perfume--O_oXhQRY.png                 376.10 kB
+
+2025-09-15T15:33:07.211890953Z [inf]  ../dist/public/assets/index-CRdNI5WD.css                          103.87 kB │ gzip:  16.06 kB
+
+2025-09-15T15:33:07.211941885Z [inf]  ../dist/public/assets/index-DECZO5se.js                           474.34 kB │ gzip: 132.03 kB
+
+2025-09-15T15:33:07.21226691Z [inf]  ✓ built in 3.71s
+
+2025-09-15T15:33:07.251870206Z [inf]  Build completed
+
+2025-09-15T15:33:07.370046926Z [inf]  [builder 8/8] RUN echo "Building application..." &&     npm run build &&     echo "Build completed"
+2025-09-15T15:33:07.824396275Z [inf]  [production 6/9] COPY --from=builder /app/dist ./dist
+2025-09-15T15:33:07.906279335Z [inf]  [production 6/9] COPY --from=builder /app/dist ./dist
+2025-09-15T15:33:07.907588642Z [inf]  [production 7/9] COPY --from=builder /app/start.sh ./start.sh
+2025-09-15T15:33:07.920570434Z [inf]  [production 7/9] COPY --from=builder /app/start.sh ./start.sh
+2025-09-15T15:33:07.921354044Z [inf]  [production 8/9] COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+2025-09-15T15:33:07.933681372Z [inf]  [production 8/9] COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+2025-09-15T15:33:07.934323766Z [inf]  [production 9/9] RUN chmod +x ./start.sh
+2025-09-15T15:33:08.022188635Z [inf]  [production 9/9] RUN chmod +x ./start.sh
+2025-09-15T15:33:10.122614694Z [inf]  importing to docker
+2025-09-15T15:33:14.504485716Z [inf]  [auth] sharing credentials for production-asia-southeast1-eqsg3a.railway-registry.com
+2025-09-15T15:33:14.504527454Z [inf]  [auth] sharing credentials for production-asia-southeast1-eqsg3a.railway-registry.com
+2025-09-15T15:33:15.418829118Z [inf]  importing to docker
+2025-09-15T15:34:39.654060813Z [inf]  [92mBuild time: 107.54 seconds[0m
+2025-09-15T15:34:51.475714755Z [inf]  
+2025-09-15T15:34:51.475744658Z [inf]  [35m====================
+2025-09-15T15:34:51.475751509Z [inf]  Starting Healthcheck
+2025-09-15T15:34:51.475755134Z [inf]  ====================
+2025-09-15T15:34:51.475759950Z [inf]  [0m
+2025-09-15T15:34:51.475765555Z [inf]  [37mPath: /health[0m
+2025-09-15T15:34:51.475768762Z [inf]  [37mRetry window: 5m0s[0m
+2025-09-15T15:34:51.475772254Z [inf]  
+2025-09-15T15:34:52.244488246Z [inf]  [93mAttempt #1 failed with service unavailable. Continuing to retry for 4m59s[0m
+2025-09-15T15:35:00.859113776Z [inf]  [93mAttempt #2 failed with service unavailable. Continuing to retry for 4m50s[0m
+2025-09-15T15:35:03.359674538Z [inf]  [93mAttempt #3 failed with service unavailable. Continuing to retry for 4m48s[0m
+2025-09-15T15:35:07.873546618Z [inf]  [93mAttempt #4 failed with service unavailable. Continuing to retry for 4m43s[0m
+2025-09-15T15:35:16.371937066Z [inf]  [93mAttempt #5 failed with service unavailable. Continuing to retry for 4m35s[0m
+2025-09-15T15:35:32.866161420Z [inf]  [93mAttempt #6 failed with service unavailable. Continuing to retry for 4m18s[0m
+2025-09-15T15:36:03.364033582Z [inf]  [93mAttempt #7 failed with service unavailable. Continuing to retry for 3m48s[0m
+2025-09-15T15:36:33.863189900Z [inf]  [93mAttempt #8 failed with service unavailable. Continuing to retry for 3m17s[0m
+2025-09-15T15:37:04.364490492Z [inf]  [93mAttempt #9 failed with service unavailable. Continuing to retry for 2m47s[0m
+2025-09-15T15:37:34.859267119Z [inf]  [93mAttempt #10 failed with service unavailable. Continuing to retry for 2m16s[0m
+2025-09-15T15:38:05.358730006Z [inf]  [93mAttempt #11 failed with service unavailable. Continuing to retry for 1m46s[0m
+2025-09-15T15:38:35.854117772Z [inf]  [93mAttempt #12 failed with service unavailable. Continuing to retry for 1m15s[0m
+2025-09-15T15:39:06.356323881Z [inf]  [93mAttempt #13 failed with service unavailable. Continuing to retry for 45s[0m
+2025-09-15T15:39:36.847088799Z [inf]  [93mAttempt #14 failed with service unavailable. Continuing to retry for 14s[0m
+2025-09-15T15:39:37.204792350Z [inf]  
+2025-09-15T15:39:37.204831861Z [inf]  [91m1/1 replicas never became healthy![0m
+2025-09-15T15:39:37.204842722Z [inf]  [91mHealthcheck failed![0m

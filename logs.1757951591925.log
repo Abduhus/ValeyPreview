@@ -1,0 +1,287 @@
+2025-09-15T15:34:50.000000000Z [inf]  Starting Container
+2025-09-15T15:34:50.601263077Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:34:50.601289812Z [inf]  Environment: development
+2025-09-15T15:34:50.601296415Z [inf]  Port: 8080
+2025-09-15T15:34:50.601300949Z [inf]  Running on Railway
+2025-09-15T15:34:50.601306835Z [inf]  Starting production server...
+2025-09-15T15:34:50.601310955Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:34:50.601316304Z [inf]  Using pre-built dist directory
+2025-09-15T15:34:50.601321331Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:34:50.601325605Z [inf]  
+2025-09-15T15:34:50.601329707Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:34:50.601333965Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:34:50.601338167Z [inf]  
+2025-09-15T15:34:50.601343252Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:34:50.601347322Z [err]    throw err;
+2025-09-15T15:34:50.601351129Z [err]    ^
+2025-09-15T15:34:50.601354933Z [err]  
+2025-09-15T15:34:50.601359142Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:34:50.601363749Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:34:50.601369624Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:34:50.601373390Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:34:50.601377000Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:34:50.601380842Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:34:50.601390126Z [err]    requireStack: []
+2025-09-15T15:34:50.601398293Z [err]  }
+2025-09-15T15:34:50.601402736Z [err]  
+2025-09-15T15:34:50.601407822Z [err]  Node.js v20.19.5
+2025-09-15T15:34:51.318654807Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:34:51.318660551Z [inf]  Environment: development
+2025-09-15T15:34:51.318665377Z [inf]  Port: 8080
+2025-09-15T15:34:51.318670256Z [inf]  Running on Railway
+2025-09-15T15:34:51.318675512Z [inf]  Starting production server...
+2025-09-15T15:34:51.318681075Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:34:51.318686014Z [inf]  Using pre-built dist directory
+2025-09-15T15:34:51.318691807Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:34:51.517913799Z [inf]  
+2025-09-15T15:34:51.517923938Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:34:51.517930395Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:34:51.517936029Z [inf]  
+2025-09-15T15:34:51.603308520Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:34:51.603315818Z [err]    throw err;
+2025-09-15T15:34:51.603320196Z [err]    ^
+2025-09-15T15:34:51.603324924Z [err]  
+2025-09-15T15:34:51.603331283Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:34:51.603335797Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:34:51.603340204Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:34:51.603344690Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:34:51.603468145Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:34:51.603474137Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:34:51.603478717Z [err]    requireStack: []
+2025-09-15T15:34:51.603485126Z [err]  }
+2025-09-15T15:34:51.603490189Z [err]  
+2025-09-15T15:34:51.603494554Z [err]  Node.js v20.19.5
+2025-09-15T15:34:52.393803756Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:34:52.393814441Z [inf]  Environment: development
+2025-09-15T15:34:52.393820648Z [inf]  Port: 8080
+2025-09-15T15:34:52.393826662Z [inf]  Running on Railway
+2025-09-15T15:34:52.393831983Z [inf]  Starting production server...
+2025-09-15T15:34:52.393837642Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:34:52.393844209Z [inf]  Using pre-built dist directory
+2025-09-15T15:34:52.393851168Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:34:52.555054954Z [inf]  
+2025-09-15T15:34:52.555059089Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:34:52.555063781Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:34:52.555068554Z [inf]  
+2025-09-15T15:34:52.638167143Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:34:52.638173287Z [err]    throw err;
+2025-09-15T15:34:52.638178957Z [err]    ^
+2025-09-15T15:34:52.638184184Z [err]  
+2025-09-15T15:34:52.638190461Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:34:52.638196653Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:34:52.638203960Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:34:52.638209756Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:34:52.638215137Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:34:52.638220199Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:34:52.638226538Z [err]    requireStack: []
+2025-09-15T15:34:52.638231406Z [err]  }
+2025-09-15T15:34:52.638237055Z [err]  
+2025-09-15T15:34:52.638242652Z [err]  Node.js v20.19.5
+2025-09-15T15:34:53.469454457Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:34:53.469460433Z [inf]  Environment: development
+2025-09-15T15:34:53.469466068Z [inf]  Port: 8080
+2025-09-15T15:34:53.469473378Z [inf]  Running on Railway
+2025-09-15T15:34:53.469478697Z [inf]  Starting production server...
+2025-09-15T15:34:53.469484649Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:34:53.469491073Z [inf]  Using pre-built dist directory
+2025-09-15T15:34:53.469499781Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:34:53.649715336Z [inf]  
+2025-09-15T15:34:53.649722969Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:34:53.649728329Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:34:53.649733140Z [inf]  
+2025-09-15T15:34:53.747757420Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:34:53.747764310Z [err]    throw err;
+2025-09-15T15:34:53.747769050Z [err]    ^
+2025-09-15T15:34:53.747774189Z [err]  
+2025-09-15T15:34:53.747779104Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:34:53.747783909Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:34:53.747790200Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:34:53.747794943Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:34:53.747799518Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:34:53.747803573Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:34:53.747808738Z [err]    requireStack: []
+2025-09-15T15:34:53.747813023Z [err]  }
+2025-09-15T15:34:53.747817006Z [err]  
+2025-09-15T15:34:53.747821164Z [err]  Node.js v20.19.5
+2025-09-15T15:34:54.568881453Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:34:54.568886766Z [inf]  Environment: development
+2025-09-15T15:34:54.568892471Z [inf]  Port: 8080
+2025-09-15T15:34:54.568897998Z [inf]  Running on Railway
+2025-09-15T15:34:54.568904810Z [inf]  Starting production server...
+2025-09-15T15:34:54.568911132Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:34:54.568917126Z [inf]  Using pre-built dist directory
+2025-09-15T15:34:54.568922305Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:34:54.754889082Z [inf]  
+2025-09-15T15:34:54.754896227Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:34:54.754900717Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:34:54.754904796Z [inf]  
+2025-09-15T15:34:54.835889477Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:34:54.835899179Z [err]    throw err;
+2025-09-15T15:34:54.835905612Z [err]    ^
+2025-09-15T15:34:54.835911684Z [err]  
+2025-09-15T15:34:54.835918742Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:34:54.835926551Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:34:54.835932172Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:34:54.835938135Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:34:54.835945107Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:34:54.835951589Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:34:54.835957590Z [err]    requireStack: []
+2025-09-15T15:34:54.835962773Z [err]  }
+2025-09-15T15:34:54.835968592Z [err]  
+2025-09-15T15:34:54.835973830Z [err]  Node.js v20.19.5
+2025-09-15T15:34:55.662585710Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:34:55.662592392Z [inf]  Environment: development
+2025-09-15T15:34:55.662599788Z [inf]  Port: 8080
+2025-09-15T15:34:55.662607380Z [inf]  Running on Railway
+2025-09-15T15:34:55.662614072Z [inf]  Starting production server...
+2025-09-15T15:34:55.662619956Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:34:55.662629372Z [inf]  Using pre-built dist directory
+2025-09-15T15:34:55.662635634Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:34:55.825645594Z [inf]  
+2025-09-15T15:34:55.825650728Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:34:55.825655721Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:34:55.825660778Z [inf]  
+2025-09-15T15:34:55.920392316Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:34:55.920398210Z [err]    throw err;
+2025-09-15T15:34:55.920403218Z [err]    ^
+2025-09-15T15:34:55.920408285Z [err]  
+2025-09-15T15:34:55.920413160Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:34:55.920418389Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:34:55.920423041Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:34:55.920428605Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:34:55.920432888Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:34:55.920436568Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:34:55.920441767Z [err]    requireStack: []
+2025-09-15T15:34:55.920445896Z [err]  }
+2025-09-15T15:34:55.920452810Z [err]  
+2025-09-15T15:34:55.920457799Z [err]  Node.js v20.19.5
+2025-09-15T15:34:56.654173787Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:34:56.654180954Z [inf]  Environment: development
+2025-09-15T15:34:56.654184852Z [inf]  Port: 8080
+2025-09-15T15:34:56.654189097Z [inf]  Running on Railway
+2025-09-15T15:34:56.654193501Z [inf]  Starting production server...
+2025-09-15T15:34:56.654199486Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:34:56.654204252Z [inf]  Using pre-built dist directory
+2025-09-15T15:34:56.654208512Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:34:56.803933291Z [inf]  
+2025-09-15T15:34:56.803943626Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:34:56.803951104Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:34:56.803958142Z [inf]  
+2025-09-15T15:34:56.894702695Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:34:56.894708048Z [err]    throw err;
+2025-09-15T15:34:56.894715017Z [err]    ^
+2025-09-15T15:34:56.894720254Z [err]  
+2025-09-15T15:34:56.894724566Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:34:56.894728924Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:34:56.894733958Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:34:56.894738817Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:34:56.894742771Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:34:56.894746909Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:34:56.894750908Z [err]    requireStack: []
+2025-09-15T15:34:56.894756318Z [err]  }
+2025-09-15T15:34:56.894760821Z [err]  
+2025-09-15T15:34:56.894766322Z [err]  Node.js v20.19.5
+2025-09-15T15:34:57.738751796Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:34:57.738761361Z [inf]  Environment: development
+2025-09-15T15:34:57.738767346Z [inf]  Port: 8080
+2025-09-15T15:34:57.738778500Z [inf]  Running on Railway
+2025-09-15T15:34:57.738785527Z [inf]  Starting production server...
+2025-09-15T15:34:57.738791922Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:34:57.738798295Z [inf]  Using pre-built dist directory
+2025-09-15T15:34:57.738805188Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:34:57.909868076Z [inf]  
+2025-09-15T15:34:57.909874700Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:34:57.909880904Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:34:57.909887777Z [inf]  
+2025-09-15T15:34:58.014909931Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:34:58.014917232Z [err]    throw err;
+2025-09-15T15:34:58.014923741Z [err]    ^
+2025-09-15T15:34:58.014929584Z [err]  
+2025-09-15T15:34:58.014936610Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:34:58.014942969Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:34:58.014949747Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:34:58.014957592Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:34:58.014963666Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:34:58.014970509Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:34:58.014980109Z [err]    requireStack: []
+2025-09-15T15:34:58.014986121Z [err]  }
+2025-09-15T15:34:58.014993983Z [err]  
+2025-09-15T15:34:58.015002293Z [err]  Node.js v20.19.5
+2025-09-15T15:34:58.792422037Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:34:58.792426905Z [inf]  Environment: development
+2025-09-15T15:34:58.792431007Z [inf]  Port: 8080
+2025-09-15T15:34:58.792435686Z [inf]  Running on Railway
+2025-09-15T15:34:58.792440419Z [inf]  Starting production server...
+2025-09-15T15:34:58.792445548Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:34:58.792450371Z [inf]  Using pre-built dist directory
+2025-09-15T15:34:58.792454615Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:34:58.951397153Z [inf]  
+2025-09-15T15:34:58.951403878Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:34:58.951412052Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:34:58.951420835Z [inf]  
+2025-09-15T15:34:59.040396017Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:34:59.040408156Z [err]    throw err;
+2025-09-15T15:34:59.040413806Z [err]    ^
+2025-09-15T15:34:59.040422305Z [err]  
+2025-09-15T15:34:59.040428812Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:34:59.040434952Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:34:59.040440647Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:34:59.040447170Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:34:59.040453242Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:34:59.040459957Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:34:59.040465581Z [err]    requireStack: []
+2025-09-15T15:34:59.040471186Z [err]  }
+2025-09-15T15:34:59.040476624Z [err]  
+2025-09-15T15:34:59.040482755Z [err]  Node.js v20.19.5
+2025-09-15T15:35:00.017917839Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:35:00.017925236Z [inf]  Environment: development
+2025-09-15T15:35:00.017933761Z [inf]  Port: 8080
+2025-09-15T15:35:00.017941687Z [inf]  Running on Railway
+2025-09-15T15:35:00.017949878Z [inf]  Starting production server...
+2025-09-15T15:35:00.017957124Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:35:00.017964911Z [inf]  Using pre-built dist directory
+2025-09-15T15:35:00.017971805Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:35:00.221803447Z [inf]  
+2025-09-15T15:35:00.221810857Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:35:00.221817193Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:35:00.221823979Z [inf]  
+2025-09-15T15:35:00.332538514Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:35:00.332545016Z [err]    throw err;
+2025-09-15T15:35:00.332551116Z [err]    ^
+2025-09-15T15:35:00.332569608Z [err]  
+2025-09-15T15:35:00.332576235Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:35:00.332582124Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:35:00.332587920Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:35:00.332593693Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:35:00.332602194Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:35:00.332607783Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:35:00.332613871Z [err]    requireStack: []
+2025-09-15T15:35:00.332620027Z [err]  }
+2025-09-15T15:35:00.332630438Z [err]  
+2025-09-15T15:35:00.332636729Z [err]  Node.js v20.19.5
+2025-09-15T15:35:01.214078810Z [inf]  === ValleyPreview Perfume E-commerce Platform ===
+2025-09-15T15:35:01.214088441Z [inf]  Environment: development
+2025-09-15T15:35:01.214095469Z [inf]  Port: 8080
+2025-09-15T15:35:01.214102444Z [inf]  Running on Railway
+2025-09-15T15:35:01.214109352Z [inf]  Starting production server...
+2025-09-15T15:35:01.214114995Z [inf]  Skipping image conversion on Railway for faster deployment
+2025-09-15T15:35:01.214121014Z [inf]  Using pre-built dist directory
+2025-09-15T15:35:01.214129953Z [inf]  Server will be available at http://localhost:8080
+2025-09-15T15:35:01.402081140Z [inf]  
+2025-09-15T15:35:01.402086631Z [inf]  > valley-preview-perfume-ecommerce@1.0.0 start
+2025-09-15T15:35:01.402091173Z [inf]  > cross-env NODE_ENV=production node dist/server/index.cjs
+2025-09-15T15:35:01.402095711Z [inf]  
+2025-09-15T15:35:01.501898073Z [err]  node:internal/modules/cjs/loader:1210
+2025-09-15T15:35:01.501907860Z [err]    throw err;
+2025-09-15T15:35:01.501913627Z [err]    ^
+2025-09-15T15:35:01.501920029Z [err]  
+2025-09-15T15:35:01.501926386Z [err]  Error: Cannot find module '/app/dist/server/index.cjs'
+2025-09-15T15:35:01.501932510Z [err]      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+2025-09-15T15:35:01.501938406Z [err]      at Module._load (node:internal/modules/cjs/loader:1038:27)
+2025-09-15T15:35:01.501944583Z [err]      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-15T15:35:01.501949545Z [err]      at node:internal/main/run_main_module:28:49 {
+2025-09-15T15:35:01.501954608Z [err]    code: 'MODULE_NOT_FOUND',
+2025-09-15T15:35:01.501958500Z [err]    requireStack: []
+2025-09-15T15:35:01.501962512Z [err]  }
+2025-09-15T15:35:01.501966458Z [err]  
+2025-09-15T15:35:01.501970498Z [err]  Node.js v20.19.5

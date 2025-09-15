@@ -62,10 +62,9 @@ RUN echo "Installing dependencies..." && \
 
 # Copy built files from builder stage
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/start.sh ./start.sh
 
-# Copy assets
-COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+# Copy start script
+COPY --from=builder /app/start.sh ./start.sh
 
 # Make start script executable
 RUN chmod +x ./start.sh
