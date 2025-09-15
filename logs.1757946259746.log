@@ -1,0 +1,82 @@
+2025-09-14T21:09:32.795437908Z [inf]  
+2025-09-14T21:09:36.347555142Z [inf]  [35m[Region: asia-southeast1][0m
+2025-09-14T21:09:36.356469713Z [inf]  [35m=========================
+2025-09-14T21:09:36.356522784Z [inf]  Using Detected Dockerfile
+2025-09-14T21:09:36.356527698Z [inf]  =========================
+2025-09-14T21:09:36.356531189Z [inf]  [0m
+2025-09-14T21:09:36.356546242Z [inf]  context: ndn6-Y51
+2025-09-14T21:09:36.520324337Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T21:09:36.520394445Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T21:09:36.520542301Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T21:09:36.529700954Z [inf]  [internal] load build definition from Dockerfile
+2025-09-14T21:09:36.531389844Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-14T21:09:36.808629379Z [inf]  [internal] load metadata for docker.io/library/node:20-alpine
+2025-09-14T21:09:36.809112080Z [inf]  [internal] load .dockerignore
+2025-09-14T21:09:36.809172383Z [inf]  [internal] load .dockerignore
+2025-09-14T21:09:36.809193076Z [inf]  [internal] load .dockerignore
+2025-09-14T21:09:36.818882434Z [inf]  [internal] load .dockerignore
+2025-09-14T21:09:36.822844545Z [inf]  [production 8/9] COPY --from=builder /app/client/src/assets ./dist/client/src/assets
+2025-09-14T21:09:36.822874393Z [inf]  [production 7/9] COPY --from=builder /app/start.sh ./start.sh
+2025-09-14T21:09:36.822884852Z [inf]  [production 6/9] COPY --from=builder /app/dist ./dist
+2025-09-14T21:09:36.822892040Z [inf]  [builder 8/8] RUN echo "Building application..." &&     npm run build &&     echo "Build completed"
+2025-09-14T21:09:36.822902020Z [inf]  [builder 7/8] RUN echo "Installing dev dependencies..." &&     npm install --include=dev &&     echo "Dev dependencies installed"
+2025-09-14T21:09:36.822908853Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T21:09:36.822915794Z [inf]  [builder 5/8] RUN echo "Installing dependencies..." &&     (npm ci --only=production || npm install --only=production) &&     echo "Dependencies installed"
+2025-09-14T21:09:36.822921615Z [inf]  [builder 4/8] COPY package*.json ./
+2025-09-14T21:09:36.822927474Z [inf]  [internal] load build context
+2025-09-14T21:09:36.822936017Z [inf]  [builder 3/8] WORKDIR /app
+2025-09-14T21:09:36.822943478Z [inf]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash=5.2.21-r0 &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-14T21:09:36.822951452Z [inf]  [production 9/9] RUN chmod +x ./start.sh
+2025-09-14T21:09:36.822957512Z [inf]  [builder 6/8] COPY . .
+2025-09-14T21:09:36.822976667Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T21:09:36.822988092Z [inf]  [internal] load build context
+2025-09-14T21:09:36.829403833Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T21:09:36.830014733Z [inf]  [builder 1/8] FROM docker.io/library/node:20-alpine@sha256:eabac870db94f7342d6c33560d6613f188bbcf4bbe1f4eb47d5e2a08e1a37722
+2025-09-14T21:09:36.830041642Z [inf]  [internal] load build context
+2025-09-14T21:09:36.830062056Z [inf]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash=5.2.21-r0 &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-14T21:09:36.915164739Z [inf]  Installing bash and webp tools...
+
+2025-09-14T21:09:36.930281559Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+
+2025-09-14T21:09:37.004098735Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+
+2025-09-14T21:09:37.247712317Z [inf]  [internal] load build context
+2025-09-14T21:09:37.46945781Z [inf]  v3.22.1-405-g20c5bc00dfc [https://dl-cdn.alpinelinux.org/alpine/v3.22/main]
+v3.22.1-414-gb84ab1b3344 [https://dl-cdn.alpinelinux.org/alpine/v3.22/community]
+OK: 26325 distinct packages available
+
+2025-09-14T21:09:37.52823423Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+
+2025-09-14T21:09:37.58986324Z [inf]  fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+
+2025-09-14T21:09:37.88903365Z [inf]  ERROR: unable to select packages:
+
+2025-09-14T21:09:37.889935448Z [inf]    bash-5.2.37-r0:
+    breaks: world[bash=5.2.21-r0]
+
+2025-09-14T21:09:38.168805357Z [err]  [builder 2/8] RUN echo "Installing bash and webp tools..." &&     apk update &&     apk add --no-cache bash=5.2.21-r0 &&     apk add --no-cache libwebp-tools &&     echo "Verifying bash installation..." &&     bash --version &&     echo "Bash installation completed"
+2025-09-14T21:09:38.185653505Z [err]  Dockerfile:8
+2025-09-14T21:09:38.185697040Z [err]  -------------------
+2025-09-14T21:09:38.185702483Z [err]  7 |     # Install bash and webp tools with more explicit commands
+2025-09-14T21:09:38.185707389Z [err]  8 | >>> RUN echo "Installing bash and webp tools..." && \
+2025-09-14T21:09:38.185723607Z [err]  9 | >>>     apk update && \
+2025-09-14T21:09:38.185727149Z [err]  10 | >>>     apk add --no-cache bash=5.2.21-r0 && \
+2025-09-14T21:09:38.185730441Z [err]  11 | >>>     apk add --no-cache libwebp-tools && \
+2025-09-14T21:09:38.185733628Z [err]  12 | >>>     echo "Verifying bash installation..." && \
+2025-09-14T21:09:38.185737616Z [err]  13 | >>>     bash --version && \
+2025-09-14T21:09:38.185740726Z [err]  14 | >>>     echo "Bash installation completed"
+2025-09-14T21:09:38.185744711Z [err]  15 |
+2025-09-14T21:09:38.185747950Z [err]  -------------------
+2025-09-14T21:09:38.185751646Z [err]  Dockerfile:44
+2025-09-14T21:09:38.185754966Z [err]  -------------------
+2025-09-14T21:09:38.185758717Z [err]  43 |     # Install bash and webp tools with more explicit commands
+2025-09-14T21:09:38.185761948Z [err]  44 | >>> RUN echo "Installing bash and webp tools..." && \
+2025-09-14T21:09:38.185765173Z [err]  45 | >>>     apk update && \
+2025-09-14T21:09:38.185768536Z [err]  46 | >>>     apk add --no-cache bash=5.2.21-r0 && \
+2025-09-14T21:09:38.185771830Z [err]  47 | >>>     apk add --no-cache libwebp-tools && \
+2025-09-14T21:09:38.185774732Z [err]  48 | >>>     echo "Verifying bash installation..." && \
+2025-09-14T21:09:38.185778102Z [err]  49 | >>>     bash --version && \
+2025-09-14T21:09:38.185786656Z [err]  50 | >>>     echo "Bash installation completed"
+2025-09-14T21:09:38.185790021Z [err]  51 |
+2025-09-14T21:09:38.185793141Z [err]  -------------------
+2025-09-14T21:09:38.185797206Z [err]  ERROR: failed to build: failed to solve: process "/bin/sh -c echo \"Installing bash and webp tools...\" &&     apk update &&     apk add --no-cache bash=5.2.21-r0 &&     apk add --no-cache libwebp-tools &&     echo \"Verifying bash installation...\" &&     bash --version &&     echo \"Bash installation completed\"" did not complete successfully: exit code: 1
