@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Luxury Perfume E-commerce Platform",
   "main": "server/index.ts",
-  "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
     "build": "tsc --project tsconfig.build.json && vite build",

@@ -1,38 +1,57 @@
 # Deployment Fix Summary
 
-This document summarizes the fixes applied to resolve the deployment errors encountered in the log file `logs.1757934570003.log`.
+This document summarizes all the fixes applied to resolve the deployment errors encountered in the log files.
 
-## Issues Identified
+## Issues Identified and Fixed
 
-1. **Corrupt Binary File**: The file `dior-sauvage.jpg` in the assets directory was 0KB, causing the "Cannot read binary file" error (code 40400).
+### 1. Missing Bash Executable (logs.1757949593060.log)
+**Error**: "The executable `bash` could not be found"
 
-2. **Nixpacks Configuration Issue**: The `nixpacks.toml` file had an incorrect bash version specification that was causing build failures.
+**Fixes Applied**:
+- Updated Dockerfile to explicitly install bash in the production stage
+- Changed CMD instruction from `["./start.sh"]` to `["bash", "./start.sh"]`
+- Updated start.sh shebang from `#!/bin/sh` to `#!/bin/bash`
+- Changed railway.json to use DOCKERFILE builder instead of NIXPACKS
 
-3. **Missing Local Assets**: The brand showcase component was referencing external URLs instead of local assets for Dior and Versace images.
+### 2. Module Type Mismatch
+**Error**: "ReferenceError: exports is not defined in ES module scope"
 
-## Fixes Applied
+**Fixes Applied**:
+- Removed "type": "module" from package.json to allow CommonJS modules to work properly
+- Updated start script in package.json to use index.cjs instead of index.js
 
-### 1. Removed Corrupt Binary File
-- Deleted the 0KB file `client/src/assets/dior-sauvage.jpg`
-- Downloaded a proper placeholder image and converted it to WebP format
-- Updated the brand showcase component to use the local WebP image
+### 3. Port Conflict
+**Error**: "Error: listen EADDRINUSE: address already in use 0.0.0.0:5000"
 
-### 2. Fixed Nixpacks Configuration
-- Updated `nixpacks.toml` to use a compatible bash version specification
-- Ensured proper installation of WebP tools during the build process
+**Fixes Applied**:
+- Killed the process using port 5000
+- Verified the server starts correctly on port 5000
 
-### 3. Updated Asset References
-- Added imports for local images in `brand-showcase.tsx`:
-  - `diorImage` from `../assets/dior-sauvage.webp`
-  - `versaceImage` from `../assets/versace-eros.jpg`
-- Updated hero slides to use local images instead of external URLs
-- Updated the `getPerfumeBottleBackground` function to use local images
+## Files Modified
+
+1. **Dockerfile**:
+   - Added explicit bash installation in production stage
+   - Updated CMD to use bash explicitly
+
+2. **railway.json**:
+   - Changed builder from NIXPACKS to DOCKERFILE
+   - Specified dockerfilePath
+   - Updated startCommand
+
+3. **start.sh**:
+   - Changed shebang from `#!/bin/sh` to `#!/bin/bash`
+
+4. **package.json**:
+   - Removed "type": "module"
+   - Updated start script to use index.cjs
 
 ## Verification
 
-- Successfully built the project with `npm run build`
-- All assets are now properly referenced locally
-- No more 0KB or corrupt files in the assets directory
+- Docker build completes successfully
+- TypeScript compilation works correctly
+- Vite build completes successfully
+- Server starts correctly on port 5000
+- All assets are properly referenced
 
 ## Deployment Recommendation
 
@@ -42,4 +61,4 @@ After these fixes, the application should deploy successfully to Railway. To dep
 railway up
 ```
 
-The deployment should now complete without the "Cannot read binary file" error.
+The deployment should now complete without errors.

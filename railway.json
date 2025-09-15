@@ -1,10 +1,10 @@
 {
   "build": {
-    "builder": "NIXPACKS",
-    "nixpacksVersion": "1.0.0"
+    "builder": "DOCKERFILE",
+    "dockerfilePath": "Dockerfile"
   },
   "deploy": {
-    "startCommand": "npm run start",
+    "startCommand": "./start.sh",
     "healthcheckPath": "/health",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
@@ -12,12 +12,12 @@
   },
   "environments": {
     "production": {
-      "startCommand": "npm run start",
+      "startCommand": "./start.sh",
       "healthcheckPath": "/health",
       "healthcheckTimeout": 300
     },
     "development": {
-      "startCommand": "npm run start",
+      "startCommand": "./start.sh",
       "healthcheckPath": "/health",
       "healthcheckTimeout": 300
     }

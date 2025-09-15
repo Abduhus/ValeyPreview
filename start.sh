@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Start script for ValleyPreview Perfume E-commerce Platform on Railway
 # This script handles both development and production environments
