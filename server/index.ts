@@ -134,10 +134,22 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || '5000', 10);
+  
+  // Log that we're about to start listening
+  console.log(`Attempting to start server on port ${port}`);
+  
   server.listen({
     port,
     host: "0.0.0.0", // Changed from 127.0.0.1 to 0.0.0.0 for Railway compatibility
   }, () => {
     log(`serving on port ${port}`);
+    console.log(`Server successfully started on port ${port}`);
+    console.log(`NODE_ENV: ${process.env.NODE_ENV || 'development'}`);
+  });
+  
+  // Handle server errors
+  server.on('error', (error) => {
+    console.error('Server failed to start:', error);
+    process.exit(1);
   });
 })();
