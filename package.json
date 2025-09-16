@@ -19,7 +19,8 @@
     "railway:logs": "railway logs",
     "build:docker": "docker build -t valley-preview .",
     "render:build": "npm run build",
-    "render:start": "npm run start"
+    "render:start": "npm run start",
+    "vercel-build": "npm run build"
   },
   "keywords": [
     "perfume",
