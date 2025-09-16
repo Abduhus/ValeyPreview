@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "startCommand": "node render-entry.js",
+  "buildCommand": "npm install && npm run build",
+  "startCommand": "node server-render.js",
   "envVars": [
     {
       "key": "NODE_ENV",
