@@ -197,10 +197,10 @@ app.use((req, res, next) => {
     console.log('✅✅✅ READY TO ACCEPT CONNECTIONS! ✅✅✅');
   });
   
-  // Handle server errors
-  server.on('error', (error) => {
+  // Handle server errors - FIXED: Properly typed error parameter
+  server.on('error', (error: any) => {
     console.error('🚨 Server failed to start:', error);
-    console.error('Error code:', error.code);
+    console.error('Error code:', error.code || 'Unknown');
     console.error('Error message:', error.message);
     if (error.stack) {
       console.error('Stack trace:', error.stack);
