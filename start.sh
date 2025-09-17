@@ -19,21 +19,21 @@ convert_images_to_webp() {
     # Check if cwebp is available
     if command -v cwebp >/dev/null 2>&1; then
         # Convert JPG images to WebP
-        if [ -d "client/src/assets" ]; then
-            for file in client/src/assets/*.jpg; do
+        if [ -d "assets" ]; then
+            for file in assets/*.jpg; do
                 if [ -f "$file" ]; then
                     filename=$(basename "$file" .jpg)
                     echo "Converting $filename.jpg to WebP..."
-                    cwebp -q 80 "$file" -o "client/src/assets/${filename}.webp"
+                    cwebp -q 80 "$file" -o "assets/${filename}.webp"
                 fi
             done
             
             # Convert PNG images to WebP
-            for file in client/src/assets/*.png; do
+            for file in assets/*.png; do
                 if [ -f "$file" ]; then
                     filename=$(basename "$file" .png)
                     echo "Converting $filename.png to WebP..."
-                    cwebp -q 80 "$file" -o "client/src/assets/${filename}.webp"
+                    cwebp -q 80 "$file" -o "assets/${filename}.webp"
                 fi
             done
         else
@@ -45,40 +45,6 @@ convert_images_to_webp() {
         echo "Ubuntu/Debian: apt-get install webp"
         echo "CentOS/RHEL: yum install libwebp-tools"
         echo "macOS: brew install webp"
-    fi
-}
-
-# Function to install dependencies
-install_dependencies() {
-    echo "Installing project dependencies..."
-    
-    # Install npm dependencies
-    if is_railway; then
-        # On Railway, use npm ci for faster, reliable builds
-        npm ci --only=production
-    else
-        # For local development
-        npm install
-    fi
-    
-    # Check if installation was successful
-    if [ $? -ne 0 ]; then
-        echo "Error: Failed to install dependencies"
-        exit 1
-    fi
-}
-
-# Function to build the project
-build_project() {
-    echo "Building project..."
-    
-    # Run build script
-    npm run build
-    
-    # Check if build was successful
-    if [ $? -ne 0 ]; then
-        echo "Error: Failed to build project"
-        exit 1
     fi
 }
 
@@ -104,13 +70,6 @@ start_production() {
         convert_images_to_webp
     else
         echo "Skipping image conversion on Railway for faster deployment"
-    fi
-    
-    # Build the project if not already built or if running locally
-    if [ ! -d "dist" ] || ! is_railway; then
-        build_project
-    else
-        echo "Using pre-built dist directory"
     fi
     
     # Start the production server
