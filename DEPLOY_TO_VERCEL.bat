@@ -15,12 +15,13 @@ echo 2. Automated Node.js Script
 echo 3. Vercel CLI Commands
 echo 4. Open Vercel Web Dashboard
 echo 5. View Deployment Guide
-echo 6. Test Build Locally
-echo 7. Check Project Status
-echo 8. Exit
+echo 6. Validate Vercel Configuration
+echo 7. Test Build Locally
+echo 8. Check Project Status
+echo 9. Exit
 echo.
 
-set /p choice="Enter your choice (1-8): "
+set /p choice="Enter your choice (1-9): "
 
 if "%choice%"=="1" (
     echo.
@@ -80,6 +81,18 @@ if "%choice%"=="5" (
 
 if "%choice%"=="6" (
     echo.
+    echo Validating Vercel configuration...
+    node validate-vercel-config.js
+    if errorlevel 1 (
+        echo ❌ Configuration validation failed
+        goto end
+    )
+    echo ✅ Configuration is valid!
+    goto end
+)
+
+if "%choice%"=="7" (
+    echo.
     echo Testing build locally...
     echo Installing dependencies...
     npm install
@@ -97,7 +110,7 @@ if "%choice%"=="6" (
     goto end
 )
 
-if "%choice%"=="7" (
+if "%choice%"=="8" (
     echo.
     echo Checking project status...
     echo.
@@ -128,7 +141,7 @@ if "%choice%"=="7" (
     goto end
 )
 
-if "%choice%"=="8" (
+if "%choice%"=="9" (
     echo.
     echo Goodbye!
     goto end
