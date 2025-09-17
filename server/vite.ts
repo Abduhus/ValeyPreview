@@ -47,10 +47,9 @@ export async function setupVite(app: Express, server: Server) {
     const url = req.originalUrl;
 
     try {
-      // Use __dirname instead of import.meta.dirname for CommonJS compatibility
+      // Use path.resolve with process.cwd() for better compatibility
       const clientTemplate = path.resolve(
-        __dirname,
-        "..",
+        process.cwd(),
         "client",
         "index.html",
       );
@@ -72,8 +71,8 @@ export async function setupVite(app: Express, server: Server) {
 
 export function serveStatic(app: Express) {
   // In production, files are built to dist/public
-  // Use __dirname instead of import.meta.dirname for CommonJS compatibility
-  const distPath = path.resolve(__dirname, "..", "public");
+  // Use process.cwd() for better compatibility
+  const distPath = path.resolve(process.cwd(), "dist", "public");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(

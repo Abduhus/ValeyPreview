@@ -19,21 +19,21 @@ convert_images_to_webp() {
     # Check if cwebp is available
     if command -v cwebp >/dev/null 2>&1; then
         # Convert JPG images to WebP
-        if [ -d "assets" ]; then
-            for file in assets/*.jpg; do
+        if [ -d "client/src/assets" ]; then
+            for file in client/src/assets/*.jpg; do
                 if [ -f "$file" ]; then
                     filename=$(basename "$file" .jpg)
                     echo "Converting $filename.jpg to WebP..."
-                    cwebp -q 80 "$file" -o "assets/${filename}.webp"
+                    cwebp -q 80 "$file" -o "client/src/assets/${filename}.webp"
                 fi
             done
             
             # Convert PNG images to WebP
-            for file in assets/*.png; do
+            for file in client/src/assets/*.png; do
                 if [ -f "$file" ]; then
                     filename=$(basename "$file" .png)
                     echo "Converting $filename.png to WebP..."
-                    cwebp -q 80 "$file" -o "assets/${filename}.webp"
+                    cwebp -q 80 "$file" -o "client/src/assets/${filename}.webp"
                 fi
             done
         else
@@ -45,6 +45,40 @@ convert_images_to_webp() {
         echo "Ubuntu/Debian: apt-get install webp"
         echo "CentOS/RHEL: yum install libwebp-tools"
         echo "macOS: brew install webp"
+    fi
+}
+
+# Function to install dependencies
+install_dependencies() {
+    echo "Installing project dependencies..."
+    
+    # Install npm dependencies
+    if is_railway; then
+        # On Railway, use npm ci for faster, reliable builds
+        npm ci --only=production
+    else
+        # For local development
+        npm install
+    fi
+    
+    # Check if installation was successful
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to install dependencies"
+        exit 1
+    fi
+}
+
+# Function to build the project
+build_project() {
+    echo "Building project..."
+    
+    # Run build script
+    npm run build
+    
+    # Check if build was successful
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to build project"
+        exit 1
     fi
 }
 
@@ -64,7 +98,7 @@ start_development() {
 start_production() {
     echo "Starting production server..."
     
-    # On Railway, we might want to skip image conversion for faster deploys
+    # On Railway, we skip image conversion for faster deploys
     if ! is_railway; then
         # Convert images to WebP format
         convert_images_to_webp
@@ -72,8 +106,26 @@ start_production() {
         echo "Skipping image conversion on Railway for faster deployment"
     fi
     
+    # Check if dist directory exists (should be built during Docker build)
+    if [ ! -d "dist" ]; then
+        echo "Error: dist directory not found. Build may have failed."
+        echo "Attempting to build..."
+        build_project
+    else
+        echo "Using pre-built dist directory"
+    fi
+    
+    # Verify the server file exists
+    if [ ! -f "dist/server/index.js" ]; then
+        echo "Error: Server file dist/server/index.js not found"
+        echo "Available files in dist/server:"
+        ls -la dist/server/ || echo "dist/server directory not found"
+        exit 1
+    fi
+    
     # Start the production server
     echo "Server will be available at http://localhost:${PORT:-5000}"
+    echo "Starting server with: npm run start"
     npm run start
 }
 
