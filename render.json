@@ -1,6 +1,7 @@
 {
   "buildCommand": "npm install && npm run build",
   "startCommand": "node server-render.js",
+  "healthCheckPath": "/health",
   "envVars": [
     {
       "key": "NODE_ENV",
@@ -9,6 +10,10 @@
     {
       "key": "PORT",
       "value": "10000"
+    },
+    {
+      "key": "RENDER_ENV",
+      "value": "true"
     }
   ]
 }

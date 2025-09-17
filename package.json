@@ -15,11 +15,12 @@
     "deploy": "npm run start",
     "deploy:setup": "powershell -ExecutionPolicy Bypass -File setup-deployment.ps1",
     "start:windows": "start.bat",
-    "railway:deploy": "railway up",
-    "railway:logs": "railway logs",
+    "render:deploy": "echo 'Deploy via Render dashboard at https://render.com'",
+    "render:logs": "echo 'View logs in Render dashboard'",
     "build:docker": "docker build -t valley-preview .",
-    "render:build": "npm run build",
-    "render:start": "npm run start",
+    "render:build": "npm install && npm run build",
+    "render:start": "node server-render.js",
+    "render:dev": "cross-env NODE_ENV=development RENDER_ENV=true tsx server/index.ts",
     "vercel-build": "npm run build"
   },
   "keywords": [
