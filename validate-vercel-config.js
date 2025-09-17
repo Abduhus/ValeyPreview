@@ -35,7 +35,20 @@ if (vercelConfig.builds && vercelConfig.functions) {
   console.log('   The "functions" property cannot be used with "builds"');
   console.log('   Please remove the "functions" property');
   hasErrors = true;
-} else {
+}
+
+// Check for routes vs modern properties conflict
+const modernProperties = ['rewrites', 'redirects', 'headers', 'cleanUrls', 'trailingSlash'];
+const hasModernProperties = modernProperties.some(prop => vercelConfig[prop]);
+
+if (vercelConfig.routes && hasModernProperties) {
+  console.log('❌ ERROR: "routes" property conflicts with modern properties');
+  console.log('   Found routes with:', modernProperties.filter(prop => vercelConfig[prop]).join(', '));
+  console.log('   Please use "rewrites" instead of "routes"');
+  hasErrors = true;
+}
+
+if (!hasErrors) {
   console.log('✅ No conflicting properties found');
 }
 
@@ -60,13 +73,34 @@ if (vercelConfig.builds) {
   });
 }
 
-// Validate routes configuration
+// Validate routing configuration
 if (vercelConfig.routes) {
-  console.log('\n🛣️  Validating routes configuration...');
+  console.log('\n🛣️  Validating routes configuration (legacy)...');
   console.log(`✅ Found ${vercelConfig.routes.length} route(s)`);
   
   vercelConfig.routes.forEach((route, index) => {
     console.log(`   Route ${index + 1}: ${route.src} → ${route.dest}`);
+  });
+}
+
+if (vercelConfig.rewrites) {
+  console.log('\n🔄 Validating rewrites configuration...');
+  console.log(`✅ Found ${vercelConfig.rewrites.length} rewrite(s)`);
+  
+  vercelConfig.rewrites.forEach((rewrite, index) => {
+    console.log(`   Rewrite ${index + 1}: ${rewrite.source} → ${rewrite.destination}`);
+  });
+}
+
+if (vercelConfig.headers) {
+  console.log('\n📋 Validating headers configuration...');
+  console.log(`✅ Found ${vercelConfig.headers.length} header rule(s)`);
+  
+  vercelConfig.headers.forEach((header, index) => {
+    console.log(`   Header rule ${index + 1}: ${header.source}`);
+    header.headers.forEach(h => {
+      console.log(`     ${h.key}: ${h.value}`);
+    });
   });
 }
 

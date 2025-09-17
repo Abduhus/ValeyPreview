@@ -1,34 +1,44 @@
 # 🔧 Vercel Configuration Fix
 
-## Issue Resolved ✅
+## Issues Resolved ✅
 
-**Error:** `The 'functions' property cannot be used in conjunction with the 'builds' property. Please remove one of them.`
+**Error 1:** `The 'functions' property cannot be used in conjunction with the 'builds' property. Please remove one of them.`
+
+**Error 2:** `If 'rewrites', 'redirects', 'headers', 'cleanUrls' or 'trailingSlash' are used, then 'routes' cannot be present.`
 
 ## What Was Fixed
 
-The `vercel.json` configuration had both `builds` and `functions` properties, which is not allowed in Vercel. This has been resolved by:
+The `vercel.json` configuration had multiple conflicts that have been resolved:
 
+### Fix 1: Functions vs Builds Conflict
 1. **Removed** the `functions` property
 2. **Moved** function configuration to the `builds` section
-3. **Validated** the configuration structure
+
+### Fix 2: Routes vs Modern Properties Conflict
+1. **Replaced** `routes` with `rewrites` (modern approach)
+2. **Updated** routing syntax from `src/dest` to `source/destination`
+3. **Maintained** `headers` configuration (now compatible)
+4. **Simplified** routing for API endpoints only
 
 ## Updated Configuration
 
 ### Before (❌ Invalid):
 ```json
 {
-  "builds": [
-    {
-      "src": "api/index.js",
-      "use": "@vercel/node"
-    }
-  ],
+  "builds": [...],
   "functions": {
     "api/index.js": {
       "maxDuration": 30,
       "memory": 1024
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    }
+  ],
+  "headers": [...]
 }
 ```
 
@@ -44,7 +54,14 @@ The `vercel.json` configuration had both `builds` and `functions` properties, wh
         "memory": 1024
       }
     }
-  ]
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    }
+  ],
+  "headers": [...]
 }
 ```
 
@@ -70,9 +87,10 @@ Your `vercel.json` now includes:
 - ✅ **Version 2** - Latest Vercel configuration format
 - ✅ **Project Name** - `valley-preview-perfume`
 - ✅ **Builds Configuration** - Serverless function and static build
-- ✅ **Routes Configuration** - API and static file routing
+- ✅ **Rewrites Configuration** - Modern API routing (replaces routes)
+- ✅ **Headers Configuration** - CORS and API access headers
 - ✅ **Environment Variables** - Production settings
-- ✅ **CORS Headers** - Proper API access configuration
+- ✅ **No Conflicts** - All properties are compatible
 
 ## Function Configuration
 
