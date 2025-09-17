@@ -1,0 +1,1569 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valley Breezes Perfumes</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.5 11.5H5.5C4.94772 11.5 4.5 11.9477 4.5 12.5V19C4.5 20.3807 5.61929 21.5 7 21.5H17C18.3807 21.5 19.5 20.3807 19.5 19V12.5C19.5 11.9477 19.0523 11.5 18.5 11.5Z'/%3E%3Cpath d='M14.5 11.5V9C14.5 8.44772 14.0523 8 13.5 8H10.5C9.94772 8 9.5 8.44772 9.5 9V11.5'/%3E%3Cpath d='M13.5 8C13.5 6.89543 12.6046 6 11.5 6C10.3954 6 9.5 6.89543 9.5 8'/%3E%3Cpath d='M13 6.5C15 5 16.5 4.5 18 3'/%3E%3Cpath d='M13.5 7.5C15.5 6.5 17 6 18.5 5'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Arabic:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* General Body Styles */
+    body {
+      margin: 0;
+      /* Swapped Inter for EB Garamond */
+      font-family: 'EB Garamond', serif;
+      /* Set the atmospheric background for the entire page */
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2175&auto-format&fit=crop') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      color: #fff;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    /* Header & Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+      backdrop-filter: blur(10px); /* Frosted glass effect */
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .header-logo-icon {
+        width: 32px;
+        height: 32px;
+        stroke: #D4AF37;
+        stroke-width: 1.5;
+    }
+    .header-logo-text {
+      font-family:'Cormorant Garamond',serif; 
+      color:#D4AF37; 
+      font-size:24px;
+    }
+
+
+    /* Sticker Navigation in Header */
+    nav {
+        display: flex;
+        gap: 25px; /* Spacing between stickers */
+    }
+    .sticker-nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #D4AF37;
+    }
+    .sticker-icon {
+        font-size: 1.8em; /* Make emojis larger */
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 32px; /* Set a fixed height for alignment */
+    }
+    .sticker-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: #D4AF37;
+        stroke-width: 1.5; /* Slightly thinner lines for elegance */
+        transition: stroke 0.3s;
+    }
+    .sticker-nav-text {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px); /* Start slightly below */
+        top: 120%; /* Position below the icon */
+        background: #111;
+        color: #D4AF37;
+        padding: 5px 12px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 600;
+        white-space: nowrap; /* Prevent text wrapping */
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        pointer-events: none; /* So it doesn't interfere with hover */
+        border: 1px solid rgba(212, 175, 55, 0.5);
+    }
+     .sticker-nav-item:hover .sticker-icon {
+        transform: scale(1.2) rotate(-10deg);
+    }
+    .sticker-nav-item:hover .sticker-icon svg {
+        stroke: #F9E79F;
+    }
+    .sticker-nav-item:not(.nav-dropdown):hover .sticker-nav-text {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    
+    /* New Dropdown Styles for Shop Sticker */
+    .nav-dropdown {
+      position: relative;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 130%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 0;
+      min-width: 120px;
+      z-index: 110;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      overflow: hidden;
+    }
+    .nav-dropdown:hover .dropdown-menu {
+      visibility: visible;
+      opacity: 1;
+    }
+    .dropdown-header {
+      padding: 10px 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2em;
+      color: #F9E79F;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .dropdown-menu a {
+      display: block;
+      color: #D4AF37;
+      padding: 8px 20px;
+      text-decoration: none;
+      font-size: 1em;
+      transition: background-color 0.3s;
+      font-family: 'EB Garamond', serif; /* Font unification */
+    }
+    .dropdown-menu a:hover {
+      background-color: rgba(212, 175, 55, 0.2);
+    }
+
+    /* Hero Section with Background Image */
+    .hero {
+      text-align: center;
+      padding: 120px 40px 150px 40px; /* Adjusted padding */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+    }
+    .hero-icon {
+      width: 64px;
+      height: 64px;
+      stroke: #D4AF37;
+      stroke-width: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px; /* Larger font size */
+      background: linear-gradient(90deg, #D4AF37, #F9E79F);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 0;
+    }
+    .hero p.ar {
+      font-family: 'Noto Sans Arabic', serif;
+      font-size: 24px;
+      margin: 10px 0;
+      background: linear-gradient(90deg, #D4AF37, #F9E79F);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero p.tagline {
+      font-size: 22px; /* Slightly larger for the new font */
+      color: rgba(255, 255, 255, 0.85);
+      /* Added a subtle text shadow for a "glassy" effect */
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .hero .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    /* Buttons */
+    .btn-gold {
+      background: linear-gradient(90deg, #D4AF37, #F9E79F);
+      color: #000;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      border: none;
+      font-family: 'EB Garamond', serif; /* Consistent font */
+      font-size: 1em;
+    }
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    }
+    .btn-outline {
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+     .btn-outline:hover {
+      background-color: #D4AF37;
+      color: #000;
+    }
+
+    /* General Section Styling */
+    .section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 40px auto;
+      background: rgba(10, 10, 10, 0.65);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .section-transparent {
+        background: transparent;
+        backdrop-filter: none;
+        border: none;
+    }
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      text-align: center;
+      background: linear-gradient(90deg, #D4AF37, #F9E79F);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 40px;
+    }
+
+    /* Bestseller Filters */
+    .bestseller-filters {
+        text-align: center;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .bestseller-filters .filter-btn {
+        color: #D4AF37;
+        text-decoration: none;
+        padding: 8px 18px;
+        border: 1px solid #D4AF37;
+        border-radius: 20px;
+        transition: background-color 0.3s, color 0.3s;
+        font-weight: 600;
+    }
+    .bestseller-filters .filter-btn:hover {
+        background-color: rgba(212, 175, 55, 0.2);
+    }
+    .bestseller-filters .filter-btn.active {
+        background-color: #D4AF37;
+        color: #000;
+    }
+    .bestseller-filters select {
+        background: rgba(0,0,0,0.5);
+        border: 1px solid #D4AF37;
+        color: #D4AF37;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-family: 'EB Garamond', serif;
+        font-size: 1em;
+        cursor: pointer;
+        appearance: none; /* Remove default arrow */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        padding-right: 30px;
+    }
+
+
+    /* Products Section */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.4s ease, opacity 0.4s ease, width 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative; /* For quick view button */
+    }
+     .product-card.hide {
+      transform: scale(0.8);
+      opacity: 0;
+      width: 0;
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+    .product-card:hover {
+      border-color: #D4AF37;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+    .product-card.hide:hover {
+      transform: scale(0.8); /* Prevent hover effect on hidden items */
+    }
+    
+    .product-image-container {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+    .product-image-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease-in-out;
+    }
+    .product-bottle-image {
+      opacity: 0.8; /* Always slightly visible */
+      object-fit: contain; /* To show the whole bottle */
+      padding: 20px; /* Padding around the bottle */
+      box-sizing: border-box;
+      z-index: 2; /* Bring bottle to front */
+    }
+    .product-mood-image {
+        z-index: 1; /* Keep mood image behind */
+    }
+    .product-card:hover .product-bottle-image {
+      opacity: 1;
+    }
+    .product-card:hover .product-mood-image {
+      opacity: 0.3; /* Fade mood image on hover */
+    }
+
+    .product-card h3 {
+      color: rgba(255, 255, 255, 0.9);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5em;
+      margin: 10px 0 5px 0;
+    }
+    .star-rating {
+        color: #D4AF37;
+        margin-bottom: 10px;
+    }
+    .star-rating .filled { color: #D4AF37; }
+    .star-rating .empty { color: #555; }
+    .product-category-tag {
+      font-size: 0.9em;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 10px 0;
+    }
+    .product-volume {
+        font-size: 0.9em;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 10px;
+    }
+    .product-card p.description {
+      color: rgba(220, 220, 220, 0.7);
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+      font-size: 1.1em; /* Increased size for Garamond */
+      min-height: 40px;
+      margin: 10px 0 15px 0;
+      flex-grow: 1;
+    }
+    .price {
+      color: #D4AF37;
+      font-weight: 600;
+      margin: 10px 0;
+      font-size: 1.2em; /* Increased size */
+    }
+    .quick-view-btn {
+        position: absolute;
+        bottom: 80px; /* Above add to cart */
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(212, 175, 55, 0.9);
+        color: #000;
+        padding: 8px 15px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: bold;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        cursor: pointer;
+        border: none;
+        z-index: 10;
+    }
+    .product-card:hover .quick-view-btn {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    /* Our Story Section */
+    .story-container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    .story-text { flex: 1; }
+    .story-image { flex: 1; }
+    .story-image img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .story-text p {
+        color: rgba(220, 220, 220, 0.85);
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+        font-size: 1.25em; /* Increased size for Garamond */
+        line-height: 1.7;
+    }
+    
+    /* Scent Quiz Trigger Section */
+    .quiz-trigger-section {
+        text-align: center;
+    }
+    .quiz-trigger-section p {
+        max-width: 600px;
+        margin: -20px auto 30px auto;
+        font-size: 1.2em;
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+
+    /* Testimonials Section */
+    /* REMOVED */
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.6);
+      color: rgba(180, 180, 180, 0.85);
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #222;
+    }
+    .footer-links { margin-bottom: 20px; }
+    .footer-links a {
+        color: rgba(180, 180, 180, 0.85);
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s;
+    }
+    .footer-links a:hover { color: #D4AF37; }
+    .social-icons a {
+        color: #D4AF37;
+        margin: 0 10px;
+        font-size: 1.5em;
+        transition: transform 0.3s;
+    }
+    .social-icons a:hover {
+        transform: translateY(-3px);
+    }
+    .newsletter-form {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .newsletter-form input[type="email"] {
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: 1px solid #D4AF37;
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+        font-family: 'EB Garamond', serif;
+        width: 250px;
+    }
+    .newsletter-form button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background: linear-gradient(90deg, #D4AF37, #F9E79F);
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: opacity 0.3s;
+    }
+    .newsletter-form button:hover {
+        opacity: 0.9;
+    }
+
+
+    /* Animation: Fade In On Scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    
+    /* Modal Styles (Shared by AI & Quiz) */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 200;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .modal-overlay.visible { display: flex; opacity: 1; }
+    .modal-content {
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 30px 40px;
+        width: 90%;
+        max-width: 600px;
+        position: relative;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+    }
+    .modal-overlay.visible .modal-content { transform: scale(1); }
+    .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .modal-content h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 32px;
+        text-align: center;
+        background: linear-gradient(90deg, #D4AF37, #F9E79F);
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-top: 0;
+    }
+    .modal-content textarea {
+        width: 100%;
+        height: 100px;
+        background: rgba(0,0,0,0.3);
+        border: 1px solid #444;
+        border-radius: 6px;
+        color: #fff;
+        padding: 10px;
+        font-family: 'EB Garamond', serif; /* Consistent font */
+        font-size: 18px; /* Larger text for readability */
+        resize: vertical;
+        margin-bottom: 20px;
+    }
+    .loading-spinner {
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        border-left-color: #D4AF37;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 40px auto;
+        display: none; /* Hidden by default */
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    #scent-result {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        align-items: center;
+    }
+    #scent-result img {
+        width: 120px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+    #scent-result-text h3 {
+        margin-top: 0;
+        color: #F9E79F;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.5em;
+    }
+    #scent-result-text p {
+        color: rgba(220, 220, 220, 0.85);
+        font-size: 1.1em; /* Increased font size */
+    }
+    
+    /* Scent Quiz Specific Styles */
+    .quiz-progress-bar {
+        width: 100%;
+        height: 8px;
+        background-color: #333;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+    #quiz-progress {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #D4AF37, #F9E79F);
+        transition: width 0.4s ease;
+    }
+    .quiz-step {
+        display: none;
+    }
+    .quiz-step.active {
+        display: block;
+        animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .quiz-step h3 {
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    .quiz-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    .quiz-options label {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+    .quiz-options label:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #777;
+    }
+    .quiz-options input[type="radio"] {
+        display: none;
+    }
+    .quiz-options input[type="radio"]:checked + label {
+        background-color: rgba(212, 175, 55, 0.2);
+        border-color: #D4AF37;
+    }
+    .quiz-option-icon {
+        font-size: 2em;
+    }
+    .quiz-option-image { /* New style for image-based options */
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 0 auto 10px auto;
+        display: block;
+    }
+    .quiz-option-text {
+        margin-top: 10px;
+        font-size: 1.1em;
+    }
+    .quiz-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    #quiz-result-container {
+        text-align: center;
+    }
+    #quiz-result-container .product-card {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+
+
+    /* Floating Cart Styles */
+    .floating-cart-icon {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(45deg, #D4AF37, #F9E79F);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 150;
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        transition: transform 0.3s;
+    }
+    .floating-cart-icon:hover {
+        transform: scale(1.1);
+    }
+    .floating-cart-icon svg {
+        width: 30px;
+        height: 30px;
+        stroke: #000;
+        stroke-width: 2;
+    }
+    .cart-tooltip-text {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        bottom: 110%; /* Position above the icon */
+        left: 50%;
+        transform: translateX(-50%);
+        background: #111;
+        color: #D4AF37;
+        padding: 5px 12px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: opacity 0.3s, visibility 0.3s;
+        pointer-events: none;
+        border: 1px solid rgba(212, 175, 55, 0.5);
+    }
+    .floating-cart-icon:hover .cart-tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+    .cart-item-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: #000;
+        color: #D4AF37;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+        border: 2px solid #D4AF37;
+    }
+
+    /* Cart Side Panel Styles */
+    .cart-side-panel {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Initially hidden */
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(15px);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 300;
+        transition: right 0.4s ease-in-out;
+        display: flex;
+        flex-direction: column;
+    }
+    .cart-side-panel.open {
+        right: 0;
+    }
+    .cart-header {
+        padding: 20px;
+        border-bottom: 1px solid #222;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .cart-header h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 24px;
+        margin: 0;
+        background: linear-gradient(90deg, #D4AF37, #F9E79F);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    .cart-close-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 28px;
+        cursor: pointer;
+    }
+    .cart-items {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 20px;
+    }
+    .cart-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .cart-item img {
+        width: 80px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    .cart-item-details {
+        flex-grow: 1;
+    }
+    .cart-item-details h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.1em;
+        font-family: 'Cormorant Garamond', serif;
+    }
+    .cart-item-price {
+        color: #D4AF37;
+        margin-bottom: 10px;
+    }
+    .cart-item-quantity {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+     .cart-item-quantity button {
+        background: #333;
+        border: 1px solid #555;
+        color: #fff;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-family: 'EB Garamond', serif; /* Font unification */
+    }
+    .cart-footer {
+        padding: 20px;
+        border-top: 1px solid #222;
+    }
+    .cart-subtotal {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 15px; }
+      .hero h1 { font-size: 48px; }
+      .story-container { flex-direction: column; text-align: center; }
+      .story-text p { text-align: justify; }
+      #scent-result { flex-direction: column; text-align: center; }
+      .cart-side-panel { max-width: 90%; }
+      .quiz-options { grid-template-columns: 1fr; }
+      .bestseller-filters { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="header-logo">
+      <svg class="header-logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18.5 11.5H5.5C4.94772 11.5 4.5 11.9477 4.5 12.5V19C4.5 20.3807 5.61929 21.5 7 21.5H17C18.3807 21.5 19.5 20.3807 19.5 19V12.5C19.5 11.9477 19.0523 11.5 18.5 11.5Z"/>
+        <path d="M14.5 11.5V9C14.5 8.44772 14.0523 8 13.5 8H10.5C9.94772 8 9.5 8.44772 9.5 9V11.5"/>
+        <path d="M13.5 8C13.5 6.89543 12.6046 6 11.5 6C10.3954 6 9.5 6.89543 9.5 8"/>
+        <path d="M13 6.5C15 5 16.5 4.5 18 3"/>
+        <path d="M13.5 7.5C15.5 6.5 17 6 18.5 5"/>
+      </svg>
+      <span class="header-logo-text">Valley Breezes</span>
+    </a>
+  <nav>
+    <div class="sticker-nav-item nav-dropdown">
+        <span class="sticker-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+        </span>
+        <span class="sticker-nav-text">Shop</span>
+        <div class="dropdown-menu">
+            <div class="dropdown-header">Shop by Category</div>
+            <a href="#bestsellers" data-filter="all">All Perfumes</a>
+            <a href="#bestsellers" data-filter="women">For Her</a>
+            <a href="#bestsellers" data-filter="men">For Him</a>
+            <a href="#bestsellers" data-filter="unisex">Unisex</a>
+            <a href="#">Gift Sets</a>
+        </div>
+    </div>
+    <a href="#" class="sticker-nav-item">
+      <span class="sticker-icon">
+        <img src="WhatsApp Image 2025-08-29 at 3.50.48 PM.jpeg" alt="Valley Breezes Logo" style="width: 28px; height: 28px; object-fit: contain;"/>
+      </span>
+      <span class="sticker-nav-text">Collections</span>
+    </a>
+    <a href="#" class="sticker-nav-item">
+      <span class="sticker-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+      </span>
+      <span class="sticker-nav-text">Contact</span>
+    </a>
+    <a href="#" class="sticker-nav-item">
+        <span class="sticker-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </span>
+        <span class="sticker-nav-text">Search</span>
+    </a>
+    <a href="#" class="sticker-nav-item">
+        <span class="sticker-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </span>
+        <span class="sticker-nav-text">Account</span>
+    </a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <svg class="hero-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18.5 11.5H5.5C4.94772 11.5 4.5 11.9477 4.5 12.5V19C4.5 20.3807 5.61929 21.5 7 21.5H17C18.3807 21.5 19.5 20.3807 19.5 19V12.5C19.5 11.9477 19.0523 11.5 18.5 11.5Z"/>
+        <path d="M14.5 11.5V9C14.5 8.44772 14.0523 8 13.5 8H10.5C9.94772 8 9.5 8.44772 9.5 9V11.5"/>
+        <path d="M13.5 8C13.5 6.89543 12.6046 6 11.5 6C10.3954 6 9.5 6.89543 9.5 8"/>
+        <path d="M13 6.5C15 5 16.5 4.5 18 3"/>
+        <path d="M13.5 7.5C15.5 6.5 17 6 18.5 5"/>
+    </svg>
+    <h1>Valley Breezes</h1>
+    <p class="ar">نسمات الوادي للعطور</p>
+    <p class="tagline">Whispers of the valley, captured in timeless fragrances that awaken the soul.</p>
+    <div class="buttons">
+      <a href="#bestsellers" class="btn-gold">Shop Now</a>
+      <a href="#" class="btn-outline" id="discover-btn">Discover Your Scent</a>
+    </div>
+  </section>
+
+  <section id="bestsellers" class="section fade-in section-transparent">
+    <h2>Bestsellers</h2>
+    <div class="bestseller-filters">
+        <a href="#" class="filter-btn active" data-filter="all">All</a>
+        <a href="#" class="filter-btn" data-filter="women">For Her</a>
+        <a href="#" class="filter-btn" data-filter="men">For Him</a>
+        <a href="#" class="filter-btn" data-filter="unisex">Unisex</a>
+        <select id="sort-by">
+            <option value="default">Sort By</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A-Z</option>
+            <option value="name-desc">Name: Z-A</option>
+        </select>
+    </div>
+    <div class="products">
+      <div class="product-card" data-category="unisex" data-name="Amber & Spice">
+        <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1617103996386-c42684d7c7c3?q=80&w=1887&auto=format&fit=crop" alt="Amber & Spice Perfume Mood Image" class="product-mood-image">
+            <img src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23D4AF37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.5 11.5H5.5C4.94772 11.5 4.5 11.9477 4.5 12.5V19C4.5 20.3807 5.61929 21.5 7 21.5H17C18.3807 21.5 19.5 20.3807 19.5 19V12.5C19.5 11.9477 19.0523 11.5 18.5 11.5Z'/%3E%3Cpath d='M14.5 11.5V9C14.5 8.44772 14.0523 8 13.5 8H10.5C9.94772 8 9.5 8.44772 9.5 9V11.5'/%3E%3Cpath d='M13.5 8C13.5 6.89543 12.6046 6 11.5 6C10.3954 6 9.5 6.89543 9.5 8'/%3E%3Cpath d='M13 6.5C15 5 16.5 4.5 18 3'/%3E%3Cpath d='M13.5 7.5C15.5 6.5 17 6 18.5 5'/%3E%3C/svg%3E" alt="Perfume Bottle Shape" class="product-bottle-image">
+        </div>
+        <h3>Amber & Spice</h3>
+        <div class="star-rating">★★★★☆</div>
+        <p class="product-volume">100ml Eau de Parfum</p>
+        <p class="description">A warm, inviting blend of rich amber and exotic spices, perfect for a cozy evening.</p>
+        <div class="price" data-price="52">$52</div>
+        <button class="quick-view-btn">Quick View</button>
+        <button class="btn-gold add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="unisex" data-name="Desert Rose Oud">
+         <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1554386698-294b5d33b2a2?q=80&w=1887&auto=format&fit=crop" alt="Desert Rose Oud Perfume Mood Image" class="product-mood-image">
+            <img src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23D4AF37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.5 11.5H5.5C4.94772 11.5 4.5 11.9477 4.5 12.5V19C4.5 20.3807 5.61929 21.5 7 21.5H17C18.3807 21.5 19.5 20.3807 19.5 19V12.5C19.5 11.9477 19.0523 11.5 18.5 11.5Z'/%3E%3Cpath d='M14.5 11.5V9C14.5 8.44772 14.0523 8 13.5 8H10.5C9.94772 8 9.5 8.44772 9.5 9V11.5'/%3E%3Cpath d='M13.5 8C13.5 6.89543 12.6046 6 11.5 6C10.3954 6 9.5 6.89543 9.5 8'/%3E%3Cpath d='M13 6.5C15 5 16.5 4.5 18 3'/%3E%3Cpath d='M13.5 7.5C15.5 6.5 17 6 18.5 5'/%3E%3C/svg%3E" alt="Perfume Bottle Shape" class="product-bottle-image">
+        </div>
+        <h3>Desert Rose Oud</h3>
+        <div class="star-rating">★★★★★</div>
+        <p class="product-volume">75ml Eau de Parfum</p>
+        <p class="description">An elegant fusion of delicate desert rose and deep, smoky oud wood.</p>
+        <div class="price" data-price="65">$65</div>
+        <button class="quick-view-btn">Quick View</button>
+        <button class="btn-gold add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="women" data-name="Citrus Grove">
+         <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1596417929339-0158a74421b3?q=80&w=1887&auto=format&fit=crop" alt="Citrus Grove Perfume Mood Image" class="product-mood-image">
+            <img src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23D4AF37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.5 11.5H5.5C4.94772 11.5 4.5 11.9477 4.5 12.5V19C4.5 20.3807 5.61929 21.5 7 21.5H17C18.3807 21.5 19.5 20.3807 19.5 19V12.5C19.5 11.9477 19.0523 11.5 18.5 11.5Z'/%3E%3Cpath d='M14.5 11.5V9C14.5 8.44772 14.0523 8 13.5 8H10.5C9.94772 8 9.5 8.44772 9.5 9V11.5'/%3E%3Cpath d='M13.5 8C13.5 6.89543 12.6046 6 11.5 6C10.3954 6 9.5 6.89543 9.5 8'/%3E%3Cpath d='M13 6.5C15 5 16.5 4.5 18 3'/%3E%3Cpath d='M13.5 7.5C15.5 6.5 17 6 18.5 5'/%3E%3C/svg%3E" alt="Perfume Bottle Shape" class="product-bottle-image">
+        </div>
+        <h3>Citrus Grove</h3>
+        <div class="star-rating">★★★★☆</div>
+        <p class="product-volume">50ml Eau de Toilette</p>
+        <p class="description">A bright, refreshing burst of sun-ripened citrus, capturing the essence of a vibrant morning.</p>
+        <div class="price" data-price="48">$48</div>
+        <button class="quick-view-btn">Quick View</button>
+        <button class="btn-gold add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="women" data-name="Midnight Musk">
+          <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1594035934090-41a4818f041b?q=80&w=1887&auto=format&fit=crop" alt="Midnight Musk Perfume Mood Image" class="product-mood-image">
+            <img src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23D4AF37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.5 11.5H5.5C4.94772 11.5 4.5 11.9477 4.5 12.5V19C4.5 20.3807 5.61929 21.5 7 21.5H17C18.3807 21.5 19.5 20.3807 19.5 19V12.5C19.5 11.9477 19.0523 11.5 18.5 11.5Z'/%3E%3Cpath d='M14.5 11.5V9C14.5 8.44772 14.0523 8 13.5 8H10.5C9.94772 8 9.5 8.44772 9.5 9V11.5'/%3E%3Cpath d='M13.5 8C13.5 6.89543 12.6046 6 11.5 6C10.3954 6 9.5 6.89543 9.5 8'/%3E%3Cpath d='M13 6.5C15 5 16.5 4.5 18 3'/%3E%3Cpath d='M13.5 7.5C15.5 6.5 17 6 18.5 5'/%3E%3C/svg%3E" alt="Perfume Bottle Shape" class="product-bottle-image">
+        </div>
+          <h3>Midnight Musk</h3>
+          <div class="star-rating">★★★★★</div>
+          <p class="product-volume">90ml Eau de Parfum</p>
+          <p class="description">A mysterious and sensual scent with notes of dark musk, vanilla, and a hint of patchouli.</p>
+          <div class="price" data-price="58">$58</div>
+          <button class="quick-view-btn">Quick View</button>
+          <button class="btn-gold add-to-cart-btn">Add to Cart</button>
+      </div>
+       <div class="product-card" data-category="unisex" data-name="Sandalwood Veil">
+          <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1622620789729-1959c82c21a3?q=80&w=1887&auto=format&fit=crop" alt="Sandalwood Veil Mood Image" class="product-mood-image">
+            <img src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='%23D4AF37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.5 11.5H5.5C4.94772 11.5 4.5 11.9477 4.5 12.5V19C4.5 20.3807 5.61929 21.5 7 21.5H17C18.3807 21.5 19.5 20.3807 19.5 19V12.5C19.5 11.9477 19.0523 11.5 18.5 11.5Z'/%3E%3Cpath d='M14.5 11.5V9C14.5 8.44772 14.0523 8 13.5 8H10.5C9.94772 8 9.5 8.44772 9.5 9V11.5'/%3E%3Cpath d='M13.5 8C13.5 6.89543 12.6046 6 11.5 6C10.3954 6 9.5 6.89543 9.5 8'/%3E%3Cpath d='M13 6.5C15 5 16.5 4.5 18 3'/%3E%3Cpath d='M13.5 7.5C15.5 6.5 17 6 18.5 5'/%3E%3C/svg%3E" alt="Perfume Bottle Shape" class="product-bottle-image">
+        </div>
+          <h3>Sandalwood Veil</h3>
+          <div class="star-rating">★★★★☆</div>
+          <p class="product-volume">100ml Eau de Parfum</p>
+          <p class="description">A comforting embrace of creamy sandalwood and soft vanilla, suitable for any occasion.</p>
+          <div class="price" data-price="62">$62</div>
+          <button class="quick-view-btn">Quick View</button>
+          <button class="btn-gold add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-in">
+    <h2>Our Story</h2>
+    <div class="story-container">
+      <div class="story-text">
+        <p>
+          Nasamat Al Wadi (نسمات الوادي), "Valley Breezes," is inspired by the winds that sweep through serene landscapes, 
+          carrying whispers of nature, tradition, and elegance. Each fragrance blends timeless Arabian heritage with modern sophistication, 
+          creating scents that linger like a cherished memory on the valley wind.
+        </p>
+      </div>
+      <div class="story-image">
+        <img src="https://images.unsplash.com/photo-1605557622262-a2a4a7f98501?q=80&w=1887&auto=format&fit=crop" alt="Valley Inspiration">
+      </div>
+    </div>
+  </section>
+  
+  <section class="section fade-in quiz-trigger-section">
+      <h2>Find Your Signature Scent</h2>
+      <p>Answer a few simple questions, and we'll unveil the fragrance that truly represents you.</p>
+      <button class="btn-gold" id="start-quiz-btn">Take the Scent Quiz</button>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="#">Shop</a> | <a href="#">Collections</a> | <a href="#">Contact</a> | <a href="#">Privacy Policy</a>
+  </div>
+  <div class="social-icons">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+  </div>
+  <div class="newsletter-form">
+      <input type="email" placeholder="Enter your email for updates">
+      <button>Subscribe</button>
+  </div>
+  <p>© <span id="year"></span> Valley Breezes Perfumes</p>
+</footer>
+
+<!-- AI Scent Discovery Modal -->
+<div class="modal-overlay" id="scent-modal">
+    <div class="modal-content">
+        <button class="modal-close" id="close-modal">&times;</button>
+        <h2>Discover Your Perfect Scent</h2>
+        <p style="text-align:center; color: rgba(220, 220, 220, 0.85); margin-top: -10px; margin-bottom: 20px;">Describe a memory, a mood, or a feeling, and our AI perfumer will find your match.</p>
+        <textarea id="scent-prompt" placeholder="e.g., 'a quiet walk in a rainy forest' or 'the feeling of warm sunshine on my skin' or 'a vibrant, bustling souk'..."></textarea>
+        <button class="btn-gold" id="find-scent-btn" style="width:100%; box-sizing: border-box;">Find My Scent</button>
+        <div class="loading-spinner" id="loading-spinner-ai"></div>
+        <div id="scent-result" style="display: none;">
+            <img id="scent-result-img" src="" alt="Recommended Perfume">
+            <div id="scent-result-text">
+                <h3></h3>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scent Quiz Modal -->
+<div class="modal-overlay" id="quiz-modal">
+    <div class="modal-content">
+        <button class="modal-close" id="close-quiz-modal">&times;</button>
+        <h2>Find Your Scent</h2>
+        <div class="quiz-progress-bar"><div id="quiz-progress"></div></div>
+        
+        <div id="quiz-content">
+            <!-- Step 1: Gender -->
+            <div class="quiz-step active" data-step="1">
+                <h3>Who are you shopping for?</h3>
+                <div class="quiz-options">
+                    <input type="radio" id="gender-women" name="gender" value="women"><label for="gender-women"><div class="quiz-option-icon">♀</div><div class="quiz-option-text">For Her</div></label>
+                    <input type="radio" id="gender-men" name="gender" value="men"><label for="gender-men"><div class="quiz-option-icon">♂</div><div class="quiz-option-text">For Him</div></label>
+                    <input type="radio" id="gender-unisex" name="gender" value="unisex"><label for="gender-unisex"><div class="quiz-option-icon">⚥</div><div class="quiz-option-text">Unisex</div></label>
+                </div>
+                <div class="quiz-navigation">
+                    <span></span>
+                    <button class="btn-gold quiz-nav-btn" data-next="2">Next</button>
+                </div>
+            </div>
+            <!-- Step 2: Scent Profile -->
+            <div class="quiz-step" data-step="2">
+                <h3>What's your preferred scent profile?</h3>
+                <div class="quiz-options">
+                    <input type="radio" id="profile-spicy" name="profile" value="spicy"><label for="profile-spicy"><div class="quiz-option-icon">🌶️</div><div class="quiz-option-text">Warm & Spicy</div></label>
+                    <input type="radio" id="profile-woody" name="profile" value="woody"><label for="profile-woody"><div class="quiz-option-icon">🌲</div><div class="quiz-option-text">Woody & Earthy</div></label>
+                    <input type="radio" id="profile-fresh" name="profile" value="fresh"><label for="profile-fresh"><div class="quiz-option-icon">🍋</div><div class="quiz-option-text">Fresh & Citrusy</div></label>
+                    <input type="radio" id="profile-floral" name="profile" value="floral"><label for="profile-floral"><div class="quiz-option-icon">🌹</div><div class="quiz-option-text">Sensual & Floral</div></label>
+                    <input type="radio" id="profile-oriental" name="profile" value="oriental"><label for="profile-oriental"><div class="quiz-option-icon">🕌</div><div class="quiz-option-text">Rich & Oriental</div></label>
+                    <input type="radio" id="profile-aquatic" name="profile" value="aquatic"><label for="profile-aquatic"><div class="quiz-option-icon">🌊</div><div class="quiz-option-text">Clean & Aquatic</div></label>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="btn-outline quiz-nav-btn" data-prev="1">Back</button>
+                    <button class="btn-gold quiz-nav-btn" data-next="3">Next</button>
+                </div>
+            </div>
+            <!-- Step 3: Occasion -->
+            <div class="quiz-step" data-step="3">
+                <h3>When will you wear it most?</h3>
+                <div class="quiz-options">
+                    <input type="radio" id="occasion-day" name="occasion" value="day"><label for="occasion-day"><div class="quiz-option-icon">☀️</div><div class="quiz-option-text">Daytime Casual</div></label>
+                    <input type="radio" id="occasion-night" name="occasion" value="night"><label for="occasion-night"><div class="quiz-option-icon">🌙</div><div class="quiz-option-text">Evening & Events</div></label>
+                    <input type="radio" id="occasion-work" name="occasion" value="work"><label for="occasion-work"><div class="quiz-option-icon">💼</div><div class="quiz-option-text">Work/Professional</div></label>
+                    <input type="radio" id="occasion-special" name="occasion" value="special"><label for="occasion-special"><div class="quiz-option-icon">✨</div><div class="quiz-option-text">Special Occasions</div></label>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="btn-outline quiz-nav-btn" data-prev="2">Back</button>
+                    <button class="btn-gold" id="find-match-btn">Find My Match</button>
+                </div>
+            </div>
+        </div>
+        <div class="loading-spinner" id="loading-spinner-quiz"></div>
+        <div id="quiz-result-container" style="display: none;"></div>
+    </div>
+</div>
+
+<div class="floating-cart-icon" id="cart-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+    </svg>
+    <span class="cart-tooltip-text">Cart</span>
+    <span class="cart-item-count" id="cart-item-count">0</span>
+</div>
+
+<div class="cart-side-panel" id="cart-panel">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="cart-close-btn" id="cart-close-btn">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items-container">
+        </div>
+    <div class="cart-footer">
+        <div class="cart-subtotal">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">$0.00</span>
+        </div>
+        <button class="btn-gold" style="width: 100%; box-sizing: border-box;">Proceed to Checkout</button>
+    </div>
+</div>
+
+<script>
+  // Set current year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Scroll Fade-in Animation Logic
+  const fadeInElements = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeInElements.forEach(element => {
+    observer.observe(element);
+  });
+
+  // Gemini API Scent Discovery Modal Logic
+  const discoverBtn = document.getElementById('discover-btn');
+  const scentModal = document.getElementById('scent-modal');
+  const closeModalBtn = document.getElementById('close-modal');
+  const findScentBtn = document.getElementById('find-scent-btn');
+  const scentPrompt = document.getElementById('scent-prompt');
+  const loadingSpinnerAI = document.getElementById('loading-spinner-ai');
+  const scentResult = document.getElementById('scent-result');
+
+  discoverBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      scentModal.classList.add('visible');
+  });
+
+  closeModalBtn.addEventListener('click', () => {
+      scentModal.classList.remove('visible');
+  });
+  
+  scentModal.addEventListener('click', (e) => {
+      if(e.target === scentModal) {
+          scentModal.classList.remove('visible');
+      }
+  });
+
+  findScentBtn.addEventListener('click', async () => {
+    const userPrompt = scentPrompt.value;
+    if (!userPrompt) {
+      alert("Please describe a scent, mood, or memory.");
+      return;
+    }
+
+    loadingSpinnerAI.style.display = 'block';
+    scentResult.style.display = 'none';
+    
+    // Create a list of available perfumes for the AI
+    const perfumes = Array.from(document.querySelectorAll('.product-card')).map(card => {
+        const name = card.querySelector('h3').textContent;
+        const description = card.querySelector('p.description').textContent;
+        const image = card.querySelector('.product-mood-image').src; // Use mood image for AI context
+        return { name, description, image };
+    });
+
+    const systemPrompt = `You are a master perfumer for "Valley Breezes Perfumes". Your task is to recommend one of our exclusive fragrances based on a customer's described mood, memory, or feeling.
+
+    Here is our current collection:
+    ${perfumes.map(p => `- ${p.name}: ${p.description}`).join('\n')}
+
+    Analyze the user's input and select the single best fragrance from the list. Your response MUST be in a valid JSON format, with no extra text or explanations. Do not use markdown.
+    
+    The JSON object must have these exact keys: "perfumeName", and "reason".
+    - "perfumeName": The exact name of the chosen perfume from the list.
+    - "reason": A short, poetic, and elegant explanation (max 30 words) for why this scent is the perfect match for the user's description.`;
+
+    const apiKey = ""; // Leave blank, handled by the environment
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+    const payload = {
+        contents: [{ parts: [{ text: userPrompt }] }],
+        systemInstruction: {
+            parts: [{ text: systemPrompt }]
+        },
+        generationConfig: {
+            responseMimeType: "application/json",
+        }
+    };
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        
+        if (!response.ok) {
+            throw new Error(`API Error: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        const candidate = result.candidates?.[0];
+
+        if (candidate && candidate.content?.parts?.[0]?.text) {
+            const jsonText = candidate.content.parts[0].text;
+            // Additional check for valid JSON before parsing
+            if (jsonText && jsonText.trim().startsWith('{')) {
+                const recommendation = JSON.parse(jsonText);
+                const chosenPerfume = perfumes.find(p => p.name === recommendation.perfumeName);
+                
+                if (chosenPerfume) {
+                    document.getElementById('scent-result-img').src = chosenPerfume.image;
+                    document.getElementById('scent-result-text').querySelector('h3').textContent = chosenPerfume.name;
+                    document.getElementById('scent-result-text').querySelector('p').textContent = recommendation.reason;
+                    scentResult.style.display = 'flex';
+                } else {
+                     throw new Error("Recommended perfume not found in collection.");
+                }
+            } else {
+                throw new Error("Received an invalid response from the AI.");
+            }
+        } else {
+             throw new Error("No recommendation received from the AI.");
+        }
+
+    } catch (error) {
+        console.error("Error fetching scent recommendation:", error);
+        document.getElementById('scent-result-text').querySelector('h3').textContent = "An Error Occurred";
+        document.getElementById('scent-result-text').querySelector('p').textContent = "We couldn't find a recommendation at this time. Please try again later.";
+        document.getElementById('scent-result-img').src = 'https://placehold.co/120x160/111111/D4AF37?text=Error';
+        scentResult.style.display = 'flex';
+    } finally {
+        loadingSpinnerAI.style.display = 'none';
+    }
+  });
+  
+  // Shopping Cart Logic
+  const cartIcon = document.getElementById('cart-icon');
+  const cartPanel = document.getElementById('cart-panel');
+  const cartCloseBtn = document.getElementById('cart-close-btn');
+  const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+  const cartItemsContainer = document.getElementById('cart-items-container');
+  const cartItemCountEl = document.getElementById('cart-item-count');
+  const cartSubtotalEl = document.getElementById('cart-subtotal');
+  
+  let cart = [];
+
+  // --- Cart Panel Visibility ---
+  cartIcon.addEventListener('click', () => cartPanel.classList.add('open'));
+  cartCloseBtn.addEventListener('click', () => cartPanel.classList.remove('open'));
+
+  // --- Add to Cart ---
+  function setupAddToCartListeners() {
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        // Remove existing listener to avoid duplicates if this function is called again
+        button.replaceWith(button.cloneNode(true));
+    });
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const card = e.target.closest('.product-card');
+            const name = card.dataset.name;
+            const price = parseFloat(card.querySelector('.price').dataset.price);
+            const image = card.querySelector('.product-mood-image').src;
+
+            addToCart({ name, price, image });
+        });
+    });
+  }
+  setupAddToCartListeners();
+
+  function addToCart(product) {
+    const existingItem = cart.find(item => item.name === product.name);
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({ ...product, quantity: 1 });
+    }
+    updateCart();
+    cartPanel.classList.add('open');
+  }
+
+  // --- Update & Render Cart ---
+  function updateCart() {
+    renderCartItems();
+    updateCartCount();
+    updateCartSubtotal();
+  }
+  
+  function renderCartItems() {
+      if (cart.length === 0) {
+          cartItemsContainer.innerHTML = '<p style="text-align:center; color: #aaa;">Your cart is empty.</p>';
+          return;
+      }
+
+      cartItemsContainer.innerHTML = cart.map(item => `
+        <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-details">
+                <h3>${item.name}</h3>
+                <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                <div class="cart-item-quantity">
+                    <button onclick="changeQuantity('${item.name}', -1)">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="changeQuantity('${item.name}', 1)">+</button>
+                </div>
+            </div>
+        </div>
+      `).join('');
+  }
+  
+  function updateCartCount() {
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartItemCountEl.textContent = totalItems;
+  }
+
+  function updateCartSubtotal() {
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      cartSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+  }
+  
+  // --- Change Quantity ---
+  window.changeQuantity = function(name, change) {
+      const item = cart.find(item => item.name === name);
+      if (item) {
+          item.quantity += change;
+          if (item.quantity <= 0) {
+              cart = cart.filter(cartItem => cartItem.name !== name);
+          }
+      }
+      updateCart();
+  }
+
+  // --- Product Filtering Logic ---
+  const filterLinks = document.querySelectorAll('.bestseller-filters .filter-btn');
+  const productCards = document.querySelectorAll('#bestsellers .product-card');
+
+  filterLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          // Active button styling
+          filterLinks.forEach(l => l.classList.remove('active'));
+          e.target.classList.add('active');
+
+          const filter = e.target.dataset.filter;
+
+          productCards.forEach(card => {
+              const category = card.dataset.category;
+              
+              let show = false;
+              if (filter === 'all') {
+                  show = true;
+              } else if (filter === 'men') {
+                  show = (category === 'men' || category === 'unisex');
+              } else if (filter === 'women') {
+                  show = (category === 'women' || category === 'unisex');
+              } else {
+                  show = (category === filter);
+              }
+
+              if (show) {
+                  card.classList.remove('hide');
+              } else {
+                  card.classList.add('hide');
+              }
+          });
+      });
+  });
+
+  // --- Scent Quiz Logic ---
+    const startQuizBtn = document.getElementById('start-quiz-btn');
+    const quizModal = document.getElementById('quiz-modal');
+    const closeQuizModalBtn = document.getElementById('close-quiz-modal');
+    const quizNavButtons = document.querySelectorAll('.quiz-nav-btn');
+    const findMatchBtn = document.getElementById('find-match-btn');
+    const quizSteps = document.querySelectorAll('.quiz-step');
+    const quizProgress = document.getElementById('quiz-progress');
+    const quizResultContainer = document.getElementById('quiz-result-container');
+    const quizContent = document.getElementById('quiz-content');
+    const loadingSpinnerQuiz = document.getElementById('loading-spinner-quiz');
+
+    const productsData = [
+        { name: 'Amber & Spice', tags: ['unisex', 'spicy', 'night'], card: document.querySelector('.product-card[data-name="Amber & Spice"]').outerHTML },
+        { name: 'Desert Rose Oud', tags: ['unisex', 'woody', 'night'], card: document.querySelector('.product-card[data-name="Desert Rose Oud"]').outerHTML },
+        { name: 'Citrus Grove', tags: ['women', 'fresh', 'day'], card: document.querySelector('.product-card[data-name="Citrus Grove"]').outerHTML },
+        { name: 'Midnight Musk', tags: ['women', 'floral', 'night'], card: document.querySelector('.product-card[data-name="Midnight Musk"]').outerHTML },
+        { name: 'Sandalwood Veil', tags: ['unisex', 'woody', 'day'], card: document.querySelector('.product-card[data-name="Sandalwood Veil"]').outerHTML }
+    ];
+
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    function showStep(stepNumber) {
+        quizSteps.forEach(step => step.classList.remove('active'));
+        document.querySelector(`.quiz-step[data-step="${stepNumber}"]`).classList.add('active');
+        quizProgress.style.width = `${(stepNumber / totalSteps) * 100}%`;
+        currentStep = stepNumber;
+    }
+
+    startQuizBtn.addEventListener('click', () => {
+        quizModal.classList.add('visible');
+        showStep(1);
+        quizResultContainer.style.display = 'none';
+        quizContent.style.display = 'block';
+    });
+
+    closeQuizModalBtn.addEventListener('click', () => quizModal.classList.remove('visible'));
+    quizModal.addEventListener('click', (e) => {
+        if(e.target === quizModal) quizModal.classList.remove('visible');
+    });
+
+    quizNavButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (button.dataset.next) {
+                const nextStep = parseInt(button.dataset.next);
+                showStep(nextStep);
+            } else if (button.dataset.prev) {
+                const prevStep = parseInt(button.dataset.prev);
+                showStep(prevStep);
+            }
+        });
+    });
+
+    findMatchBtn.addEventListener('click', () => {
+        const gender = document.querySelector('input[name="gender"]:checked')?.value;
+        const profile = document.querySelector('input[name="profile"]:checked')?.value;
+        const occasion = document.querySelector('input[name="occasion"]:checked')?.value;
+
+        if (!gender || !profile || !occasion) {
+            alert("Please answer all questions to find your match.");
+            return;
+        }
+
+        quizContent.style.display = 'none';
+        loadingSpinnerQuiz.style.display = 'block';
+
+        const userPreferences = [gender, profile, occasion];
+        
+        let bestMatch = null;
+        let maxScore = -1;
+
+        productsData.forEach(product => {
+            let currentScore = 0;
+            userPreferences.forEach(pref => {
+                if (product.tags.includes(pref)) {
+                    currentScore++;
+                }
+            });
+            if (currentScore > maxScore) {
+                maxScore = currentScore;
+                bestMatch = product;
+            }
+        });
+        
+        setTimeout(() => {
+            loadingSpinnerQuiz.style.display = 'none';
+            quizResultContainer.innerHTML = `<h3>Your Perfect Match!</h3>${bestMatch.card}`;
+            quizResultContainer.style.display = 'block';
+            // Re-attach event listeners for the newly created "Add to Cart" button
+            setupAddToCartListeners();
+        }, 1500);
+    });
+
+
+</script>
+
+</body>
+</html>

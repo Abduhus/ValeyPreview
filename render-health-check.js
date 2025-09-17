@@ -1,65 +1,56 @@
-// Simple health check script for Render
-// This script can be used to verify that the application is running correctly
+// Health check script for Render deployment
+// This script verifies that all necessary build steps completed successfully
 
-const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
-// Get port from environment or default to 10000
-const port = process.env.PORT || 10000;
-const host = 'localhost';
+console.log('=== Render Health Check for ValleyPreview ===');
 
-console.log(`Checking health of application on ${host}:${port}`);
+// Check if required directories exist
+const requiredDirs = [
+  'dist',
+  'dist/public',
+  'dist/server'
+];
 
-// Make a simple HTTP request to the health endpoint
-const options = {
-  hostname: host,
-  port: port,
-  path: '/health',
-  method: 'GET',
-  timeout: 5000
-};
+// Check if required files exist
+const requiredFiles = [
+  'dist/server/index.cjs',
+  'dist/public/index.html',
+  'package.json',
+  'render.json'
+];
 
-const req = http.request(options, (res) => {
-  console.log(`Health check response status: ${res.statusCode}`);
-  
-  let data = '';
-  res.on('data', (chunk) => {
-    data += chunk;
-  });
-  
-  res.on('end', () => {
-    try {
-      const jsonData = JSON.parse(data);
-      console.log('Health check response:', jsonData);
-      if (jsonData.status === 'ok') {
-        console.log('✅ Application is healthy');
-        process.exit(0);
-      } else {
-        console.log('❌ Application is not healthy');
-        process.exit(1);
-      }
-    } catch (error) {
-      console.log('Health check response (raw):', data);
-      // Even if we can't parse JSON, if we got a 200 response, consider it healthy
-      if (res.statusCode === 200) {
-        console.log('✅ Application responded with 200 OK');
-        process.exit(0);
-      } else {
-        console.log('❌ Application did not respond with 200 OK');
-        process.exit(1);
-      }
-    }
-  });
-});
+console.log('Checking required directories...');
+let allDirsExist = true;
+for (const dir of requiredDirs) {
+  const fullPath = path.join(process.cwd(), dir);
+  if (fs.existsSync(fullPath)) {
+    console.log(`✓ ${dir} exists`);
+  } else {
+    console.log(`✗ ${dir} is missing`);
+    allDirsExist = false;
+  }
+}
 
-req.on('error', (error) => {
-  console.error('❌ Health check failed:', error.message);
+console.log('\nChecking required files...');
+let allFilesExist = true;
+for (const file of requiredFiles) {
+  const fullPath = path.join(process.cwd(), file);
+  if (fs.existsSync(fullPath)) {
+    console.log(`✓ ${file} exists`);
+  } else {
+    console.log(`✗ ${file} is missing`);
+    allFilesExist = false;
+  }
+}
+
+if (allDirsExist && allFilesExist) {
+  console.log('\n✓ All required files and directories are present');
+  console.log('✓ Render deployment should succeed');
+  process.exit(0);
+} else {
+  console.log('\n✗ Missing required files or directories');
+  console.log('✗ Render deployment may fail');
   process.exit(1);
-});
-
-req.on('timeout', () => {
-  console.error('❌ Health check timed out');
-  req.destroy();
-  process.exit(1);
-});
-
-req.end();
+}

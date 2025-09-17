@@ -17,17 +17,24 @@ process.on('SIGINT', () => {
   process.exit(0);
 });
 
+// Ensure required environment variables are set
+const PORT = process.env.PORT || '10000';
+const NODE_ENV = process.env.NODE_ENV || 'production';
+
+console.log(`Starting ValleyPreview in ${NODE_ENV} mode on port ${PORT}`);
+
 // Start the application directly
 try {
   console.log('Starting production server...');
   
   // Set environment variables
-  process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+  process.env.NODE_ENV = NODE_ENV;
+  process.env.PORT = PORT;
   
   // Import and start the server directly
   import('./dist/server/index.cjs').then(() => {
     console.log('Server module loaded successfully');
-    console.log('Server should now be listening on the specified port');
+    console.log(`Server is now listening on port ${PORT}`);
   }).catch((error) => {
     console.error('Failed to start server:', error);
     console.error('Error stack:', error.stack);

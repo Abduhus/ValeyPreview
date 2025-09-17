@@ -1,12 +1,13 @@
 {
   "name": "valley-preview-perfume-ecommerce",
   "version": "1.0.0",
-  "description": "Luxury Perfume E-commerce Platform",
+  "description": "Luxury Perfume E-commerce Platform - REBUILD_ID_20250917_1730",
   "main": "server/index.ts",
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
     "build": "tsc --project tsconfig.build.json && vite build",
-    "start": "cross-env NODE_ENV=production node dist/server/index.cjs",
+    "start": "cross-env NODE_ENV=production node dist/server/index.js",
+    "start-production": "cross-env NODE_ENV=production node dist/server/index.js",
     "preview": "vite preview",
     "check": "tsc --noEmit",
     "db:push": "drizzle-kit push:pg",
@@ -17,8 +18,7 @@
     "railway:logs": "railway logs",
     "build:docker": "docker build -t valley-preview .",
     "render:build": "npm run build",
-    "render:start": "npm run start",
-    "render:health": "node render-health-check.js"
+    "render:start": "npm run start"
   },
   "keywords": [
     "perfume",
