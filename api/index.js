@@ -9,17 +9,23 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// CORS middleware
+// CORS middleware for Vercel
 app.use((req, res, next) => {
   const allowedOrigins = [
-    'https://your-vercel-domain.vercel.app',
+    'https://valley-preview-perfume.vercel.app',
+    'https://valley-preview-perfume-*.vercel.app',
     'http://localhost:5174',
-    'http://localhost:5000'
+    'http://localhost:5000',
+    'http://localhost:3000'
   ];
   
   const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
+  
+  // Allow Vercel preview deployments
+  if (origin && (allowedOrigins.includes(origin) || origin.includes('.vercel.app'))) {
     res.header('Access-Control-Allow-Origin', origin);
+  } else {
+    res.header('Access-Control-Allow-Origin', '*');
   }
   
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -41,17 +47,21 @@ app.get('/health', (req, res) => {
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
     environment: process.env.NODE_ENV || 'production',
-    message: 'ValleyPreview Perfume E-commerce Platform is running'
+    message: 'ValleyPreview Perfume E-commerce Platform is running on Vercel',
+    platform: 'vercel',
+    deployment_url: process.env.VERCEL_URL || 'localhost'
   });
 });
 
-app.get('/render/health', (req, res) => {
+app.get('/vercel/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
     environment: process.env.NODE_ENV || 'production',
-    platform: 'vercel'
+    platform: 'vercel',
+    vercel_env: process.env.VERCEL_ENV || 'false',
+    region: process.env.VERCEL_REGION || 'unknown'
   });
 });
 
