@@ -14,23 +14,42 @@ try {
   const renderConfig = JSON.parse(fs.readFileSync(renderConfigPath, 'utf8'));
   console.log('✅ render.json found and valid JSON');
 
-  // Check required properties
-  if (!renderConfig.buildCommand) {
-    console.error('❌ buildCommand is required in render.json');
-    process.exit(1);
-  }
+  // Check required properties (new format)
+  if (renderConfig.version === 1 && renderConfig.services) {
+    const service = renderConfig.services[0];
+    if (!service.buildCommand) {
+      console.error('❌ buildCommand is required in render.json service configuration');
+      process.exit(1);
+    }
+    
+    if (!service.startCommand) {
+      console.error('❌ startCommand is required in render.json service configuration');
+      process.exit(1);
+    }
+  } else {
+    // Check required properties (old format)
+    if (!renderConfig.buildCommand) {
+      console.error('❌ buildCommand is required in render.json');
+      process.exit(1);
+    }
 
-  if (!renderConfig.startCommand) {
-    console.error('❌ startCommand is required in render.json');
-    process.exit(1);
+    if (!renderConfig.startCommand) {
+      console.error('❌ startCommand is required in render.json');
+      process.exit(1);
+    }
   }
 
   console.log('✅ Required properties found');
 
   // Check for PORT environment variable (should NOT be set in render.json)
-  const hasPortEnvVar = renderConfig.envVars && renderConfig.envVars.some(envVar => 
-    envVar.key === 'PORT'
-  );
+  let envVars = [];
+  if (renderConfig.version === 1 && renderConfig.services) {
+    envVars = renderConfig.services[0].envVars || [];
+  } else {
+    envVars = renderConfig.envVars || [];
+  }
+  
+  const hasPortEnvVar = envVars.some(envVar => envVar.key === 'PORT');
 
   if (hasPortEnvVar) {
     console.warn('⚠️  Warning: PORT should not be set in render.json');
@@ -40,13 +59,21 @@ try {
     console.log('✅ PORT environment variable correctly omitted (will use Render\'s provided port)');
   }
 
-  // Check for server-render.js
-  const serverRenderPath = path.join(__dirname, 'server-render.js');
-  if (!fs.existsSync(serverRenderPath)) {
-    console.error('❌ server-render.js not found');
+  // Check for server entry file
+  let startCommand = '';
+  if (renderConfig.version === 1 && renderConfig.services) {
+    startCommand = renderConfig.services[0].startCommand;
+  } else {
+    startCommand = renderConfig.startCommand;
+  }
+  
+  const entryFile = startCommand.replace('node ', '').trim();
+  const entryFilePath = path.join(__dirname, entryFile);
+  if (!fs.existsSync(entryFilePath)) {
+    console.error(`❌ ${entryFile} not found`);
     process.exit(1);
   }
-  console.log('✅ server-render.js found');
+  console.log(`✅ ${entryFile} found`);
 
   // Check package.json for build scripts
   const packageJsonPath = path.join(__dirname, 'package.json');

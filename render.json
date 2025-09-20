@@ -6,7 +6,7 @@
       "name": "valley-preview-perfume",
       "env": "node",
       "buildCommand": "npm install && npm run build",
-      "startCommand": "node server-render.js",
+      "startCommand": "node render-entry.js",
       "healthCheckPath": "/health",
       "envVars": [
         {
