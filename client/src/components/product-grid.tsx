@@ -132,11 +132,8 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
   const groupProductsByName = (products: Product[]): { [key: string]: Product[] } => {
     const groups: { [key: string]: Product[] } = {};
     products.forEach(product => {
-      // Normalize brand for grouping (case-insensitive, trim, underscores to spaces)
-      let normalizedBrand = (product.brand || '').toLowerCase().replace(/_/g, ' ').trim();
-      let normalizedName = (product.name || '').toLowerCase().trim();
-      // Only group products with the exact same normalized brand and name
-      const key = `${normalizedBrand}|${normalizedName}`;
+      // Use original brand and name (case-sensitive, unmodified) for grouping
+      const key = `${product.brand || ''}|${product.name || ''}`;
       if (!groups[key]) {
         groups[key] = [];
       }

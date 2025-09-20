@@ -1,15 +1,15 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storagePromise } from "./storage";
+import { getStorage } from "./storage";
 import type { IStorage } from "./storage";
 import { insertCartItemSchema } from "../shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Wait for storage to be initialized
-  const storage: IStorage = await storagePromise;
-  
-  console.log('Routes registration started');
+  // Use the currently available storage immediately (in-memory on startup)
+  const storage: IStorage = getStorage();
+
+  console.log('Routes registration started (using current storage)');
 
   // Product routes
   app.get("/api/products", async (req, res) => {

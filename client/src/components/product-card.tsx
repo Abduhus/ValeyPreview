@@ -52,7 +52,7 @@ export function ProductCard({
   // Update selected size when product changes
   useEffect(() => {
     setSelectedSize(product);
-  }, [product]);
+  }, [product.id]);
   
 
   // --- CHANEL IMAGE REMATCHING LOGIC ---
@@ -69,9 +69,7 @@ export function ProductCard({
 
   // Chanel image matching: match by name keyword only (reverted)
   function findChanelImages(name: string): string[] {
-    // ...existing Chanel logic...
     const chanelPairs: [string, string[]][] = [
-      // ...existing pairs...
       ["allure homme edition blanche", ["1-allure-homme-edition-blanche-eau-de-parfum-spray-3-4fl-oz--packshot-default-127460-9564893642782.avif", "2-allure-homme-edition-blanche-eau-de-parfum-spray-3-4fl-oz--packshot-default-127460-9564893642782.webp"]],
       ["allure homme sport eau extreme", ["1-allure-homme-sport-eau-extreme-eau-de-parfum-spray-3-4fl-oz--packshot-default-123560-9564919988254.avif", "2-allure-homme-sport-eau-extreme-eau-de-parfum-spray-3-4fl-oz--packshot-default-123560-9564919988254.webp"]],
       ["allure homme sport cologne", ["1-allure-homme-sport-cologne-3-4fl-oz--packshot-default-123320-9564892692510.avif", "2-allure-homme-sport-cologne-3-4fl-oz--packshot-default-123320-9564892692510.webp"]],
@@ -129,7 +127,6 @@ export function ProductCard({
       highQualityImages = [selectedSize.imageUrl];
     }
   } else {
-    // ...existing logic for non-Chanel/BVLGARI products...
     const additionalImages = selectedSize.images ? JSON.parse(selectedSize.images) : [];
     const uniqueImages = new Set<string>();
     if (selectedSize.imageUrl) uniqueImages.add(selectedSize.imageUrl);
@@ -260,8 +257,9 @@ export function ProductCard({
   };
 
   const handleCardClick = () => {
-    // Always navigate to the selected size's product page (works for all brands)
-    setLocation(`/product/${selectedSize.id}`);
+    // Always navigate to the product's own page using the correct product ID
+    // Use window.location for hard navigation to ensure proper page load and state reset
+    window.location.href = `/product/${product.id}`;
   };
 
   const handleButtonClick = (e: React.MouseEvent) => {
@@ -391,7 +389,7 @@ export function ProductCard({
   return (
     <div 
       className="product-card-hover filter-transition bg-gradient-to-br from-card/85 via-background/70 to-card/65 backdrop-blur-glass border border-border/60 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50 hover:bg-gradient-to-br hover:from-card/95 hover:via-background/80 hover:to-card/75 transition-all duration-700 relative group hover:-translate-y-2 cursor-pointer"
-      data-testid={`card-product-${selectedSize.id}`}
+      data-testid={`card-product-${product.id}`}
       onClick={handleCardClick}
     >
       {/* Stock Status Badge - Top Right */}

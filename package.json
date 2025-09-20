@@ -4,7 +4,7 @@
   "description": "Luxury Perfume E-commerce Platform",
   "main": "dist/server/index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development PORT=5001 tsx server/index.ts",
+    "dev": "cross-env NODE_ENV=development PORT=5002 tsx server/index.ts",
     "build": "tsc --project tsconfig.build.json && vite build",
     "start": "cross-env NODE_ENV=production node dist/server/index.js",
     "preview": "vite preview",

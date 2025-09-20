@@ -55,6 +55,12 @@ const ProductDetail = () => {
       return response.json();
     },
     enabled: !!id,
+    // Disable caching to prevent cross-product contamination
+    staleTime: 0,
+    // Ensure we get fresh data
+    refetchOnMount: true,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
   });
 
   // Set selected size when product loads
@@ -69,15 +75,15 @@ const ProductDetail = () => {
     product && p.name === product.name && p.id !== product.id
   ).sort((a, b) => {
     // Sort by volume size (ml value)
-    const volA = parseInt(a.volume.replace('ml', ''));
-    const volB = parseInt(b.volume.replace('ml', ''));
+    const volA = parseInt((a.volume || '').replace('ml', ''));
+    const volB = parseInt((b.volume || '').replace('ml', ''));
     return volA - volB;
   });
 
   // All products with the same name (including current product)
   const allSizes = product ? [product, ...similarProducts].sort((a, b) => {
-    const volA = parseInt(a.volume.replace('ml', ''));
-    const volB = parseInt(b.volume.replace('ml', ''));
+    const volA = parseInt((a.volume || '').replace('ml', ''));
+    const volB = parseInt((b.volume || '').replace('ml', ''));
     return volA - volB;
   }) : [];
 
@@ -365,132 +371,46 @@ const ProductDetail = () => {
 
           {/* Product Information - Valley Breezes Theme */}
           <div className="space-y-8">
-            {/* Brand Badge - Valley Breezes Style */}
-            <Badge variant="secondary" className="text-sm font-medium bg-gradient-to-r from-primary/20 to-accent/20 text-primary border border-primary/30">
-              {selectedSize.brand}
-            </Badge>
+            {selectedSize && (
+              <>
+                {/* Brand Badge - Valley Breezes Style */}
+                <Badge variant="secondary" className="text-sm font-medium bg-gradient-to-r from-primary/20 to-accent/20 text-primary border border-primary/30">
+                  {selectedSize.brand}
+                </Badge>
 
-            {/* Product Title - Valley Breezes Typography */}
-            <div>
-              <h1 className="font-serif text-5xl font-bold text-gradient mb-4">{selectedSize.name}</h1>
-              <p className="text-xl text-foreground/85 leading-relaxed">{selectedSize.description}</p>
-            </div>
-
-            {/* Rating and Volume - Valley Breezes Style */}
-            <div className="flex items-center space-x-8">
-              <div className="flex items-center space-x-3">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-6 h-6 ${
-                        i < Math.floor(parseFloat(selectedSize.rating))
-                          ? "text-primary fill-current"
-                          : "text-muted-foreground"
-                      }`}
-                    />
-                  ))}
+                {/* Product Title - Valley Breezes Typography */}
+                <div>
+                  <h1 className="font-serif text-5xl font-bold text-gradient mb-4">{selectedSize.name}</h1>
+                  <p className="text-xl text-foreground/85 leading-relaxed">{selectedSize.description}</p>
                 </div>
-                <span className="text-foreground/80">({selectedSize.rating}/5.0)</span>
-              </div>
-              <Separator orientation="vertical" className="h-8 bg-border" />
-              <span className="text-foreground/80 font-medium">{selectedSize.volume}</span>
-            </div>
 
-            {/* Size Selection - Show if there are multiple sizes */}
-            {allSizes.length > 1 && (
-              <div className="p-4 bg-card/50 backdrop-blur-sm border border-primary/20 rounded-xl">
-                <h3 className="font-semibold text-foreground mb-3">Available Sizes:</h3>
-                <div className="flex flex-wrap gap-3">
-                  {allSizes.map((p) => (
-                    <button
-                      key={p.id}
-                      onClick={() => setSelectedSize(p)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                        selectedSize.id === p.id
-                          ? 'bg-primary text-primary-foreground shadow-lg'
-                          : 'bg-card/80 text-foreground hover:bg-primary/20 border border-border'
-                      }`}
-                    >
-                      {p.volume} - {p.price} د.إ {p.inStock ? '' : '(Out of Stock)'}
-                    </button>
-                  ))}
+                {/* Rating and Volume - Valley Breezes Style */}
+                <div className="flex items-center space-x-8">
+                  <div className="flex items-center space-x-3">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-6 h-6 ${
+                            i < Math.floor(parseFloat(selectedSize.rating))
+                              ? "text-primary fill-current"
+                              : "text-muted-foreground"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-foreground/80">({selectedSize.rating}/5.0)</span>
+                  </div>
+                  <Separator orientation="vertical" className="h-8 bg-border" />
+                  <span className="text-foreground/80 font-medium">{selectedSize.volume}</span>
                 </div>
-              </div>
+
+                {/* Price - Valley Breezes Gold Theme */}
+                <div className="text-4xl font-bold text-gradient">
+                  {selectedSize.price} د.إ
+                </div>
+              </>
             )}
-
-            {/* Price - Valley Breezes Gold Theme */}
-            <div className="text-4xl font-bold text-gradient">
-              {selectedSize.price} د.إ
-            </div>
-
-            {/* Quantity and Actions - Valley Breezes Theme */}
-            <div className="space-y-6">
-              <div className="flex items-center space-x-6">
-                <label className="text-sm font-medium text-foreground">Quantity:</label>
-                <div className="flex items-center bg-card/50 backdrop-blur-sm border border-border rounded-xl">
-                  <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-4 py-3 hover:bg-primary/10 transition-colors text-primary font-bold"
-                  >
-                    -
-                  </button>
-                  <span className="px-6 py-3 border-l border-r border-border text-foreground font-semibold">{quantity}</span>
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="px-4 py-3 hover:bg-primary/10 transition-colors text-primary font-bold"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-
-              <div className="flex space-x-4">
-                <Button
-                  onClick={handleAddToCart}
-                  disabled={!selectedSize.inStock || addToCartMutation.isPending}
-                  className="flex-1 h-14 text-lg font-semibold bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1"
-                  size="lg"
-                >
-                  <ShoppingCart className="w-5 h-5 mr-3" />
-                  {addToCartMutation.isPending ? "Adding..." : "Add to Cart"}
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={handleWishlistToggle}
-                  className="h-14 px-5 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:-translate-y-1"
-                  size="lg"
-                >
-                  <Heart className={`w-5 h-5 ${isWishlisted ? "fill-primary text-primary" : ""}`} />
-                </Button>
-              </div>
-
-              {!selectedSize.inStock && (
-                <p className="text-destructive font-medium bg-destructive/10 border border-destructive/20 rounded-lg p-3">Currently out of stock</p>
-              )}
-            </div>
-
-            {/* Trust Badges - Valley Breezes Theme */}
-            <div className="grid grid-cols-3 gap-6 py-8 border-t border-b border-border">
-              <div className="text-center group">
-                <div className="bg-gradient-to-br from-primary/20 to-accent/20 p-4 rounded-2xl mx-auto mb-3 w-fit group-hover:scale-110 transition-transform duration-300">
-                  <Shield className="w-8 h-8 text-primary mx-auto" />
-                </div>
-                <p className="text-sm font-medium text-foreground">100% Authentic</p>
-              </div>
-              <div className="text-center group">
-                <div className="bg-gradient-to-br from-primary/20 to-accent/20 p-4 rounded-2xl mx-auto mb-3 w-fit group-hover:scale-110 transition-transform duration-300">
-                  <Truck className="w-8 h-8 text-primary mx-auto" />
-                </div>
-                <p className="text-sm font-medium text-foreground">Fast Delivery</p>
-              </div>
-              <div className="text-center group">
-                <div className="bg-gradient-to-br from-primary/20 to-accent/20 p-4 rounded-2xl mx-auto mb-3 w-fit group-hover:scale-110 transition-transform duration-300">
-                  <Award className="w-8 h-8 text-primary mx-auto" />
-                </div>
-                <p className="text-sm font-medium text-foreground">Premium Quality</p>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -584,51 +504,53 @@ const ProductDetail = () => {
         </div>
 
         {/* Brand Story Section - Valley Breezes Theme */}
-        <Card className="bg-gradient-to-br from-card/85 via-background/70 to-card/65 backdrop-blur-glass border border-border/60 shadow-2xl hover:shadow-primary/10 transition-all duration-500 mt-12">
-          <CardContent className="p-12">
-            <h3 className="font-serif text-4xl font-bold mb-8 text-gradient">About {selectedSize.brand}</h3>
-            <div className="prose prose-lg max-w-none text-foreground/85">
-              {selectedSize.brand === "Rabdan" && (
-                <p className="text-foreground/85 leading-relaxed text-lg">
-                  Rabdan represents the pinnacle of luxury fragrance craftsmanship, drawing inspiration 
-                  from the rich heritage of Arabian perfumery while embracing modern sophistication. 
-                  Each fragrance in the Rabdan collection is meticulously crafted using the finest 
-                  ingredients sourced from around the world, creating unique olfactory experiences 
-                  that capture the essence of luxury and elegance.
-                </p>
-              )}
-              {selectedSize.brand === "Signature Royale" && (
-                <p className="text-foreground/85 leading-relaxed text-lg">
-                  Signature Royale embodies royal elegance and timeless sophistication. Our master 
-                  perfumers create exclusive fragrances that reflect the grandeur and refinement 
-                  of royal courts, using precious ingredients and traditional techniques passed 
-                  down through generations.
-                </p>
-              )}
-              {selectedSize.brand === "Pure Essence" && (
-                <p className="text-foreground/85 leading-relaxed text-lg">
-                  Pure Essence focuses on creating clean, contemporary fragrances that celebrate 
-                  the beauty of natural ingredients. Our commitment to purity and quality ensures 
-                  that each fragrance delivers an authentic and memorable scent experience.
-                </p>
-              )}
-              {selectedSize.brand === "Coreterno" && (
-                <p className="text-foreground/85 leading-relaxed text-lg">
-                  Coreterno pushes the boundaries of traditional perfumery with bold, innovative 
-                  compositions that challenge conventional fragrance norms. Our avant-garde approach 
-                  creates unique scent profiles for the modern, confident individual.
-                </p>
-              )}
-              {!["Rabdan", "Signature Royale", "Pure Essence", "Coreterno"].includes(selectedSize.brand) && (
-                <p className="text-foreground/85 leading-relaxed text-lg">
-                  This prestigious fragrance brand represents excellence in perfumery, combining 
-                  traditional craftsmanship with innovative techniques to create exceptional 
-                  fragrances that stand the test of time.
-                </p>
-              )}
-            </div>
-          </CardContent>
-        </Card>
+        {selectedSize && (
+          <Card className="bg-gradient-to-br from-card/85 via-background/70 to-card/65 backdrop-blur-glass border border-border/60 shadow-2xl hover:shadow-primary/10 transition-all duration-500 mt-12">
+            <CardContent className="p-12">
+              <h3 className="font-serif text-4xl font-bold mb-8 text-gradient">About {selectedSize.brand}</h3>
+              <div className="prose prose-lg max-w-none text-foreground/85">
+                {selectedSize.brand === "Rabdan" && (
+                  <p className="text-foreground/85 leading-relaxed text-lg">
+                    Rabdan represents the pinnacle of luxury fragrance craftsmanship, drawing inspiration 
+                    from the rich heritage of Arabian perfumery while embracing modern sophistication. 
+                    Each fragrance in the Rabdan collection is meticulously crafted using the finest 
+                    ingredients sourced from around the world, creating unique olfactory experiences 
+                    that capture the essence of luxury and elegance.
+                  </p>
+                )}
+                {selectedSize.brand === "Signature Royale" && (
+                  <p className="text-foreground/85 leading-relaxed text-lg">
+                    Signature Royale embodies royal elegance and timeless sophistication. Our master 
+                    perfumers create exclusive fragrances that reflect the grandeur and refinement 
+                    of royal courts, using precious ingredients and traditional techniques passed 
+                    down through generations.
+                  </p>
+                )}
+                {selectedSize.brand === "Pure Essence" && (
+                  <p className="text-foreground/85 leading-relaxed text-lg">
+                    Pure Essence focuses on creating clean, contemporary fragrances that celebrate 
+                    the beauty of natural ingredients. Our commitment to purity and quality ensures 
+                    that each fragrance delivers an authentic and memorable scent experience.
+                  </p>
+                )}
+                {selectedSize.brand === "Coreterno" && (
+                  <p className="text-foreground/85 leading-relaxed text-lg">
+                    Coreterno pushes the boundaries of traditional perfumery with bold, innovative 
+                    compositions that challenge conventional fragrance norms. Our avant-garde approach 
+                    creates unique scent profiles for the modern, confident individual.
+                  </p>
+                )}
+                {!["Rabdan", "Signature Royale", "Pure Essence", "Coreterno"].includes(selectedSize.brand) && (
+                  <p className="text-foreground/85 leading-relaxed text-lg">
+                    This prestigious fragrance brand represents excellence in perfumery, combining 
+                    traditional craftsmanship with innovative techniques to create exceptional 
+                    fragrances that stand the test of time.
+                  </p>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        )}
       </div>
       
       <Footer />

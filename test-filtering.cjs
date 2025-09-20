@@ -5,22 +5,22 @@ const http = require('http');
 const testCases = [
   {
     name: 'All products',
-    url: 'http://localhost:5000/api/products',
+  url: 'http://localhost:5001/api/products',
     expectedMinProducts: 35
   },
   {
     name: 'Women products',
-    url: 'http://localhost:5000/api/products?category=women',
+  url: 'http://localhost:5001/api/products?category=women',
     expectedMinProducts: 10
   },
   {
     name: 'Rabdan brand products',
-    url: 'http://localhost:5000/api/products?brand=Rabdan',
+  url: 'http://localhost:5001/api/products?brand=Rabdan',
     expectedMinProducts: 12
   },
   {
     name: 'Search for "Rose"',
-    url: 'http://localhost:5000/api/products?search=Rose',
+  url: 'http://localhost:5001/api/products?search=Rose',
     expectedMinProducts: 1
   }
 ];

@@ -263,10 +263,14 @@ export class MemStorage implements IStorage {
 
   searchProducts(query: string): Promise<Product[]> {
     return Promise.resolve(
-      this.products.filter((product) =>
-        product.name.toLowerCase().includes(query.toLowerCase()) ||
-        product.description.toLowerCase().includes(query.toLowerCase())
-      )
+      this.products.filter((product) => {
+        const name = typeof product.name === 'string' ? product.name : '';
+        const description = typeof product.description === 'string' ? product.description : '';
+        return (
+          name.toLowerCase().includes(query.toLowerCase()) ||
+          description.toLowerCase().includes(query.toLowerCase())
+        );
+      })
     );
   }
 
@@ -329,20 +333,77 @@ async function createStorage(): Promise<IStorage> {
   const db = getDatabase();
   if (db) {
     console.log("✅ Using database storage");
-    return new DatabaseStorage();
-  } else {
-    console.log("⚠️  Using in-memory storage (data will not persist)");
-    const memStorage = new MemStorage();
-    await memStorage.initialize();
-    return memStorage;
+    try {
+      return new DatabaseStorage();
+    } catch (err) {
+      console.error('❌ Failed to initialize DatabaseStorage, falling back to memory:', err);
+    }
+  }
+
+  console.log("⚠️  Using in-memory storage (data will not persist)");
+  const memStorage = new MemStorage();
+  await memStorage.initialize();
+  return memStorage;
+}
+
+// Create a storage initializer with a timeout so a slow/unreachable DB doesn't block server startup
+async function createStorageWithTimeout(timeoutMs = 5000): Promise<IStorage> {
+  // Race the real createStorage against a simple timeout that rejects.
+  // We avoid initializing the in-memory storage until the timeout actually occurs
+  // so we don't run two MemStorage.initialze() in parallel and produce duplicate logs.
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    setTimeout(() => reject(new Error('storage-init-timeout')), timeoutMs);
+  });
+
+  try {
+    // If createStorage resolves before the timeout, return it.
+    return await Promise.race([createStorage(), timeoutPromise]);
+  } catch (err: any) {
+    // The createStorage() did not finish within the timeout window.
+    // Initialize and return an in-memory storage as a fallback.
+    console.warn(`⏱️  Storage init timed out after ${timeoutMs}ms — falling back to in-memory storage`);
+    const mem = new MemStorage();
+    await mem.initialize();
+    return mem;
   }
 }
 
 // Export storage as a promise that resolves to the initialized storage
-export const storagePromise = createStorage();
-export let storage: IStorage;
+// Start with an eagerly-initialized in-memory storage so the server can start fast.
+// We'll attempt to initialize a DatabaseStorage in the background and swap it in
+// if it becomes available.
+const currentStorage: IStorage = new MemStorage();
 
-// Initialize storage
-storagePromise.then(initializedStorage => {
-  storage = initializedStorage;
-});
+// Initialize in-memory storage immediately (don't block exports)
+void (async () => {
+  try {
+    await (currentStorage as MemStorage).initialize();
+  } catch (err) {
+    console.warn('⚠️ Failed to initialize in-memory storage immediately:', err);
+  }
+})();
+
+// Expose a getter for routes to retrieve the current storage instance
+export function getStorage(): IStorage {
+  return currentStorage;
+}
+
+// Attempt to initialize a DatabaseStorage in the background and swap it in if ready
+void (async () => {
+  try {
+    const db = getDatabase();
+    if (!db) {
+      console.log('⚠️ DATABASE_URL not provided or database not configured; staying on in-memory storage');
+      return;
+    }
+
+    console.log('🔁 Attempting background initialization of DatabaseStorage...');
+    const dbStorage = new DatabaseStorage();
+    // If we reach here without throwing, swap storage
+    // Note: we purposely don't re-run MemStorage.initialize() to avoid duplicate loads
+    (currentStorage as any) = dbStorage as unknown as MemStorage; // swap type for runtime
+    console.log('✅ DatabaseStorage initialized and swapped in successfully');
+  } catch (err) {
+    console.warn('⚠️ DatabaseStorage background initialization failed, remaining on in-memory storage:', err);
+  }
+})();
