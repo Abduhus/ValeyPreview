@@ -37,7 +37,6 @@ Your ValleyPreviewqodo project is **READY FOR DEPLOYMENT** to Render.com!
 4. **Set Environment Variables**
    ```
    NODE_ENV=production
-   PORT=10000
    ```
 
 5. **Deploy**
@@ -85,8 +84,9 @@ Your application needs these environment variables on Render:
 | Variable | Value | Description |
 |----------|-------|-------------|
 | `NODE_ENV` | `production` | Sets production mode |
-| `PORT` | `10000` | Application port (Render default) |
-| `DATABASE_URL` | (optional) | PostgreSQL connection string |
+| `RENDER_ENV` | `true` | Indicates Render deployment |
+
+**Note**: Do NOT set the `PORT` environment variable. Render automatically provides this.
 
 ## 📊 Monitoring Your Deployment
 
@@ -130,6 +130,7 @@ To add a custom domain:
    - Check health endpoint response
 
 3. **Port Issues**
+   - **IMPORTANT**: Do NOT set PORT in render.json or environment variables
    - Render automatically assigns PORT environment variable
    - Your app listens on `process.env.PORT || 10000`
    - Ensure server binds to `0.0.0.0`, not `localhost`

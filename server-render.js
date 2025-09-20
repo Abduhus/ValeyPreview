@@ -7,7 +7,7 @@ const fs = require('fs');
 
 console.log('🚀 Starting ValleyPreview server for Render...');
 console.log('Environment:', process.env.NODE_ENV || 'production');
-console.log('Port:', process.env.PORT || '10000');
+console.log('Port from environment:', process.env.PORT || 'Not set (will use default)');
 console.log('Working directory:', process.cwd());
 console.log('Node version:', process.version);
 
@@ -136,8 +136,13 @@ try {
     console.log('✅ Static files directory found, serving from:', publicPath);
     app.use(express.static(publicPath));
     
-    // SPA fallback
+    // SPA fallback - serve index.html for all non-API routes
     app.get('*', (req, res) => {
+      // Don't serve index.html for API routes
+      if (req.path.startsWith('/api/')) {
+        return;
+      }
+      
       const indexPath = path.join(publicPath, 'index.html');
       if (fs.existsSync(indexPath)) {
         res.sendFile(indexPath);
