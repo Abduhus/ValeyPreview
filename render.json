@@ -1,15 +1,23 @@
 {
-  "buildCommand": "npm install && npm run build",
-  "startCommand": "node server-render.js",
-  "healthCheckPath": "/health",
-  "envVars": [
+  "version": 1,
+  "services": [
     {
-      "key": "NODE_ENV",
-      "value": "production"
-    },
-    {
-      "key": "RENDER_ENV",
-      "value": "true"
+      "type": "web",
+      "name": "valley-preview-perfume",
+      "env": "node",
+      "buildCommand": "npm install && npm run build",
+      "startCommand": "node server-render.js",
+      "healthCheckPath": "/health",
+      "envVars": [
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "key": "RENDER_ENV",
+          "value": "true"
+        }
+      ]
     }
   ]
 }

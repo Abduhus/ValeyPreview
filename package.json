@@ -21,7 +21,8 @@
     "vercel:build": "npm run build",
     "vercel-build": "npm run build",
     "build:vercel": "npm run build && echo 'Build completed for Vercel'",
-    "deploy:vercel": "npm run build && vercel --prod"
+    "deploy:vercel": "npm run build && vercel --prod",
+    "render:test": "node test-port-binding.js"
   },
   "keywords": [
     "perfume",
