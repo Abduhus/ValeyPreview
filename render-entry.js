@@ -43,7 +43,7 @@ async function startServer() {
     const fs = require('fs');
     const path = require('path');
     
-    const serverPath = path.join(process.cwd(), 'dist', 'server', 'index.js');
+    const serverPath = path.join(process.cwd(), 'dist', 'server', 'server', 'index.js');
     console.log('Looking for server file at:', serverPath);
     
     if (!fs.existsSync(serverPath)) {
@@ -52,6 +52,17 @@ async function startServer() {
       try {
         const files = fs.readdirSync(path.join(process.cwd(), 'dist', 'server'));
         console.log(files);
+        // Also check subdirectories
+        const subDirs = files.filter(file => fs.statSync(path.join(process.cwd(), 'dist', 'server', file)).isDirectory());
+        for (const subDir of subDirs) {
+          console.log(`Files in dist/server/${subDir}:`);
+          try {
+            const subFiles = fs.readdirSync(path.join(process.cwd(), 'dist', 'server', subDir));
+            console.log(subFiles);
+          } catch (e) {
+            console.log(`Could not read dist/server/${subDir}`);
+          }
+        }
       } catch (e) {
         console.log('dist/server directory does not exist');
       }
@@ -61,7 +72,7 @@ async function startServer() {
     console.log('Server file found, importing...');
     
     // Import and start the server
-    require('./dist/server/index.js');
+    require('./dist/server/server/index.js');
     
     console.log('Server module loaded successfully');
     console.log('Server should now be listening on port:', process.env.PORT);

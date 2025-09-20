@@ -1,23 +1,9 @@
 {
-  "version": 1,
-  "services": [
-    {
-      "type": "web",
-      "name": "valley-preview-perfume",
-      "env": "node",
-      "buildCommand": "npm install && npm run build",
-      "startCommand": "node render-entry.js",
-      "healthCheckPath": "/health",
-      "envVars": [
-        {
-          "key": "NODE_ENV",
-          "value": "production"
-        },
-        {
-          "key": "RENDER_ENV",
-          "value": "true"
-        }
-      ]
-    }
-  ]
+  "build": "npm install && npm run build",
+  "start": "node render-entry.js",
+  "healthCheckPath": "/health",
+  "env": {
+    "NODE_ENV": "production",
+    "RENDER_ENV": "true"
+  }
 }
