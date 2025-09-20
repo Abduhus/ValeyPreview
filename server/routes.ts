@@ -1,29 +1,42 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { storagePromise } from "./storage";
+import type { IStorage } from "./storage";
 import { insertCartItemSchema } from "../shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Wait for storage to be initialized
+  const storage: IStorage = await storagePromise;
+  
+  console.log('Routes registration started');
+
   // Product routes
   app.get("/api/products", async (req, res) => {
     try {
+      console.log('GET /api/products called');
       const { category, brand, search } = req.query;
+      console.log('Query params:', { category, brand, search });
       
       if (search && typeof search === 'string' && search.trim()) {
         const products = await storage.searchProducts(search.trim());
+        console.log(`Found ${products.length} products for search: ${search}`);
         res.json(products);
       } else if (brand && typeof brand === 'string' && brand !== 'all') {
         const products = await storage.getProductsByBrand(brand);
+        console.log(`Found ${products.length} products for brand: ${brand}`);
         res.json(products);
       } else if (category && typeof category === 'string' && category !== 'all') {
         const products = await storage.getProductsByCategory(category);
+        console.log(`Found ${products.length} products for category: ${category}`);
         res.json(products);
       } else {
         const products = await storage.getAllProducts();
+        console.log(`Found ${products.length} products total`);
         res.json(products);
       }
     } catch (error) {
+      console.error('Error fetching products:', error);
       res.status(500).json({ message: "Failed to fetch products" });
     }
   });
@@ -51,7 +64,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Get product details for each cart item
       const cartWithProducts = await Promise.all(
-        cartItems.map(async (item) => {
+        cartItems.map(async (item: any) => {
           const product = await storage.getProduct(item.productId);
           return { ...item, product };
         })
@@ -123,5 +136,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   const httpServer = createServer(app);
+  console.log('Routes registration completed');
   return httpServer;
 }

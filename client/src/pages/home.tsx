@@ -28,7 +28,7 @@ export default function Home() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-background to-background/90">
       <Header 
         onToggleSearch={() => setIsSearchOpen(!isSearchOpen)}
         onToggleCart={() => setIsCartOpen(!isCartOpen)}
@@ -36,8 +36,11 @@ export default function Home() {
       />
       <main>
         <Hero onOpenQuiz={() => setIsQuizOpen(true)} />
+        <div className="luxury-divider"></div>
         <BrandShowcase />
+        <div className="luxury-divider"></div>
         <CompanyStory />
+        <div className="luxury-divider"></div>
         <BusinessContact />
       </main>
       <Footer />

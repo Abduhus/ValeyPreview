@@ -119,6 +119,286 @@
       "topNotes": "Lavender",
       "middleNotes": "Iris, Ambrette, Pear",
       "baseNotes": "Virginia Cedar, Vetiver"
+    },
+    {
+      "id": "9",
+      "name": "Rabdan Chill Vibes",
+      "brand": "Rabdan",
+      "topNotes": "Mint, Lemon, Coriander, Orange, Citron, Fruits",
+      "middleNotes": "Apricot, Basil, Rose",
+      "baseNotes": "Dates, Fig, Musk"
+    },
+    {
+      "id": "10",
+      "name": "Rabdan Cigar Honey",
+      "brand": "Rabdan",
+      "topNotes": "Honey, Cloves, Anise",
+      "middleNotes": "Tobacco, Vanilla, Tonka, Sesame",
+      "baseNotes": "Agarwood (Oud), Sandalwood"
+    },
+    {
+      "id": "11",
+      "name": "Rabdan Ginger Time",
+      "brand": "Rabdan",
+      "topNotes": "Ginger, Bergamot, Mandarin Orange",
+      "middleNotes": "Nutmeg, Cardamom",
+      "baseNotes": "Haitian Vetiver, Sandalwood"
+    },
+    {
+      "id": "12",
+      "name": "Rabdan GWY",
+      "brand": "Rabdan",
+      "topNotes": "Saffron, Italian Mandarin",
+      "middleNotes": "Chinese Osmanthus, Immortelle, Violet Leaf",
+      "baseNotes": "Sandalwood, Amber, Musk"
+    },
+    {
+      "id": "13",
+      "name": "Rabdan Hibiscus",
+      "brand": "Rabdan",
+      "topNotes": "Hibiscus, Damask Rose, Peppermint, Cassis",
+      "middleNotes": "Cinnamon, Vanilla",
+      "baseNotes": "Ambrette, Leather"
+    },
+    {
+      "id": "14",
+      "name": "Rabdan Il Mio Viziato",
+      "brand": "Rabdan",
+      "topNotes": "Saffron, Bergamot, Pink Pepper",
+      "middleNotes": "Jasmine, Rose, Orris",
+      "baseNotes": "Vanilla, Sandalwood, Musk"
+    },
+    {
+      "id": "15",
+      "name": "Rabdan Iris Tabac",
+      "brand": "Rabdan",
+      "topNotes": "Iris, Tobacco, Bergamot",
+      "middleNotes": "Cedar, Leather, Spices",
+      "baseNotes": "Vanilla, Amber, Musk"
+    },
+    {
+      "id": "16",
+      "name": "Rabdan Love Confession Daring",
+      "brand": "Rabdan",
+      "topNotes": "Rose, Raspberry, Bergamot",
+      "middleNotes": "Jasmine, Peony, Patchouli",
+      "baseNotes": "Vanilla, Musk, Amber"
+    },
+    {
+      "id": "17",
+      "name": "Rabdan Oud of King",
+      "brand": "Rabdan",
+      "topNotes": "Turkish Rose, Fruity Notes, Passionfruit, Saffron",
+      "middleNotes": "Indonesian Patchouli Leaf, Agarwood, Benzoin",
+      "baseNotes": "Akigalawood, Sandalwood, Vanilla"
+    },
+    {
+      "id": "18",
+      "name": "Rabdan Rolling in the Deep",
+      "brand": "Rabdan",
+      "topNotes": "Bergamot, Black Currant, Pink Pepper",
+      "middleNotes": "Rose, Jasmine, Cedar",
+      "baseNotes": "Oud, Amber, Musk"
+    },
+    {
+      "id": "19",
+      "name": "Rabdan Room 816",
+      "brand": "Rabdan",
+      "topNotes": "Jasmine, Bergamot, Pink Pepper",
+      "middleNotes": "Rose, Ylang-Ylang, Musk",
+      "baseNotes": "Sandalwood, Vanilla, Amber"
+    },
+    {
+      "id": "20",
+      "name": "Rabdan Saint Petersburg",
+      "brand": "Rabdan",
+      "topNotes": "Bergamot, Lemon, Black Currant",
+      "middleNotes": "Rose, Jasmine, Violet",
+      "baseNotes": "Sandalwood, Musk, Amber"
+    },
+    {
+      "id": "21",
+      "name": "Rabdan The Vert Vetiver",
+      "brand": "Rabdan",
+      "topNotes": "Green Tea, Amber, Bergamot, Mandarin Orange",
+      "middleNotes": "Haitian Vetiver, Galbanum, Cedar",
+      "baseNotes": "Sandalwood, Musk"
+    },
+    {
+      "id": "43",
+      "name": "Rabdan Lignum Vitae",
+      "brand": "Rabdan",
+      "topNotes": "Bergamot, Pink Pepper, Elemi",
+      "middleNotes": "Cedar, Sandalwood, Juniper",
+      "baseNotes": "Amber, Musk, Vanilla"
+    },
+    {
+      "id": "22",
+      "name": "Signature Royale Caramel Sugar",
+      "brand": "Signature Royale",
+      "topNotes": "Caramel, Orange, Raspberry",
+      "middleNotes": "White Woods, Tonka Bean, Cypriol Oil",
+      "baseNotes": "Vanilla, Musk"
+    },
+    {
+      "id": "23",
+      "name": "Signature Royale Creamy Love",
+      "brand": "Signature Royale",
+      "topNotes": "Caramel, Pistachio, Almond, Lemon, Raspberry, Peach, Bergamot",
+      "middleNotes": "Cardamom, Jasmine",
+      "baseNotes": "Vanilla, Musk"
+    },
+    {
+      "id": "24",
+      "name": "Signature Royale Dragée Blanc",
+      "brand": "Signature Royale",
+      "topNotes": "Caramel, Chocolate, Raspberry",
+      "middleNotes": "White Flowers",
+      "baseNotes": "Vanilla"
+    },
+    {
+      "id": "25",
+      "name": "Signature Royale Grey London",
+      "brand": "Signature Royale",
+      "topNotes": "Pink Pepper, Bergamot, Peach",
+      "middleNotes": "Rose, Patchouli, Cedar",
+      "baseNotes": "Amber, Iris, Vanilla"
+    },
+    {
+      "id": "26",
+      "name": "Signature Royale Iris Impérial",
+      "brand": "Signature Royale",
+      "topNotes": "Pink Pepper",
+      "middleNotes": "Iris, Incense, Myrrh",
+      "baseNotes": "Sandalwood, Vanilla, Amber"
+    },
+    {
+      "id": "27",
+      "name": "Signature Royale Mythologia",
+      "brand": "Signature Royale",
+      "topNotes": "Pink Pepper, Spices, Mandarin",
+      "middleNotes": "Violet, Woody Notes",
+      "baseNotes": "Leather, Ambroxan, Musk"
+    },
+    {
+      "id": "28",
+      "name": "Signature Royale Oud Envoutant",
+      "brand": "Signature Royale",
+      "topNotes": "Raspberry, Chocolate, Caramel, Spicy Notes, Peach",
+      "middleNotes": "Patchouli, Cedar, Agarwood (Oud), White Wood, Lavender",
+      "baseNotes": "Amber, Vanilla, Leather, Musk"
+    },
+    {
+      "id": "29",
+      "name": "Signature Royale Sunset Vibes",
+      "brand": "Signature Royale",
+      "topNotes": "Pineapple, Apple, Black Currant, Mandarin Orange",
+      "middleNotes": "Jasmine Sambac, White Woods, Tobacco",
+      "baseNotes": "Vanilla, Amber, Musk"
+    },
+    {
+      "id": "30",
+      "name": "Signature Royale Sweet Cherry",
+      "brand": "Signature Royale",
+      "topNotes": "Cherry, Raspberry, Bergamot",
+      "middleNotes": "Rose, Jasmine, Vanilla",
+      "baseNotes": "Sandalwood, Musk, Amber"
+    },
+    {
+      "id": "31",
+      "name": "Pure Essence Ambernomade",
+      "brand": "Pure Essence",
+      "topNotes": "Amber, Bergamot, Cardamom",
+      "middleNotes": "Sandalwood, Cedar, Vanilla",
+      "baseNotes": "Musk, Ambergris"
+    },
+    {
+      "id": "32",
+      "name": "Pure Essence Babycat",
+      "brand": "Pure Essence",
+      "topNotes": "Bergamot, Lemon, Pink Pepper",
+      "middleNotes": "Jasmine, Rose, Vanilla",
+      "baseNotes": "Musk, Sandalwood"
+    },
+    {
+      "id": "33",
+      "name": "Pure Essence Flowerbomb",
+      "brand": "Pure Essence",
+      "topNotes": "Tea, Bergamot, Osmanthus",
+      "middleNotes": "Orchid, Jasmine, Rose, Freesia, African Orange Flower",
+      "baseNotes": "Patchouli, Musk, Vanilla"
+    },
+    {
+      "id": "34",
+      "name": "Pure Essence Imagination",
+      "brand": "Pure Essence",
+      "topNotes": "Citron, Bergamot, Orange",
+      "middleNotes": "Neroli, Ginger, Cinnamon",
+      "baseNotes": "Sandalwood, Cedar, Musk"
+    },
+    {
+      "id": "35",
+      "name": "Pure Essence Maidan",
+      "brand": "Pure Essence",
+      "topNotes": "Bergamot, Lemon, Green Notes",
+      "middleNotes": "Lavender, Jasmine, Rosemary",
+      "baseNotes": "Sandalwood, Moss, Musk"
+    },
+    {
+      "id": "36",
+      "name": "Coreterno Catharsis",
+      "brand": "Coreterno",
+      "topNotes": "Nutmeg, Cloves, Neroli",
+      "middleNotes": "Saffron, Ylang-Ylang, Rose, Whiskey",
+      "baseNotes": "Agarwood (Oud), Guaiac Wood, Leather, Cedar"
+    },
+    {
+      "id": "37",
+      "name": "Coreterno Freakincense",
+      "brand": "Coreterno",
+      "topNotes": "Pink Pepper, Lime, Violet",
+      "middleNotes": "Incense, Elemi, Cashmeran",
+      "baseNotes": "Patchouli, Labdanum, Vetiver"
+    },
+    {
+      "id": "38",
+      "name": "Coreterno Godimenta",
+      "brand": "Coreterno",
+      "topNotes": "Peppermint, Bergamot, Lemon Leaf, Ginger",
+      "middleNotes": "Jasmine, Raspberry Leaf, Fir, Rose",
+      "baseNotes": "Musk, Guaiac Wood, Cedar"
+    },
+    {
+      "id": "39",
+      "name": "Coreterno Hardkor",
+      "brand": "Coreterno",
+      "topNotes": "Pink Pepper, Black Currant, Lemon",
+      "middleNotes": "Rose, Jasmine, Cedar",
+      "baseNotes": "Oud, Amber, Musk"
+    },
+    {
+      "id": "40",
+      "name": "Coreterno Hierba Nera",
+      "brand": "Coreterno",
+      "topNotes": "Bergamot, Black Currant, Pink Pepper",
+      "middleNotes": "Sage, Thyme, Cedar",
+      "baseNotes": "Oud, Patchouli, Vanilla"
+    },
+    {
+      "id": "41",
+      "name": "Coreterno Night Idol",
+      "brand": "Coreterno",
+      "topNotes": "Bergamot, Lemon, Black Currant",
+      "middleNotes": "Rose, Jasmine, Violet",
+      "baseNotes": "Sandalwood, Musk, Amber"
+    },
+    {
+      "id": "42",
+      "name": "Coreterno Punk Motel",
+      "brand": "Coreterno",
+      "topNotes": "Bergamot, Lemon, Pink Pepper",
+      "middleNotes": "Jasmine, Rose, Orris",
+      "baseNotes": "Amber, Musk, Sandalwood"
     }
   ]
 }

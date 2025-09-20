@@ -142,6 +142,50 @@ export class MemStorage implements IStorage {
   private users: User[] = [];
   private products: Product[] = [];
   private cartItems: CartItem[] = [];
+  private initialized = false;
+
+  // Initialize with sample data
+  async initialize() {
+    if (this.initialized) return;
+    
+    try {
+      // Try to load sample data
+      const fs = await import('fs');
+      const path = await import('path');
+      
+      if (fs.existsSync('processed-perfumes.json')) {
+        const perfumesData = JSON.parse(fs.readFileSync('processed-perfumes.json', 'utf-8'));
+        const sampleProducts = perfumesData; // Load all products
+        
+        console.log(`Loading ${sampleProducts.length} sample products into memory storage...`);
+        
+        // Mark ALL products as in stock, regardless of brand
+        for (const product of sampleProducts) {
+          const newProduct = { 
+            id: product.id || Math.random().toString(36).substr(2, 9),
+            images: null,
+            // Set all products as in stock
+            inStock: true,
+            topNotes: null,
+            middleNotes: null,
+            baseNotes: null,
+            ...product 
+          } as Product;
+          this.products.push(newProduct);
+        }
+        
+        const inStockCount = this.products.filter(p => p.inStock).length;
+        console.log(`✅ Successfully loaded ${this.products.length} products into memory storage (${inStockCount} in stock)`);
+        console.log(`First product: ${JSON.stringify(this.products[0], null, 2)}`);
+      } else {
+        console.log('⚠️  No processed-perfumes.json file found, storage will be empty');
+      }
+    } catch (error: any) {
+      console.log('⚠️  Could not load sample data, storage will be empty:', error.message || error);
+    }
+    
+    this.initialized = true;
+  }
 
   // User operations
   getUser(id: string): Promise<User | undefined> {
@@ -172,11 +216,49 @@ export class MemStorage implements IStorage {
   }
 
   getProductsByCategory(category: string): Promise<Product[]> {
-    return Promise.resolve(this.products.filter((product) => product.category === category));
+    // Make the category comparison case-insensitive
+    return Promise.resolve(this.products.filter((product) => 
+      product.category && product.category.toLowerCase() === category.toLowerCase()
+    ));
   }
 
   getProductsByBrand(brand: string): Promise<Product[]> {
-    return Promise.resolve(this.products.filter((product) => product.brand === brand));
+    // Create a mapping from frontend brand IDs to actual database brand names
+    const brandIdToNameMap: { [key: string]: string } = {
+      'rabdan': 'RABDAN',
+      'signature-royale': 'SIGNATURE ROYALE',
+      'pure-essence': 'PURE ESSENCE',
+      'coreterno': 'CORETERNO',
+      'bvlgari': 'BVLGARI',
+      'christian': 'CHRISTIAN DIOR',
+      'marc': 'MARC ANTOINE BARROIS',
+      'escentric': 'ESCENTRIC MOLECULE',
+      'diptyque': 'DIPTYQUE',
+      'giardini': 'GIARDINI DI TOSCANA',
+      'bohoboco': 'BOHOBOCO',
+      'tom-ford': 'TOM FORD',
+      'chanel': 'CHANEL',
+      'yves-saint-laurent': 'YVES SAINT LAURENT',
+      'creed': 'CREED',
+      'montale': 'MONTALE',
+      'gucci': 'GUCCI',
+      'dior': 'DIOR',
+      'armani': 'ARMANI',
+      'burberry': 'BURBERRY',
+      'lancome': 'LANCÔME',
+      'mont-blanc': 'MONT BLANC',
+      'hugo-boss': 'HUGO BOSS',
+      'versace': 'VERSACE',
+      'xerjoff': 'XERJOFF'
+    };
+
+    // Get the actual brand name from the mapping, or use the provided brand ID as-is
+    const actualBrandName = brandIdToNameMap[brand.toLowerCase()] || brand;
+    
+    // Make the brand comparison case-insensitive
+    return Promise.resolve(this.products.filter((product) => 
+      product.brand && product.brand.toLowerCase() === actualBrandName.toLowerCase()
+    ));
   }
 
   searchProducts(query: string): Promise<Product[]> {
@@ -243,15 +325,24 @@ export class MemStorage implements IStorage {
 }
 
 // Create storage instance based on database availability
-function createStorage(): IStorage {
+async function createStorage(): Promise<IStorage> {
   const db = getDatabase();
   if (db) {
     console.log("✅ Using database storage");
     return new DatabaseStorage();
   } else {
     console.log("⚠️  Using in-memory storage (data will not persist)");
-    return new MemStorage();
+    const memStorage = new MemStorage();
+    await memStorage.initialize();
+    return memStorage;
   }
 }
 
-export const storage = createStorage();
+// Export storage as a promise that resolves to the initialized storage
+export const storagePromise = createStorage();
+export let storage: IStorage;
+
+// Initialize storage
+storagePromise.then(initializedStorage => {
+  storage = initializedStorage;
+});

@@ -1,0 +1,3574 @@
+{
+  "matchedPerfumes": [
+    {
+      "excelData": {
+        "id": 1,
+        "fullName": "CHANEL ALLURE HOMME (M) EDT 150 ml FR",
+        "price": 480,
+        "barcode": "3145891214802"
+      },
+      "productCard": {
+        "id": "100",
+        "name": "ALLURE HOMME",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME",
+      "type": "EDT",
+      "volume": "150 ml",
+      "imageCount": 12
+    },
+    {
+      "excelData": {
+        "id": 2,
+        "fullName": "CHANEL ALLURE HOMME EDITION BLANCHE (M) EDP 100 ml FR",
+        "price": 515,
+        "barcode": "3145891274608"
+      },
+      "productCard": {
+        "id": "101",
+        "name": "ALLURE HOMME EDITION BLANCHE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME EDITION BLANCHE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 10
+    },
+    {
+      "excelData": {
+        "id": 3,
+        "fullName": "CHANEL ALLURE HOMME EDITION BLANCHE (M) EDP 150 ml FR",
+        "price": 620,
+        "barcode": "3145891274707"
+      },
+      "productCard": {
+        "id": "101",
+        "name": "ALLURE HOMME EDITION BLANCHE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME EDITION BLANCHE",
+      "type": "EDP",
+      "volume": "150 ml",
+      "imageCount": 10
+    },
+    {
+      "excelData": {
+        "id": 4,
+        "fullName": "CHANEL ALLURE HOMME EDITION BLANCHE (M) EDP 50 ml FR",
+        "price": 350,
+        "barcode": "3145891274509"
+      },
+      "productCard": {
+        "id": "101",
+        "name": "ALLURE HOMME EDITION BLANCHE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME EDITION BLANCHE",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 10
+    },
+    {
+      "excelData": {
+        "id": 5,
+        "fullName": "CHANEL ALLURE HOMME SPORT (M) EDT 50 ml FR",
+        "price": 300,
+        "barcode": "3145891236200"
+      },
+      "productCard": {
+        "id": "104",
+        "name": "ALLURE HOMME SPORT",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME SPORT",
+      "type": "EDT",
+      "volume": "50 ml",
+      "imageCount": 12
+    },
+    {
+      "excelData": {
+        "id": 6,
+        "fullName": "CHANEL ALLURE HOMME SPORT COLOGNE (M) EDT 100 ml FR",
+        "price": 420,
+        "barcode": "3145891233209"
+      },
+      "productCard": {
+        "id": "104",
+        "name": "ALLURE HOMME SPORT",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME SPORT",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 12
+    },
+    {
+      "excelData": {
+        "id": 7,
+        "fullName": "CHANEL ALLURE HOMME SPORT COLOGNE (M) EDT 150 ml FR",
+        "price": 480,
+        "barcode": "3145891233803"
+      },
+      "productCard": {
+        "id": "104",
+        "name": "ALLURE HOMME SPORT",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME SPORT",
+      "type": "EDT",
+      "volume": "150 ml",
+      "imageCount": 12
+    },
+    {
+      "excelData": {
+        "id": 8,
+        "fullName": "CHANEL ALLURE HOMME SPORT COLOGNE (M) EDT 50 ml FR",
+        "price": 290,
+        "barcode": "3145891233100"
+      },
+      "productCard": {
+        "id": "104",
+        "name": "ALLURE HOMME SPORT",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME SPORT",
+      "type": "EDT",
+      "volume": "50 ml",
+      "imageCount": 12
+    },
+    {
+      "excelData": {
+        "id": 9,
+        "fullName": "CHANEL ALLURE HOMME SPORT EAU EXTREME (M) EDP 100 ml FR",
+        "price": 490,
+        "barcode": "3145891235609"
+      },
+      "productCard": {
+        "id": "108",
+        "name": "ALLURE HOMME SPORT EAU EXTREME",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME SPORT EAU EXTREME",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 12
+    },
+    {
+      "excelData": {
+        "id": 10,
+        "fullName": "CHANEL ALLURE HOMME SPORT EAU EXTREME (M) EDP 20 ml TRAVEL SPRAY + EDP 2x20 ml REFILLS FR",
+        "price": 400,
+        "barcode": "3145891235005"
+      },
+      "productCard": {
+        "id": "108",
+        "name": "ALLURE HOMME SPORT EAU EXTREME",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME SPORT EAU EXTREME",
+      "type": "EDP",
+      "volume": "20 ml",
+      "imageCount": 12
+    },
+    {
+      "excelData": {
+        "id": 11,
+        "fullName": "CHANEL ALLURE HOMME SPORT EAU EXTREME (M) EDP 50 ml FR",
+        "price": 355,
+        "barcode": "3145891235500"
+      },
+      "productCard": {
+        "id": "108",
+        "name": "ALLURE HOMME SPORT EAU EXTREME",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE HOMME SPORT EAU EXTREME",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 12
+    },
+    {
+      "excelData": {
+        "id": 12,
+        "fullName": "CHANEL ALLURE SENSUELLE (W) EDP 50 ml FR",
+        "price": 410,
+        "barcode": "3145891297201"
+      },
+      "productCard": {
+        "id": "111",
+        "name": "ALLURE SENSUELLE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ALLURE SENSUELLE",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 12
+    },
+    {
+      "excelData": {
+        "id": 13,
+        "fullName": "CHANEL ANTAEUS POUR HOMME (M) EDT 100 ml FR",
+        "price": 415,
+        "barcode": "3145891184600"
+      },
+      "productCard": {
+        "id": "112",
+        "name": "ANTAEUS POUR HOMME",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "ANTAEUS POUR HOMME",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 14
+    },
+    {
+      "excelData": {
+        "id": 14,
+        "fullName": "CHANEL BLEU DE CHANEL POUR HOMME (M) EDP 150 ml FR",
+        "price": 600,
+        "barcode": "3145891073706"
+      },
+      "productCard": {
+        "id": "113",
+        "name": "BLEU DE CHANEL POUR HOMME",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "BLEU DE CHANEL POUR HOMME",
+      "type": "EDP",
+      "volume": "150 ml",
+      "imageCount": 2
+    },
+    {
+      "excelData": {
+        "id": 15,
+        "fullName": "CHANEL BLEU DE CHANEL POUR HOMME (M) EDP 20 ml TRAVEL SPRAY + EDP 2x20 ml REFILLS FR",
+        "price": 380,
+        "barcode": "3145891073003"
+      },
+      "productCard": {
+        "id": "113",
+        "name": "BLEU DE CHANEL POUR HOMME",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "BLEU DE CHANEL POUR HOMME",
+      "type": "EDP",
+      "volume": "20 ml",
+      "imageCount": 2
+    },
+    {
+      "excelData": {
+        "id": 16,
+        "fullName": "CHANEL BLEU DE CHANEL POUR HOMME (M) EDT 100 ml FR",
+        "price": 415,
+        "barcode": "3145891074604"
+      },
+      "productCard": {
+        "id": "115",
+        "name": "BLEU DE CHANEL POUR HOMME",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "BLEU DE CHANEL POUR HOMME",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 2
+    },
+    {
+      "excelData": {
+        "id": 17,
+        "fullName": "CHANEL BLEU DE CHANEL POUR HOMME (M) EDT 150 ml FR",
+        "price": 500,
+        "barcode": "3145891074802"
+      },
+      "productCard": {
+        "id": "115",
+        "name": "BLEU DE CHANEL POUR HOMME",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "BLEU DE CHANEL POUR HOMME",
+      "type": "EDT",
+      "volume": "150 ml",
+      "imageCount": 2
+    },
+    {
+      "excelData": {
+        "id": 19,
+        "fullName": "CHANEL BLEU DE CHANEL POUR HOMME (M) PARFUM 20 ml TRAVEL SPRAY + PARFUM 2x20 ml REFILLS FR",
+        "price": 450,
+        "barcode": "3145891071207"
+      },
+      "productCard": {
+        "id": "118",
+        "name": "BLEU DE CHANEL POUR HOMME",
+        "brand": "CHANEL",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "BLEU DE CHANEL POUR HOMME",
+      "type": "PARFUM",
+      "volume": "20 ml",
+      "imageCount": 2
+    },
+    {
+      "excelData": {
+        "id": 20,
+        "fullName": "CHANEL BLEU DE CHANEL POUR HOMME (M) PARFUM 50 ml FR",
+        "price": 410,
+        "barcode": "3145891071702"
+      },
+      "productCard": {
+        "id": "118",
+        "name": "BLEU DE CHANEL POUR HOMME",
+        "brand": "CHANEL",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "BLEU DE CHANEL POUR HOMME",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 2
+    },
+    {
+      "excelData": {
+        "id": 21,
+        "fullName": "CHANEL CHANCE (W) EDP 100 ml FR",
+        "price": 550,
+        "barcode": "3145891265200"
+      },
+      "productCard": {
+        "id": "120",
+        "name": "CHANCE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "CHANCE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 6
+    },
+    {
+      "excelData": {
+        "id": 22,
+        "fullName": "CHANEL CHANCE (W) EDP 50 ml FR",
+        "price": 390,
+        "barcode": "3145891264203"
+      },
+      "productCard": {
+        "id": "120",
+        "name": "CHANCE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "CHANCE",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 6
+    },
+    {
+      "excelData": {
+        "id": 23,
+        "fullName": "CHANEL CHANCE (W) EDT 100 ml FR",
+        "price": 485,
+        "barcode": "3145891264609"
+      },
+      "productCard": {
+        "id": "122",
+        "name": "CHANCE",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "CHANCE",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 6
+    },
+    {
+      "excelData": {
+        "id": 24,
+        "fullName": "CHANEL CHANCE (W) EDT 150 ml FR",
+        "price": 550,
+        "barcode": "3145891264906"
+      },
+      "productCard": {
+        "id": "122",
+        "name": "CHANCE",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "CHANCE",
+      "type": "EDT",
+      "volume": "150 ml",
+      "imageCount": 6
+    },
+    {
+      "excelData": {
+        "id": 25,
+        "fullName": "CHANEL CHANCE (W) EDT 50 ml FR",
+        "price": 340,
+        "barcode": "3145891264500"
+      },
+      "productCard": {
+        "id": "122",
+        "name": "CHANCE",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "CHANCE",
+      "type": "EDT",
+      "volume": "50 ml",
+      "imageCount": 6
+    },
+    {
+      "excelData": {
+        "id": 26,
+        "fullName": "CHANEL CHANCE EAU FRAICHE (W) EDP 100 ml FR",
+        "price": 550,
+        "barcode": "3145891361506"
+      },
+      "productCard": {
+        "id": "125",
+        "name": "CHANCE EAU FRAICHE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "CHANCE EAU FRAICHE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 25
+    },
+    {
+      "excelData": {
+        "id": 27,
+        "fullName": "CHANEL CHANCE EAU TENDRE (W) EDP 50 ml FR",
+        "price": 410,
+        "barcode": "3145891262506"
+      },
+      "productCard": {
+        "id": "126",
+        "name": "CHANCE EAU TENDRE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "CHANCE EAU TENDRE",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 25
+    },
+    {
+      "excelData": {
+        "id": 28,
+        "fullName": "CHANEL CHANCE EAU TENDRE (W) EDT 100 ml FR",
+        "price": 500,
+        "barcode": "3145891263206"
+      },
+      "productCard": {
+        "id": "127",
+        "name": "CHANCE EAU TENDRE",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "CHANCE EAU TENDRE",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 25
+    },
+    {
+      "excelData": {
+        "id": 29,
+        "fullName": "CHANEL COCO (W) EDP 100 ml FR",
+        "price": 540,
+        "barcode": "3145891135305"
+      },
+      "productCard": {
+        "id": "128",
+        "name": "COCO",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "COCO",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 7
+    },
+    {
+      "excelData": {
+        "id": 30,
+        "fullName": "CHANEL COCO (W) EDP 50 ml FR",
+        "price": 400,
+        "barcode": "3145891134308"
+      },
+      "productCard": {
+        "id": "128",
+        "name": "COCO",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "COCO",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 7
+    },
+    {
+      "excelData": {
+        "id": 31,
+        "fullName": "CHANEL COCO (W) EDT 50 ml FR",
+        "price": 315,
+        "barcode": "3145891234503"
+      },
+      "productCard": {
+        "id": "130",
+        "name": "COCO",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "COCO",
+      "type": "EDT",
+      "volume": "50 ml",
+      "imageCount": 7
+    },
+    {
+      "excelData": {
+        "id": 32,
+        "fullName": "CHANEL COCO MADEMOISELLE (W) EDP 100 ml FR",
+        "price": 540,
+        "barcode": "3145891165203"
+      },
+      "productCard": {
+        "id": "131",
+        "name": "COCO MADEMOISELLE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "COCO MADEMOISELLE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 7
+    },
+    {
+      "excelData": {
+        "id": 33,
+        "fullName": "CHANEL COCO MADEMOISELLE (W) EDP 50 ml FR",
+        "price": 415,
+        "barcode": "3145891164206"
+      },
+      "productCard": {
+        "id": "131",
+        "name": "COCO MADEMOISELLE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "COCO MADEMOISELLE",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 7
+    },
+    {
+      "excelData": {
+        "id": 35,
+        "fullName": "CHANEL COCO MADEMOISELLE (W) EDT 100 ml FR",
+        "price": 485,
+        "barcode": "3145891164602"
+      },
+      "productCard": {
+        "id": "134",
+        "name": "COCO MADEMOISELLE",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "COCO MADEMOISELLE",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 7
+    },
+    {
+      "excelData": {
+        "id": 36,
+        "fullName": "CHANEL COCO MADEMOISELLE (W) EDT 50 ml FR",
+        "price": 315,
+        "barcode": "3145891164503"
+      },
+      "productCard": {
+        "id": "134",
+        "name": "COCO MADEMOISELLE",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "COCO MADEMOISELLE",
+      "type": "EDT",
+      "volume": "50 ml",
+      "imageCount": 7
+    },
+    {
+      "excelData": {
+        "id": 37,
+        "fullName": "CHANEL COCO MADEMOISELLE (W) EDT 50 ml REFILLABLE FR",
+        "price": 385,
+        "barcode": "3145891163100"
+      },
+      "productCard": {
+        "id": "134",
+        "name": "COCO MADEMOISELLE",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "COCO MADEMOISELLE",
+      "type": "EDT",
+      "volume": "50 ml",
+      "imageCount": 7
+    },
+    {
+      "excelData": {
+        "id": 40,
+        "fullName": "CHANEL COCO NOIR (W) EDP 100 ml FR",
+        "price": 570,
+        "barcode": "3145891136609"
+      },
+      "productCard": {
+        "id": "139",
+        "name": "COCO NOIR",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "COCO NOIR",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 7
+    },
+    {
+      "excelData": {
+        "id": 41,
+        "fullName": "CHANEL COCO NOIR (W) EDP 50 ml FR",
+        "price": 400,
+        "barcode": "3145891136500"
+      },
+      "productCard": {
+        "id": "139",
+        "name": "COCO NOIR",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "COCO NOIR",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 7
+    },
+    {
+      "excelData": {
+        "id": 42,
+        "fullName": "CHANEL EGOISTE PLATINUM POUR HOMME (M) EDT 100 ml FR",
+        "price": 450,
+        "barcode": "3145891244601"
+      },
+      "productCard": {
+        "id": "141",
+        "name": "EGOISTE PLATINUM POUR HOMME",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "EGOISTE PLATINUM POUR HOMME",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 43,
+        "fullName": "CHANEL EGOISTE PLATINUM POUR HOMME (M) EDT 50 ml FR",
+        "price": 315,
+        "barcode": "3145891244502"
+      },
+      "productCard": {
+        "id": "141",
+        "name": "EGOISTE PLATINUM POUR HOMME",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "EGOISTE PLATINUM POUR HOMME",
+      "type": "EDT",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 44,
+        "fullName": "CHANEL GABRIELLE (W) EDP 100 ml FR",
+        "price": 575,
+        "barcode": "3145891205251"
+      },
+      "productCard": {
+        "id": "143",
+        "name": "GABRIELLE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "GABRIELLE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 46,
+        "fullName": "CHANEL GABRIELLE ESSENCE (W) EDP 150 ml FR",
+        "price": 660,
+        "barcode": "3145891206401"
+      },
+      "productCard": {
+        "id": "145",
+        "name": "GABRIELLE ESSENCE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "GABRIELLE ESSENCE",
+      "type": "EDP",
+      "volume": "150 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 47,
+        "fullName": "CHANEL GABRIELLE ESSENCE (W) EDP 35 ml FR",
+        "price": 285,
+        "barcode": "3145891206104"
+      },
+      "productCard": {
+        "id": "145",
+        "name": "GABRIELLE ESSENCE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "GABRIELLE ESSENCE",
+      "type": "EDP",
+      "volume": "35 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 48,
+        "fullName": "CHANEL GABRIELLE ESSENCE (W) EDP 50 ml FR",
+        "price": 400,
+        "barcode": "3145891206203"
+      },
+      "productCard": {
+        "id": "145",
+        "name": "GABRIELLE ESSENCE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "GABRIELLE ESSENCE",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 49,
+        "fullName": "CHANEL GABRIELLE L'EAU (W) EDT 100 ml FR",
+        "price": 500,
+        "barcode": "3145891203608"
+      },
+      "productCard": {
+        "id": "148",
+        "name": "GABRIELLE L'EAU",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "GABRIELLE L'EAU",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 51,
+        "fullName": "CHANEL NO.19 POUDRE (W) EDP 100 ml FR",
+        "price": 550,
+        "barcode": "3145891194906"
+      },
+      "productCard": {
+        "id": "150",
+        "name": "NO.19 POUDRE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "NO.19 POUDRE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 52,
+        "fullName": "CHANEL NO.5 (W) EDP 100 ml FR",
+        "price": 550,
+        "barcode": "3145891255300"
+      },
+      "productCard": {
+        "id": "151",
+        "name": "NO.5",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "NO.5",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 53,
+        "fullName": "CHANEL NO.5 (W) EDT 100 ml FR",
+        "price": 485,
+        "barcode": "3145891054675"
+      },
+      "productCard": {
+        "id": "152",
+        "name": "NO.5",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "NO.5",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 54,
+        "fullName": "CHANEL NO.5 (W) EDT 50 ml FR",
+        "price": 330,
+        "barcode": "3145891054552"
+      },
+      "productCard": {
+        "id": "152",
+        "name": "NO.5",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "NO.5",
+      "type": "EDT",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 55,
+        "fullName": "CHANEL NO.5 EAU PREMIERE (W) EDP 100 ml FR",
+        "price": 585,
+        "barcode": "3145891053401"
+      },
+      "productCard": {
+        "id": "154",
+        "name": "NO.5 EAU PREMIERE",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "NO.5 EAU PREMIERE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 25
+    },
+    {
+      "excelData": {
+        "id": 57,
+        "fullName": "CHANEL NO.5 LIMITED EDITION (W) EDP 100 ml FR",
+        "price": 565,
+        "barcode": "3145891255973"
+      },
+      "productCard": {
+        "id": "156",
+        "name": "NO.5 LIMITED EDITION",
+        "brand": "CHANEL",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "NO.5 LIMITED EDITION",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 2
+    },
+    {
+      "excelData": {
+        "id": 58,
+        "fullName": "CHANEL POUR MONSIEUR (M) EDT 100 ml FR",
+        "price": 420,
+        "barcode": "3145891174601"
+      },
+      "productCard": {
+        "id": "157",
+        "name": "POUR MONSIEUR",
+        "brand": "CHANEL",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "CHANEL",
+      "name": "POUR MONSIEUR",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 2
+    },
+    {
+      "excelData": {
+        "id": 59,
+        "fullName": "VERSACE BLUE JEANS MAN (M) EDT 75 ml IT",
+        "price": 55,
+        "barcode": "8018365260757"
+      },
+      "productCard": {
+        "id": "158",
+        "name": "BLUE JEANS MAN",
+        "brand": "VERSACE",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "BLUE JEANS MAN",
+      "type": "EDT",
+      "volume": "75 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 60,
+        "fullName": "VERSACE CRYSTAL NOIR (W) EDP 90 ml IT",
+        "price": 185,
+        "barcode": "8018365070462"
+      },
+      "productCard": {
+        "id": "159",
+        "name": "CRYSTAL NOIR",
+        "brand": "VERSACE",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "CRYSTAL NOIR",
+      "type": "EDP",
+      "volume": "90 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 61,
+        "fullName": "VERSACE CRYSTAL NOIR (W) PARFUM 50 ml IT",
+        "price": 160,
+        "barcode": "8011003891498"
+      },
+      "productCard": {
+        "id": "160",
+        "name": "CRYSTAL NOIR",
+        "brand": "VERSACE",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "CRYSTAL NOIR",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 62,
+        "fullName": "VERSACE EROS (M) PARFUM 100 ml IT",
+        "price": 210,
+        "barcode": "8011003872077"
+      },
+      "productCard": {
+        "id": "161",
+        "name": "EROS",
+        "brand": "VERSACE",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "EROS",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 63,
+        "fullName": "VERSACE EROS FLAME (M) EDP 100 ml IT",
+        "price": 165,
+        "barcode": "8011003845354"
+      },
+      "productCard": {
+        "id": "162",
+        "name": "EROS FLAME",
+        "brand": "VERSACE",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "EROS FLAME",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 64,
+        "fullName": "VERSACE EROS FLAME (M) EDP 200 ml IT",
+        "price": 215,
+        "barcode": "8011003846627"
+      },
+      "productCard": {
+        "id": "162",
+        "name": "EROS FLAME",
+        "brand": "VERSACE",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "EROS FLAME",
+      "type": "EDP",
+      "volume": "200 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 65,
+        "fullName": "VERSACE EROS POUR FEMME (W) EDP 100 ml IT",
+        "price": 185,
+        "barcode": "8011003823536"
+      },
+      "productCard": {
+        "id": "164",
+        "name": "EROS POUR FEMME",
+        "brand": "VERSACE",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "EROS POUR FEMME",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 66,
+        "fullName": "VERSACE EROS POUR FEMME (W) EDT 100 ml IT",
+        "price": 175,
+        "barcode": "8011003827343"
+      },
+      "productCard": {
+        "id": "165",
+        "name": "EROS POUR FEMME",
+        "brand": "VERSACE",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "EROS POUR FEMME",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 67,
+        "fullName": "VERSACE L'HOMME (M) EDT 100 ml IT",
+        "price": 85,
+        "barcode": "8018365140103"
+      },
+      "productCard": {
+        "id": "166",
+        "name": "L'HOMME",
+        "brand": "VERSACE",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "L'HOMME",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 68,
+        "fullName": "VERSACE POUR FEMME DYLAN BLUE (W) EDP 100 ml IT",
+        "price": 165,
+        "barcode": "8011003839117"
+      },
+      "productCard": {
+        "id": "167",
+        "name": "POUR FEMME DYLAN BLUE",
+        "brand": "VERSACE",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "POUR FEMME DYLAN BLUE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 69,
+        "fullName": "VERSACE POUR FEMME DYLAN PURPLE (W) EDP 100 ml IT",
+        "price": 175,
+        "barcode": "8011003876280"
+      },
+      "productCard": {
+        "id": "168",
+        "name": "POUR FEMME DYLAN PURPLE",
+        "brand": "VERSACE",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "POUR FEMME DYLAN PURPLE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 70,
+        "fullName": "VERSACE POUR HOMME (M) EDT 100 ml IT",
+        "price": 140,
+        "barcode": "8011003995967"
+      },
+      "productCard": {
+        "id": "169",
+        "name": "POUR HOMME",
+        "brand": "VERSACE",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "POUR HOMME",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 71,
+        "fullName": "VERSACE POUR HOMME DYLAN BLUE (M) EDT 100 ml IT",
+        "price": 145,
+        "barcode": "8011003825745"
+      },
+      "productCard": {
+        "id": "170",
+        "name": "POUR HOMME DYLAN BLUE",
+        "brand": "VERSACE",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "POUR HOMME DYLAN BLUE",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 72,
+        "fullName": "VERSACE RED JEANS WOMAN (W) EDT 75 ml IT",
+        "price": 50,
+        "barcode": "8018365270756"
+      },
+      "productCard": {
+        "id": "171",
+        "name": "RED JEANS WOMAN",
+        "brand": "VERSACE",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "RED JEANS WOMAN",
+      "type": "EDT",
+      "volume": "75 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 73,
+        "fullName": "VERSACE VERSENSE (W) EDT 100 ml IT",
+        "price": 145,
+        "barcode": "8011003997022"
+      },
+      "productCard": {
+        "id": "172",
+        "name": "VERSENSE",
+        "brand": "VERSACE",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "VERSENSE",
+      "type": "EDT",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 74,
+        "fullName": "VERSACE WOMAN (W) EDP 100 ml IT",
+        "price": 85,
+        "barcode": "8018365250468"
+      },
+      "productCard": {
+        "id": "173",
+        "name": "WOMAN",
+        "brand": "VERSACE",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "WOMAN",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 75,
+        "fullName": "VERSACE YELLOW DIAMOND (W) EDT 200 ml IT",
+        "price": 195,
+        "barcode": "8011003832286"
+      },
+      "productCard": {
+        "id": "174",
+        "name": "YELLOW DIAMOND",
+        "brand": "VERSACE",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "YELLOW DIAMOND",
+      "type": "EDT",
+      "volume": "200 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 76,
+        "fullName": "VERSACE YELLOW DIAMOND (W) EDT 90 ml IT",
+        "price": 143,
+        "barcode": "8011003804566"
+      },
+      "productCard": {
+        "id": "174",
+        "name": "YELLOW DIAMOND",
+        "brand": "VERSACE",
+        "type": "EDT"
+      },
+      "matchType": "exact",
+      "brand": "VERSACE",
+      "name": "YELLOW DIAMOND",
+      "type": "EDT",
+      "volume": "90 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 77,
+        "fullName": "XERJOFF ACCENTO (U) EDP 100 ml IT",
+        "price": 490,
+        "barcode": "8054320902553"
+      },
+      "productCard": {
+        "id": "176",
+        "name": "ACCENTO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "ACCENTO",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 78,
+        "fullName": "XERJOFF ACCENTO (U) EDP 50 ml IT",
+        "price": 325,
+        "barcode": "8054320902560"
+      },
+      "productCard": {
+        "id": "176",
+        "name": "ACCENTO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "ACCENTO",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 79,
+        "fullName": "XERJOFF AMABILE (U) EDP 100 ml IT",
+        "price": 400,
+        "barcode": "8054320900009"
+      },
+      "productCard": {
+        "id": "178",
+        "name": "AMABILE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "AMABILE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 80,
+        "fullName": "XERJOFF AMABILE (U) EDP 50 ml IT",
+        "price": 260,
+        "barcode": "8054320900016"
+      },
+      "productCard": {
+        "id": "178",
+        "name": "AMABILE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "AMABILE",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 81,
+        "fullName": "XERJOFF CASAMORATI 1888 (U) EDP 30 ml IT",
+        "price": 225,
+        "barcode": "8033488154509"
+      },
+      "productCard": {
+        "id": "180",
+        "name": "CASAMORATI 1888",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888",
+      "type": "EDP",
+      "volume": "30 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 82,
+        "fullName": "XERJOFF CASAMORATI 1888 BOUQUET IDEALE (W) EDP 100 ml IT",
+        "price": 440,
+        "barcode": "8033488153588"
+      },
+      "productCard": {
+        "id": "181",
+        "name": "CASAMORATI 1888 BOUQUET IDEALE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 BOUQUET IDEALE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 83,
+        "fullName": "XERJOFF CASAMORATI 1888 CASAFUTURA (U) EDP 100 ml IT",
+        "price": 410,
+        "barcode": "8054320900078"
+      },
+      "productCard": {
+        "id": "182",
+        "name": "CASAMORATI 1888 CASAFUTURA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 CASAFUTURA",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 84,
+        "fullName": "XERJOFF CASAMORATI 1888 CASAFUTURA (U) EDP 30 ml IT",
+        "price": 195,
+        "barcode": "8054320900108"
+      },
+      "productCard": {
+        "id": "182",
+        "name": "CASAMORATI 1888 CASAFUTURA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 CASAFUTURA",
+      "type": "EDP",
+      "volume": "30 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 85,
+        "fullName": "XERJOFF CASAMORATI 1888 DAMA BIANCA (W) EDP 100 ml IT",
+        "price": 425,
+        "barcode": "8033488151652"
+      },
+      "productCard": {
+        "id": "184",
+        "name": "CASAMORATI 1888 DAMA BIANCA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 DAMA BIANCA",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 86,
+        "fullName": "XERJOFF CASAMORATI 1888 DAMA BIANCA (W) EDP 30 ml IT",
+        "price": 230,
+        "barcode": "8033488154523"
+      },
+      "productCard": {
+        "id": "184",
+        "name": "CASAMORATI 1888 DAMA BIANCA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 DAMA BIANCA",
+      "type": "EDP",
+      "volume": "30 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 87,
+        "fullName": "XERJOFF CASAMORATI 1888 FIORE D'ULIVO (W) EDP 100 ml IT",
+        "price": 400,
+        "barcode": "8033488153564"
+      },
+      "productCard": {
+        "id": "186",
+        "name": "CASAMORATI 1888 FIORE D'ULIVO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 FIORE D'ULIVO",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 88,
+        "fullName": "XERJOFF CASAMORATI 1888 FIORE D'ULIVO (W) EDP 30 ml IT",
+        "price": 205,
+        "barcode": "8033488154530"
+      },
+      "productCard": {
+        "id": "186",
+        "name": "CASAMORATI 1888 FIORE D'ULIVO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 FIORE D'ULIVO",
+      "type": "EDP",
+      "volume": "30 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 89,
+        "fullName": "XERJOFF CASAMORATI 1888 GRAN BALLO (W) EDP 30 ml IT",
+        "price": 205,
+        "barcode": "8033488154493"
+      },
+      "productCard": {
+        "id": "188",
+        "name": "CASAMORATI 1888 GRAN BALLO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 GRAN BALLO",
+      "type": "EDP",
+      "volume": "30 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 90,
+        "fullName": "XERJOFF CASAMORATI 1888 ITALICA (U) EDP 100 ml IT",
+        "price": 450,
+        "barcode": "8033488154882"
+      },
+      "productCard": {
+        "id": "189",
+        "name": "CASAMORATI 1888 ITALICA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 ITALICA",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 91,
+        "fullName": "XERJOFF CASAMORATI 1888 LA TOSCA (W) EDP 30 ml IT",
+        "price": 215,
+        "barcode": "8033488154585"
+      },
+      "productCard": {
+        "id": "190",
+        "name": "CASAMORATI 1888 LA TOSCA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 LA TOSCA",
+      "type": "EDP",
+      "volume": "30 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 92,
+        "fullName": "XERJOFF CASAMORATI 1888 LEVAR DEL SOLE (U) EDP 100 ml IT",
+        "price": 450,
+        "barcode": "8054320902959"
+      },
+      "productCard": {
+        "id": "191",
+        "name": "CASAMORATI 1888 LEVAR DEL SOLE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 LEVAR DEL SOLE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 93,
+        "fullName": "XERJOFF CASAMORATI 1888 LEVAR DEL SOLE (U) EDP 30 ml IT",
+        "price": 210,
+        "barcode": "8054320902966"
+      },
+      "productCard": {
+        "id": "191",
+        "name": "CASAMORATI 1888 LEVAR DEL SOLE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 LEVAR DEL SOLE",
+      "type": "EDP",
+      "volume": "30 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 94,
+        "fullName": "XERJOFF CASAMORATI 1888 LIRA (W) EDP 30 ml IT",
+        "price": 210,
+        "barcode": "8033488154547"
+      },
+      "productCard": {
+        "id": "193",
+        "name": "CASAMORATI 1888 LIRA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 LIRA",
+      "type": "EDP",
+      "volume": "30 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 95,
+        "fullName": "XERJOFF CASAMORATI 1888 REGIO (U) EDP 100 ml IT",
+        "price": 425,
+        "barcode": "8033488153601"
+      },
+      "productCard": {
+        "id": "194",
+        "name": "CASAMORATI 1888 REGIO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 REGIO",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 96,
+        "fullName": "XERJOFF CASAMORATI 1888 REGIO (U) EDP 30 ml IT",
+        "price": 205,
+        "barcode": "8033488154561"
+      },
+      "productCard": {
+        "id": "194",
+        "name": "CASAMORATI 1888 REGIO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "CASAMORATI 1888 REGIO",
+      "type": "EDP",
+      "volume": "30 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 97,
+        "fullName": "XERJOFF COFFEE BREAK GOLDEN DALLAH (U) PARFUM 50 ml IT",
+        "price": 520,
+        "barcode": "8033488157906"
+      },
+      "productCard": {
+        "id": "196",
+        "name": "COFFEE BREAK GOLDEN DALLAH",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "COFFEE BREAK GOLDEN DALLAH",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 98,
+        "fullName": "XERJOFF COFFEE BREAK GOLDEN GREEN (U) PARFUM 50 ml IT",
+        "price": 465,
+        "barcode": "8033488159306"
+      },
+      "productCard": {
+        "id": "197",
+        "name": "COFFEE BREAK GOLDEN GREEN",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "COFFEE BREAK GOLDEN GREEN",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 99,
+        "fullName": "XERJOFF ERBA GOLD (U) EDP 100 ml IT",
+        "price": 530,
+        "barcode": "8054320902522"
+      },
+      "productCard": {
+        "id": "198",
+        "name": "ERBA GOLD",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "ERBA GOLD",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 100,
+        "fullName": "XERJOFF ERBA PURA (U) EDP 100 ml IT",
+        "price": 500,
+        "barcode": "8054320902584"
+      },
+      "productCard": {
+        "id": "199",
+        "name": "ERBA PURA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "ERBA PURA",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 101,
+        "fullName": "XERJOFF ERBA PURA (U) EDP 50 ml IT",
+        "price": 360,
+        "barcode": "8054320902591"
+      },
+      "productCard": {
+        "id": "199",
+        "name": "ERBA PURA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "ERBA PURA",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 102,
+        "fullName": "XERJOFF GROOVE XCAPE (U) PARFUM 50 ml IT",
+        "price": 490,
+        "barcode": "8054320901457"
+      },
+      "productCard": {
+        "id": "201",
+        "name": "GROOVE XCAPE",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "GROOVE XCAPE",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 103,
+        "fullName": "XERJOFF JOIN THE CLUB 400 (U) EDP 50 ml IT",
+        "price": 380,
+        "barcode": "8054320900276"
+      },
+      "productCard": {
+        "id": "202",
+        "name": "JOIN THE CLUB 400",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB 400",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 104,
+        "fullName": "XERJOFF JOIN THE CLUB COMANDANTE! (U) EDP 100 ml IT",
+        "price": 560,
+        "barcode": "8033488155193"
+      },
+      "productCard": {
+        "id": "203",
+        "name": "JOIN THE CLUB COMANDANTE!",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB COMANDANTE!",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 105,
+        "fullName": "XERJOFF JOIN THE CLUB DON (U) EDP 100 ml IT",
+        "price": 570,
+        "barcode": "8033488155179"
+      },
+      "productCard": {
+        "id": "204",
+        "name": "JOIN THE CLUB DON",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB DON",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 106,
+        "fullName": "XERJOFF JOIN THE CLUB DON (U) EDP 50 ml IT",
+        "price": 350,
+        "barcode": "8033488155162"
+      },
+      "productCard": {
+        "id": "204",
+        "name": "JOIN THE CLUB DON",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB DON",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 107,
+        "fullName": "XERJOFF JOIN THE CLUB FATAL CHARME (U) EDP 50 ml IT",
+        "price": 385,
+        "barcode": "8033488155223"
+      },
+      "productCard": {
+        "id": "206",
+        "name": "JOIN THE CLUB FATAL CHARME",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB FATAL CHARME",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 108,
+        "fullName": "XERJOFF JOIN THE CLUB IVORY ROUTE (U) EDP 50 ml IT",
+        "price": 385,
+        "barcode": "8033488155230"
+      },
+      "productCard": {
+        "id": "207",
+        "name": "JOIN THE CLUB IVORY ROUTE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB IVORY ROUTE",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 109,
+        "fullName": "XERJOFF JOIN THE CLUB K'BRIDGE CLUB (U) EDP 50 ml IT",
+        "price": 410,
+        "barcode": "8033488158026"
+      },
+      "productCard": {
+        "id": "208",
+        "name": "JOIN THE CLUB K'BRIDGE CLUB",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB K'BRIDGE CLUB",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 110,
+        "fullName": "XERJOFF JOIN THE CLUB MORE THAN WORDS (U) EDP 100 ml IT",
+        "price": 525,
+        "barcode": "8033488155131"
+      },
+      "productCard": {
+        "id": "209",
+        "name": "JOIN THE CLUB MORE THAN WORDS",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB MORE THAN WORDS",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 111,
+        "fullName": "XERJOFF JOIN THE CLUB MORE THAN WORDS (U) EDP 50 ml IT",
+        "price": 360,
+        "barcode": "8033488155124"
+      },
+      "productCard": {
+        "id": "209",
+        "name": "JOIN THE CLUB MORE THAN WORDS",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB MORE THAN WORDS",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 112,
+        "fullName": "XERJOFF JOIN THE CLUB SHUNKOIN (U) EDP 50 ml IT",
+        "price": 375,
+        "barcode": "8033488155261"
+      },
+      "productCard": {
+        "id": "211",
+        "name": "JOIN THE CLUB SHUNKOIN",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB SHUNKOIN",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 113,
+        "fullName": "XERJOFF JOIN THE CLUB TORINO22 (U) EDP 50 ml IT",
+        "price": 480,
+        "barcode": "8054320903123"
+      },
+      "productCard": {
+        "id": "212",
+        "name": "JOIN THE CLUB TORINO22",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "JOIN THE CLUB TORINO22",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 114,
+        "fullName": "XERJOFF KEMI BLUE COLLECTION ASTARAL (U) PARFUM 100 ml IT",
+        "price": 550,
+        "barcode": "8054320902072"
+      },
+      "productCard": {
+        "id": "213",
+        "name": "KEMI BLUE COLLECTION ASTARAL",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI BLUE COLLECTION ASTARAL",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 115,
+        "fullName": "XERJOFF KEMI BLUE COLLECTION ETHER (U) PARFUM 50 ml IT",
+        "price": 500,
+        "barcode": "8054320901983"
+      },
+      "productCard": {
+        "id": "214",
+        "name": "KEMI BLUE COLLECTION ETHER",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI BLUE COLLECTION ETHER",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 116,
+        "fullName": "XERJOFF KEMI BLUE COLLECTION HOLYSM (U) PARFUM 50 ml IT",
+        "price": 450,
+        "barcode": "8054320902010"
+      },
+      "productCard": {
+        "id": "215",
+        "name": "KEMI BLUE COLLECTION HOLYSM",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI BLUE COLLECTION HOLYSM",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 117,
+        "fullName": "XERJOFF KEMI COLLECTION AQUA REGIA (U) PARFUM 100 ml IT",
+        "price": 550,
+        "barcode": "8054320900771"
+      },
+      "productCard": {
+        "id": "216",
+        "name": "KEMI COLLECTION AQUA REGIA",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI COLLECTION AQUA REGIA",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 118,
+        "fullName": "XERJOFF KEMI COLLECTION AURUM (U) PARFUM 50 ml IT",
+        "price": 520,
+        "barcode": "8054320900818"
+      },
+      "productCard": {
+        "id": "217",
+        "name": "KEMI COLLECTION AURUM",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI COLLECTION AURUM",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 119,
+        "fullName": "XERJOFF KEMI COLLECTION HAYAT (U) PARFUM 100 ml IT",
+        "price": 615,
+        "barcode": "8054320900733"
+      },
+      "productCard": {
+        "id": "218",
+        "name": "KEMI COLLECTION HAYAT",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI COLLECTION HAYAT",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 120,
+        "fullName": "XERJOFF KEMI COLLECTION HAYAT (U) PARFUM 50 ml IT",
+        "price": 500,
+        "barcode": "8054320900757"
+      },
+      "productCard": {
+        "id": "218",
+        "name": "KEMI COLLECTION HAYAT",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI COLLECTION HAYAT",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 121,
+        "fullName": "XERJOFF KEMI COLLECTION 'ILM (U) PARFUM 50 ml IT",
+        "price": 485,
+        "barcode": "8054320900962"
+      },
+      "productCard": {
+        "id": "220",
+        "name": "KEMI COLLECTION 'ILM",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI COLLECTION 'ILM",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 122,
+        "fullName": "XERJOFF KEMI COLLECTION JABIR (U) PARFUM 50 ml IT",
+        "price": 500,
+        "barcode": "8054320900931"
+      },
+      "productCard": {
+        "id": "221",
+        "name": "KEMI COLLECTION JABIR",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI COLLECTION JABIR",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 123,
+        "fullName": "XERJOFF KEMI COLLECTION KEMI (U) PARFUM 50 ml IT",
+        "price": 515,
+        "barcode": "8054320900900"
+      },
+      "productCard": {
+        "id": "222",
+        "name": "KEMI COLLECTION KEMI",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI COLLECTION KEMI",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 124,
+        "fullName": "XERJOFF KEMI COLLECTION LAYLA (U) PARFUM 50 ml IT",
+        "price": 515,
+        "barcode": "8054320900870"
+      },
+      "productCard": {
+        "id": "223",
+        "name": "KEMI COLLECTION LAYLA",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI COLLECTION LAYLA",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 125,
+        "fullName": "XERJOFF KEMI COLLECTION LUNA (U) PARFUM 50 ml IT",
+        "price": 410,
+        "barcode": "8054320900849"
+      },
+      "productCard": {
+        "id": "224",
+        "name": "KEMI COLLECTION LUNA",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI COLLECTION LUNA",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 126,
+        "fullName": "XERJOFF KEMI COLLECTION TEMPEST (U) PARFUM 50 ml IT",
+        "price": 450,
+        "barcode": "8054320900993"
+      },
+      "productCard": {
+        "id": "225",
+        "name": "KEMI COLLECTION TEMPEST",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "KEMI COLLECTION TEMPEST",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 127,
+        "fullName": "XERJOFF LAYLATI (U) EDP 100 ml IT",
+        "price": 400,
+        "barcode": "8033488156343"
+      },
+      "productCard": {
+        "id": "226",
+        "name": "LAYLATI",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "LAYLATI",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 128,
+        "fullName": "XERJOFF LAYLATI (U) EDP 100 ml IT",
+        "price": 400,
+        "barcode": "8054320902720"
+      },
+      "productCard": {
+        "id": "226",
+        "name": "LAYLATI",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "LAYLATI",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 129,
+        "fullName": "XERJOFF LAYLATI (U) EDP 50 ml IT",
+        "price": 325,
+        "barcode": "8033488158767"
+      },
+      "productCard": {
+        "id": "226",
+        "name": "LAYLATI",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "LAYLATI",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 130,
+        "fullName": "XERJOFF LAYLATI (U) EDP 50 ml IT",
+        "price": 325,
+        "barcode": "8054320902737"
+      },
+      "productCard": {
+        "id": "226",
+        "name": "LAYLATI",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "LAYLATI",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 131,
+        "fullName": "XERJOFF MUSE (U) EDP 100 ml IT",
+        "price": 500,
+        "barcode": "8033488157661"
+      },
+      "productCard": {
+        "id": "230",
+        "name": "MUSE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "MUSE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 132,
+        "fullName": "XERJOFF MUSE (U) EDP 100 ml IT",
+        "price": 500,
+        "barcode": "8054320902690"
+      },
+      "productCard": {
+        "id": "230",
+        "name": "MUSE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "MUSE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 133,
+        "fullName": "XERJOFF MUSE (U) EDP 50 ml IT",
+        "price": 365,
+        "barcode": "8054320902706"
+      },
+      "productCard": {
+        "id": "230",
+        "name": "MUSE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "MUSE",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 135,
+        "fullName": "XERJOFF OPERA (U) EDP 100 ml IT",
+        "price": 510,
+        "barcode": "8033488156367"
+      },
+      "productCard": {
+        "id": "234",
+        "name": "OPERA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OPERA",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 136,
+        "fullName": "XERJOFF OUD STARS ALEXANDRIA II (U) PARFUM 100 ml IT",
+        "price": 1000,
+        "barcode": "8033488154967"
+      },
+      "productCard": {
+        "id": "235",
+        "name": "OUD STARS ALEXANDRIA II",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OUD STARS ALEXANDRIA II",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 138,
+        "fullName": "XERJOFF OUD STARS ALEXANDRIA II ANNIVERSARY (U) PARFUM 100 ml IT",
+        "price": 975,
+        "barcode": "8054320902348"
+      },
+      "productCard": {
+        "id": "237",
+        "name": "OUD STARS ALEXANDRIA II ANNIVERSARY",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OUD STARS ALEXANDRIA II ANNIVERSARY",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 139,
+        "fullName": "XERJOFF OUD STARS ALEXANDRIA ORIENTALE (U) PARFUM 50 ml IT",
+        "price": 600,
+        "barcode": "8033488157784"
+      },
+      "productCard": {
+        "id": "238",
+        "name": "OUD STARS ALEXANDRIA ORIENTALE",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OUD STARS ALEXANDRIA ORIENTALE",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 140,
+        "fullName": "XERJOFF OUD STARS AL-KHATT (U) PARFUM 50 ml IT",
+        "price": 475,
+        "barcode": "8033488153458"
+      },
+      "productCard": {
+        "id": "239",
+        "name": "OUD STARS AL-KHATT",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OUD STARS AL-KHATT",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 141,
+        "fullName": "XERJOFF OUD STARS FARS (U) PARFUM 50 ml IT",
+        "price": 515,
+        "barcode": "8033488153434"
+      },
+      "productCard": {
+        "id": "240",
+        "name": "OUD STARS FARS",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OUD STARS FARS",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 142,
+        "fullName": "XERJOFF OUD STARS LUXOR (U) PARFUM 50 ml IT",
+        "price": 575,
+        "barcode": "8033488159160"
+      },
+      "productCard": {
+        "id": "241",
+        "name": "OUD STARS LUXOR",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OUD STARS LUXOR",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 143,
+        "fullName": "XERJOFF OUD STARS MALESIA (U) PARFUM 50 ml IT",
+        "price": 465,
+        "barcode": "8033488154622"
+      },
+      "productCard": {
+        "id": "242",
+        "name": "OUD STARS MALESIA",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OUD STARS MALESIA",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 144,
+        "fullName": "XERJOFF OUD STARS ZAFAR (U) PARFUM 50 ml IT",
+        "price": 550,
+        "barcode": "8033488153762"
+      },
+      "productCard": {
+        "id": "243",
+        "name": "OUD STARS ZAFAR",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OUD STARS ZAFAR",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 145,
+        "fullName": "XERJOFF OUVERTURE (U) EDP 100 ml IT",
+        "price": 475,
+        "barcode": "8054320902669"
+      },
+      "productCard": {
+        "id": "244",
+        "name": "OUVERTURE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OUVERTURE",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 146,
+        "fullName": "XERJOFF OUVERTURE (U) EDP 50 ml IT",
+        "price": 330,
+        "barcode": "8054320902676"
+      },
+      "productCard": {
+        "id": "244",
+        "name": "OUVERTURE",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "OUVERTURE",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 147,
+        "fullName": "XERJOFF SHOOTING STARS ALLENDE (U) PARFUM 50 ml IT",
+        "price": 450,
+        "barcode": "8033488157968"
+      },
+      "productCard": {
+        "id": "246",
+        "name": "SHOOTING STARS ALLENDE",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS ALLENDE",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 148,
+        "fullName": "XERJOFF SHOOTING STARS APOLLONIA (U) PARFUM 50 ml IT",
+        "price": 500,
+        "barcode": "8033488159139"
+      },
+      "productCard": {
+        "id": "247",
+        "name": "SHOOTING STARS APOLLONIA",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS APOLLONIA",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 149,
+        "fullName": "XERJOFF SHOOTING STARS CRUZ DEL SUR I (U) PARFUM 50 ml IT",
+        "price": 450,
+        "barcode": "8033488152864"
+      },
+      "productCard": {
+        "id": "248",
+        "name": "SHOOTING STARS CRUZ DEL SUR I",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS CRUZ DEL SUR I",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 150,
+        "fullName": "XERJOFF SHOOTING STARS CRUZ DEL SUR II (U) PARFUM 50 ml IT",
+        "price": 450,
+        "barcode": "8033488152871"
+      },
+      "productCard": {
+        "id": "249",
+        "name": "SHOOTING STARS CRUZ DEL SUR II",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS CRUZ DEL SUR II",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 151,
+        "fullName": "XERJOFF SHOOTING STARS KOBE (M) PARFUM 50 ml IT",
+        "price": 485,
+        "barcode": "8033488151539"
+      },
+      "productCard": {
+        "id": "250",
+        "name": "SHOOTING STARS KOBE",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS KOBE",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 152,
+        "fullName": "XERJOFF SHOOTING STARS LA CAPITALE (U) PARFUM 50 ml IT",
+        "price": 500,
+        "barcode": "8033488158194"
+      },
+      "productCard": {
+        "id": "251",
+        "name": "SHOOTING STARS LA CAPITALE",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS LA CAPITALE",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 153,
+        "fullName": "XERJOFF SHOOTING STARS NIO (M) PARFUM 15 ml IT",
+        "price": 175,
+        "barcode": "8033488159788"
+      },
+      "productCard": {
+        "id": "252",
+        "name": "SHOOTING STARS NIO",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS NIO",
+      "type": "PARFUM",
+      "volume": "15 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 154,
+        "fullName": "XERJOFF SHOOTING STARS NIO (M) PARFUM 50 ml IT",
+        "price": 450,
+        "barcode": "8033488151553"
+      },
+      "productCard": {
+        "id": "252",
+        "name": "SHOOTING STARS NIO",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS NIO",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 155,
+        "fullName": "XERJOFF SHOOTING STARS OESEL (U) PARFUM 50 ml IT",
+        "price": 475,
+        "barcode": "8033488151959"
+      },
+      "productCard": {
+        "id": "254",
+        "name": "SHOOTING STARS OESEL",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS OESEL",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 156,
+        "fullName": "XERJOFF SHOOTING STARS STARLIGHT (U) PARFUM 50 ml IT",
+        "price": 550,
+        "barcode": "8033488159368"
+      },
+      "productCard": {
+        "id": "255",
+        "name": "SHOOTING STARS STARLIGHT",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS STARLIGHT",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 157,
+        "fullName": "XERJOFF SHOOTING STARS UDEN (M) PARFUM 50 ml IT",
+        "price": 475,
+        "barcode": "8033488151522"
+      },
+      "productCard": {
+        "id": "256",
+        "name": "SHOOTING STARS UDEN",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SHOOTING STARS UDEN",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 158,
+        "fullName": "XERJOFF SOPRANO (U) EDP 100 ml IT",
+        "price": 480,
+        "barcode": "8033488157630"
+      },
+      "productCard": {
+        "id": "257",
+        "name": "SOPRANO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SOPRANO",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 159,
+        "fullName": "XERJOFF SOPRANO (U) EDP 100 ml IT",
+        "price": 485,
+        "barcode": "8054320902638"
+      },
+      "productCard": {
+        "id": "257",
+        "name": "SOPRANO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SOPRANO",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 160,
+        "fullName": "XERJOFF SOPRANO (U) EDP 50 ml IT",
+        "price": 335,
+        "barcode": "8054320902645"
+      },
+      "productCard": {
+        "id": "257",
+        "name": "SOPRANO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "SOPRANO",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 161,
+        "fullName": "XERJOFF TONY IOMMI MONKEY SPECIAL (U) PARFUM 100 ml IT",
+        "price": 750,
+        "barcode": "8054320902447"
+      },
+      "productCard": {
+        "id": "260",
+        "name": "TONY IOMMI MONKEY SPECIAL",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "TONY IOMMI MONKEY SPECIAL",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 162,
+        "fullName": "XERJOFF TONY IOMMI MONKEY SPECIAL (U) PARFUM 50 ml IT",
+        "price": 515,
+        "barcode": "8054320900702"
+      },
+      "productCard": {
+        "id": "260",
+        "name": "TONY IOMMI MONKEY SPECIAL",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "TONY IOMMI MONKEY SPECIAL",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 163,
+        "fullName": "XERJOFF TORINO22 (U) EDP 50 ml IT",
+        "price": 500,
+        "barcode": "8054320901877"
+      },
+      "productCard": {
+        "id": "262",
+        "name": "TORINO22",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "TORINO22",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 164,
+        "fullName": "XERJOFF TORINO23 (U) EDP 50 ml IT",
+        "price": 450,
+        "barcode": "8054320902485"
+      },
+      "productCard": {
+        "id": "263",
+        "name": "TORINO23",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "TORINO23",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 165,
+        "fullName": "XERJOFF VIA CAVOUR 1 (U) PARFUM 50 ml IT",
+        "price": 515,
+        "barcode": "8033488157555"
+      },
+      "productCard": {
+        "id": "264",
+        "name": "VIA CAVOUR 1",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "VIA CAVOUR 1",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 166,
+        "fullName": "XERJOFF WARDASINA (U) EDP 100 ml IT",
+        "price": 500,
+        "barcode": "8054320902911"
+      },
+      "productCard": {
+        "id": "265",
+        "name": "WARDASINA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "WARDASINA",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 167,
+        "fullName": "XERJOFF WARDASINA (U) EDP 50 ml IT",
+        "price": 385,
+        "barcode": "8054320902928"
+      },
+      "productCard": {
+        "id": "265",
+        "name": "WARDASINA",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "WARDASINA",
+      "type": "EDP",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 168,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL DAMAROSE (W) PARFUM 100 ml IT",
+        "price": 850,
+        "barcode": "8033488155520"
+      },
+      "productCard": {
+        "id": "267",
+        "name": "XJ 17/17 STONE LABEL DAMAROSE",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL DAMAROSE",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 169,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL DAMAROSE (W) PARFUM 50 ml IT",
+        "price": 700,
+        "barcode": "8033488155537"
+      },
+      "productCard": {
+        "id": "267",
+        "name": "XJ 17/17 STONE LABEL DAMAROSE",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL DAMAROSE",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 170,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL ELLE (W) PARFUM 100 ml IT",
+        "price": 1100,
+        "barcode": "8033488155421"
+      },
+      "productCard": {
+        "id": "269",
+        "name": "XJ 17/17 STONE LABEL ELLE",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL ELLE",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 171,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL ELLE ANNIVERSARY (W) PARFUM 50 ml IT",
+        "price": 750,
+        "barcode": "8054320903291"
+      },
+      "productCard": {
+        "id": "270",
+        "name": "XJ 17/17 STONE LABEL ELLE ANNIVERSARY",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL ELLE ANNIVERSARY",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 172,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL HOMME ANNIVERSARY (M) PARFUM 50 ml IT",
+        "price": 800,
+        "barcode": "8054320903321"
+      },
+      "productCard": {
+        "id": "271",
+        "name": "XJ 17/17 STONE LABEL HOMME ANNIVERSARY",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL HOMME ANNIVERSARY",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 173,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL IRISSS (W) PARFUM 100 ml IT",
+        "price": 1100,
+        "barcode": "8033488155483"
+      },
+      "productCard": {
+        "id": "272",
+        "name": "XJ 17/17 STONE LABEL IRISSS",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL IRISSS",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 174,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL IRISSS (W) PARFUM 50 ml IT",
+        "price": 700,
+        "barcode": "8033488155490"
+      },
+      "productCard": {
+        "id": "272",
+        "name": "XJ 17/17 STONE LABEL IRISSS",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL IRISSS",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 175,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL PIKOVAYA DAMA (U) PARFUM 100 ml IT",
+        "price": 1050,
+        "barcode": "8033488157449"
+      },
+      "productCard": {
+        "id": "274",
+        "name": "XJ 17/17 STONE LABEL PIKOVAYA DAMA",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL PIKOVAYA DAMA",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 176,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL PIKOVAYA DAMA (U) PARFUM 50 ml IT",
+        "price": 700,
+        "barcode": "8033488157463"
+      },
+      "productCard": {
+        "id": "274",
+        "name": "XJ 17/17 STONE LABEL PIKOVAYA DAMA",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL PIKOVAYA DAMA",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 177,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL RICHWOOD (U) PARFUM 100 ml IT",
+        "price": 1050,
+        "barcode": "8033488155506"
+      },
+      "productCard": {
+        "id": "276",
+        "name": "XJ 17/17 STONE LABEL RICHWOOD",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL RICHWOOD",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 178,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL RICHWOOD (U) PARFUM 50 ml IT",
+        "price": 750,
+        "barcode": "8033488155513"
+      },
+      "productCard": {
+        "id": "276",
+        "name": "XJ 17/17 STONE LABEL RICHWOOD",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL RICHWOOD",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 179,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL SYMPHONIUM (U) PARFUM 100 ml IT",
+        "price": 1050,
+        "barcode": "8033488155551"
+      },
+      "productCard": {
+        "id": "278",
+        "name": "XJ 17/17 STONE LABEL SYMPHONIUM",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL SYMPHONIUM",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 180,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL SYMPHONIUM (U) PARFUM 50 ml IT",
+        "price": 750,
+        "barcode": "8054320900252"
+      },
+      "productCard": {
+        "id": "278",
+        "name": "XJ 17/17 STONE LABEL SYMPHONIUM",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL SYMPHONIUM",
+      "type": "PARFUM",
+      "volume": "50 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 181,
+        "fullName": "XERJOFF XJ 17/17 STONE LABEL XXY (U) PARFUM 100 ml IT",
+        "price": 1150,
+        "barcode": "8033488155469"
+      },
+      "productCard": {
+        "id": "280",
+        "name": "XJ 17/17 STONE LABEL XXY",
+        "brand": "XERJOFF",
+        "type": "PARFUM"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 17/17 STONE LABEL XXY",
+      "type": "PARFUM",
+      "volume": "100 ml",
+      "imageCount": 0
+    },
+    {
+      "excelData": {
+        "id": 182,
+        "fullName": "XERJOFF XJ 1861 ZEFIRO (U) EDP 100 ml IT",
+        "price": 450,
+        "barcode": "8033488155087"
+      },
+      "productCard": {
+        "id": "281",
+        "name": "XJ 1861 ZEFIRO",
+        "brand": "XERJOFF",
+        "type": "EDP"
+      },
+      "matchType": "exact",
+      "brand": "XERJOFF",
+      "name": "XJ 1861 ZEFIRO",
+      "type": "EDP",
+      "volume": "100 ml",
+      "imageCount": 0
+    }
+  ],
+  "unmatchedPerfumes": [
+    {
+      "excelData": {
+        "id": 18,
+        "fullName": "CHANEL BLEU DE CHANEL POUR HOMME (M) EDT 3x20 ml TRAVEL SPRAY REFILL FR",
+        "price": 290,
+        "barcode": "3145891078107"
+      },
+      "brand": "CHANEL",
+      "name": "BLEU DE CHANEL POUR HOMME 3x20 ml",
+      "type": "EDT",
+      "volume": "20 ml"
+    },
+    {
+      "excelData": {
+        "id": 34,
+        "fullName": "CHANEL COCO MADEMOISELLE (W) EDP INTENSE 35 ml FR",
+        "price": 315,
+        "barcode": "3145891166309"
+      },
+      "brand": "CHANEL",
+      "name": "COCO MADEMOISELLE INTENSE",
+      "type": "EDP",
+      "volume": "35 ml"
+    },
+    {
+      "excelData": {
+        "id": 38,
+        "fullName": "CHANEL COCO MADEMOISELLE L'EAU PRIVEE (W) EAU POUR LA NUIT 100 ml FR",
+        "price": 500,
+        "barcode": "3145891162608"
+      },
+      "brand": "CHANEL",
+      "name": "COCO MADEMOISELLE L'EAU PRIVEE EAU POUR LA NUIT",
+      "type": "UNKNOWN",
+      "volume": "100 ml"
+    },
+    {
+      "excelData": {
+        "id": 39,
+        "fullName": "CHANEL COCO MADEMOISELLE L'EAU PRIVEE (W) EAU POUR LA NUIT 50 ml FR",
+        "price": 340,
+        "barcode": "3145891162509"
+      },
+      "brand": "CHANEL",
+      "name": "COCO MADEMOISELLE L'EAU PRIVEE EAU POUR LA NUIT",
+      "type": "UNKNOWN",
+      "volume": "50 ml"
+    },
+    {
+      "excelData": {
+        "id": 45,
+        "fullName": "CHANEL GABRIELLE (W) EDP 3x20 ml TRAVEL SPRAY REFILL FR",
+        "price": 400,
+        "barcode": "3145891204100"
+      },
+      "brand": "CHANEL",
+      "name": "GABRIELLE 3x20 ml",
+      "type": "EDP",
+      "volume": "20 ml"
+    },
+    {
+      "excelData": {
+        "id": 50,
+        "fullName": "CHANEL NO.1 DE CHANEL L'EAU ROUGE (W) FRAGRANCE MIST 100 ml FR",
+        "price": 300,
+        "barcode": "3145891406801"
+      },
+      "brand": "CHANEL",
+      "name": "NO.1 DE CHANEL L'EAU ROUGE",
+      "type": "UNKNOWN",
+      "volume": "100 ml"
+    },
+    {
+      "excelData": {
+        "id": 56,
+        "fullName": "CHANEL NO.5 EAU PREMIERE (W) EDP 3x20 ml TRAVEL SPRAY 2 REFILLS FR",
+        "price": 385,
+        "barcode": "3145891051179"
+      },
+      "brand": "CHANEL",
+      "name": "NO.5 EAU PREMIERE 3x20 ml",
+      "type": "EDP",
+      "volume": "20 ml"
+    },
+    {
+      "excelData": {
+        "id": 134,
+        "fullName": "XERJOFF NEWCLEUS (U) EDP ALCOHOL-FREE 50 ml CH",
+        "price": 500,
+        "barcode": "8054320904021"
+      },
+      "brand": "XERJOFF",
+      "name": "NEWCLEUS ALCOHOL-FREE CH",
+      "type": "EDP",
+      "volume": "50 ml"
+    },
+    {
+      "excelData": {
+        "id": 137,
+        "fullName": "XERJOFF OUD STARS ALEXANDRIA II (U) PERFUMED HAIRMIST 30 ml IT",
+        "price": 150,
+        "barcode": "8033488156060"
+      },
+      "brand": "XERJOFF",
+      "name": "OUD STARS ALEXANDRIA II PERFUMED HAIRMIST",
+      "type": "UNKNOWN",
+      "volume": "30 ml"
+    }
+  ]
+}

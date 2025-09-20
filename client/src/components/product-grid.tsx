@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Product } from "@shared/schema";
-import ProductCard from "./product-card";
+import { ProductCard } from "./product-card";
 import { FilterState } from "@/lib/types";
 
 interface ProductGridProps {
@@ -71,11 +71,11 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
       'signature-royale': 'Signature Royale',
       'pure-essence': 'Pure Essence',
       'coreterno': 'Coreterno',
-      'valley-breezes': 'Valley Breezes',
       'bvlgari': 'BVLGARI',
       'christian': 'Christian Dior',
       'marc': 'Marc Antoine Barrois',
       'escentric': 'Escentric Molecules',
+      'escentric-molecule': 'Escentric Molecules',
       'diptyque': 'Diptyque',
       'giardini': 'Giardini di Toscana',
       'bohoboco': 'Bohoboco',
@@ -107,6 +107,9 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
     if (name.includes('pure essence')) return 'pure-essence';
     if (name.includes('coreterno')) return 'coreterno';
     
+    // Check for Escentric Molecules
+    if (name.includes('escentric')) return 'escentric';
+    
     // Check for traditional brands
     if (name.includes('tom ford')) return 'tom-ford';
     if (name.includes('chanel')) return 'chanel';
@@ -121,38 +124,105 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
     if (name.includes('mont blanc') || name.includes('montblanc')) return 'mont-blanc';
     if (name.includes('hugo boss') || name.includes('boss')) return 'hugo-boss';
     
-    // Default to valley-breezes for original products
-    return 'valley-breezes';
+    // Default to rabdan for original products
+    return 'rabdan';
   };
 
-  // Group products by name to identify similar products (same perfume, different sizes)
-  const groupProductsByName = (products: Product[]): Record<string, Product[]> => {
-    const groups: Record<string, Product[]> = {};
-    
+  // Helper function to group products by name
+  const groupProductsByName = (products: Product[]): { [key: string]: Product[] } => {
+    const groups: { [key: string]: Product[] } = {};
     products.forEach(product => {
-      if (!groups[product.name]) {
-        groups[product.name] = [];
+      // Normalize brand for grouping (case-insensitive, trim, underscores to spaces)
+      let normalizedBrand = (product.brand || '').toLowerCase().replace(/_/g, ' ').trim();
+      let normalizedName = (product.name || '').toLowerCase().trim();
+      // Only group products with the exact same normalized brand and name
+      const key = `${normalizedBrand}|${normalizedName}`;
+      if (!groups[key]) {
+        groups[key] = [];
       }
-      groups[product.name].push(product);
+      groups[key].push(product);
     });
-    
+    // Sort products within each group by volume (ml value)
+    Object.keys(groups).forEach(key => {
+      groups[key].sort((a, b) => {
+        const volA = parseInt(a.volume.replace('ml', ''));
+        const volB = parseInt(b.volume.replace('ml', ''));
+        return volA - volB;
+      });
+    });
     return groups;
   };
 
+  // Group products by name to find similar products
   const productGroups = groupProductsByName(products);
+  
+  // Create a map of product ID to similar products
+  const productToSimilarProductsMap = new Map<string, Product[]>();
+  
+  Object.keys(productGroups).forEach(key => {
+    const group = productGroups[key];
+    group.forEach(product => {
+      // For each product, similar products are all other products in the same group
+      productToSimilarProductsMap.set(
+        product.id, 
+        group.filter(p => p.id !== product.id)
+      );
+    });
+  });
 
-  // Create a list of unique products (one per product name) for display
-  const uniqueProducts = Object.values(productGroups).map(group => {
-    // Sort by volume to ensure consistent selection of the "primary" product
-    return group.sort((a, b) => {
+  // Create a unique list of products (one per group) for display
+  // Ensure grouping is by BOTH brand and name (case-insensitive, trimmed)
+  const uniqueProducts = Object.keys(productGroups).map(key => {
+    // key is `${normalizedBrand}|${normalizedName}`
+    const group = productGroups[key];
+    group.sort((a, b) => {
       const volA = parseInt(a.volume.replace('ml', ''));
       const volB = parseInt(b.volume.replace('ml', ''));
       return volA - volB;
-    })[0];
+    });
+    return group[0]; // Return the first product in the sorted group
   });
 
   const filteredAndSortedProducts = [...uniqueProducts]
     .filter((product) => {
+      // Brand filter
+      if (filter.brand && filter.brand !== "all") {
+        // Map frontend brand IDs to all possible database brand names (case-insensitive)
+        const brandIdToNamesMap: { [key: string]: string[] } = {
+          'rabdan': ['RABDAN'],
+          'signature-royale': ['SIGNATURE ROYALE'],
+          'pure-essence': ['PURE ESSENCE'],
+          'coreterno': ['CORETERNO'],
+          'bvlgari': ['BVLGARI', 'BVLGARI LE GEMME', 'BVLGARI LE GEMME MEN', 'BVLGARI LE GEMME WOMEN'],
+          'christian': ['CHRISTIAN DIOR'],
+          'marc': ['MARC ANTOINE BARROIS'],
+          'escentric': ['ESCENTRIC MOLECULE', 'ESCENTRIC'],
+          'escentric-molecule': ['ESCENTRIC MOLECULE', 'ESCENTRIC'],
+          'diptyque': ['DIPTYQUE'],
+          'giardini': ['GIARDINI DI TOSCANA'],
+          'bohoboco': ['BOHOBOCO'],
+          'tom-ford': ['TOM FORD'],
+          'chanel': ['CHANEL'],
+          'yves-saint-laurent': ['YVES SAINT LAURENT', 'YSL'],
+          'creed': ['CREED'],
+          'montale': ['MONTALE'],
+          'gucci': ['GUCCI'],
+          'dior': ['DIOR'],
+          'armani': ['ARMANI'],
+          'burberry': ['BURBERRY'],
+          'lancome': ['LANCÔME', 'LANCOME'],
+          'mont-blanc': ['MONT BLANC', 'MONTBLANC'],
+          'hugo-boss': ['HUGO BOSS', 'BOSS'],
+          'versace': ['VERSACE'],
+          'xerjoff': ['XERJOFF']
+        };
+        const possibleNames = brandIdToNamesMap[filter.brand.toLowerCase()] || [filter.brand];
+        // Normalize product brand for comparison
+        const normalizedBrand = (product.brand || '').toUpperCase();
+        if (!possibleNames.some(name => normalizedBrand === name.toUpperCase())) {
+          return false;
+        }
+      }
       // Rating filter (this is only done client-side)
       if (filter.minRating > 0) {
         const productRating = parseFloat(product.rating);
@@ -174,6 +244,9 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
           return 0;
       }
     });
+
+  // Show unique products instead of all individual products
+  const displayProducts = filteredAndSortedProducts;
 
   // Debug log to see what's happening with the products
   useEffect(() => {
@@ -242,7 +315,7 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
     <section id="products" className="px-6 py-16 bg-gradient-to-b from-background/30 to-background/50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 luxury-card glass-effect">
           {recommendedProductIds.length > 0 && (
             <div className="mb-6 p-4 bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 rounded-xl backdrop-blur-sm">
               <h3 className="font-serif text-xl font-bold text-primary mb-1">🎯 Recommended For You</h3>
@@ -255,14 +328,14 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
             <div className="mb-6">
               <button
                 onClick={() => window.location.href = '/catalog'}
-                className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors duration-300 mb-4"
+                className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors duration-300 mb-4 luxury-button"
               >
                 ← Back to All Products
               </button>
             </div>
           )}
           
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-gradient mb-4">
+          <h2 className="luxury-heading font-serif text-3xl md:text-4xl font-bold text-gradient mb-4">
             {searchQuery 
               ? `Search Results for "${searchQuery}"`
               : filter.brand && filter.brand !== "all" 
@@ -270,6 +343,7 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
                 : "Premium Fragrances Catalog"
             }
           </h2>
+          <div className="luxury-divider"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
             {searchQuery
               ? `Found ${filteredAndSortedProducts.length} products matching "${searchQuery}"`
@@ -281,7 +355,7 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
         </div>
         
         {/* Enhanced Filters - Frameless Design */}
-        <div className="mb-8">
+        <div className="mb-8 luxury-card glass-effect">
           <div className="flex flex-wrap items-center justify-between gap-6 mb-6">
             <div className="flex flex-wrap items-center gap-4">
               <span className="text-sm font-semibold text-foreground">Filter by Category:</span>
@@ -291,7 +365,7 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
                   onClick={() => handleFilterChange(category)}
                   className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 backdrop-blur-sm ${
                     filter.category === category
-                      ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg"
+                      ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg luxury-button"
                       : "bg-card/40 border border-primary/20 text-primary hover:bg-primary/10 hover:border-primary/30"
                   }`}
                   data-testid={`button-filter-${category}`}
@@ -306,7 +380,7 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
               <select 
                 value={filter.sortBy}
                 onChange={(e) => handleSortChange(e.target.value)}
-                className="bg-card/80 backdrop-blur-glass border border-primary/30 text-primary px-4 py-3 rounded-full text-sm cursor-pointer hover:border-primary/50 focus:border-primary transition-all duration-300 hover:bg-card/90 focus:bg-card/90 shadow-lg"
+                className="bg-card/80 backdrop-blur-glass border border-primary/30 text-primary px-4 py-3 rounded-full text-sm cursor-pointer hover:border-primary/50 focus:border-primary transition-all duration-300 hover:bg-card/90 focus:bg-card/90 shadow-lg luxury-button"
                 data-testid="select-sort-price"
                 style={{
                   color: '#D4AF37',
@@ -323,7 +397,7 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
               <select 
                 value={filter.minRating}
                 onChange={(e) => handleRatingChange(Number(e.target.value))}
-                className="bg-card/80 backdrop-blur-glass border border-primary/30 text-primary px-4 py-3 rounded-full text-sm cursor-pointer hover:border-primary/50 focus:border-primary transition-all duration-300 hover:bg-card/90 focus:bg-card/90 shadow-lg"
+                className="bg-card/80 backdrop-blur-glass border border-primary/30 text-primary px-4 py-3 rounded-full text-sm cursor-pointer hover:border-primary/50 focus:border-primary transition-all duration-300 hover:bg-card/90 focus:bg-card/90 shadow-lg luxury-button"
                 data-testid="select-sort-rating"
                 style={{
                   color: '#D4AF37',
@@ -340,13 +414,13 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
           {/* Brand Filter Row */}
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <span className="text-sm font-semibold text-foreground">Filter by Brand:</span>
-            {["all", "rabdan", "signature-royale", "pure-essence", "coreterno", "valley-breezes", "bvlgari", "christian", "marc", "escentric", "diptyque", "giardini", "bohoboco", "chanel", "versace", "xerjoff"].map((brand) => (
+            {["all", "rabdan", "signature-royale", "pure-essence", "coreterno", "bvlgari", "christian", "marc", "escentric", "escentric-molecule", "diptyque", "giardini", "bohoboco", "chanel", "versace", "xerjoff"].map((brand) => (
               <button
                 key={brand}
                 onClick={() => handleBrandChange(brand)}
                 className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 backdrop-blur-sm ${
                   filter.brand === brand
-                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg"
+                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg luxury-button"
                     : "bg-card/40 border border-primary/20 text-primary hover:bg-primary/10 hover:border-primary/30"
                 }`}
                 data-testid={`button-filter-brand-${brand}`}
@@ -374,26 +448,22 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
 
         {/* Product Grid with Enhanced Layout - Frameless */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {filteredAndSortedProducts.map((product) => {
-            // Get similar products (same name, different sizes)
-            const similarProducts = productGroups[product.name]?.filter(p => p.id !== product.id) || [];
-            
-            return (
-              <ProductCard 
-                key={product.id} 
-                product={product} 
-                similarProducts={similarProducts}
-                isRecommended={recommendedProductIds.includes(product.id)}
-                currency={currency}
-                exchangeRate={exchangeRate}
-              />
-            );
-          })}
+          {displayProducts.map((product) => (
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              similarProducts={productToSimilarProductsMap.get(product.id) || []}
+              isRecommended={recommendedProductIds.includes(product.id)}
+              currency={currency}
+              exchangeRate={exchangeRate}
+              allProducts={products} // Pass the full product list for robust size grouping
+            />
+          ))}
         </div>
 
         {filteredAndSortedProducts.length === 0 && (
           <div className="text-center text-muted-foreground py-20">
-            <div className="bg-card/40 backdrop-blur-sm border border-primary/10 rounded-2xl p-12 max-w-md mx-auto">
+            <div className="bg-card/40 backdrop-blur-sm border border-primary/10 rounded-2xl p-12 max-w-md mx-auto luxury-card glass-effect">
               <div className="text-4xl mb-4">🔍</div>
               <h3 className="font-serif text-xl font-semibold text-foreground mb-2">No products found</h3>
               <p className="text-sm">Try adjusting your filters to find what you're looking for</p>

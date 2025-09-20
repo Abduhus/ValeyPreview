@@ -1,7 +1,164 @@
 import XLSX from 'xlsx';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+const fs = require('fs');
+const path = require('path');
+
+// Create brand folders and move images
+const brands = [
+  'BOHOBOCO',
+  'BVLGARI',
+  'CHANEL',
+  'CHRISTIAN DIOR',
+  'CORETERNO',
+  'DIPTYQUE',
+  'ESCENTRIC MOLECULE',
+  'GIARDINI DI TOSCANA',
+  'MARC ANTOINE BARRIOS',
+  'MARC ANTOINE BARROIS',
+  'PURE ESSENCE',
+  'RABDAN',
+  'SIGNATURE ROYALE',
+  'VERSACE',
+  'XERJOFF'
+];
+
+// Brand name to folder name mapping
+const brandFolderMapping = {
+  'BOHOBOCO': 'Bohoboco',
+  'BVLGARI': 'bvlgari',
+  'CHANEL': 'chanel',
+  'CHRISTIAN DIOR': 'dior',
+  'CORETERNO': 'Coreterno',
+  'DIPTYQUE': 'diptyque',
+  'ESCENTRIC MOLECULE': 'Escentric',
+  'GIARDINI DI TOSCANA': 'Giardini',
+  'MARC ANTOINE BARRIOS': 'marc antoine',
+  'MARC ANTOINE BARROIS': 'marc antoine',
+  'PURE ESSENCE': 'PureEssence',
+  'RABDAN': 'Rabdan',
+  'SIGNATURE ROYALE': 'SignatureRoyale',
+  'VERSACE': 'Versace',
+  'XERJOFF': 'Xerjoff'
+};
+
+// Create brand folders if they don't exist
+brands.forEach(brand => {
+  const folderName = brandFolderMapping[brand];
+  const folderPath = path.join('assets', 'perfumes', folderName);
+  
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath, { recursive: true });
+    console.log(`Created folder: ${folderPath}`);
+  }
+});
+
+// Get all image files in the perfumes directory (only from root, not subdirectories)
+function getImageFilesFromRoot(dirPath) {
+  let results = [];
+  const list = fs.readdirSync(dirPath);
+  list.forEach(file => {
+    const fullPath = path.resolve(dirPath, file);
+    const stat = fs.statSync(fullPath);
+    // Only process files in the root directory, not subdirectories
+    if (stat && stat.isFile()) {
+      const ext = path.extname(file).toLowerCase();
+      if (ext === '.webp' || ext === '.jpg' || ext === '.jpeg' || ext === '.png') {
+        results.push({
+          name: file,
+          fullPath: fullPath
+        });
+      }
+    }
+  });
+  return results;
+}
+
+// Get all image files from root perfumes directory
+const perfumesDir = path.join('assets', 'perfumes');
+const imageFiles = getImageFilesFromRoot(perfumesDir);
+
+console.log(`Found ${imageFiles.length} image files in the root perfumes directory`);
+
+// Match images to brands based on naming patterns
+let movedCount = 0;
+
+imageFiles.forEach(image => {
+  const imageName = image.name.toLowerCase();
+  let targetFolder = null;
+  
+  // Check each brand to see if it matches the image name
+  for (const brand of brands) {
+    const brandName = brand.toLowerCase();
+    const folderName = brandFolderMapping[brand];
+    
+    // Check for brand name in image filename
+    if (imageName.includes(brandName.replace(/\s+/g, '')) || 
+        imageName.includes(brandName.replace(/\s+/g, '_')) ||
+        imageName.includes(brandName.split(' ')[0].toLowerCase())) {
+      targetFolder = folderName;
+      break;
+    }
+    
+    // Special cases for brand matching
+    if (brand === 'CHRISTIAN DIOR' && (imageName.includes('dior') || imageName.includes('christian'))) {
+      targetFolder = folderName;
+      break;
+    }
+    
+    if (brand === 'ESCENTRIC MOLECULE' && imageName.includes('escentric')) {
+      targetFolder = folderName;
+      break;
+    }
+    
+    if (brand === 'GIARDINI DI TOSCANA' && (imageName.includes('giardini') || imageName.includes('toscano'))) {
+      targetFolder = folderName;
+      break;
+    }
+    
+    if ((brand === 'MARC ANTOINE BARRIOS' || brand === 'MARC ANTOINE BARROIS') && imageName.includes('marc')) {
+      targetFolder = folderName;
+      break;
+    }
+    
+    // Check for Signature Royale special cases
+    if (brand === 'SIGNATURE ROYALE' && 
+        (imageName.includes('signature') || imageName.includes('royale') || 
+         imageName.includes('caramel') || imageName.includes('creamy') || 
+         imageName.includes('dragee') || imageName.includes('grey') || 
+         imageName.includes('ghost') || imageName.includes('oud'))) {
+      targetFolder = folderName;
+      break;
+    }
+    
+    // Check for RABDAN special cases
+    if (brand === 'RABDAN' && 
+        (imageName.includes('rabdan') || imageName.includes('chill') || 
+         imageName.includes('cigar') || imageName.includes('ginger') || 
+         imageName.includes('gwy') || imageName.includes('hibiscus') || 
+         imageName.includes('viz') || imageName.includes('iris') || 
+         imageName.includes('love') || imageName.includes('room') || 
+         imageName.includes('saint') || imageName.includes('vert'))) {
+      targetFolder = folderName;
+      break;
+    }
+  }
+  
+  // Move image to appropriate brand folder
+  if (targetFolder) {
+    const targetPath = path.join('assets', 'perfumes', targetFolder, image.name);
+    const sourcePath = image.fullPath;
+    
+    try {
+      fs.renameSync(sourcePath, targetPath);
+      console.log(`Moved ${image.name} to ${targetFolder}/`);
+      movedCount++;
+    } catch (error) {
+      console.error(`Error moving ${image.name}:`, error.message);
+    }
+  }
+});
+
+console.log(`\n✅ Organization complete! Moved ${movedCount} images to brand folders.`);
+console.log('\nFolders created for all brands. Images have been organized accordingly.');
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);

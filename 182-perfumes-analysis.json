@@ -1,0 +1,37 @@
+{
+  "totalProducts": 182,
+  "columns": [
+    "415",
+    "3145891214604",
+    "CHANEL ALLURE HOMME (M) EDT 100 ml FR"
+  ],
+  "perfumeTypes": {},
+  "brands": {},
+  "sampleData": [
+    {
+      "415": 480,
+      "3145891214604": "3145891214802",
+      "CHANEL ALLURE HOMME (M) EDT 100 ml FR": "CHANEL ALLURE HOMME (M) EDT 150 ml FR"
+    },
+    {
+      "415": 515,
+      "3145891214604": "3145891274608",
+      "CHANEL ALLURE HOMME (M) EDT 100 ml FR": "CHANEL ALLURE HOMME EDITION BLANCHE (M) EDP 100 ml FR"
+    },
+    {
+      "415": 620,
+      "3145891214604": "3145891274707",
+      "CHANEL ALLURE HOMME (M) EDT 100 ml FR": "CHANEL ALLURE HOMME EDITION BLANCHE (M) EDP 150 ml FR"
+    },
+    {
+      "415": 350,
+      "3145891214604": "3145891274509",
+      "CHANEL ALLURE HOMME (M) EDT 100 ml FR": "CHANEL ALLURE HOMME EDITION BLANCHE (M) EDP 50 ml FR"
+    },
+    {
+      "415": 300,
+      "3145891214604": "3145891236200",
+      "CHANEL ALLURE HOMME (M) EDT 100 ml FR": "CHANEL ALLURE HOMME SPORT (M) EDT 50 ml FR"
+    }
+  ]
+}

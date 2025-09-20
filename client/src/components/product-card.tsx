@@ -1,6 +1,16 @@
 import { Product } from "@shared/schema";
+// import { useCatalog } from "@/hooks/use-catalog";
 import { useCart } from "@/hooks/use-cart";
 import { useState, useEffect, useRef } from "react";
+// Utility to check if an image exists
+function imageExists(url: string): Promise<boolean> {
+  return new Promise((resolve) => {
+    const img = new window.Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
 import { useLocation } from "wouter";
 import aedLogoUrl from "@assets/UAE_Dirham_Symbol.svg.png";
 
@@ -9,17 +19,19 @@ interface ProductCardProps {
   isRecommended?: boolean;
   currency?: string;
   exchangeRate?: number;
-  // Add similar products prop for size selection
   similarProducts?: Product[];
+  allProducts?: Product[]; // Pass the full product list for robust size grouping
 }
-
-export default function ProductCard({ 
+export function ProductCard({
   product, 
   isRecommended = false, 
   currency = "AED", 
   exchangeRate = 1,
-  similarProducts = []
+  similarProducts = [],
+  allProducts = []
 }: ProductCardProps) {
+  // Use allProducts prop for catalog context
+  const fullCatalog = Array.isArray(allProducts) && allProducts.length > 0 ? allProducts : [];
   const { addToCart, isAdding } = useCart();
   const [, setLocation] = useLocation();
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -42,39 +54,106 @@ export default function ProductCard({
     setSelectedSize(product);
   }, [product]);
   
-  // Parse additional images from the product
-  const additionalImages = selectedSize.images ? JSON.parse(selectedSize.images) : [];
-  
-  // Create a Set to track unique images and preserve order
-  const uniqueImages = new Set<string>();
-  
-  // Add main images first (they should be displayed first in carousel)
-  if (selectedSize.imageUrl) uniqueImages.add(selectedSize.imageUrl);
-  if (selectedSize.moodImageUrl) uniqueImages.add(selectedSize.moodImageUrl);
-  
-  // Add additional images, avoiding duplicates
-  additionalImages.forEach((img: string) => {
-    if (img) uniqueImages.add(img);
-  });
-  
-  // Convert Set back to array
-  const allImages = Array.from(uniqueImages);
-  
-  // Function to get higher quality image paths where available
-  const getHighQualityImagePath = (imagePath: string): string => {
-    // For Rabdan images with -300x300 suffix, try to find higher quality versions
-    if (imagePath.includes('-300x300')) {
-      // Try removing the -300x300 suffix to get full size
-      const fullPath = imagePath.replace('-300x300', '');
-      return fullPath;
-    }
-    
-    // For other images, return as is
-    return imagePath;
-  };
 
-  // Map all images to potentially higher quality versions
-  const highQualityImages = allImages.map(getHighQualityImagePath);
+  // --- CHANEL IMAGE REMATCHING LOGIC ---
+  // Only for Chanel products, rematch images from dist/public/perfumes/chanel
+  // const isChanel = selectedSize.brand && selectedSize.brand.toUpperCase() === "CHANEL";
+  let highQualityImages: string[] = [];
+  const chanelImageDir = "/perfumes/chanel/";
+  const bvlgariImageDir = "/perfumes/bvlgari/";
+  const type = (selectedSize.type || "").toLowerCase();
+  const name = selectedSize.name.toLowerCase();
+  const volume = selectedSize.volume ? selectedSize.volume.replace(/ml/i, "ml").replace(/\s+/g, "") : "";
+  const isChanel = selectedSize.brand && selectedSize.brand.toUpperCase() === "CHANEL";
+  const isBvlgari = selectedSize.brand && selectedSize.brand.toUpperCase().includes("BVLGARI");
+
+  // Chanel image matching: match by name keyword only (reverted)
+  function findChanelImages(name: string): string[] {
+    // ...existing Chanel logic...
+    const chanelPairs: [string, string[]][] = [
+      // ...existing pairs...
+      ["allure homme edition blanche", ["1-allure-homme-edition-blanche-eau-de-parfum-spray-3-4fl-oz--packshot-default-127460-9564893642782.avif", "2-allure-homme-edition-blanche-eau-de-parfum-spray-3-4fl-oz--packshot-default-127460-9564893642782.webp"]],
+      ["allure homme sport eau extreme", ["1-allure-homme-sport-eau-extreme-eau-de-parfum-spray-3-4fl-oz--packshot-default-123560-9564919988254.avif", "2-allure-homme-sport-eau-extreme-eau-de-parfum-spray-3-4fl-oz--packshot-default-123560-9564919988254.webp"]],
+      ["allure homme sport cologne", ["1-allure-homme-sport-cologne-3-4fl-oz--packshot-default-123320-9564892692510.avif", "2-allure-homme-sport-cologne-3-4fl-oz--packshot-default-123320-9564892692510.webp"]],
+      ["allure homme sport", ["1-allure-homme-sport-eau-de-toilette-spray-3-4fl-oz--packshot-default-123630-9564892856350.avif", "2-allure-homme-sport-eau-de-toilette-spray-3-4fl-oz--packshot-default-123630-9564892856350.webp"]],
+      ["allure homme", ["1-allure-homme-eau-de-toilette-spray-3-4fl-oz--packshot-default-121460-9564890333214.avif", "2-allure-homme-eau-de-toilette-spray-3-4fl-oz--packshot-default-121460-9564890333214.webp"]],
+      ["allure sensuelle", ["1-allure-sensuelle-eau-de-parfum-spray-3-4fl-oz--packshot-default-129730-9564893708318.avif", "2-allure-sensuelle-eau-de-parfum-spray-3-4fl-oz--packshot-default-129730-9564893708318.webp"]],
+      ["antaeus", ["1-antaeus-eau-de-toilette-spray-3-4fl-oz--packshot-default-118460-9564891316254.avif", "2-antaeus-eau-de-toilette-spray-3-4fl-oz--packshot-default-118460-9564891316254.webp"]],
+      ["bleu de chanel", ["1-bleu-de-chanel-eau-de-toilette-spray-3-4fl-oz--packshot-default-107460-9564920184862.avif", "2-bleu-de-chanel-eau-de-toilette-spray-3-4fl-oz--packshot-default-107460-9564920184862.webp"]],
+      ["coco mademoiselle l'eau privee", ["1-coco-mademoiselle-l-eau-privee-eau-pour-la-nuit-spray-3-4fl-oz--packshot-default-116260-9564864282654.avif", "2-coco-mademoiselle-l-eau-privee-eau-pour-la-nuit-spray-3-4fl-oz--packshot-default-116260-9564864282654.webp"]],
+      ["coco mademoiselle", ["1-coco-mademoiselle-eau-de-parfum-spray-3-4fl-oz--packshot-default-116520-9564892495902.avif", "2-coco-mademoiselle-eau-de-parfum-spray-3-4fl-oz--packshot-default-116520-9564892495902.webp"]],
+      ["coco", ["1-coco-eau-de-parfum-spray-3-4fl-oz--packshot-default-113530-9539148840990.avif", "2-coco-eau-de-parfum-spray-3-4fl-oz--packshot-default-113530-9539148840990.webp"]],
+      ["chance eau tendre", ["1-chance-eau-tendre-eau-de-parfum-spray-1-7fl-oz--packshot-default-126250-9564866412574.avif", "2-chance-eau-tendre-eau-de-parfum-spray-1-7fl-oz--packshot-default-126250-9564866412574.webp"]],
+      ["chance eau fraiche", ["1-chance-eau-fraiche-eau-de-parfum-spray-1-2fl-oz--packshot-default-136440-9543031685150.avif", "2-chance-eau-fraiche-eau-de-parfum-spray-1-2fl-oz--packshot-default-136440-9543031685150.webp"]],
+      ["chance eau de toilette", ["1-chance-eau-de-toilette-spray-3-4fl-oz--packshot-default-126460-9564893937694.avif", "2-chance-eau-de-toilette-spray-3-4fl-oz--packshot-default-126460-9564893937694.webp"]],
+      ["chance", ["1-chance-eau-de-toilette-spray-3-4fl-oz--packshot-default-126460-9564893937694.avif", "2-chance-eau-de-toilette-spray-3-4fl-oz--packshot-default-126460-9564893937694.webp"]]
+    ];
+    for (const [keyword, files] of chanelPairs) {
+      if (typeof name === 'string' && name.includes(keyword)) {
+        return Array.isArray(files) ? files.map((f: string) => chanelImageDir + f) : [];
+      }
+    }
+    return [];
+  }
+
+  // BVLGARI image matching logic
+  function findBvlgariImages(name: string): string[] {
+    // Map product name keywords to image filenames
+    const bvlgariPairs: [string, string[]][] = [
+      ["amunae", ["Bvlgari Le Gemme Amunae.avif", "Bvlgari Le Gemme Amunae1.avif"]],
+      ["falkar", ["Bvlgari Le Gemme Falkar Eau De Parfum.avif", "Bvlgari Le Gemme Falkar Eau De Parfum1.avif"]],
+      ["gyan", ["Bvlgari Le Gemme Gyan Eau De Parfum.avif", "Bvlgari Le Gemme Gyan Eau De Parfum1.avif"]],
+      ["onekh", ["Bvlgari Le Gemme Onekh Eau De Parfum.avif", "Bvlgari Le Gemme Onekh Eau De Parfum 1.avif"]],
+      ["orom", ["Bvlgari Le Gemme Orom Eau De Parfum.avif", "Bvlgari Le Gemme Orom Eau De Parfum1.avif"]],
+      ["sahare", ["Bvlgari Le Gemme Sahare Eau De Parfum.avif", "Bvlgari Le Gemme Sahare Eau De Parfum1.avif"]],
+      ["tygar eau de parfum, 125ml", ["Le Gemme Tygar Eau de Parfum, 125ml.webp", "Le Gemme Tygar Eau de Parfum, 125ml 1.webp"]],
+      ["tygar", ["Bvlgari Le Gemme Tygar Eau De Parfum.avif", "Bvlgari Le Gemme Tygar Eau De Parfum 1.avif", "Bvlgari Le Gemme Tygar Eau de Parfum .avif"]],
+      ["kobraa", ["Le Gemme Kobraa Eau De Parfum.avif", "Le Gemme Kobraa Eau De Parfum1.avif"]],
+    ];
+    for (const [keyword, files] of bvlgariPairs) {
+      if (typeof name === 'string' && name.includes(keyword)) {
+        return Array.isArray(files) ? files.map((f: string) => bvlgariImageDir + f) : [];
+      }
+    }
+    return [];
+  }
+
+  if (isChanel) {
+    highQualityImages = findChanelImages(name);
+    if (highQualityImages.length === 0 && selectedSize.imageUrl) {
+      highQualityImages = [selectedSize.imageUrl];
+    }
+  } else if (isBvlgari) {
+    highQualityImages = findBvlgariImages(name);
+    if (highQualityImages.length === 0 && selectedSize.imageUrl) {
+      highQualityImages = [selectedSize.imageUrl];
+    }
+  } else {
+    // ...existing logic for non-Chanel/BVLGARI products...
+    const additionalImages = selectedSize.images ? JSON.parse(selectedSize.images) : [];
+    const uniqueImages = new Set<string>();
+    if (selectedSize.imageUrl) uniqueImages.add(selectedSize.imageUrl);
+    if (selectedSize.moodImageUrl) uniqueImages.add(selectedSize.moodImageUrl);
+    const isRabdan = selectedSize.brand === "RABDAN";
+    const isBohoboco = selectedSize.brand === "BOHOBOCO";
+    const maxImages = isRabdan ? 2 : (isBohoboco ? 10 : 2);
+    let additionalImageCount = 0;
+    for (const img of additionalImages) {
+      if (img && additionalImageCount < maxImages && uniqueImages.size < maxImages) {
+        uniqueImages.add(img);
+        additionalImageCount++;
+      }
+    }
+    const allImages = Array.from(uniqueImages).slice(0, maxImages);
+    const getHighQualityImagePath = (imagePath: string): string => {
+      if (imagePath.includes('-300x300')) {
+        const fullPath = imagePath.replace('-300x300', '');
+        return fullPath;
+      }
+      return imagePath;
+    };
+    highQualityImages = allImages.map(getHighQualityImagePath);
+  }
 
   // Generate fragrance notes based on product name and description
   const generateFragranceNotes = (name: string, description: string) => {
@@ -156,22 +235,23 @@ export default function ProductCard({
     }
   };
 
+
   const handleImageNextSwipe = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+    setCurrentImageIndex((prev) => (prev + 1) % highQualityImages.length);
   };
   
   const handleImagePrevSwipe = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+    setCurrentImageIndex((prev) => (prev - 1 + highQualityImages.length) % highQualityImages.length);
   };
 
   const handleImageNext = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent navigation when clicking image buttons
-    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+    setCurrentImageIndex((prev) => (prev + 1) % highQualityImages.length);
   };
   
   const handleImagePrev = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent navigation when clicking image buttons
-    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+    setCurrentImageIndex((prev) => (prev - 1 + highQualityImages.length) % highQualityImages.length);
   };
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -180,6 +260,7 @@ export default function ProductCard({
   };
 
   const handleCardClick = () => {
+    // Always navigate to the selected size's product page (works for all brands)
     setLocation(`/product/${selectedSize.id}`);
   };
 
@@ -229,182 +310,83 @@ export default function ProductCard({
     );
   };
 
-  // Get brand logo SVG based on actual product name
-  const getBrandLogo = (productName: string) => {
-    const name = productName.toLowerCase();
-    
-    // Bvlgari product-specific branding
-    if (name.includes('bvlgari') || name.includes('le gemme')) {
-      return `data:image/svg+xml,${encodeURIComponent(`
-        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="bvlgariGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#8B0000;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <rect x="5" y="5" width="190" height="70" fill="none" stroke="url(#bvlgariGrad)" stroke-width="2" rx="10"/>
-          <text x="100" y="45" fill="url(#bvlgariGrad)" text-anchor="middle" font-family="serif" font-size="16" font-weight="bold">BVLGARI</text>
-          <text x="100" y="65" fill="url(#bvlgariGrad)" text-anchor="middle" font-family="serif" font-size="12" font-weight="bold">LE GEMME</text>
-        </svg>
-      `)}`;
-    }
-    // Valley Breezes product-specific branding
-    else if (name.includes('mystic rose')) {
-      return `data:image/svg+xml,${encodeURIComponent(`
-        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="mysticGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#F9E79F;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <rect x="5" y="5" width="190" height="70" fill="none" stroke="url(#mysticGrad)" stroke-width="2" rx="10"/>
-          <circle cx="100" cy="25" r="15" fill="none" stroke="url(#mysticGrad)" stroke-width="1.5"/>
-          <path d="M90 20 Q100 12 110 20 Q100 28 90 20" fill="url(#mysticGrad)" opacity="0.7"/>
-          <text x="100" y="50" fill="url(#mysticGrad)" text-anchor="middle" font-family="serif" font-size="14" font-weight="bold">MYSTIC</text>
-          <text x="100" y="65" fill="url(#mysticGrad)" text-anchor="middle" font-family="serif" font-size="14" font-weight="bold">ROSE</text>
-        </svg>
-      `)}`;
-    } else if (name.includes('midnight woods')) {
-      return `data:image/svg+xml,${encodeURIComponent(`
-        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="midnightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#F9E79F;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <rect x="5" y="5" width="190" height="70" fill="none" stroke="url(#midnightGrad)" stroke-width="2" rx="10"/>
-          <rect x="20" y="15" width="160" height="25" fill="none" stroke="url(#midnightGrad)" stroke-width="1.5" rx="5"/>
-          <circle cx="50" cy="20" r="2" fill="url(#midnightGrad)"/>
-          <circle cx="100" cy="25" r="3" fill="url(#midnightGrad)"/>
-          <circle cx="150" cy="20" r="2" fill="url(#midnightGrad)"/>
-          <text x="100" y="55" fill="url(#midnightGrad)" text-anchor="middle" font-family="serif" font-size="13" font-weight="bold">MIDNIGHT</text>
-          <text x="100" y="70" fill="url(#midnightGrad)" text-anchor="middle" font-family="serif" font-size="13" font-weight="bold">WOODS</text>
-        </svg>
-      `)}`;
-    } else if (name.includes('ocean breeze')) {
-      return `data:image/svg+xml,${encodeURIComponent(`
-        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#F9E79F;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <rect x="5" y="5" width="190" height="70" fill="none" stroke="url(#oceanGrad)" stroke-width="2" rx="10"/>
-          <path d="M20 25 Q40 15 60 25 Q80 35 100 25 Q120 15 140 25 Q160 35 180 25" fill="none" stroke="url(#oceanGrad)" stroke-width="2"/>
-          <path d="M20 30 Q40 20 60 30 Q80 40 100 30 Q120 20 140 30 Q160 40 180 30" fill="none" stroke="url(#oceanGrad)" stroke-width="1.5" opacity="0.7"/>
-          <text x="100" y="50" fill="url(#oceanGrad)" text-anchor="middle" font-family="serif" font-size="14" font-weight="bold">OCEAN</text>
-          <text x="100" y="65" fill="url(#oceanGrad)" text-anchor="middle" font-family="serif" font-size="14" font-weight="bold">BREEZE</text>
-        </svg>
-      `)}`;
-    } else if (name.includes('golden lotus')) {
-      return `data:image/svg+xml,${encodeURIComponent(`
-        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="goldenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#F9E79F;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <rect x="5" y="5" width="190" height="70" fill="none" stroke="url(#goldenGrad)" stroke-width="2" rx="10"/>
-          <ellipse cx="100" cy="25" rx="25" ry="12" fill="none" stroke="url(#goldenGrad)" stroke-width="1.5"/>
-          <path d="M85 25 Q100 15 115 25 Q100 35 85 25" fill="url(#goldenGrad)" opacity="0.5"/>
-          <circle cx="100" cy="25" r="4" fill="url(#goldenGrad)"/>
-          <text x="100" y="50" fill="url(#goldenGrad)" text-anchor="middle" font-family="serif" font-size="14" font-weight="bold">GOLDEN</text>
-          <text x="100" y="65" fill="url(#goldenGrad)" text-anchor="middle" font-family="serif" font-size="14" font-weight="bold">LOTUS</text>
-        </svg>
-      `)}`;
-    } else if (name.includes('urban legend')) {
-      return `data:image/svg+xml,${encodeURIComponent(`
-        <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="urbanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#F9E79F;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <rect x="70" y="20" width="60" height="20" fill="none" stroke="url(#urbanGrad)" stroke-width="2" rx="2"/>
-          <rect x="75" y="25" width="10" height="10" fill="url(#urbanGrad)" opacity="0.7"/>
-          <rect x="90" y="25" width="10" height="10" fill="url(#urbanGrad)" opacity="0.7"/>
-          <rect x="105" y="25" width="10" height="10" fill="url(#urbanGrad)" opacity="0.7"/>
-          <rect x="120" y="25" width="5" height="10" fill="url(#urbanGrad)" opacity="0.7"/>
-          <text x="100" y="52" fill="url(#urbanGrad)" text-anchor="middle" font-family="serif" font-size="10" font-weight="bold">URBAN LEGEND</text>
-        </svg>
-      `)}`;
-    } else if (name.includes('celestial moon')) {
-      return `data:image/svg+xml,${encodeURIComponent(`
-        <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="celestialGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#F9E79F;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <circle cx="100" cy="30" r="20" fill="none" stroke="url(#celestialGrad)" stroke-width="2"/>
-          <path d="M90 30 A10 10 0 0 1 110 30 A8 8 0 0 0 90 30" fill="url(#celestialGrad)" opacity="0.8"/>
-          <circle cx="95" cy="25" r="1.5" fill="url(#celestialGrad)"/>
-          <circle cx="105" cy="35" r="1" fill="url(#celestialGrad)"/>
-          <circle cx="110" cy="25" r="0.8" fill="url(#celestialGrad)"/>
-          <text x="100" y="52" fill="url(#celestialGrad)" text-anchor="middle" font-family="serif" font-size="9" font-weight="bold">CELESTIAL MOON</text>
-        </svg>
-      `)}`;
-    } else if (name.includes('royal garden')) {
-      return `data:image/svg+xml,${encodeURIComponent(`
-        <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="royalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#F9E79F;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <polygon points="100,15 110,25 125,25 115,35 120,50 100,40 80,50 85,35 75,25 90,25" fill="none" stroke="url(#royalGrad)" stroke-width="2"/>
-          <polygon points="100,20 105,25 115,25 110,30 112,40 100,35 88,40 90,30 85,25 95,25" fill="url(#royalGrad)" opacity="0.6"/>
-          <text x="100" y="55" fill="url(#royalGrad)" text-anchor="middle" font-family="serif" font-size="10" font-weight="bold">ROYAL GARDEN</text>
-        </svg>
-      `)}`;
-    } else if (name.includes('heritage oak')) {
-      return `data:image/svg+xml,${encodeURIComponent(`
-        <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="heritageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#F9E79F;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <rect x="80" y="20" width="40" height="25" fill="none" stroke="url(#heritageGrad)" stroke-width="2" rx="3"/>
-          <path d="M90 25 L95 30 L90 35 M100 25 L105 30 L100 35 M110 25 L115 30 L110 35" stroke="url(#heritageGrad)" stroke-width="1.5" fill="none"/>
-          <text x="100" y="52" fill="url(#heritageGrad)" text-anchor="middle" font-family="serif" font-size="10" font-weight="bold">HERITAGE OAK</text>
-        </svg>
-      `)}`;
-    } else {
-      // Default Valley Breezes brand logo
-      return `data:image/svg+xml,${encodeURIComponent(`
-        <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="valleyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#F9E79F;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <rect x="40" y="15" width="120" height="30" fill="none" stroke="url(#valleyGrad)" stroke-width="2" rx="15"/>
-          <text x="100" y="35" fill="url(#valleyGrad)" text-anchor="middle" font-family="serif" font-size="12" font-weight="bold">VALLEY BREEZES</text>
-        </svg>
-      `)}`;
-    }
-  };
+  // Group all Chanel perfumes by base name and type for size selection
+  let chanelSizeOptions: Product[] = [];
+  if (isChanel && Array.isArray(fullCatalog) && fullCatalog.length > 0) {
+    // Extract base name (remove type and volume)
+    const baseName = selectedSize.name.toLowerCase().replace(/\s+(edp|edt|edp intense|edt refillable|eau pour la nuit|cologne)?\s*\d*\s*ml?.*$/i, '').trim();
+    const type = (selectedSize.type || '').toUpperCase();
+    // Special case: ALLURE HOMME SPORT EAU EXTREME (EDP) 20ml travel spray is NOT grouped with 50/100ml
+    const isAllureSportExtreme = baseName.includes('allure homme sport eau extreme');
+    chanelSizeOptions = fullCatalog.filter((p: Product) => {
+      if (!p.brand || p.brand.toUpperCase() !== "CHANEL") return false;
+      const pBase = p.name.toLowerCase().replace(/\s+(edp|edt|edp intense|edt refillable|eau pour la nuit|cologne)?\s*\d*\s*ml?.*$/i, '').trim();
+      const pType = (p.type || '').toUpperCase();
+      if (isAllureSportExtreme) {
+        // Only group 50ml and 100ml EDP, not 20ml travel spray
+        if (pBase === baseName && pType === 'EDP') {
+          const v = (p.volume || '').replace(/ml/i, '').replace(/\D/g, '');
+          return v === '50' || v === '100';
+        }
+        return false;
+      }
+      // For all other Chanel, group by base name and type
+      return pBase === baseName && pType === type;
+    }).sort((a, b) => {
+      // Sort by volume
+      const volA = parseInt(a.volume);
+      const volB = parseInt(b.volume);
+      return volA - volB;
+    });
+  }
 
-  // Get all products with the same name (different sizes)
-  const sameNameProducts = [product, ...similarProducts].filter(p => 
-    p.name === product.name
-  ).sort((a, b) => {
-    // Sort by volume size (ml value)
-    const volA = parseInt(a.volume.replace('ml', ''));
-    const volB = parseInt(b.volume.replace('ml', ''));
-    return volA - volB;
-  });
+  // Brand logo logic: return logo path for any brand, fallback to empty string
+  // Robust brand logo rematching logic
+  // Async logo finder with file existence check
+  const [brandLogoUrl, setBrandLogoUrl] = useState<string>("");
+  useEffect(() => {
+    async function findLogo() {
+      if (!selectedSize.brand) {
+        setBrandLogoUrl("");
+        return;
+      }
+      const brand = selectedSize.brand;
+      const candidates = [];
+      candidates.push(brand.toLowerCase().replace(/\s+/g, ""));
+      candidates.push(brand.toLowerCase().replace(/\s+/g, "_"));
+      candidates.push(brand.toLowerCase());
+      candidates.push(brand.replace(/\s+/g, ""));
+      candidates.push(brand.replace(/\s+/g, "_"));
+      for (const c of candidates) {
+        const pngPath = `/assets/logos/${c}.png`;
+        if (await imageExists(pngPath)) {
+          setBrandLogoUrl(pngPath);
+          return;
+        }
+      }
+      setBrandLogoUrl("");
+    }
+    findLogo();
+  }, [selectedSize.brand]);
+  // ...existing getBrandLogo code...
+
+  // For Chanel, use chanelSizeOptions for size selection; otherwise, use sameNameProducts
+  // Ensure unique size options by volume and type
+  function getUniqueSizeOptions(products: Product[]) {
+    const seen = new Set();
+    return products.filter((p) => {
+      const key = `${(p.type || '').toUpperCase()}-${(p.volume || '').replace(/\s+/g, '')}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
+
+  const sameNameProducts = isChanel && chanelSizeOptions.length > 1
+    ? getUniqueSizeOptions(chanelSizeOptions)
+    : Array.isArray(fullCatalog) && fullCatalog.length > 0
+      ? getUniqueSizeOptions(fullCatalog.filter((p: Product) => p.name === product.name))
+      : getUniqueSizeOptions([product, ...similarProducts].filter(p => p.name === product.name));
 
   return (
     <div 
@@ -434,7 +416,7 @@ export default function ProductCard({
         )}
         
         <div 
-          className="relative w-full h-96 overflow-hidden"
+          className="relative w-full h-[450px] overflow-hidden"
           ref={touchAreaRef}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -523,21 +505,23 @@ export default function ProductCard({
             </div>
           )}
           
-          {/* Full-Frame Brand Logo - High Quality Enhanced */}
-          <div className="absolute bottom-3 right-3 z-20 w-32 h-20 bg-gradient-to-br from-background/98 via-background/95 to-background/98 backdrop-blur-2xl border-2 border-primary/50 rounded-2xl p-2 shadow-2xl group-hover:shadow-primary/40 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2">
-            <img 
-              src={getBrandLogo(selectedSize.name)} 
-              alt={`${selectedSize.name} brand logo`} 
-              className="w-full h-full object-contain opacity-95 group-hover:opacity-100 transition-opacity duration-300"
-              loading="lazy"
-              decoding="async"
-              style={{
-                imageRendering: 'auto' as const,
-                filter: 'contrast(1.1) saturate(1.05)',
-                willChange: 'opacity'
-              }}
-            />
-          </div>
+          {/* Brand Logo Overlay - Bottom Right (for any brand with a logo) */}
+          {brandLogoUrl && (
+            <div className="absolute bottom-3 right-3 z-20 w-20 h-12 bg-gradient-to-br from-background/98 via-background/95 to-background/98 backdrop-blur-2xl border border-primary/40 rounded-xl p-1 shadow-2xl group-hover:shadow-primary/40 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2 flex items-end justify-end">
+              <img 
+                src={brandLogoUrl}
+                alt={`${selectedSize.brand} brand logo`} 
+                className="w-full h-full object-contain opacity-95 group-hover:opacity-100 transition-opacity duration-300"
+                loading="lazy"
+                decoding="async"
+                style={{
+                  imageRendering: 'auto' as const,
+                  filter: 'contrast(1.1) saturate(1.05)',
+                  willChange: 'opacity'
+                }}
+              />
+            </div>
+          )}
           
           {/* Enhanced brand accent - Top Left (when no image counter) */}
           {highQualityImages.length <= 1 && (
@@ -549,33 +533,25 @@ export default function ProductCard({
         </div>
       </div>
       
-      <div className="p-8 relative z-20">
+      <div className="p-10 relative z-20">
         <div className="flex justify-between items-start mb-4">
           <h3 
-            className="font-serif text-xl font-semibold text-foreground group-hover:text-gradient transition-all duration-400 flex-1 leading-tight"
+            className="font-serif text-xl font-semibold text-primary group-hover:text-gradient transition-all duration-400 flex-1 leading-tight"
             data-testid={`text-product-name-${selectedSize.id}`}
           >
             {selectedSize.name}
           </h3>
-          <div className="ml-4 text-right">
-            <div className="text-right">
-              <span 
-                className="text-primary font-bold text-2xl group-hover:text-gradient transition-all duration-400"
-                data-testid={`text-price-${selectedSize.id}`}
-              >
-                {formatPrice(selectedSize.price)}
-              </span>
-              <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300 mt-1">per piece</div>
-            </div>
+          {/* Remove price display from front - keep it hidden but preserve space */}
+          <div className="ml-4 text-right opacity-0 h-0 w-0">
           </div>
         </div>
         
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1" data-testid={`rating-product-${selectedSize.id}`}>
             {renderStars(selectedSize.rating)}
-            <span className="text-xs text-muted-foreground ml-1 group-hover:text-foreground transition-colors duration-300">({selectedSize.rating})</span>
+            <span className="text-xs text-primary ml-1 group-hover:text-primary transition-colors duration-300">({selectedSize.rating})</span>
           </div>
-          <div className="text-xs text-muted-foreground uppercase tracking-wider group-hover:text-foreground transition-colors duration-300">
+          <div className="text-xs text-primary uppercase tracking-wider group-hover:text-primary transition-colors duration-300">
             SKU: PU{selectedSize.id.toString().padStart(4, '0')}
           </div>
         </div>
@@ -583,7 +559,7 @@ export default function ProductCard({
         {/* Size Selection - Show if there are multiple sizes */}
         {sameNameProducts.length > 1 && (
           <div className="mb-4">
-            <div className="text-sm font-medium text-foreground mb-2">Size Options:</div>
+            <div className="text-sm font-medium text-primary mb-2">Size Options:</div>
             <div className="flex flex-wrap gap-2">
               {sameNameProducts.map((p) => (
                 <button
@@ -595,7 +571,7 @@ export default function ProductCard({
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300 ${
                     selectedSize.id === p.id
                       ? 'bg-primary text-primary-foreground shadow-lg'
-                      : 'bg-card/50 text-foreground hover:bg-primary/20 border border-border'
+                      : 'bg-card/50 text-primary hover:bg-primary/20 border border-border'
                   }`}
                 >
                   {p.volume} {p.inStock ? '' : '(Out of Stock)'}
@@ -606,47 +582,28 @@ export default function ProductCard({
         )}
         
         <div className="flex justify-between items-center mb-4">
-          <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+          <div className="text-xs text-primary group-hover:text-primary transition-colors duration-300">
             {selectedSize.category} • {selectedSize.volume}
           </div>
-          <div className="text-xs font-semibold text-primary group-hover:text-accent transition-colors duration-300">
+          <div className="text-xs font-semibold text-primary group-hover:text-primary transition-colors duration-300">
             MOQ: 1 pc
           </div>
         </div>
         
         <p 
-          className="text-muted-foreground text-sm mb-4 line-clamp-2 group-hover:text-foreground transition-colors duration-300"
+          className="text-primary text-sm mb-4 line-clamp-2 group-hover:text-primary transition-colors duration-300"
           data-testid={`text-product-description-${selectedSize.id}`}
         >
           {selectedSize.description}
         </p>
         
-        {/* Fragrance Notes Preview */}
+        {/* Perfume Type Display */}
         <div className="mb-4 p-3 bg-gradient-to-r from-card/60 via-background/40 to-card/60 border border-primary/20 rounded-lg backdrop-blur-sm">
-          <h4 className="text-xs font-semibold text-primary mb-2">FRAGRANCE NOTES</h4>
-          <div className="flex flex-wrap gap-1">
-            <div className="flex flex-wrap gap-1">
-              {fragranceNotes.topNotes.slice(0, 2).map((note, index) => (
-                <span key={index} className="text-[10px] bg-primary/20 text-primary px-2 py-1 rounded-full">
-                  {note}
-                </span>
-              ))}
-              {fragranceNotes.middleNotes.slice(0, 2).map((note, index) => (
-                <span key={index} className="text-[10px] bg-accent/20 text-accent px-2 py-1 rounded-full">
-                  {note}
-                </span>
-              ))}
-              {fragranceNotes.baseNotes.slice(0, 2).map((note, index) => (
-                <span key={index} className="text-[10px] bg-secondary/20 text-secondary-foreground px-2 py-1 rounded-full">
-                  {note}
-                </span>
-              ))}
-              {(fragranceNotes.topNotes.length + fragranceNotes.middleNotes.length + fragranceNotes.baseNotes.length) > 6 && (
-                <span className="text-[10px] bg-muted/20 text-muted-foreground px-2 py-1 rounded-full">
-                  +{(fragranceNotes.topNotes.length + fragranceNotes.middleNotes.length + fragranceNotes.baseNotes.length) - 6} more
-                </span>
-              )}
-            </div>
+          <h4 className="text-xs font-semibold text-primary mb-2">PERFUME TYPE</h4>
+          <div className="flex flex-wrap gap-2">
+            <span className="text-sm font-bold bg-primary/20 text-primary px-3 py-1 rounded-full">
+              {selectedSize.type || 'N/A'}
+            </span>
           </div>
         </div>
         
@@ -673,19 +630,19 @@ export default function ProductCard({
           <div className="mb-6 p-4 bg-gradient-to-r from-primary/8 via-primary/5 to-accent/8 border border-primary/25 rounded-lg backdrop-blur-sm">
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-semibold text-primary">BULK PRICING</span>
-              <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">Save more with quantity</span>
+              <span className="text-xs text-primary group-hover:text-primary transition-colors duration-300">Save more with quantity</span>
             </div>
             <div className="grid grid-cols-3 gap-3 text-xs">
               <div className="text-center bg-card/40 rounded-md p-2">
-                <div className="font-semibold text-foreground">1-5 pcs</div>
-                <div className="text-muted-foreground">{formatPrice(selectedSize.price)}</div>
+                <div className="font-semibold text-primary">1-5 pcs</div>
+                <div className="text-primary">{formatPrice(selectedSize.price)}</div>
               </div>
               <div className="text-center bg-card/40 rounded-md p-2">
-                <div className="font-semibold text-foreground">6-20 pcs</div>
+                <div className="font-semibold text-primary">6-20 pcs</div>
                 <div className="text-green-600 font-semibold">{formatPrice((parseFloat(selectedSize.price) * 0.95).toFixed(2))}</div>
               </div>
               <div className="text-center bg-card/40 rounded-md p-2">
-                <div className="font-semibold text-foreground">21+ pcs</div>
+                <div className="font-semibold text-primary">21+ pcs</div>
                 <div className="text-green-600 font-semibold">{formatPrice((parseFloat(selectedSize.price) * 0.90).toFixed(2))}</div>
               </div>
             </div>
@@ -727,7 +684,7 @@ export default function ProductCard({
             ) : (
               <button 
                 disabled
-                className="w-full bg-muted/60 text-muted-foreground px-4 py-2.5 rounded-lg font-semibold cursor-not-allowed backdrop-blur-sm"
+                className="w-full bg-muted/60 text-primary px-4 py-2.5 rounded-lg font-semibold cursor-not-allowed backdrop-blur-sm"
                 onClick={handleButtonClick}
               >
                 Out of Stock

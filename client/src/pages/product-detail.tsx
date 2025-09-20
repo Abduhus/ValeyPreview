@@ -158,32 +158,96 @@ const ProductDetail = () => {
     );
   }
 
-  // Parse images array
-  const additionalImages = selectedSize.images ? JSON.parse(selectedSize.images) : [];
-  const allImages = [selectedSize.imageUrl, selectedSize.moodImageUrl, ...additionalImages].filter(
-    (img, index, arr) => img && arr.indexOf(img) === index
-  );
-
-  // Function to get higher quality image paths where available
-  const getHighQualityImagePath = (imagePath: string): string => {
-    // For images with -300x300 suffix, try to find higher quality versions
-    if (imagePath.includes('-300x300')) {
-      // Try removing the -300x300 suffix to get full size
-      const fullPath = imagePath.replace('-300x300', '');
-      return fullPath;
+  // --- Chanel & BVLGARI-specific image gallery logic ---
+  function findChanelImages(name: string): string[] {
+    const chanelImageDir = "/perfumes/chanel/";
+    const chanelPairs: [string, string[]][] = [
+      ["allure homme edition blanche", ["1-allure-homme-edition-blanche-eau-de-parfum-spray-3-4fl-oz--packshot-default-127460-9564893642782.avif", "2-allure-homme-edition-blanche-eau-de-parfum-spray-3-4fl-oz--packshot-default-127460-9564893642782.webp"]],
+      ["allure homme sport eau extreme", ["1-allure-homme-sport-eau-extreme-eau-de-parfum-spray-3-4fl-oz--packshot-default-123560-9564919988254.avif", "2-allure-homme-sport-eau-extreme-eau-de-parfum-spray-3-4fl-oz--packshot-default-123560-9564919988254.webp"]],
+      ["allure homme sport cologne", ["1-allure-homme-sport-cologne-3-4fl-oz--packshot-default-123320-9564892692510.avif", "2-allure-homme-sport-cologne-3-4fl-oz--packshot-default-123320-9564892692510.webp"]],
+      ["allure homme sport", ["1-allure-homme-sport-eau-de-toilette-spray-3-4fl-oz--packshot-default-123630-9564892856350.avif", "2-allure-homme-sport-eau-de-toilette-spray-3-4fl-oz--packshot-default-123630-9564892856350.webp"]],
+      ["allure homme", ["1-allure-homme-eau-de-toilette-spray-3-4fl-oz--packshot-default-121460-9564890333214.avif", "2-allure-homme-eau-de-toilette-spray-3-4fl-oz--packshot-default-121460-9564890333214.webp"]],
+      ["allure sensuelle", ["1-allure-sensuelle-eau-de-parfum-spray-3-4fl-oz--packshot-default-129730-9564893708318.avif", "2-allure-sensuelle-eau-de-parfum-spray-3-4fl-oz--packshot-default-129730-9564893708318.webp"]],
+      ["antaeus", ["1-antaeus-eau-de-toilette-spray-3-4fl-oz--packshot-default-118460-9564891316254.avif", "2-antaeus-eau-de-toilette-spray-3-4fl-oz--packshot-default-118460-9564891316254.webp"]],
+      ["bleu de chanel", ["1-bleu-de-chanel-eau-de-toilette-spray-3-4fl-oz--packshot-default-107460-9564920184862.avif", "2-bleu-de-chanel-eau-de-toilette-spray-3-4fl-oz--packshot-default-107460-9564920184862.webp"]],
+      ["coco mademoiselle l'eau privee", ["1-coco-mademoiselle-l-eau-privee-eau-pour-la-nuit-spray-3-4fl-oz--packshot-default-116260-9564864282654.avif", "2-coco-mademoiselle-l-eau-privee-eau-pour-la-nuit-spray-3-4fl-oz--packshot-default-116260-9564864282654.webp"]],
+      ["coco mademoiselle", ["1-coco-mademoiselle-eau-de-parfum-spray-3-4fl-oz--packshot-default-116520-9564892495902.avif", "2-coco-mademoiselle-eau-de-parfum-spray-3-4fl-oz--packshot-default-116520-9564892495902.webp"]],
+      ["coco", ["1-coco-eau-de-parfum-spray-3-4fl-oz--packshot-default-113530-9539148840990.avif", "2-coco-eau-de-parfum-spray-3-4fl-oz--packshot-default-113530-9539148840990.webp"]],
+      ["chance eau tendre", ["1-chance-eau-tendre-eau-de-parfum-spray-1-7fl-oz--packshot-default-126250-9564866412574.avif", "2-chance-eau-tendre-eau-de-parfum-spray-1-7fl-oz--packshot-default-126250-9564866412574.webp"]],
+      ["chance eau fraiche", ["1-chance-eau-fraiche-eau-de-parfum-spray-1-2fl-oz--packshot-default-136440-9543031685150.avif", "2-chance-eau-fraiche-eau-de-parfum-spray-1-2fl-oz--packshot-default-136440-9543031685150.webp"]],
+      ["chance eau de toilette", ["1-chance-eau-de-toilette-spray-3-4fl-oz--packshot-default-126460-9564893937694.avif", "2-chance-eau-de-toilette-spray-3-4fl-oz--packshot-default-126460-9564893937694.webp"]],
+      ["chance", ["1-chance-eau-de-parfum-spray-3-4fl-oz--packshot-default-126150-9564893937694.avif", "2-chance-eau-de-parfum-spray-3-4fl-oz--packshot-default-126150-9564893937694.webp"]]
+    ];
+    for (const [keyword, files] of chanelPairs) {
+      if (typeof name === 'string' && name.includes(keyword)) {
+        return Array.isArray(files) ? files.map((f: string) => chanelImageDir + f) : [];
+      }
     }
-    
-    // For specific known cases where we have higher quality versions
-    const highQualityMap: Record<string, string> = {
-      '/assets/perfumes/3-3.jpg': '/assets/perfumes/3-3.jpg', // Already full size
-      // Add more mappings as needed
-    };
-    
-    return highQualityMap[imagePath] || imagePath;
-  };
+    return [];
+  }
 
-  // Map all images to potentially higher quality versions
-  const highQualityImages = allImages.map(getHighQualityImagePath);
+  function findBvlgariImages(name: string): string[] {
+    const bvlgariImageDir = "/perfumes/bvlgari/";
+    const bvlgariPairs: [string, string[]][] = [
+      ["amunae", ["Bvlgari Le Gemme Amunae.avif", "Bvlgari Le Gemme Amunae1.avif"]],
+      ["falkar", ["Bvlgari Le Gemme Falkar Eau De Parfum.avif", "Bvlgari Le Gemme Falkar Eau De Parfum1.avif"]],
+      ["gyan", ["Bvlgari Le Gemme Gyan Eau De Parfum.avif", "Bvlgari Le Gemme Gyan Eau De Parfum1.avif"]],
+      ["onekh", ["Bvlgari Le Gemme Onekh Eau De Parfum.avif", "Bvlgari Le Gemme Onekh Eau De Parfum 1.avif"]],
+      ["orom", ["Bvlgari Le Gemme Orom Eau De Parfum.avif", "Bvlgari Le Gemme Orom Eau De Parfum1.avif"]],
+      ["sahare", ["Bvlgari Le Gemme Sahare Eau De Parfum.avif", "Bvlgari Le Gemme Sahare Eau De Parfum1.avif"]],
+      ["tygar eau de parfum, 125ml", ["Le Gemme Tygar Eau de Parfum, 125ml.webp", "Le Gemme Tygar Eau de Parfum, 125ml 1.webp"]],
+      ["tygar", ["Bvlgari Le Gemme Tygar Eau De Parfum.avif", "Bvlgari Le Gemme Tygar Eau De Parfum 1.avif", "Bvlgari Le Gemme Tygar Eau de Parfum .avif"]],
+      ["kobraa", ["Le Gemme Kobraa Eau De Parfum.avif", "Le Gemme Kobraa Eau De Parfum1.avif"]],
+    ];
+    if (typeof name === 'string') {
+      const lowerName = name.toLowerCase();
+      // Try exact and partial matches, prefer longer matches
+      let bestMatch: string[] = [];
+      let bestLength = 0;
+      for (const [keyword, files] of bvlgariPairs) {
+        if (lowerName === keyword || lowerName.includes(keyword)) {
+          if (keyword.length > bestLength) {
+            bestMatch = files;
+            bestLength = keyword.length;
+          }
+        }
+      }
+      if (bestMatch.length > 0) {
+        return bestMatch.map((f: string) => bvlgariImageDir + f);
+      }
+    }
+    return [];
+  }
+
+  let highQualityImages: string[] = [];
+  const isChanel = selectedSize.brand && selectedSize.brand.toUpperCase() === "CHANEL";
+  const isBvlgari = selectedSize.brand && selectedSize.brand.toUpperCase().includes("BVLGARI");
+  if (isChanel) {
+    highQualityImages = findChanelImages(selectedSize.name.toLowerCase());
+    if (highQualityImages.length === 0 && selectedSize.imageUrl) {
+      highQualityImages = [selectedSize.imageUrl];
+    }
+  } else if (isBvlgari) {
+    highQualityImages = findBvlgariImages(selectedSize.name.toLowerCase());
+    if (highQualityImages.length === 0 && selectedSize.imageUrl) {
+      highQualityImages = [selectedSize.imageUrl];
+    }
+  } else {
+    // Parse images array for non-Chanel/BVLGARI
+    const additionalImages = selectedSize.images ? JSON.parse(selectedSize.images) : [];
+    const allImages = [selectedSize.imageUrl, selectedSize.moodImageUrl, ...additionalImages].filter(
+      (img, index, arr) => img && arr.indexOf(img) === index
+    );
+    // Function to get higher quality image paths where available
+    const getHighQualityImagePath = (imagePath: string): string => {
+      if (imagePath.includes('-300x300')) {
+        const fullPath = imagePath.replace('-300x300', '');
+        return fullPath;
+      }
+      return imagePath;
+    };
+    highQualityImages = allImages.map(getHighQualityImagePath);
+  }
 
   // Generate fragrance notes based on product name and description
   const generateFragranceNotes = (name: string, description: string) => {

@@ -4,7 +4,7 @@
   "description": "Luxury Perfume E-commerce Platform",
   "main": "dist/server/index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development tsx server/index.ts",
+    "dev": "cross-env NODE_ENV=development PORT=5001 tsx server/index.ts",
     "build": "tsc --project tsconfig.build.json && vite build",
     "start": "cross-env NODE_ENV=production node dist/server/index.js",
     "preview": "vite preview",
@@ -87,12 +87,15 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.62.0",
     "react-resizable-panels": "^3.0.6",
+    "react-router-dom": "^7.9.1",
     "recharts": "^3.2.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
+    "ts-node": "^10.9.2",
     "vaul": "^1.1.2",
     "wouter": "^3.3.5",
     "ws": "^8.5.13",
+    "xlsx": "^0.18.5",
     "zod": "^4.1.8"
   },
   "devDependencies": {

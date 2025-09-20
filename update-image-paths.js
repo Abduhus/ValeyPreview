@@ -1,60 +1,85 @@
-const fs = require('fs').promises;
+const fs = require('fs');
 const path = require('path');
 
-// Path to storage.ts file
-const STORAGE_FILE = path.join(__dirname, 'server', 'storage.ts');
+// Load the processed perfumes data
+let perfumesData = JSON.parse(fs.readFileSync('processed-perfumes.json', 'utf-8'));
 
-// Function to update image paths in storage.ts
-async function updateImagePaths() {
-  try {
-    console.log('🔍 Reading storage.ts file...');
-    let content = await fs.readFile(STORAGE_FILE, 'utf8');
+console.log(`Processing ${perfumesData.length} perfume products...`);
+
+// Brand name to folder name mapping (same as in the organization script)
+const brandFolderMapping = {
+  'BOHOBOCO': 'Bohoboco',
+  'BVLGARI': 'bvlgari',
+  'CHANEL': 'chanel',
+  'CHRISTIAN DIOR': 'dior',
+  'CORETERNO': 'Coreterno',
+  'DIPTYQUE': 'diptyque',
+  'ESCENTRIC MOLECULE': 'Escentric',
+  'GIARDINI DI TOSCANA': 'Giardini',
+  'MARC ANTOINE BARRIOS': 'marc antoine',
+  'MARC ANTOINE BARROIS': 'marc antoine',
+  'PURE ESSENCE': 'PureEssence',
+  'RABDAN': 'Rabdan',
+  'SIGNATURE ROYALE': 'SignatureRoyale',
+  'VERSACE': 'Versace',
+  'XERJOFF': 'Xerjoff'
+};
+
+// Update image paths for products
+let updatedCount = 0;
+
+perfumesData = perfumesData.map(product => {
+  // Check if product has image URLs
+  if (product.imageUrl || product.moodImageUrl || product.images) {
+    const brand = product.brand;
+    const brandFolder = brandFolderMapping[brand];
     
-    console.log('🔄 Updating image paths to use higher quality versions...');
-    
-    // Pattern to match image paths with -300x300 suffix
-    const imagePattern = /("\/assets\/perfumes\/[^"]+-300x300\.(webp|jpg|jpeg|png)")/g;
-    
-    // Replace all -300x300 suffixes with empty string to get full size
-    const updatedContent = content.replace(imagePattern, (match, imagePath) => {
-      const newPath = imagePath.replace('-300x300', '');
-      console.log(`  Updated: ${imagePath} → ${newPath}`);
-      return newPath;
-    });
-    
-    // Check if any changes were made
-    if (content === updatedContent) {
-      console.log('ℹ️  No image paths needed updating (already using high quality versions)');
-      return;
+    if (brandFolder) {
+      let updated = false;
+      
+      // Update imageUrl if it exists and doesn't already contain the brand folder
+      if (product.imageUrl && !product.imageUrl.includes(`/${brandFolder}/`)) {
+        const fileName = path.basename(product.imageUrl);
+        product.imageUrl = `/assets/perfumes/${brandFolder}/${fileName}`;
+        updated = true;
+      }
+      
+      // Update moodImageUrl if it exists and doesn't already contain the brand folder
+      if (product.moodImageUrl && !product.moodImageUrl.includes(`/${brandFolder}/`)) {
+        const fileName = path.basename(product.moodImageUrl);
+        product.moodImageUrl = `/assets/perfumes/${brandFolder}/${fileName}`;
+        updated = true;
+      }
+      
+      // Update images array if it exists
+      if (product.images) {
+        try {
+          const imagesArray = JSON.parse(product.images);
+          const updatedImages = imagesArray.map(imageUrl => {
+            if (imageUrl && !imageUrl.includes(`/${brandFolder}/`)) {
+              const fileName = path.basename(imageUrl);
+              return `/assets/perfumes/${brandFolder}/${fileName}`;
+            }
+            return imageUrl;
+          });
+          product.images = JSON.stringify(updatedImages);
+          updated = true;
+        } catch (e) {
+          console.log(`Error parsing images array for product ${product.id}:`, e.message);
+        }
+      }
+      
+      if (updated) {
+        updatedCount++;
+      }
     }
-    
-    // Write updated content back to file
-    await fs.writeFile(STORAGE_FILE, updatedContent, 'utf8');
-    console.log('✅ Successfully updated storage.ts with higher quality image paths!');
-    
-    // Count how many replacements were made
-    const matches = content.match(imagePattern);
-    console.log(`📊 Updated ${matches ? matches.length : 0} image paths`);
-    
-  } catch (error) {
-    console.error('❌ Error updating image paths:', error.message);
-    process.exit(1);
   }
-}
+  
+  return product;
+});
 
-// Main execution
-async function main() {
-  try {
-    await updateImagePaths();
-    console.log('\n✨ Image path update process completed!');
-  } catch (error) {
-    console.error('❌ Fatal error:', error.message);
-    process.exit(1);
-  }
-}
+console.log(`Updated image paths for ${updatedCount} products`);
 
-if (require.main === module) {
-  main();
-}
-
-module.exports = { updateImagePaths };
+// Save the updated data
+fs.writeFileSync('processed-perfumes.json', JSON.stringify(perfumesData, null, 2));
+console.log('\n✅ Updated processed-perfumes.json with new image paths');

@@ -358,57 +358,7 @@ export default function BrandShowcase() {
     }
   };
 
-  // Exclusive perfumes for the Exclusive Collections section
-  const exclusivePerfumes = [
-    {
-      id: "151",
-      name: "CHANEL No.5",
-      brand: "CHANEL",
-      price: "550.00",
-      imageUrl: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=400&h=500&fit=crop&auto=format&q=90",
-      description: "The legendary fragrance that epitomizes timeless elegance"
-    },
-    {
-      id: "161",
-      name: "VERSACE EROS",
-      brand: "VERSACE",
-      price: "210.00",
-      imageUrl: "https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=400&h=500&fit=crop&auto=format&q=90",
-      description: "A bold and masculine fragrance for the modern man"
-    },
-    {
-      id: "176",
-      name: "XERJOFF ACCENTO",
-      brand: "XERJOFF",
-      price: "490.00",
-      imageUrl: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=400&h=500&fit=crop&auto=format&q=90",
-      description: "A luxurious niche fragrance with exceptional quality"
-    },
-    {
-      id: "131",
-      name: "CHANEL COCO MADEMOISELLE",
-      brand: "CHANEL",
-      price: "540.00",
-      imageUrl: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop&auto=format&q=90",
-      description: "An elegant floral fragrance with a modern twist"
-    },
-    {
-      id: "167",
-      name: "VERSACE DYLAN BLUE",
-      brand: "VERSACE",
-      price: "165.00",
-      imageUrl: "https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?w=400&h=500&fit=crop&auto=format&q=90",
-      description: "A fresh and aquatic fragrance for the contemporary woman"
-    },
-    {
-      id: "189",
-      name: "XERJOFF ITALICA",
-      brand: "XERJOFF",
-      price: "450.00",
-      imageUrl: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=400&h=500&fit=crop&auto=format&q=90",
-      description: "A sophisticated Italian-inspired luxury fragrance"
-    }
-  ];
+
 
   return (
     <section className="px-0 py-0 bg-gradient-to-b from-background/30 to-background/50">
@@ -428,14 +378,15 @@ export default function BrandShowcase() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-background/85 to-background/45"></div>
                 <div className="absolute inset-0 flex flex-col items-start justify-center pl-8 md:pl-16 lg:pl-24 text-left">
-                  <h2 className="font-serif text-4xl md:text-6xl font-bold text-gradient-smooth max-w-lg md:max-w-2xl leading-tight mb-4 animate-fade-in">
+                  <h2 className="luxury-heading font-serif text-4xl md:text-6xl font-bold text-gradient-smooth max-w-lg md:max-w-2xl leading-tight mb-4 animate-fade-in">
                     {slide.title}
                   </h2>
-                  <p className="text-muted-foreground text-xl md:text-2xl mt-6 max-w-lg md:max-w-2xl mb-8 animate-fade-in-delay">
+                  <div className="luxury-divider"></div>
+                  <p className="text-muted-foreground text-xl md:text-2xl mt-6 max-w-lg md:max-w-2xl mb-8 animate-fade-in-delay glass-effect rounded-xl p-4">
                     {slide.subtitle}
                   </p>
                   <Link href={slide.ctaLink}>
-                    <button className="mt-12 bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-4 rounded-full font-semibold hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 hover:scale-105 text-lg animate-fade-in-delay-2">
+                    <button className="mt-12 luxury-button px-8 py-4 rounded-full font-semibold text-lg animate-fade-in-delay-2">
                       {slide.ctaText}
                     </button>
                   </Link>
@@ -450,14 +401,15 @@ export default function BrandShowcase() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-background/85 to-background/45"></div>
                 <div className="absolute inset-0 flex flex-col items-start justify-center pl-8 md:pl-16 lg:pl-24 text-left">
-                  <h2 className="font-serif text-4xl md:text-6xl font-bold text-gradient-smooth max-w-lg md:max-w-2xl leading-tight mb-4 animate-fade-in">
+                  <h2 className="luxury-heading font-serif text-4xl md:text-6xl font-bold text-gradient-smooth max-w-lg md:max-w-2xl leading-tight mb-4 animate-fade-in">
                     {slide.title}
                   </h2>
-                  <p className="text-muted-foreground text-xl md:text-2xl mt-6 max-w-lg md:max-w-2xl mb-8 animate-fade-in-delay">
+                  <div className="luxury-divider"></div>
+                  <p className="text-muted-foreground text-xl md:text-2xl mt-6 max-w-lg md:max-w-2xl mb-8 animate-fade-in-delay glass-effect rounded-xl p-4">
                     {slide.subtitle}
                   </p>
                   <Link href={slide.ctaLink}>
-                    <button className="mt-12 bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-4 rounded-full font-semibold hover:shadow-xl hover:shadow-primary/30 transition-all duration-500 hover:scale-105 text-lg animate-fade-in-delay-2">
+                    <button className="mt-12 luxury-button px-8 py-4 rounded-full font-semibold text-lg animate-fade-in-delay-2">
                       {slide.ctaText}
                     </button>
                   </Link>
@@ -470,7 +422,7 @@ export default function BrandShowcase() {
           {/* Navigation Arrows - Hidden by default, visible on hover */}
           <button
             onClick={() => setCurrentSlide(prev => (prev - 1 + heroSlides.length) % heroSlides.length)}
-            className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-card/80 backdrop-blur-lg border border-primary/30 rounded-full p-4 shadow-lg hover:bg-card/90 transition-all duration-300 opacity-0 group-hover:opacity-100 z-20"
+            className="absolute left-6 top-1/2 transform -translate-y-1/2 z-10 bg-card/80 backdrop-blur-lg border border-primary/30 rounded-full p-4 shadow-lg hover:bg-card/90 transition-all duration-300 opacity-100 group-hover:opacity-100 z-20 luxury-button"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-8 h-8 text-primary" />
@@ -478,7 +430,7 @@ export default function BrandShowcase() {
           
           <button
             onClick={() => setCurrentSlide(prev => (prev + 1) % heroSlides.length)}
-            className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-card/80 backdrop-blur-lg border border-primary/30 rounded-full p-4 shadow-lg hover:bg-card/90 transition-all duration-300 opacity-0 group-hover:opacity-100 z-20"
+            className="absolute right-6 top-1/2 transform -translate-y-1/2 z-10 bg-card/80 backdrop-blur-lg border border-primary/30 rounded-full p-4 shadow-lg hover:bg-card/90 transition-all duration-300 opacity-100 group-hover:opacity-100 z-20 luxury-button"
             aria-label="Next slide"
           >
             <ChevronRight className="w-8 h-8 text-primary" />
@@ -492,7 +444,7 @@ export default function BrandShowcase() {
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide 
-                    ? 'bg-primary w-8' 
+                    ? 'bg-primary w-8 luxury-button' 
                     : 'bg-card/50 hover:bg-card'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -502,22 +454,24 @@ export default function BrandShowcase() {
         </div>
 
         {/* Section Header */}
-        <div className="text-center mb-16 px-6 py-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-gradient-smooth mb-6">
+        <div className="text-center mb-16 px-6 py-16 luxury-card glass-effect">
+          <h2 className="luxury-heading font-serif text-4xl md:text-5xl font-bold text-gradient-smooth mb-6">
             Explore Our Wide Range
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <div className="luxury-divider mx-auto max-w-xs"></div>
+          <p className="text-primary text-lg max-w-2xl mx-auto">
             Discover luxury fragrances from the world's most prestigious brands
           </p>
         </div>
 
         {/* Best-Loved Fragrances Section */}
-        <div className="mb-20">
+        <div className="mb-20 luxury-card glass-effect p-8">
           <div className="text-center mb-12">
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-gradient-smooth mb-4">
+            <h3 className="luxury-heading font-serif text-2xl md:text-3xl font-bold text-gradient-smooth mb-4">
               Best-Loved Fragrances
             </h3>
-            <p className="text-muted-foreground">
+            <div className="luxury-divider mx-auto max-w-xs"></div>
+            <p className="text-primary">
               Our most popular and trusted luxury fragrance brands
             </p>
           </div>
@@ -528,53 +482,33 @@ export default function BrandShowcase() {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <button 
-              onClick={scrollBestLovedLeft}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-card/80 backdrop-blur-lg border border-primary/30 rounded-full p-3 shadow-lg hover:bg-card/90 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft className="w-6 h-6 text-primary" />
-            </button>
-            
             <div 
               ref={bestLovedRef}
-              className="flex overflow-x-scroll scroll-smooth space-x-4 md:space-x-6"
+              className="flex overflow-x-auto space-x-4 md:space-x-6 px-4 py-4 scrollbar-thin scrollbar-thumb-primary scrollbar-track-background scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
+              style={{ scrollbarColor: "#D4AF37 #1a1a1a", scrollbarWidth: "thin" }}
             >
               {featuredBrands.map(brand => (
-                <div key={brand.id} className="w-48 md:w-64 flex-shrink-0">
+                <div key={brand.id} className="w-48 md:w-64 flex-shrink-0 luxury-card glass-effect">
                   <div className="relative w-full h-48 md:h-64 bg-cover bg-center rounded-lg" style={{ backgroundImage: `url(${getPerfumeBottleBackground(brand.name)})` }}>
                     <div className="absolute inset-0 bg-gradient-to-b from-background/0 to-background/40"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                      <img src={brand.logo} alt={brand.name} className="w-12 h-12 md:w-16 md:h-16" />
-                      <p className="text-sm md:text-base font-semibold text-primary-foreground mt-2">
-                        {brand.name}
-                      </p>
-                      <p className="text-xs md:text-sm text-muted-foreground">
-                        {brand.productCount} products
-                      </p>
+                      <img src={brand.logo} alt={brand.name} className="w-24 h-24 md:w-32 md:h-32 object-contain" />
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            
-            <button 
-              onClick={scrollBestLovedRight}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-card/80 backdrop-blur-lg border border-primary/30 rounded-full p-3 shadow-lg hover:bg-card/90 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="w-6 h-6 text-primary" />
-            </button>
           </div>
         </div>
 
         {/* Latest Additions Section */}
-        <div className="mb-20">
+        <div className="mb-20 luxury-card glass-effect p-8">
           <div className="text-center mb-12">
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-gradient-smooth mb-4">
+            <h3 className="luxury-heading font-serif text-2xl md:text-3xl font-bold text-gradient-smooth mb-4">
               Latest Additions
             </h3>
-            <p className="text-muted-foreground">
+            <div className="luxury-divider mx-auto max-w-xs"></div>
+            <p className="text-primary">
               Discover the newest arrivals in our collection
             </p>
           </div>
@@ -585,79 +519,26 @@ export default function BrandShowcase() {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <button 
-              onClick={scrollLatestLeft}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-card/80 backdrop-blur-lg border border-primary/30 rounded-full p-3 shadow-lg hover:bg-card/90 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft className="w-6 h-6 text-primary" />
-            </button>
-            
             <div 
               ref={latestAdditionsRef}
-              className="flex overflow-x-scroll scroll-smooth space-x-4 md:space-x-6"
+              className="flex overflow-x-auto space-x-4 md:space-x-6 px-4 py-4 scrollbar-thin scrollbar-thumb-primary scrollbar-track-background scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
+              style={{ scrollbarColor: "#D4AF37 #1a1a1a", scrollbarWidth: "thin" }}
             >
               {latestBrands.map(brand => (
-                <div key={brand.id} className="w-48 md:w-64 flex-shrink-0">
+                <div key={brand.id} className="w-48 md:w-64 flex-shrink-0 luxury-card glass-effect">
                   <div className="relative w-full h-48 md:h-64 bg-cover bg-center rounded-lg" style={{ backgroundImage: `url(${getPerfumeBottleBackground(brand.name)})` }}>
                     <div className="absolute inset-0 bg-gradient-to-b from-background/0 to-background/40"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                      <img src={brand.logo} alt={brand.name} className="w-12 h-12 md:w-16 md:h-16" />
-                      <p className="text-sm md:text-base font-semibold text-primary-foreground mt-2">
-                        {brand.name}
-                      </p>
-                      <p className="text-xs md:text-sm text-muted-foreground">
-                        {brand.productCount} products
-                      </p>
+                      <img src={brand.logo} alt={brand.name} className="w-24 h-24 md:w-32 md:h-32 object-contain" />
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            
-            <button 
-              onClick={scrollLatestRight}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-card/80 backdrop-blur-lg border border-primary/30 rounded-full p-3 shadow-lg hover:bg-card/90 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="w-6 h-6 text-primary" />
-            </button>
           </div>
         </div>
 
-        {/* Exclusive Collections Section */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-gradient-smooth mb-4">
-              Exclusive Collections
-            </h3>
-            <p className="text-muted-foreground">
-              Discover our exclusive perfume collections
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {exclusivePerfumes.map(perfume => (
-              <div key={perfume.id} className="relative w-full h-64 bg-cover bg-center rounded-lg" style={{ backgroundImage: `url(${perfume.imageUrl})` }}>
-                <div className="absolute inset-0 bg-gradient-to-b from-background/0 to-background/40"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <p className="text-sm md:text-base font-semibold text-primary-foreground mt-2">
-                    {perfume.name}
-                  </p>
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    {perfume.brand}
-                  </p>
-                  <p className="text-sm md:text-base font-semibold text-primary-foreground mt-2">
-                    ${perfume.price}
-                  </p>
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    {perfume.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </section>
   );
 }

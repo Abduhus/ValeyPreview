@@ -153,6 +153,53 @@ export default function ProductGrid({ recommendedProductIds = [], initialCategor
 
   const filteredAndSortedProducts = [...uniqueProducts]
     .filter((product) => {
+      // Brand filter
+      if (filter.brand && filter.brand !== "all") {
+        // Create a mapping from frontend brand IDs to actual database brand names
+        // This should match the mapping in server/storage.ts
+        const brandIdToNameMap: { [key: string]: string } = {
+          'rabdan': 'RABDAN',
+          'signature-royale': 'SIGNATURE ROYALE',
+          'pure-essence': 'PURE ESSENCE',
+          'coreterno': 'CORETERNO',
+          'bvlgari': 'BVLGARI',
+          'christian': 'CHRISTIAN DIOR',
+          'marc': 'MARC ANTOINE BARROIS',
+          'escentric': 'ESCENTRIC MOLECULE',
+          'diptyque': 'DIPTYQUE',
+          'giardini': 'GIARDINI DI TOSCANA',
+          'bohoboco': 'BOHOBOCO',
+          'tom-ford': 'TOM FORD',
+          'chanel': 'CHANEL',
+          'yves-saint-laurent': 'YVES SAINT LAURENT',
+          'creed': 'CREED',
+          'montale': 'MONTALE',
+          'gucci': 'GUCCI',
+          'dior': 'DIOR',
+          'armani': 'ARMANI',
+          'burberry': 'BURBERRY',
+          'lancome': 'LANCÔME',
+          'mont-blanc': 'MONT BLANC',
+          'hugo-boss': 'HUGO BOSS',
+          'versace': 'VERSACE',
+          'xerjoff': 'XERJOFF'
+        };
+
+        // Get the actual brand name from the mapping, or use the provided brand ID as-is
+        const actualBrandName = brandIdToNameMap[filter.brand.toLowerCase()] || filter.brand;
+        
+        // Normalize brand names for product comparison
+        let normalizedBrand = product.brand;
+        if (product.brand === "ESCENTRIC MOLECULE" || product.brand === "ESCENTRIC") {
+          normalizedBrand = "ESCENTRIC";
+        }
+        
+        // Make the brand comparison case-insensitive
+        if (actualBrandName.toLowerCase() !== normalizedBrand.toLowerCase()) {
+          return false;
+        }
+      }
+      
       // Rating filter (this is only done client-side)
       if (filter.minRating > 0) {
         const productRating = parseFloat(product.rating);

@@ -57,6 +57,8 @@ export type Product = typeof products.$inferSelect & {
   topNotes?: string | null;
   middleNotes?: string | null;
   baseNotes?: string | null;
+  // Add perfume type field
+  type?: string | null;
 };
 
 export type InsertCartItem = z.infer<typeof insertCartItemSchema>;

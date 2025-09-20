@@ -90,16 +90,19 @@ app.get('/render/health', (req, res) => {
   });
 });
 
-// Root health check endpoint for compatibility
-app.get('/', (req, res) => {
-  res.status(200).json({
-    status: 'ok',
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime(),
-    environment: process.env.NODE_ENV || 'development',
-    message: 'ValleyPreview Perfume E-commerce Platform is running'
+// Root health check endpoint for compatibility (only in production)
+const isDev = process.env.NODE_ENV?.trim() === "development";
+if (!isDev) {
+  app.get('/', (req, res) => {
+    res.status(200).json({
+      status: 'ok',
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime(),
+      environment: process.env.NODE_ENV || 'development',
+      message: 'ValleyPreview Perfume E-commerce Platform is running'
+    });
   });
-});
+}
 
 // Serve static assets from the assets directory
 app.use('/assets', express.static(path.join(process.cwd(), 'assets')));
