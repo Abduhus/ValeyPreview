@@ -2,15 +2,15 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Link } from "wouter";
 
-// Import local perfume images
-import tomFordImage from '../assets/Best_tom_ford_perfumes_1980x.webp';
-import yslImage from '../assets/YSL_black-opium_1686207039.jpg';
-import creedImage from '../assets/Creed-Perfume-.png';
-import chanelImage from '../assets/chanel-no5.jpg';
-import xerjoffImage from '../assets/xerjoff-aventus.jpg';
-import armaniImage from '../assets/armani-acqua-di-gio.jpg';
-import diorImage from '../assets/dior-sauvage.webp';
-import versaceImage from '../assets/versace-eros.jpg';
+// Use public asset paths instead of imports for production compatibility
+const tomFordImage = "/assets/Best_tom_ford_perfumes_1980x.webp";
+const yslImage = "/assets/YSL_black-opium_1686207039.jpg";
+const creedImage = "/assets/Creed-Perfume-.png";
+const chanelImage = "/assets/chanel-no5.jpg";
+const xerjoffImage = "/assets/xerjoff-aventus.jpg";
+const armaniImage = "/assets/armani-acqua-di-gio.jpg";
+const diorImage = "/assets/dior-sauvage.webp";
+const versaceImage = "/assets/versace-eros.jpg";
 
 interface Brand {
   id: string;
@@ -327,7 +327,7 @@ export default function BrandShowcase() {
       return 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=700&h=1200&fit=crop&auto=format&q=90';
     } else if (name.includes('lancôme') || name.includes('lancome')) {
       // Lancôme La Vie Est Belle - elegant crystal bottle with pink/rose tones
-      return 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=700&h=1200&fit=crop&auto=format&q=90';
+      return 'https://images.unsplash.com/photo-1595425970377-c9703cf48b65?w=700&h=1200&fit=crop&auto=format&q=90';
     } else if (name.includes('mont blanc') || name.includes('montblanc')) {
       // Mont Blanc Legend - sophisticated black/dark bottle with silver accents
       return 'https://images.unsplash.com/photo-1562832135-14a35d25edef?w=700&h=1200&fit=crop&auto=format&q=90';
@@ -345,7 +345,7 @@ export default function BrandShowcase() {
       return 'https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=700&h=1200&fit=crop&auto=format&q=90';
     } else if (name.includes('coreterno')) {
       // Coreterno - Bold, edgy bottle design with contemporary appeal
-      return 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=700&h=1200&fit=crop&auto=format&q=90';
+      return 'https://images.unsplash.com/photo-1595425970377-c9703cf48b65?w=700&h=1200&fit=crop&auto=format&q=90';
     } else if (name.includes('versace')) {
       // Versace - Bold, glamorous bottle design with gold accents
       return versaceImage;
