@@ -34,6 +34,18 @@ function copyFiles(source, destination) {
   }
 }
 
+// Function to install devDependencies for Render deployment
+function installDevDependencies() {
+  try {
+    console.log('Installing devDependencies for Render deployment...');
+    execSync('npm install --include=dev', { stdio: 'inherit' });
+    console.log('devDependencies installed successfully!');
+  } catch (error) {
+    console.error('Error installing devDependencies:', error.message);
+    process.exit(1);
+  }
+}
+
 // Function to verify asset files exist
 function verifyAssets() {
   const requiredAssets = [
@@ -68,6 +80,9 @@ function verifyAssets() {
 }
 
 try {
+  // Install devDependencies for Render deployment
+  installDevDependencies();
+  
   // Copy client public assets to root assets directory
   const clientPublicAssets = path.join('client', 'public', 'assets');
   const rootAssets = 'assets';
