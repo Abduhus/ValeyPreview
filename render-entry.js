@@ -40,14 +40,14 @@ async function startServer() {
     process.env.PORT = process.env.PORT || '10000';
     process.env.RENDER_ENV = 'true'; // Explicitly set Render environment
     
-    // Check if the built server file exists
+    // Check if we're running from the source or from the built dist
     const fs = require('fs');
     const path = require('path');
     
-    // Try multiple possible paths for the server file
+    // Try to find the server entry point
     const possiblePaths = [
-      path.join(process.cwd(), 'dist', 'server', 'index.js'),
       path.join(process.cwd(), 'dist', 'server', 'server', 'index.js'),
+      path.join(process.cwd(), 'dist', 'server', 'index.js'),
       path.join(process.cwd(), 'server', 'index.js')
     ];
     
@@ -87,7 +87,23 @@ async function startServer() {
         console.log('server/ directory does not exist');
       }
       
-      process.exit(1);
+      // If we can't find the compiled server, try to run directly with tsx
+      console.log('Attempting to run server directly with tsx...');
+      serverPath = path.join(process.cwd(), 'server', 'index.ts');
+      if (fs.existsSync(serverPath)) {
+        console.log('Found TypeScript server file, will run with tsx');
+        // We'll need tsx to run TypeScript directly
+        try {
+          require('tsx');
+          console.log('tsx is available, proceeding...');
+        } catch (e) {
+          console.error('tsx is not available, cannot run TypeScript server directly');
+          process.exit(1);
+        }
+      } else {
+        console.error('TypeScript server file not found at:', serverPath);
+        process.exit(1);
+      }
     }
     
     console.log('Server file found, importing...');

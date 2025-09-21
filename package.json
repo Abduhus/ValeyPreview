@@ -5,7 +5,7 @@
   "main": "dist/server/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development PORT=5002 tsx server/index.ts",
-    "build": "tsc --project tsconfig.build.json --noEmit false && vite build",
+    "build": "vite build",
     "start": "node render-entry.js",
     "preview": "vite preview",
     "check": "tsc --noEmit",
