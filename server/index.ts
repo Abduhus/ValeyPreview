@@ -181,23 +181,30 @@ app.use((req, res, next) => {
   // Other ports are firewalled. Default to 5000 if not specified.
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || '5000', 10);
+  const port = parseInt(process.env.PORT || '10000', 10);
   
   console.log('🔍 Starting HTTP server...');
   console.log(`Port: ${port}`);
   console.log(`Host: 0.0.0.0`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
   
+  // Listen on all interfaces for Render compatibility
   server.listen({
     port,
-    host: "0.0.0.0", // Changed from 127.0.0.1 to 0.0.0.0 for Railway compatibility
+    host: "0.0.0.0", // Changed from 127.0.0.1 to 0.0.0.0 for Render compatibility
   }, () => {
     console.log('✅✅✅ SERVER STARTED SUCCESSFULLY! ✅✅✅');
     console.log(`🌍 Server listening on http://0.0.0.0:${port}`);
     console.log(`🌍 Health check: http://0.0.0.0:${port}/health`);
+    console.log(`🌍 Render health check: http://0.0.0.0:${port}/render/health`);
     console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`🌍 Uptime: ${process.uptime()}s`);
     console.log('✅✅✅ READY TO ACCEPT CONNECTIONS! ✅✅✅');
+    
+    // Explicitly signal to Render that the server is ready
+    if (process.env.RENDER_ENV === 'true') {
+      console.log('🚀 RENDER DEPLOYMENT: Server is ready and listening!');
+    }
   });
   
   // Handle server errors - FIXED: Properly typed error parameter
@@ -215,6 +222,10 @@ app.use((req, res, next) => {
   setTimeout(() => {
     console.log('🕰️ Server startup timeout check (30s)');
     console.log('If you see this message, the server is taking longer than expected to start');
+    // For Render, we'll explicitly log that the server is ready even if this message appears
+    if (process.env.RENDER_ENV === 'true') {
+      console.log('🚀 RENDER DEPLOYMENT: Server should be ready despite timeout message');
+    }
   }, 30000);
   
   } catch (error) {

@@ -1,9 +1,15 @@
 {
-  "build": "npm install && npm run build",
-  "start": "node render-entry.js",
-  "healthCheckPath": "/health",
-  "env": {
-    "NODE_ENV": "production",
-    "RENDER_ENV": "true"
-  }
+  "buildCommand": "npm run build",
+  "startCommand": "node render-entry.js",
+  "healthCheckPath": "/render/health",
+  "envVars": [
+    {
+      "key": "NODE_ENV",
+      "value": "production"
+    },
+    {
+      "key": "PORT",
+      "value": "10000"
+    }
+  ]
 }
