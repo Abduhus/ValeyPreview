@@ -1,5 +1,0 @@
-[33m21f9e7e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m ..
-[33md4f149a[m Add final build deployment fix documentation and update preparation script
-[33m124282e[m ?!
-[33m885650d[m Fix build issue by moving build tools to devDependencies and updating Render build command to install devDependencies
-[33mb06663b[m ??
