@@ -78,6 +78,10 @@ export function serveStatic(app: Express) {
   // In production, files are built to dist/public
   // Use process.cwd() for better compatibility
   const distPath = path.resolve(process.cwd(), "dist", "public");
+  
+  console.log('🔍 Checking for dist/public directory...');
+  console.log('Dist path:', distPath);
+  console.log('Dist path exists:', fs.existsSync(distPath));
 
   if (!fs.existsSync(distPath)) {
     console.warn(
@@ -85,6 +89,10 @@ export function serveStatic(app: Express) {
     );
     // Fallback to serving from client directory in development
     const clientPath = path.resolve(process.cwd(), "client");
+    console.log('🔍 Falling back to client directory...');
+    console.log('Client path:', clientPath);
+    console.log('Client path exists:', fs.existsSync(clientPath));
+    
     if (fs.existsSync(clientPath)) {
       console.log("Serving from client directory as fallback");
       app.use(express.static(clientPath));
@@ -101,6 +109,8 @@ export function serveStatic(app: Express) {
     return;
   }
 
+  console.log('✅ Using dist/public for static file serving');
+  
   // Serve static files from dist/public
   app.use(express.static(distPath));
   
