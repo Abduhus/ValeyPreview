@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development PORT=3000 tsx server/index.ts",
-    "build": "vite build",
+    "build": "npm install --include=dev && vite build",
     "start": "node render-entry.js",
     "preview": "vite preview --port 5002",
     "check": "tsc --noEmit",
