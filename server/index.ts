@@ -139,6 +139,7 @@ app.use((req, res, next) => {
 
 (async () => {
   try {
+    console.log('🚀 Starting async initialization...');
     console.log('🚀 Initializing server components...');
     
     // Test basic imports first
@@ -177,6 +178,12 @@ app.use((req, res, next) => {
     console.log('✅ Static serving setup completed');
   }
 
+  // Catch-all handler: send back index.html for client-side routing
+  // This must be after all API routes but before Vite's catch-all
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'client', 'index.html'));
+  });
+
   // ALWAYS serve the app on the port specified in the environment variable PORT
   // Other ports are firewalled. Default to 5000 if not specified.
   // this serves both the API and the client.
@@ -188,19 +195,19 @@ app.use((req, res, next) => {
   console.log(`Host: 0.0.0.0`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
   
-  // Listen on all interfaces for Render compatibility
+  // Listen on localhost for development
   server.listen({
     port,
-    host: "0.0.0.0", // Changed from 127.0.0.1 to 0.0.0.0 for Render compatibility
+    host: "127.0.0.1",
   }, () => {
     console.log('✅✅✅ SERVER STARTED SUCCESSFULLY! ✅✅✅');
-    console.log(`🌍 Server listening on http://0.0.0.0:${port}`);
-    console.log(`🌍 Health check: http://0.0.0.0:${port}/health`);
-    console.log(`🌍 Render health check: http://0.0.0.0:${port}/render/health`);
+    console.log(`🌍 Server listening on http://127.0.0.1:${port}`);
+    console.log(`🌍 Health check: http://127.0.0.1:${port}/health`);
+    console.log(`🌍 Render health check: http://127.0.0.1:${port}/render/health`);
     console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`🌍 Uptime: ${process.uptime()}s`);
     console.log('✅✅✅ READY TO ACCEPT CONNECTIONS! ✅✅✅');
-    
+
     // Explicitly signal to Render that the server is ready
     if (process.env.RENDER_ENV === 'true') {
       console.log('🚀 RENDER DEPLOYMENT: Server is ready and listening!');
