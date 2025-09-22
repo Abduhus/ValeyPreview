@@ -190,20 +190,23 @@ app.use((req, res, next) => {
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || '10000', 10);
   
+  // Use 0.0.0.0 for Render deployment, 127.0.0.1 for local development
+  const host = process.env.RENDER_ENV === 'true' ? "0.0.0.0" : "127.0.0.1";
+  
   console.log('🔍 Starting HTTP server...');
   console.log(`Port: ${port}`);
-  console.log(`Host: 0.0.0.0`);
+  console.log(`Host: ${host}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
   
-  // Listen on localhost for development
+  // Listen on the appropriate host
   server.listen({
     port,
-    host: "127.0.0.1",
+    host,
   }, () => {
     console.log('✅✅✅ SERVER STARTED SUCCESSFULLY! ✅✅✅');
-    console.log(`🌍 Server listening on http://127.0.0.1:${port}`);
-    console.log(`🌍 Health check: http://127.0.0.1:${port}/health`);
-    console.log(`🌍 Render health check: http://127.0.0.1:${port}/render/health`);
+    console.log(`🌍 Server listening on http://${host}:${port}`);
+    console.log(`🌍 Health check: http://${host}:${port}/health`);
+    console.log(`🌍 Render health check: http://${host}:${port}/render/health`);
     console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`🌍 Uptime: ${process.uptime()}s`);
     console.log('✅✅✅ READY TO ACCEPT CONNECTIONS! ✅✅✅');
