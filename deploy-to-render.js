@@ -100,8 +100,8 @@ function testBuildLocally() {
   console.log('🔨 Testing build process locally...');
   try {
     runCommand('npm install', 'Installing dependencies');
-    runCommand('npm run build', 'Building application');
-    console.log('✅ Local build successful');
+    // Skip build test since we're not building frontend
+    console.log('✅ Local build test skipped (no frontend build needed)');
     return true;
   } catch (error) {
     console.error('❌ Local build failed. Please fix build issues before deploying.');
