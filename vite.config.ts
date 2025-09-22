@@ -26,16 +26,17 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
       "@shared": path.resolve(__dirname, "shared"),
-      "@assets": path.resolve(__dirname, "attached_assets"),
+      "@assets": path.resolve(__dirname, "client", "public", "assets"),
     },
   },
   root: path.resolve(__dirname, "client"),
   build: {
-    outDir: path.resolve(__dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "dist", "public"),
     emptyOutDir: true,
   },
   server: {
     port: 5174,
+    host: true, // Changed from default to explicitly allow external connections
     fs: {
       strict: true,
       deny: ["**/.*"],
@@ -48,5 +49,5 @@ export default defineConfig({
       }
     }
   },
-  publicDir: path.resolve(__dirname, "assets"),
+  publicDir: path.resolve(__dirname, "client", "public"), // Fixed to point to client/public
 });

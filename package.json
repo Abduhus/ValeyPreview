@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "Luxury Perfume E-commerce Platform",
   "main": "dist/server/index.js",
+  "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development PORT=5002 tsx server/index.ts",
     "build": "vite build",
     "start": "node render-entry.js",
-    "preview": "vite preview",
+    "preview": "vite preview --port 5002",
     "check": "tsc --noEmit",
     "health-check": "node health-check.js",
     "db:setup": "node setup-database.js",
@@ -24,7 +25,8 @@
     "deploy:vercel": "npm run build && vercel --prod",
     "render:test": "node test-port-binding.js",
     "prepare-deploy": "node prepare-deployment.js",
-    "deploy:render": "npm run prepare-deploy && npm run build && echo 'Ready for Render deployment'"
+    "deploy:render": "npm run prepare-deploy && npm run build && echo 'Ready for Render deployment'",
+    "dev:client": "vite --config vite.config.ts --host --port 5174"
   },
   "keywords": [
     "perfume",
