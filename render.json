@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm install --include=dev && xcopy client\\public\\assets\\*.* assets\\ /Y && npm run build",
-  "startCommand": "node render-entry.js",
+  "startCommand": "node render-entry.mjs",
   "healthCheckPath": "/render/health",
   "envVars": [
     {

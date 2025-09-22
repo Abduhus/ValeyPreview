@@ -1,5 +1,8 @@
 // Render entry point for ValleyPreview Perfume E-commerce Platform
-// This file ensures proper startup on Render platform
+// This file ensures proper startup on Render platform using ES modules
+
+import fs from 'fs';
+import path from 'path';
 
 console.log('=== ValleyPreview Perfume E-commerce Platform ===');
 console.log('Environment:', process.env.NODE_ENV || 'production');
@@ -39,10 +42,6 @@ async function startServer() {
     process.env.NODE_ENV = process.env.NODE_ENV || 'production';
     process.env.PORT = process.env.PORT || '10000';
     process.env.RENDER_ENV = 'true'; // Explicitly set Render environment
-    
-    // Dynamically import modules
-    const { default: fs } = await import('fs');
-    const { default: path } = await import('path');
     
     // Try to find the server entry point
     const possiblePaths = [

@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development PORT=3000 tsx server/index.ts",
     "build": "npm install --include=dev && vite build",
-    "start": "node render-entry.js",
+    "start": "node render-entry.mjs",
     "preview": "vite preview --port 5002",
     "check": "tsc --noEmit",
     "health-check": "node health-check.js",
