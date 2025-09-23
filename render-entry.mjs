@@ -3,6 +3,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { spawn } from 'child_process';
 
 console.log('=== ValleyPreview Perfume E-commerce Platform ===');
 console.log('Environment:', process.env.NODE_ENV || 'production');
@@ -43,74 +44,39 @@ async function startServer() {
     process.env.PORT = process.env.PORT || '10000';
     process.env.RENDER_ENV = 'true'; // Explicitly set Render environment
     
-    // Try to find the server entry point
-    const possiblePaths = [
-      path.join(process.cwd(), 'dist', 'server', 'server', 'index.js'),
-      path.join(process.cwd(), 'dist', 'server', 'index.js'),
-      path.join(process.cwd(), 'server', 'index.js')
-    ];
+    // Run the server directly with tsx
+    console.log('Running server directly with tsx...');
+    const serverPath = path.join(process.cwd(), 'server', 'index.ts');
     
-    let serverPath = null;
-    for (const possiblePath of possiblePaths) {
-      console.log('Checking for server file at:', possiblePath);
-      if (fs.existsSync(possiblePath)) {
-        serverPath = possiblePath;
-        console.log('Server file found at:', serverPath);
-        break;
-      }
+    if (!fs.existsSync(serverPath)) {
+      console.error('Server file not found at:', serverPath);
+      process.exit(1);
     }
     
-    if (!serverPath) {
-      console.error('Server file not found in any of the expected locations');
-      console.log('Available files in dist/:');
-      try {
-        const distFiles = fs.readdirSync(path.join(process.cwd(), 'dist'));
-        console.log(distFiles);
-      } catch (e) {
-        console.log('dist/ directory does not exist');
-      }
-      
-      console.log('Available files in dist/server/:');
-      try {
-        const distServerFiles = fs.readdirSync(path.join(process.cwd(), 'dist', 'server'));
-        console.log(distServerFiles);
-      } catch (e) {
-        console.log('dist/server/ directory does not exist');
-      }
-      
-      console.log('Available files in server/:');
-      try {
-        const serverFiles = fs.readdirSync(path.join(process.cwd(), 'server'));
-        console.log(serverFiles);
-      } catch (e) {
-        console.log('server/ directory does not exist');
-      }
-      
-      // If we can't find the compiled server, try to run directly with tsx
-      console.log('Attempting to run server directly with tsx...');
-      serverPath = path.join(process.cwd(), 'server', 'index.ts');
-      if (fs.existsSync(serverPath)) {
-        console.log('Found TypeScript server file, will run with tsx');
-        // We'll need tsx to run TypeScript directly
-        try {
-          await import('tsx');
-          console.log('tsx is available, proceeding...');
-        } catch (e) {
-          console.error('tsx is not available, cannot run TypeScript server directly');
-          process.exit(1);
-        }
-      } else {
-        console.error('TypeScript server file not found at:', serverPath);
-        process.exit(1);
-      }
-    }
+    console.log('Server file found at:', serverPath);
     
-    console.log('Server file found, importing...');
+    // Spawn the server process with tsx
+    const child = spawn('npx.cmd', ['tsx', serverPath], {
+      stdio: 'inherit',
+      env: {
+        ...process.env,
+        NODE_ENV: 'production',
+        PORT: process.env.PORT,
+        RENDER_ENV: 'true'
+      }
+    });
     
-    // Import and start the server
-    await import(serverPath);
+    child.on('error', (error) => {
+      console.error('Failed to start server process:', error);
+      process.exit(1);
+    });
     
-    console.log('Server module loaded successfully');
+    child.on('exit', (code) => {
+      console.log('Server process exited with code:', code);
+      process.exit(code || 0);
+    });
+    
+    console.log('Server process started successfully');
     console.log('Server should now be listening on port:', process.env.PORT);
     
     // Additional Render-specific logging
