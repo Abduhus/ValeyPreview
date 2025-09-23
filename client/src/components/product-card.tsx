@@ -435,6 +435,13 @@ export function ProductCard({
               // CSS-based sharpening for small images
               backdropFilter: 'contrast(1.1)'
             }}
+            onError={(e) => {
+              console.error(`Failed to load image: ${highQualityImages[currentImageIndex] || selectedSize.imageUrl}`);
+              console.log('Available images:', highQualityImages);
+              // Set a fallback image or handle the error
+              const target = e.target as HTMLImageElement;
+              target.src = '/assets/placeholder-image.png'; // Add a placeholder image
+            }}
           />
           
           {/* Image Navigation Buttons - Only show if multiple images */}

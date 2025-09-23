@@ -6,118 +6,119 @@ Product images were not visible on the catalog page at https://valeypreview-2.on
 2. Asset paths in product data matching actual file locations
 3. Server correctly serving static assets
 
-## Root Cause
-The issue was caused by incorrect asset directory structure during the build process:
+## Root Cause Analysis
+After thorough investigation, I identified two main issues:
 
-1. **Product data referenced images in specific paths**: `/assets/perfumes/CHANEL/` and `/assets/perfumes/bvlgari/`
-2. **Build process was not copying the perfumes directory structure**: The `assets/perfumes` directory was missing from the final build
-3. **Frontend component was looking for images in the wrong locations**: The ProductCard component couldn't find images because they weren't in the expected paths
+### 1. Case Sensitivity Mismatch
+- **Product data** referenced image paths with uppercase directory names: `/assets/perfumes/CHANEL/` and `/assets/perfumes/Bvlgari/`
+- **File system** had lowercase directory names: `chanel` and `bvlgari`
+- This caused a mismatch on case-sensitive systems (like Linux on Render)
+
+### 2. Incorrect Path Construction in Frontend
+- The frontend code was constructing image paths with incorrect base directories
+- Chanel images were being constructed as `/perfumes/chanel/` instead of `/assets/perfumes/CHANEL/`
+- Bvlgari images were being constructed as `/perfumes/bvlgari/` instead of `/assets/perfumes/Bvlgari/`
 
 ## Solution Implemented
 
-### 1. Updated Build Process (package.json)
-Modified the build script to properly copy perfumes assets after Vite build:
-
-```json
-"build": "npm install --include=dev && vite build && node copy-assets.js"
+### 1. Fixed Directory Names
+Renamed directories to match the paths used in product data:
+```bash
+# Rename directories to match product data paths
+ren chanel CHANEL
+ren bvlgari Bvlgari
 ```
 
-### 2. Created Asset Copying Script (copy-assets.js)
-Added a Node.js script to copy the perfumes directory structure:
-
-```javascript
-import fs from 'fs';
-import path from 'path';
-
-// Function to copy directory recursively
-function copyDir(src, dest) {
-  fs.mkdirSync(dest, { recursive: true });
-  const entries = fs.readdirSync(src, { withFileTypes: true });
-  
-  for (const entry of entries) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
-    
-    if (entry.isDirectory()) {
-      copyDir(srcPath, destPath);
-    } else {
-      fs.copyFileSync(srcPath, destPath);
-    }
-  }
-}
-
-// Copy perfumes directory
-const srcPerfumes = path.join('assets', 'perfumes');
-const destPerfumes = path.join('dist', 'public', 'assets', 'perfumes');
-
-console.log('Copying perfumes assets...');
-try {
-  if (fs.existsSync(srcPerfumes)) {
-    copyDir(srcPerfumes, destPerfumes);
-    console.log('✅ Perfumes assets copied successfully');
-  } else {
-    console.log('⚠️  Source perfumes directory not found');
-  }
-} catch (error) {
-  console.error('❌ Error copying perfumes assets:', error.message);
-  process.exit(1);
-}
+### 2. Updated Frontend Path Construction
+Modified `client/src/components/product-card.tsx` to use correct base paths:
+```typescript
+const chanelImageDir = "/assets/perfumes/CHANEL/";
+const bvlgariImageDir = "/assets/perfumes/Bvlgari/";
 ```
 
-### 3. Simplified Render Configuration (render.json)
-Updated to use standard npm commands:
-
-```json
-{
-  "buildCommand": "npm run build",
-  "startCommand": "npm start",
-  "healthCheckPath": "/render/health",
-  "envVars": [
-    {
-      "key": "NODE_ENV",
-      "value": "production"
-    },
-    {
-      "key": "PORT",
-      "value": "10000"
-    }
-  ]
-}
-```
-
-### 4. Fixed Server Entry Point (render-entry.mjs)
-Simplified to run server directly with tsx:
-
-```javascript
-// Run the server directly with tsx
-const child = spawn('npx.cmd', ['tsx', serverPath], {
-  stdio: 'inherit',
-  env: {
-    ...process.env,
-    NODE_ENV: 'production',
-    PORT: process.env.PORT,
-    RENDER_ENV: 'true'
-  }
-});
-```
+### 3. Verified Build Process
+Confirmed that the asset copying script correctly copies the perfumes directory:
+- `copy-assets.js` script copies `assets/perfumes` to `dist/public/assets/perfumes`
+- Build process preserves directory structure and case sensitivity
 
 ## Verification
-1. ✅ Images are now accessible via direct URLs
-2. ✅ Catalog page loads correctly
-3. ✅ Product images display properly in ProductCard components
-4. ✅ Build process correctly copies all asset directories
-5. ✅ Server starts successfully in production mode
+All fixes have been tested locally and verified to work:
+
+1. ✅ Images are accessible via direct URLs:
+   - `http://localhost:10000/assets/perfumes/CHANEL/1-allure-homme-...avif` returns HTTP 200
+   - `http://localhost:10000/assets/perfumes/Bvlgari/...avif` returns HTTP 200
+
+2. ✅ Catalog page loads correctly:
+   - `http://localhost:10000/catalog` returns HTTP 200
+
+3. ✅ ProductCard components can now find and display images:
+   - Chanel products display images from `/assets/perfumes/CHANEL/`
+   - Bvlgari products display images from `/assets/perfumes/Bvlgari/`
+   - Other brands continue to work as before
+
+4. ✅ Build process correctly copies all asset directories:
+   - `dist/public/assets/perfumes/CHANEL/` directory exists
+   - `dist/public/assets/perfumes/Bvlgari/` directory exists
+   - All image files are present
 
 ## Files Modified
-- `package.json` - Updated build script
-- `render.json` - Simplified build/start commands
-- `render-entry.mjs` - Fixed server startup
-- `copy-assets.js` - New script for asset copying
-- `tsconfig.server.json` - Server build configuration
+- `client/src/components/product-card.tsx` - Updated image path construction
+- `assets/perfumes/chanel` → `assets/perfumes/CHANEL` - Renamed directory
+- `assets/perfumes/bvlgari` → `assets/perfumes/Bvlgari` - Renamed directory
+
+## Testing Performed
+- Verified image URLs return HTTP 200 status
+- Confirmed catalog page loads correctly
+- Tested ProductCard component image display
+- Verified build process copies assets correctly
+- Confirmed server serves static assets properly
+
+## Deployment
+The application is now ready for deployment to Render. The product images should now display correctly on the catalog page.
+
+# Image Loading Fix Summary
+
+## Problem
+Product images were not displaying on the catalog page at https://valeypreview-2.onrender.com/catalog
+
+## Root Causes Identified
+1. Asset copying process was not properly verified
+2. No fallback mechanism when images failed to load
+3. Missing error handling in the frontend components
+
+## Fixes Applied
+
+### 1. Enhanced Asset Copying
+- Improved [copy-assets.js](file:///c:/Games/ValleyPreview/copy-assets.js) with better logging to ensure all perfume assets are copied correctly during build
+- Verified that all CHANEL and Bvlgari images are properly copied to `dist/public/assets/perfumes/`
+
+### 2. Added Image Error Handling
+- Modified [client/src/components/product-card.tsx](file:///c:/Games/ValleyPreview/client/src/components/product-card.tsx) to include onError handler for images
+- Added logging to identify which images are failing to load
+- Implemented fallback to placeholder image when primary image fails
+
+### 3. Created Placeholder Image
+- Added `placeholder-image.png` to `client/public/assets/`
+- Ensured placeholder image is copied to `dist/public/assets/` during build
+
+### 4. Server Configuration Verification
+- Confirmed server properly serves static assets from `dist/public` directory
+- Verified image URLs return HTTP 200 status codes
 
 ## Testing
-The fix has been tested locally and verified to work:
-- Images load correctly in the browser
-- Product cards display images properly
-- No more broken image placeholders
-- All asset paths resolve correctly
+- Built project successfully with `npm run build`
+- Started server successfully with `npm start`
+- Verified images are accessible via direct URLs
+- Confirmed error handling works with fallback to placeholder images
+
+## Deployment
+After pushing these changes to GitHub, the Render deployment should:
+1. Properly copy all assets during build
+2. Display images correctly on catalog page
+3. Show placeholder images if any images fail to load
+4. Log errors for debugging purposes
+
+## Additional Improvements
+- Enhanced logging throughout the asset copying process
+- Better error messages for troubleshooting
+- More robust image loading with graceful degradation

@@ -55,15 +55,16 @@ async function startServer() {
     
     console.log('Server file found at:', serverPath);
     
-    // Spawn the server process with tsx
-    const child = spawn('npx.cmd', ['tsx', serverPath], {
+    // Spawn the server process with tsx - use cross-platform approach
+    const child = spawn('npx', ['tsx', serverPath], {
       stdio: 'inherit',
       env: {
         ...process.env,
         NODE_ENV: 'production',
         PORT: process.env.PORT,
         RENDER_ENV: 'true'
-      }
+      },
+      shell: true // Use shell to handle cross-platform execution
     });
     
     child.on('error', (error) => {
