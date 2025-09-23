@@ -59,14 +59,22 @@ export function ProductCard({
   // Only for Chanel products, rematch images from dist/public/perfumes/chanel
   // const isChanel = selectedSize.brand && selectedSize.brand.toUpperCase() === "CHANEL";
   let highQualityImages: string[] = [];
-  const chanelImageDir = "/perfumes/chanel/";
-  const bvlgariImageDir = "/perfumes/bvlgari/";
+  const chanelImageDir = "/assets/perfumes/CHANEL/";
+  const bvlgariImageDir = "/assets/perfumes/Bvlgari/";
   const type = (selectedSize.type || "").toLowerCase();
   const name = selectedSize.name.toLowerCase();
   const volume = selectedSize.volume ? selectedSize.volume.replace(/ml/i, "ml").replace(/\s+/g, "") : "";
   const isChanel = selectedSize.brand && selectedSize.brand.toUpperCase() === "CHANEL";
   const isBvlgari = selectedSize.brand && selectedSize.brand.toUpperCase().includes("BVLGARI");
-
+  
+  // Function to normalize Bvlgari image paths
+  const normalizeBvlgariImagePath = (path: string): string => {
+    if (path && path.includes('/assets/perfumes/BVLGARI/')) {
+      return path.replace('/assets/perfumes/BVLGARI/', '/assets/perfumes/Bvlgari/');
+    }
+    return path;
+  };
+  
   // Chanel image matching: match by name keyword only (reverted)
   function findChanelImages(name: string): string[] {
     const chanelPairs: [string, string[]][] = [
@@ -124,7 +132,22 @@ export function ProductCard({
   } else if (isBvlgari) {
     highQualityImages = findBvlgariImages(name);
     if (highQualityImages.length === 0 && selectedSize.imageUrl) {
-      highQualityImages = [selectedSize.imageUrl];
+      // Normalize the image path for Bvlgari products
+      const normalizedImageUrl = normalizeBvlgariImagePath(selectedSize.imageUrl);
+      const normalizedMoodImageUrl = normalizeBvlgariImagePath(selectedSize.moodImageUrl);
+      const normalizedImages = selectedSize.images ? JSON.parse(selectedSize.images).map(normalizeBvlgariImagePath) : [];
+      
+      highQualityImages = [normalizedImageUrl];
+      if (normalizedMoodImageUrl && !highQualityImages.includes(normalizedMoodImageUrl)) {
+        highQualityImages.push(normalizedMoodImageUrl);
+      }
+      
+      // Add additional images if available
+      for (const img of normalizedImages) {
+        if (img && !highQualityImages.includes(img)) {
+          highQualityImages.push(img);
+        }
+      }
     }
   } else {
     const additionalImages = selectedSize.images ? JSON.parse(selectedSize.images) : [];
